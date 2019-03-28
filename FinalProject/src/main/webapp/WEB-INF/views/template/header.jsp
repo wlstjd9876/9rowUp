@@ -224,7 +224,7 @@
 											class="img-responsive" alt="" /> Help Come True <b
 											class="caret"></b></a>
 										<ul class="dropdown-menu">
-											<li><a href="${pageContext.request.contextPath}/gowith/gowithList.do">같이, 떠나요</a></li>
+											<li><a href="${pageContext.request.contextPath}/gowith/gowithList.do">같이, 떠나요!!</a></li>
 											<li><a href="0-base.html">Blank Page</a></li>
 										</ul></li>
 										<li class="dropdown"><a href="#" class="dropdown-toggle"
