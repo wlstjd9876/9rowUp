@@ -24,6 +24,8 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="kr.spring.member.controller" /><!-- memeber.controller를 자동 스캔 -->
+	<context:component-scan base-package="kr.spring.gowith.controller" />
+	<context:component-scan base-package="kr.spring.gowithpopup.controller"/>
 	
 	<!-- 데이터 작업이 없이 뷰 호출 - 메인페이지 -->
 	<view-controller path="/main/main.do" view-name="main"/>
@@ -43,6 +45,7 @@
 		<beans:property name="definitions">
 			<beans:list>
 				<beans:value>/WEB-INF/tiles-def/main.xml</beans:value>
+				<beans:value>/WEB-INF/tiles-def/gowith.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/member.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/calendar.xml</beans:value>
 			</beans:list>

@@ -224,14 +224,8 @@
 											class="img-responsive" alt="" /> Help Come True <b
 											class="caret"></b></a>
 										<ul class="dropdown-menu">
-											<li><a href="error.html">404 Error</a></li>
+											<li><a href="${pageContext.request.contextPath}/gowith/gowithList.do">같이떠나요</a></li>
 											<li><a href="0-base.html">Blank Page</a></li>
-											<li><a href="blog.html">Blog</a></li>
-											<li><a href="blog-single.html">Blog Single</a></li>
-											<li><a href="components.html">Components</a></li>
-											<li><a href="general.html">General</a></li>
-											<li><a href="nutrition-info.html">Nutrition Info</a></li>
-											<li><a href="recipe.html">Recipes</a></li>
 										</ul></li>
 										<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
