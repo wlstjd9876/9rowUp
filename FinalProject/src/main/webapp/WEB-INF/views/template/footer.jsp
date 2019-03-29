@@ -126,7 +126,7 @@
 		<div class="footer-copyright">
 			<!-- Paragraph -->
 			<p>
-				&copy; Copyright 2014 <a href="#">Company Name</a>
+				&copy; Copyright 2019 <a href="#">9row Up</a>
 			</p>
 		</div>
 	</div>
