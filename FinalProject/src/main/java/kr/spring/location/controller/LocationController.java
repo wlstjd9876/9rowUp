@@ -1,4 +1,4 @@
-/*package kr.spring.location.controller;
+package kr.spring.location.controller;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import kr.spring.location.domain.LocationCommand;
-import kr.spring.location.service.LocationService;
+/*import kr.spring.location.domain.LocationCommand;
+import kr.spring.location.service.LocationService;*/
 
 @Controller
 public class LocationController {
 	 private Logger log = Logger.getLogger(this.getClass()); //Logger가 인식이 안되는 경우 pom.xml에 log4j 명시
 	  
-	 @Resource LocationService locationService; 
+	/* @Resource LocationService locationService; 
 
 	   //자바빈(커맨드 객체) 초기화
 	   @ModelAttribute("command")
@@ -37,6 +37,10 @@ public class LocationController {
 		   
 		   return "redirect:/main/main.do";
 	   
-	   }
-	   
-}*/
+	   }*/
+	 	//location 폼
+		@RequestMapping(value="/data/location.do", method=RequestMethod.GET)
+		public String form() {
+			return "location";
+		}
+}
