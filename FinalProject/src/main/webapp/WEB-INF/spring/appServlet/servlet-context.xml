@@ -29,6 +29,7 @@
 	
 	<!-- 데이터 작업이 없이 뷰 호출 - 메인페이지 -->
 	<view-controller path="/main/main.do" view-name="main"/>
+	<view-controller path="/data/list.do" view-name="data/location/list"/>
 	
 	<!-- 메시지 처리 -->
 	<beans:bean id="messageSource"
