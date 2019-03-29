@@ -67,29 +67,30 @@
 	<div class="header">
 		<div class="container">
 			<!-- 현호야 여기봐 -->
-			<%-- <div class="header-top">
+			<div class="header-top">
 				<div class="row">
+		
 					<div class="col-md-4 col-sm-4">
-						<!-- Header top left content contact -->
+						<!-- 전화번호
 						<div class="header-contact">
-							<!-- Contact number -->
+							Contact number
 							<span><i class="fa fa-phone red"></i> 888-888-8888</span>
-						</div>
+						</div> -->
 					</div>
 					<!-- 검색창 -->
-					<!-- <div class="col-md-4 col-sm-4">
-								// Header top right content search box
-								<div class=" header-search">
-									<form class="form" role="form">
-										<div class="input-group">
-										  <input type="text" class="form-control" placeholder="Search...">
-										  <span class="input-group-btn">
-											<button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-										  </span>
-										</div>
-									</form>
+					<div class="col-md-4 col-sm-4">
+						<!-- Header top right content search box
+						<div class=" header-search">
+							<form class="form" role="form">
+								<div class="input-group">
+								  <input type="text" class="form-control" placeholder="Search...">
+								  <span class="input-group-btn">
+									<button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+								  </span>
 								</div>
-							</div> -->
+							</form>
+						</div> -->
+					</div>
 					<div class="col-md-4 col-sm-4">
 						<!-- Button Kart -->
 						<div class="btn-cart-md">
@@ -165,7 +166,7 @@
 						<div class="clearfix"></div>
 					</div>
 				</div>
-			</div> --%>
+			</div> 
 			<div class="row">
 				<div class="col-md-4 col-sm-5">
 					<!-- Link -->
