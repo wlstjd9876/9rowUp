@@ -19,7 +19,7 @@
     <button class='submit'>
       <i class='fa fa-search'></i>
     </button>
-    <input class='search-box'>
+    <input class='search-box'> 
   </div>
   <h3 class='response'></h3>
 </div>
