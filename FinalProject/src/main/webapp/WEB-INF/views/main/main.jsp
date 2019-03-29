@@ -1,5 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!-- JS code for this page -->
+<script>
+		/* ******************************************** */
+		/*  JS for SLIDER REVOLUTION  */
+		/* ******************************************** */
+				jQuery(document).ready(function() {
+					   jQuery('.tp-banner').revolution(
+						{
+							delay:9000,
+							startheight:500,
+							
+							hideThumbs:10,
+							
+							navigationType:"bullet",	
+														
+							hideArrowsOnMobile:"on",
+							
+							touchenabled:"on",
+							onHoverStop:"on",
+							
+							navOffsetHorizontal:0,
+							navOffsetVertical:20,
+							
+							stopAtSlide:-1,
+							stopAfterLoops:-1,
+
+							shadow:0,
+							
+							fullWidth:"on",
+							fullScreen:"off"
+						});
+				});		
+		/* Gallery */
+
+		jQuery(".gallery-img-link").prettyPhoto({
+		   overlay_gallery: false, social_tools: false
+		});
+		
+		</script>
 <!-- Slider Start 
 			#################################
 				- THEMEPUNCH BANNER -

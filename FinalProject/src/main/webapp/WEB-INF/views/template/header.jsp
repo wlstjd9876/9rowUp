@@ -234,7 +234,7 @@
 											class="img-responsive" alt="" /> Data Factory <b
 											class="caret"></b></a>
 										<ul class="dropdown-menu">
-											<li><a href="${pageContext.request.contextPath}/data/list.do">관광지 정보</a></li>
+											<li><a href="${pageContext.request.contextPath}/data/location/list.do">관광지 정보</a></li>
 											<li><a href="${pageContext.request.contextPath}/data/location.do">은성이 관광지 연습이요</a></li>
 											<li><a href="blog.html">Blog</a></li>
 											<li><a href="blog-single.html">Blog Single</a></li>
