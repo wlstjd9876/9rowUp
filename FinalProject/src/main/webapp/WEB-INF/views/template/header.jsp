@@ -169,7 +169,7 @@
 			<div class="row">
 				<div class="col-md-4 col-sm-5">
 					<!-- Link -->
-					<a href="index.html"> <!-- Logo area -->
+					<a href="main.do"> <!-- Logo area -->
 						<div class="logo">
 							<!-- <img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/logo.png" alt="" /> -->
 							<!-- Heading -->
@@ -205,7 +205,6 @@
 									</a>
 										<ul class="dropdown-menu">
 											<li><a href="menu.html">스태프</a></li>
-											<li><a href="menu.html"></a></li>
 											<li><a href="menu.html">Special Menu</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -215,7 +214,6 @@
 											class="caret"></b></a>
 										<ul class="dropdown-menu">
 											<li><a href="menu.html">스태프</a></li>
-											<li><a href="menu.html"></a></li>
 											<li><a href="menu.html">Special Menu</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -236,7 +234,7 @@
 											class="caret"></b></a>
 										<ul class="dropdown-menu">
 											<li><a href="${pageContext.request.contextPath}/data/list.do">관광지 정보</a></li>
-											<li><a href="0-base.html">Blank Page</a></li>
+											<li><a href="${pageContext.request.contextPath}/data/location.do">은성이 관광지 연습이요</a></li>
 											<li><a href="blog.html">Blog</a></li>
 											<li><a href="blog-single.html">Blog Single</a></li>
 											<li><a href="components.html">Components</a></li>
