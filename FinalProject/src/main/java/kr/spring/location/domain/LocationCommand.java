@@ -1,4 +1,4 @@
-/*package kr.spring.location.domain;
+package kr.spring.location.domain;
 
 public class LocationCommand {
 
@@ -24,4 +24,3 @@ public class LocationCommand {
 	
 	
 }
-*/

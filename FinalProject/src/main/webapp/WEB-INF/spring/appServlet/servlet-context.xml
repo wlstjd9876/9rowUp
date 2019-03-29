@@ -50,6 +50,7 @@
 				<beans:value>/WEB-INF/tiles-def/member.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/calendar.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/data/location.xml</beans:value>
+				<beans:value>/WEB-INF/tiles-def/location.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>

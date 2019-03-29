@@ -1,6 +1,7 @@
 package kr.spring.member.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
