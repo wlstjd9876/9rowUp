@@ -8,10 +8,11 @@
 <style>
 	h3{color:blue;}
 </style>
-<script src="${pageContext.request.contextPath}/resources/js/jquery-1.11.0.min.js"></script>
+ <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script> 
+
 <script>
 	$.ajax({        
-	      url: 'PublicData.do',
+	      url: 'publicData.do',
 	      type: 'get',
 	      dataType: 'json',
 	      success: function(data){
@@ -30,7 +31,8 @@
 	              output += '위도 : ' +'<h4>'+myItem[i].mapy+'</h4>';
 	              output += '경도 : ' +'<h4>'+myItem[i].mapx+'</h4>';
 	              output += '<input type="button" value="일정추가"  onclick="location.href=\'#\'" />';
-	              document.body.innerHTML += output;
+	             document.span.innerHTML += output; 
+	             /*  $('#output').append(output); */
 	          }
 	          
 	      },
@@ -42,8 +44,9 @@
 </script>
 </head>
 <body>
-<form action="PublicData.do" method="get">
-<input type="submit" value="데이터보기"/>
+<form action="publicData.do" method="get">
+<input type="submit" value="데이터보기"/> 
+<div id="output"></div>
 </form>
 </body>
 </html>

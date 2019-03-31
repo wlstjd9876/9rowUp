@@ -66,6 +66,9 @@
 <!-- Custom JS -->
 <script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
 
+<!-- JS code for this page -->
+
+
 </head>
 
 <body>

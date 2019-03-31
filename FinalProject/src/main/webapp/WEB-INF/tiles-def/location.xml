@@ -6,7 +6,7 @@
 
 <tiles-definitions>
 	<definition name="location" extends="main">
-		<put-attribute name="title" value="동행구해요" />
+		<put-attribute name="title" value="위치" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/data/location.jsp" />
 	</definition>

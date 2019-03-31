@@ -28,7 +28,7 @@ import org.json.simple.JSONObject;
 /**
  * Servlet implementation class test
  */
-@WebServlet("/PublicData.do")
+@WebServlet("/publicData.do")
 public class PublicData extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
