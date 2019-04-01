@@ -1,24 +1,22 @@
 package kr.spring.location.controller;
 
+
 import javax.validation.Valid;
 
 import org.apache.cxf.helpers.IOUtils;
+
+
 import org.apache.log4j.Logger;
-import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import kr.spring.location.domain.LocationCommand;
 
 
 @Controller
 public class LocationController{
-	 private Logger log = Logger.getLogger(this.getClass()); //Logger가 인식이 안되는 경우 pom.xml에 log4j 명시
-	
-	 /* @Resource LocationService locationService; 
+	private Logger log = Logger.getLogger(this.getClass()); //Logger가 인식이 안되는 경우 pom.xml에 log4j 명시
+
+	/* @Resource LocationService locationService; 
 >>>>>>> branch 'master' of https://github.com/wlstjd9876/9rowUp.git
 
 	/* @Resource LocationService locationService; 
@@ -63,12 +61,13 @@ public class LocationController{
 
 		   return "redirect:/main/main.do";
 
+<<<<<<< HEAD
 	   }*/
-	 	//location 폼
-		@RequestMapping(value="/data/location.do", method=RequestMethod.GET)
-		public String form() {
-			return "location";
-		}
-		
+	//location 폼
+	@RequestMapping(value="/data/location.do", method=RequestMethod.GET)
+	public String form() {
+		return "location";
+	}
+
 
 }

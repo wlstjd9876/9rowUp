@@ -20,6 +20,14 @@
     <servlet-name>appServlet</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>PublicData</servlet-name>
+    <servlet-class>kr.spring.location.controller.PublicData</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PublicData</servlet-name>
+    <url-pattern>/publicData</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>encodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
