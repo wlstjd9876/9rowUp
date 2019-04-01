@@ -4,7 +4,7 @@
 <div class="footer padd">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3 col-sm-6">
+			<%-- <div class="col-md-3 col-sm-6">
 				<!-- Footer widget -->
 				<div class="footer-widget">
 					<!-- Logo area -->
@@ -120,7 +120,7 @@
 					</div>
 				</div>
 				<!--/ Footer widget end -->
-			</div>
+			</div> --%>
 		</div>
 		<!-- Copyright -->
 		<div class="footer-copyright">
