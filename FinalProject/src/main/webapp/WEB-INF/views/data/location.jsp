@@ -6,13 +6,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	h3{color:blue;}
+	h3{color:blue;
+	font-family: sans-serif;
+	}
+	h4{
+	font-family: sans-serif;
+	color: black;
+	}
 </style>
  <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script> 
 
 <script>
 	$.ajax({        
-	      url: 'publicData.do',
+	      url: '../publicData',
 	      type: 'get',
 	      dataType: 'json',
 	      success: function(data){
@@ -31,22 +37,22 @@
 	              output += '위도 : ' +'<h4>'+myItem[i].mapy+'</h4>';
 	              output += '경도 : ' +'<h4>'+myItem[i].mapx+'</h4>';
 	              output += '<input type="button" value="일정추가"  onclick="location.href=\'#\'" />';
-	             document.span.innerHTML += output; 
-	             /*  $('#output').append(output); */
+	            /*  document.span.innerHTML += output;  */
+	               $('#output').append(output); 
 	          }
-	          
 	      },
     	error: function(XMLHttpRequest, textStatus, errorThrown) { 
-        	alert("Status: " + textStatus + "Error: " + errorThrown); 
+        	alert("Status: " + textStatus +" and "+ "Error: " + errorThrown); 
     	}  
 });
 	
 </script>
 </head>
 <body>
+<!-- 
 <form action="publicData.do" method="get">
 <input type="submit" value="데이터보기"/> 
+</form> -->
 <div id="output"></div>
-</form>
 </body>
 </html>
