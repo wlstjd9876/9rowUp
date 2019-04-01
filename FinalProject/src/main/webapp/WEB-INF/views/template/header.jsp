@@ -170,7 +170,7 @@
 			<div class="row">
 				<div class="col-md-4 col-sm-5">
 					<!-- Link -->
-					<a href="main.do"> <!-- Logo area -->
+					<a href="${pageContext.request.contextPath}/main/main.do"> <!-- Logo area -->
 						<div class="logo">
 							<!-- <img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/logo.png" alt="" /> -->
 							<!-- Heading -->
