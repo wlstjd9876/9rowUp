@@ -29,7 +29,7 @@
  <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script> 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=073c048326b3580b4c7257b8e804ee6b"></script>
 <!-- public.js ->관관지 정보를 불러오는 js 입니다. -->
-<script src="${pageContext.request.contextPath}/resources/js/public.js"></script>
+<%-- <script src="${pageContext.request.contextPath}/resources/js/public.js"></script> --%>
 </head>
 <body>
 <!-- 
@@ -43,7 +43,6 @@
 <script src="${pageContext.request.contextPath}/resources/js/map.js"></script>
 </div>
 <div style="z-index: 2;">
-<p id='result' style="z-index: 3"></p>
 <p>
 <button onclick="setBounds()">지도 범위 재설정 하기</button> 
 </p>

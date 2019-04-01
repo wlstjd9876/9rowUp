@@ -14,12 +14,42 @@ daum.maps.event.addListener(map, 'click', function(mouseEvent) {
  // 클릭한 위도, 경도 정보를 가져옵니다 
  var latlng = mouseEvent.latLng;
  
- var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
- message += '경도는 ' + latlng.getLng() + ' 입니다';
+ var lat = latlng.getLat();
+ var lon = latlng.getLng();
  
- var resultDiv = document.getElementById('result'); 
- resultDiv.innerHTML = message;
+ alert("lat : " +lat + " and  lon : " +lon);
  
+	$.ajax({        
+	      url: '../publicData',
+	      data:{lat:lat,lon:lon},
+	      type: 'get',
+	      dataType: 'json',
+	      cache:false,
+	         timeout:30000,
+	      success: function(data){
+	    	  console.log(data);
+//	          console.log(data.response.body.items.item);
+	          var myItem = data.response.body.items.item;
+	          $('#output').empty();
+	          for(var i=0; myItem.length; i++){
+	              var output = '';
+	              console.log(myItem.length);
+/* 	              output += '<h3>'+ i+'번째 ' + '여행지정보' +'</h3>'; */
+	              output += '<h3>'+myItem[i].title+'</h3>';
+	              output += '<h4>'+myItem[i].addr1+'</h4>';
+	              output += '<img src="' + myItem[i].firstimage + '" style="width: 100px; height: 100px;">';
+	              output += '<br>';
+	              output += '위도 : ' +'<h4>'+myItem[i].mapy+'</h4>';
+	              output += '경도 : ' +'<h4>'+myItem[i].mapx+'</h4>';
+	              output += '<input type="button" value="일정추가"  onclick="location.href=\'#\'" />';
+	            /*  document.span.innerHTML += output;  */
+	              $('#output').append(output); 
+	          }
+	      },
+  	error: function(XMLHttpRequest, textStatus, errorThrown) { 
+      	alert("Status: " + textStatus +" and "+ "Error: " + errorThrown); 
+  	}  
+});
 });
  
 // 버튼을 클릭하면 아래 배열의 좌표들이 모두 보이게 지도 범위를 재설정합니다 
