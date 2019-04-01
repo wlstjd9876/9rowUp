@@ -1,3 +1,17 @@
+/*폰트 설정 시작*/
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+.hn{font-family: 'Hanna', sans-serif;}
+/*폰트 설정 끝*/
+
+div#search_form{
+	width: 500px;
+	margin: 0 auto;
+}
+.sel_box{
+	width:49%;
+	display: inline-block;
+}
+
 .data_list{
 	min-height: 500px;
 	z-index:1;
@@ -32,12 +46,8 @@
   z-index: -1;
   background-color: rgba(244,67,54,0.15);
 }
-h1 {
-  font-family: "Lato";
-  font-size: 1.3em;
-  color: #fff;
-  letter-spacing: 1px;
-  margin-bottom: 50px;
+h1{
+	text-align: center;
 }
 h3 {
   display: block;
@@ -92,3 +102,23 @@ h3 {
   pointer-event: none;
   color: #d32f2f;
 }
+
+/*택스트박스 , 신청폼*/
+input[type=text], select {
+	width: 100%;
+	padding: 10px 10px;
+	margin: 0px 0px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	box-sizing: border-box;
+}
+
+.div {
+	position: relative;
+}
+
+.vc {
+	height: 47px;
+	left: 65px;
+} /* 세로 중앙 정렬 */
