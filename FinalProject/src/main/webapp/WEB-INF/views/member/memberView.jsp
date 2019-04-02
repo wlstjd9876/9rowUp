@@ -20,10 +20,7 @@
 			</c:if>
          </c:if>   
          <!-- 이미지 보이기 -->
-		<ul>
-			<li>아이디 : ${member.email}</li>
-			<li>회원점수 : ${member.td_score}</li>
-			<c:if test="${0<=member.td_score && member.td_score<10}">
+         <c:if test="${0<=member.td_score && member.td_score<10}">
 			<img src="${pageContext.request.contextPath}/resources/img/icon/bronze.png">
 			회원님의 등급은 브론즈 입니다!
 			</c:if>
@@ -43,6 +40,10 @@
 			<img src="${pageContext.request.contextPath}/resources/img/icon/diamond.png">
 			회원님의 등급은 다이아몬드 입니다!
 			</c:if>
+		<ul>
+			<li>아이디 : ${member.email}</li>
+			<li>회원점수 : ${member.td_score}</li>
+			
 			<li>성별 : <c:if test="${member.td_gender==1}">남자</c:if><c:if test="${member.td_gender==2}">여자</c:if></li>
 			<li>생년월일 : ${member.td_birth}</li>
 			<li>가입날짜 : ${member.td_reg_date}</li>
