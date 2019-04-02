@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- 상단 네비게이션 시작 -->
 <!-- Page Wrapper -->
 <div class="wrapper">
@@ -23,43 +23,43 @@
 						<!-- Button Kart -->
 						<ul class="nav navbar-nav navbar-right nav-ex">
 							<c:if test="${empty user_email}">
-								<li><a href="${pageContext.request.contextPath}/member/write.do">회원가입</a></li>
-								<li><a href="${pageContext.request.contextPath}/member/login.do">로그인</a></li>
+								<li><a
+									href="${pageContext.request.contextPath}/member/write.do">회원가입</a></li>
+								<li><a
+									href="${pageContext.request.contextPath}/member/login.do">로그인</a></li>
 							</c:if>
-						<c:if test="${!empty user_email && user_auth !=3}">
-							</ul>
-								<div class="btn-cart-md">
-							<a class="cart-link" href="#"> <!-- Image --> 
-								 <c:if test="${user_gender==1}"> 
+							<c:if test="${!empty user_email && user_auth !=3}">
+						</ul>
+						<div class="btn-cart-md">
+							<a class="cart-link" href="#"> <!-- Image --> <c:if
+									test="${user_gender==1}">
 									<img class="img-responsive"
 										src="${pageContext.request.contextPath}/resources/img/icon/boy.png"
 										alt="" />
-								 </c:if>
-								  <c:if test="${user_gender==2}"> 
+								</c:if> <c:if test="${user_gender==2}">
 									<img class="img-responsive"
 										src="${pageContext.request.contextPath}/resources/img/icon/girl.png"
 										alt="" />
-								 </c:if>
-								 <!-- Heading -->
-								<span>${user_nickname}님 반가워요!
-								<c:if test="${!empty user_email && user_auth == 0}">(관리자)</c:if>
-								<c:if test="${!empty user_email && user_auth == 1}">(스태프)</c:if></span>
-								<c:if test="${0<=user_score && user_score<10}">
-									<img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/icon/bronze.png">
+								</c:if> <!-- Heading --> <span>${user_nickname}님 반가워요! <c:if
+										test="${!empty user_email && user_auth == 0}">(관리자)</c:if> <c:if
+										test="${!empty user_email && user_auth == 1}">(스태프)</c:if></span> <c:if
+									test="${0<=user_score && user_score<10}">
+									<img class="img-responsive"
+										src="${pageContext.request.contextPath}/resources/img/icon/bronze.png">
+								</c:if> <c:if test="${10<=user_score && user_score<50}">
+									<img class="img-responsive"
+										src="${pageContext.request.contextPath}/resources/img/icon/silver.png">
+								</c:if> <c:if test="${50<=user_score && user_score<100}">
+									<img class="img-responsive"
+										src="${pageContext.request.contextPath}/resources/img/icon/gold.png">
+								</c:if> <c:if test="${100<=user_score && user_score<250}">
+									<img class="img-responsive"
+										src="${pageContext.request.contextPath}/resources/img/icon/platinum.png">
+								</c:if> <c:if test="${250<=user_score}">
+									<img class="img-responsive"
+										src="${pageContext.request.contextPath}/resources/img/icon/diamond.png">
 								</c:if>
-								<c:if test="${10<=user_score && user_score<50}">
-									<img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/icon/silver.png">
-								</c:if>
-								<c:if test="${50<=user_score && user_score<100}">
-									<img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/icon/gold.png">
-								</c:if>
-								<c:if test="${100<=user_score && user_score<250}">
-									<img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/icon/platinum.png">
-								</c:if>
-								<c:if test="${250<=user_score}">
-									<img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/icon/diamond.png">
-								</c:if> 
-								 <h4>하단메뉴</h4>
+								<h4>하단메뉴</h4>
 								<div class="clearfix"></div>
 							</a>
 							<ul class="cart-dropdown" role="menu">
@@ -86,8 +86,9 @@
 											src="${pageContext.request.contextPath}/resources/img/icon/key.png"
 											alt="" />
 										<!-- Title for purchase item -->
-										<span class="cart-title">
-										<a href="${pageContext.request.contextPath}/member/changePassword.do">비밀번호 변경</a></span>
+										<span class="cart-title"> <a
+											href="${pageContext.request.contextPath}/member/changePassword.do">비밀번호
+												변경</a></span>
 										<!-- Cart item price -->
 										<div class="clearfix"></div>
 									</div>
@@ -96,8 +97,7 @@
 								<div class="cart-item">
 									<a class="btn btn-danger" data-toggle="modal"
 										href="${pageContext.request.contextPath}/member/logout.do">
-										로그아웃
-									</a>
+										로그아웃 </a>
 								</div>
 								</li>
 							</ul>
@@ -163,12 +163,22 @@
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
-											src="${pageContext.request.contextPath}/resources/img/nav-menu/배.jpg"
-											class="img-responsive" alt="" /> Help Come True <b
+											src="${pageContext.request.contextPath}/resources/img/nav-menu/트레인.jpg"
+											class="img-responsive" alt="" /> Data Factory <b
 											class="caret"></b></a>
 										<ul class="dropdown-menu">
-											<li><a href="${pageContext.request.contextPath}/advice/adviceList.do">조언 구해요</a></li>
-											<li><a href="0-base.html">Blank Page</a></li>
+											<li><a
+												href="${pageContext.request.contextPath}/data/location/list.do">관광지
+													정보</a></li>
+											<li><a
+												href="${pageContext.request.contextPath}/data/location.do">은성이
+													관광지 연습이요</a></li>
+											<li><a href="blog.html">Blog</a></li>
+											<li><a href="blog-single.html">Blog Single</a></li>
+											<li><a href="components.html">Components</a></li>
+											<li><a href="general.html">General</a></li>
+											<li><a href="nutrition-info.html">Nutrition Info</a></li>
+											<li><a href="recipe.html">Recipes</a></li>
 										</ul></li>
 									<li><a href="aboutus.html"><img
 											src="${pageContext.request.contextPath}/resources/img/nav-menu/트레인.jpg"
