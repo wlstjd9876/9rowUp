@@ -5,9 +5,13 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-	<definition name="calendar" extends="main">
+<!-- 	<definition name="calendar" extends="main">
 		<put-attribute name="title" value="일정관리" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/calendar/list.jsp" />
-	</definition>
+	</definition> -->
+    <definition name="main" template="/WEB-INF/views/main.jsp">
+    </definition>
+    <definition name="writeForm" template="/WEB-INF/views/writeForm.jsp">
+    </definition>
 </tiles-definitions>		

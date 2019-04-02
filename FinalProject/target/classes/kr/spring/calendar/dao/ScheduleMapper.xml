@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="kr.spring.calendar.dao.ScheduleMapper">  
+	<!-- id는 메서드명과 동일하게 -->
+	<!-- <insert id="insert" parameterType="scheduleCommand">
+		INSERT INTO schedule(
+ 		   s_num,
+ 		   s_title,
+ 		   s_share,
+ 		   s_finish,
+ 		   s_style,
+ 		   s_traffic,
+ 		   email,
+ 		   s_tag,
+ 		   s_startdate,
+ 		   s_enddate,
+ 		   s_content,
+ 		   s_photo1, s_photo2, s_photo3, s_photo4, s_photo5, s_photo6, s_photo7, s_photo8, s_photo9, s_photo10
+		) 
+ 		VALUES (
+ 		   schedule_seq.nextval,
+ 		   #{s_title},
+ 		   0,
+ 		   #{s_finish},
+ 		   0,
+ 		   0,
+ 		   #{email},
+ 		   #{s_tag},
+ 		   #{s_startdate},
+ 		   #{s_enddate},
+ 		   #{s_content},
+ 		   #{s_photo1}, #{s_photo2}, #{s_photo3}, #{s_photo4}, #{s_photo5}, #{s_photo6}, #{s_photo7}, #{s_photo8}, #{s_photo9}, #{s_photo10}
+ 		)
+	</insert> -->
+ 	
+ 	
+</mapper>
