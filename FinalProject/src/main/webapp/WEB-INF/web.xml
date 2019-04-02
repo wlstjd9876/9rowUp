@@ -28,6 +28,14 @@
     <servlet-name>PublicData</servlet-name>
     <url-pattern>/publicData</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>SearchAjax</servlet-name>
+    <servlet-class>kr.spring.location.controller.SearchAjax</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchAjax</servlet-name>
+    <url-pattern>/searchAjax</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>encodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

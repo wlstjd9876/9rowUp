@@ -1,7 +1,18 @@
-/*폰트 설정 시작*/
+/*폰트 설정 시작*/	
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 .hn{font-family: 'Hanna', sans-serif;}
 /*폰트 설정 끝*/
+/*정렬*/
+.align-center{
+	text-align: center;
+}
+.margin-both{
+	padding: 20px;
+}
+/*div 크기*/
+div#contents{
+	padding: 0 200px;
+}
 div.js_center{
 	margin: 0 auto;
 }

@@ -44,7 +44,54 @@ $(document).ready(function() {
 			}, 300).delay(2000).animate({
 				opacity : 0
 			}, 300);
+			//=================검색 시작====================//
+			var target = document.getElementById("areacode");
+			var target2 = document.getElementById("sigungucode");
+			$.ajax({        
+				url: contextPath+'/searchAjax',
+				data:{areaCode:target.options[target.selectedIndex].value, sigunguCode:target.options[target.selectedIndex].value, keyword:value},
+				type: 'get',
+				dataType: 'json',
+				cache:false,
+				timeout:30000,
+				success: function(data){
+					console.log(data);
+					var myItem = data.response.body.items.item;
+					$('#output').empty();
+					var output = '';
+					output += '<div class="row align-center">';
+					if(myItem!=undefined){
+						for(var i=0; i<myItem.length; i++){
+							if(myItem[i].firstimage==undefined)
+								var image = contextPath+"/resources/img/data/No_Image_Available.jpg";
+							else
+								var image = myItem[i].firstimage;
+							console.log(myItem.length);
+							output += '<div class="col-sm-6 col-md-3 align-center padd-both">';
+							output += '	<div class="thumbnail">';
+							output += '		<img src="' + image + '" style="width: 100%; height: 300px;">';
+							output += '			<div class="caption">';
+							output += '				<h3 class="hn">'+myItem[i].title+'</h3>';
+							output += '				<h4 class="hn">'+myItem[i].addr1+'</h4>';
+							output += '				<p><a href="#" class="btn btn-primary hn">자세히 보기</a></p>';
+							output += '			</div>';
+							output += '	</div>';
+							output += '</div>';
+						}
+
+					}else{
+							output += '<h3 class="hn">검색 결과가 없습니다!</h3>';
+					}
+					output += '</div>';
+					$('#output').append(output); 
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) { 
+					alert("Status: " + textStatus +"and "+ "Error: " + errorThrown); 
+				}  
+			});
+			//=================검색 끝=====================//
 		}
+
 	}
 
 });
