@@ -202,7 +202,7 @@
 														<!-- Menu Item -->
 														<div class="menu-item">
 															<!-- Heading -->
-															<h3>Vegetarian</h3>
+															<h3>나의 즐겨찾기</h3>
 															<!-- Image -->
 															<img
 																src="${pageContext.request.contextPath}/resources/img/dish/dish1.jpg"
@@ -220,7 +220,7 @@
 														<!-- Menu Item -->
 														<div class="menu-item">
 															<!-- Heading -->
-															<h3>Non-Vegetarian</h3>
+															<h3>나의 꿈</h3>
 															<!-- Image -->
 															<img
 																src="${pageContext.request.contextPath}/resources/img/dish/dish2.jpg"
@@ -237,7 +237,7 @@
 														<!-- Menu Item -->
 														<div class="menu-item">
 															<!-- Heading -->
-															<h3>Special Menu</h3>
+															<h3>일정 바로 추가</h3>
 															<!-- Image -->
 															<img
 																src="${pageContext.request.contextPath}/resources/img/dish/dish3.jpg"

@@ -10,7 +10,7 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/calendar/list.jsp" />
 	</definition> -->
-    <definition name="main" template="/WEB-INF/views/main.jsp">
+    <definition name="cal" template="/WEB-INF/views/main.jsp">
     </definition>
     <definition name="writeForm" template="/WEB-INF/views/writeForm.jsp">
     </definition>
