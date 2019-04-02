@@ -29,7 +29,7 @@ public class PublicData extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		parameter = parameter + "&" + "mapX="+request.getParameter("lon");
 		parameter = parameter + "&" + "mapY="+request.getParameter("lat");
-		parameter = parameter + "&" + "radius=1000";
+		parameter = parameter + "&" + "radius=5000";
 		parameter = parameter + "&" + "pageNo=1&numOfRows=10";
 		parameter = parameter + "&" + "listYN=Y";
 		parameter = parameter + "&" + "arrange=A";

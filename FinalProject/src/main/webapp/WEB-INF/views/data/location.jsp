@@ -17,12 +17,12 @@
 	.left-box {
  
   float: left;
-  width: 50%;
+  width: 58%;
 }
 .right-box {
 
   float: right;
-  width: 50%;
+  width: 40%;
 }
 	
 </style>
@@ -38,19 +38,17 @@
 </form> -->
 <!-- 왼쪽에 보여지는 창  -->
 <div class='left-box'>
-<div id='map' style=" margin-top:40px; margin-left:40px; width:90%;height:600px; z-index: 1;">
+<div id='map' style=" margin-top:40px; margin-left:40px; width:100%;height:600px; z-index: 1;">
 <!-- 맵 여기에 넣음 -->
 <script src="${pageContext.request.contextPath}/resources/js/map.js"></script>
 </div>
 <div style="z-index: 2;">
-<p>
-<button onclick="setBounds()">지도 범위 재설정 하기</button> 
-</p>
+
 </div>
 </div>
 <!-- 오른쪽에 보여지는 창 -->
 <div class='right-box'>
-<div id='output'></div>
+<div id='output' style="overflow:scroll; width:600px; height:600px; margin-top:40px; margin-left: 20px;"></div>
 </div>
 </body>
 </html>
