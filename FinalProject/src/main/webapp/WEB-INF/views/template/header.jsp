@@ -163,6 +163,17 @@
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
+											src="${pageContext.request.contextPath}/resources/img/nav-menu/배.jpg"
+											class="img-responsive" alt="" /> Help Come True <b
+											class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a
+												href="${pageContext.request.contextPath}/advice/adviceList.do">조언
+													구해요</a></li>
+											<li><a href="0-base.html">Blank Page</a></li>
+										</ul></li>
+									<li class="dropdown"><a href="#" class="dropdown-toggle"
+										data-toggle="dropdown"><img
 											src="${pageContext.request.contextPath}/resources/img/nav-menu/트레인.jpg"
 											class="img-responsive" alt="" /> Data Factory <b
 											class="caret"></b></a>
@@ -180,9 +191,6 @@
 											<li><a href="nutrition-info.html">Nutrition Info</a></li>
 											<li><a href="recipe.html">Recipes</a></li>
 										</ul></li>
-									<li><a href="aboutus.html"><img
-											src="${pageContext.request.contextPath}/resources/img/nav-menu/트레인.jpg"
-											class="img-responsive" alt="" /> Data Factory </a></li>
 									<li class="dropdown hidden-xs"><a href="#"
 										class="dropdown-toggle" data-toggle="dropdown"><img
 											src="${pageContext.request.contextPath}/resources/img/nav-menu/자전거.jpg"
