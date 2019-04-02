@@ -66,15 +66,19 @@ CREATE sequence schedule_seq;
 
 /*일정 상세*/
 CREATE table schedule_detail (
-   s_num number not null, /*s_num으로 수정???*/
+   s_num number not null,
+   sd_num number not null,
    sd_code varchar2(50) not null, /* 관광지코드, 장소코드 varchar2로 수정 필요*/
    sd_day number(3) not null,
    sd_starttime varchar2(5) not null,
    sd_endtime varchar2(5) not null,
    sd_memo varchar2(300),
    sd_money number(8),
+   constraint schedule_detail_pk primary key (sd_num),
    constraint schedule_detail_fk1 foreign key (s_num) references schedule (s_num)
 );
+
+CREATE sequence schedule_detail_seq;
 
 /*공유 게시판*/
 CREATE table share (
