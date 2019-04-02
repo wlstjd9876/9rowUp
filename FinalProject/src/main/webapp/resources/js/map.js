@@ -35,8 +35,7 @@ daum.maps.event.addListener(map, 'click', function(mouseEvent) {
 	          var myItem = data.response.body.items.item;
 	          $('#output').empty();
 	     
-	         if( myItem.length!=null)
-	         {
+	         if(myItem){
 	        	    for(var i=0; i<myItem.length; i++){
 	  	              var output = '';
 	  	              console.log(myItem.length);
@@ -50,12 +49,12 @@ daum.maps.event.addListener(map, 'click', function(mouseEvent) {
 	  	              output += '</div>';
 	  	            /*  document.span.innerHTML += output;  */
 	  	              $('#output').append(output); 
+	  	              
 	  	          }
 	         }else{
 	        	 alert('관광지 정보가 없습니다.');
-	         }
-	      
-	       
+	        	 
+	         }	       
 	      },
   	error: function(XMLHttpRequest, textStatus, errorThrown) { 
       	alert("Status: " + textStatus +" and "+ "Error: " + errorThrown); 
@@ -68,10 +67,10 @@ daum.maps.event.addListener(map, 'click', function(mouseEvent) {
 
 // ======================================================마커이미지 표시
 
-var imageSrc = 'https://image.flaticon.com/icons/svg/1669/1669434.svg', // 마커이미지의 주소입니다  
-			/*'${pageContext.request.contextPath}/resources/img/user.jpg'*/
+var imageSrc = '../resources/img/yap2.png', // 마커이미지의 주소입니다  
+			
     imageSize = new daum.maps.Size(34, 39), // 마커이미지의 크기입니다
-    imageOption = {offset: new daum.maps.Point(15, 18)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+    imageOption = {offset: new daum.maps.Point(10, 40)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
       
 // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
 var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOption),
