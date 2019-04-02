@@ -1,4 +1,4 @@
-package kr.spring.utill;
+package kr.spring.util;
 
 public class LoginException extends Exception {
 
