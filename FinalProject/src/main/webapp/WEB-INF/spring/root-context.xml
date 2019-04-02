@@ -53,7 +53,6 @@
 	<tx:advice id="txAdvice" 
 	                transaction-manager="transactionManager">
 		<tx:attributes>
-		
 			<tx:method name="select*" read-only="true"/>
 			<tx:method name="insert*"/>
 			<tx:method name="update*"/>
@@ -76,15 +75,14 @@
 		 kr.spring.member.domain.MemberCommand -> memberCommand
 		  -->
 		 <property name="typeAliasesPackage" 
-		          value="kr.spring.member.domain"/>
+		          value="kr.spring.member.domain, kr.spring.advice.domain"/>
 	</bean>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage"
-		        value="kr.spring.member.dao"/>
+		        value="kr.spring.member.dao, kr.spring.advice.dao"/>
 	</bean>
 	
 </beans>
-
 
 
 

@@ -27,6 +27,7 @@
 	<context:component-scan base-package="kr.spring.gowith.controller" />
 	<context:component-scan base-package="kr.spring.gowithpopup.controller"/>
 	<context:component-scan base-package="kr.spring.location.controller" />
+	<context:component-scan base-package="kr.spring.advice.controller" />
 	
 	<!-- 데이터 작업이 없이 뷰 호출 - 메인페이지 -->
 	<view-controller path="/main/main.do" view-name="main"/>
@@ -51,6 +52,8 @@
 				<beans:value>/WEB-INF/tiles-def/calendar.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/data/location.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/location.xml</beans:value>
+				<beans:value>/WEB-INF/tiles-def/member.xml</beans:value>
+				<beans:value>/WEB-INF/tiles-def/advice.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
@@ -64,4 +67,29 @@
 	<beans:bean
 	class="org.springframework.web.servlet.view.BeanNameViewResolver"
 	p:order="0"/>
+	
+	<!-- 파일 업로드 -->
+	<beans:bean id="multipartResolver" 
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="52428800"></beans:property>
+		<beans:property name="defaultEncoding" value="UTF-8"></beans:property>
+	</beans:bean>	
+		
+		<!-- 로그인 여부 체크 -->
+		<interceptors>
+			<interceptor>
+				<mapping path="/member/detail.do"/>
+				<mapping path="/member/update.do"/>
+				<mapping path="/member/delete.do"/>
+				<mapping path="/member/changePassword.do"/>
+				<mapping path="/member/admin_List.do"/>
+				<beans:bean class="kr.spring.interceptor.LoginCheckInterceptor"/>
+			</interceptor>
+		</interceptors>
+		
+		<!-- 암호화,복호화 알고리즘 처리 -->
+		<beans:bean id="cipherAES" class="kr.spring.util.CipherTemplate">
+			<beans:property name="algorithm" value="AES"/>
+			<beans:property name="secretKey" value="j8b8tex2allsotsqejukdi77l"/>
+		</beans:bean>
 </beans:beans>

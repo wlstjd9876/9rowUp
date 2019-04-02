@@ -9,9 +9,10 @@ import org.springframework.stereotype.Service;
 
 import kr.spring.member.dao.MemberMapper;
 import kr.spring.member.domain.MemberCommand;
+
 @Service("memberService")
 public class MemberServiceImpl implements MemberService{
-
+	
 	@Resource
 	private MemberMapper memberMapper;
 	
@@ -22,8 +23,13 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public MemberCommand selectMember(String id) {
-		return memberMapper.selectMember(id);
+	public MemberCommand selectMember(String email) {
+		return memberMapper.selectMember(email);
+	}
+	
+	@Override
+	public MemberCommand checkNickname(String td_nickname) {
+		return memberMapper.checkNickname(td_nickname);
 	}
 
 	@Override
@@ -37,21 +43,20 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public void delete(String id) {
-		memberMapper.delete(id);
-		memberMapper.deleteDetail(id);
+	public void delete(String email) {
+		memberMapper.delete(email);
+		memberMapper.deleteDetail(email);
 	}
+
 
 	@Override
 	public List<MemberCommand> selectList(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
+		return memberMapper.selectList(map);
 	}
 
 	@Override
 	public int selectRowCount(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return 0;
+		return memberMapper.selectRowCount(map);
 	}
 
 }
