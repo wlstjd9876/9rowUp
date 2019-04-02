@@ -26,6 +26,7 @@ public class SearchAjax extends HttpServlet {
 		if(areaCode.equals("0"))
 			areaCode = "";
 		String sigunguCode = request.getParameter("sigunguCode");
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@"+sigunguCode);
 		if(sigunguCode.equals("0"))
 			sigunguCode = "";
 		String addr = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?serviceKey=";

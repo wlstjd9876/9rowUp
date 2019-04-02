@@ -38,26 +38,27 @@ $(document).ready(function() {
 		var value = searchBox.val();
 		searchBox.val("");
 		if (value.length > 0) {
+			$('#output').empty();
 			response.text('Searching for "' + value + '" . . .');
 			response.animate({
 				opacity : 1
-			}, 300).delay(2000).animate({
-				opacity : 0
 			}, 300);
 			//=================검색 시작====================//
 			var target = document.getElementById("areacode");
 			var target2 = document.getElementById("sigungucode");
 			$.ajax({        
 				url: contextPath+'/searchAjax',
-				data:{areaCode:target.options[target.selectedIndex].value, sigunguCode:target.options[target.selectedIndex].value, keyword:value},
+				data:{areaCode:target.options[target.selectedIndex].value, sigunguCode:target2.options[target2.selectedIndex].value, keyword:value},
 				type: 'get',
 				dataType: 'json',
 				cache:false,
 				timeout:30000,
 				success: function(data){
+					response.animate({
+						opacity : 0
+					}, 300);
 					console.log(data);
 					var myItem = data.response.body.items.item;
-					$('#output').empty();
 					var output = '';
 					output += '<div class="row align-center">';
 					if(myItem!=undefined){
@@ -106,9 +107,9 @@ function doChange(srcE){
 		dataType: "json",
 		data : {val :val},
 		success:function(data){
-			$("#sigungucode").find("option").remove().end().append("<option value=''>시군구</option>");
+			$("#sigungucode").find("option").remove().end().append("<option value='0'>시군구 선택</option>");
 			$(data.list).each(function(index, result){
-				$("#sigungucode").append("<option value='"+(index+1)+"'>"+result+"</option>");
+				$("#sigungucode").append("<option value='"+(index+1)+"'>"+result + (index+1)+"</option>");
 			});
 		},
 		error:function(request,status,error){

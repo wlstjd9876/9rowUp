@@ -31,7 +31,23 @@ var contextPath = "${pageContext.request.contextPath }";
 					id="areacode" onchange="doChange(this)">
 					<option value="0">지역선택</option>
 					<option value="1">서울</option>
-					<option value="2">경기</option>
+					<option value="2">인천</option>
+					<option value="3">대전</option>
+					<option value="4">대구</option>
+					<option value="5">광주</option>
+					<option value="6">부산</option>
+					<option value="7">울산</option>
+					<option value="8">세종특별자치시</option>
+					<option value="9">경기도</option>
+					<option value="10">강원도</option>
+					<option value="11">충청북도</option>
+					<option value="12">충청남도</option>
+					<option value="13">경상북도</option>
+					<option value="14">경상남도</option>
+					<option value="15">전라북도</option>
+					<option value="16">전라남도</option>
+					<option value="17">제주도</option>
+					<option value="17">인천</option>
 				</select>
 			</div>
 			<div class="sel_box">
