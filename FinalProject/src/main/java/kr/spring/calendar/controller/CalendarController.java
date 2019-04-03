@@ -23,16 +23,16 @@ public class CalendarController {
 	
 	@RequestMapping(value="/calendar/registerPlan.do", method=RequestMethod.GET)
 	public String registerPlanForm() {
-		return "calendar/registerPlanForm";
+		return " registerPlanForm";
 	}
 	@RequestMapping(value="/calendar/registerPlan.do", method=RequestMethod.POST)
 	public String registerPlan() {
-		return "calendar/registerPlan";
+		return "registerPlan";
 	}	
 	
 	@RequestMapping(value="/calendar/write.do", method=RequestMethod.GET)
 	public String form() {
-		return "calendar/writeForm";
+		return "writeForm";
 	}
 	
 	@RequestMapping(value="/calendar/write.do", method=RequestMethod.POST)

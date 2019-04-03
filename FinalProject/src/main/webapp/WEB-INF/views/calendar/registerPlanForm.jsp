@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/js/fullcalendar.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/js/fullcalendar.min.css" />
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/lib/moment.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/fullcalendar.js"></script>
@@ -42,7 +41,7 @@ $(document).ready(function() {
                     text: '일 추가',
                     click: function(url) {
                         addDay++;
-                        $('body').empty().append('<div id="calendar"></div>');
+                        $('.cal-body').empty().append('<div id="calendar"></div>');
                         setCalendar();
                     }
                 },
@@ -54,7 +53,7 @@ $(document).ready(function() {
                             return false;
                         }else{
                             addDay--;
-                            $('body').empty().append('<div id="calendar"></div>');
+                            $('.cal-body').empty().append('<div id="calendar"></div>');
                             setCalendar();
                         }
                     }
@@ -125,7 +124,9 @@ $(document).ready(function() {
         height:600px;
     }
 </style>
-<div id="calendar"></div>
+<div class="cal-body">
+	<div id="calendar"></div>
+</div>
 <div>
     <input type="button" value="일정상세등록" name="registerDetail" id="registerDetail" onclick="location.href='write.do'">
 </div>
