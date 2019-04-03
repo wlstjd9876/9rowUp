@@ -20,7 +20,7 @@ $(document).ready(function() {
             },
             
             eventClick: function(eventObj) {
-                window.open('${pageContext.request.contextPath}/popup/popup.do?sd_num=${sd_num}', '일정 상세페이지', 'width=400, height=300, left=100, top=50');
+                window.open('${pageContext.request.contextPath}/calendar/popup/popup.do?sd_num=${sd_num}', '일정 상세페이지', 'width=400, height=300, left=100, top=50');
             },
             
             views:{

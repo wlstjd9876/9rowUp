@@ -40,19 +40,19 @@ public class ScheduleDetailController {
 		
 		scheduleService.insertDetail(scheduleDetailCommand);
 		
-		return "redirect:/calendar/registerPlanForm.do";
+		return "redirect:/calendar/registerPlan.do";
 	}
 	
 	//======ÆË¾÷ Æû======//
 	//¸ñ·Ï
-	@RequestMapping("/popup/popupList.do")
+	@RequestMapping("/calendar/popup/popupList.do")
 	public String popupList(HttpSession session, Model model) {
 		
 		
 		return null;
 	}
 	//µî·Ï Æû
-	@RequestMapping(value="/popup/popup.do", method=RequestMethod.GET)
+	@RequestMapping(value="/calendar/popup/popup.do", method=RequestMethod.GET)
 	public String form(/*@RequestParam("sd_num") int sd_num,*/
 						HttpSession session, Model model) {
 		
@@ -66,7 +66,7 @@ public class ScheduleDetailController {
 			log.debug("<<memberCommand>> : " + scheduleDetailCommand);
 		}		
 		
-		return "/popup/popup";
+		return "calendar/popup/popup";
 	}
 	
 }

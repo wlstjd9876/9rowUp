@@ -76,7 +76,7 @@ CREATE table schedule_detail (
    sd_money number(8),
    constraint schedule_detail_pk primary key (sd_num),
    constraint schedule_detail_fk1 foreign key (s_num) references schedule (s_num)
-);
+);  
 
 CREATE sequence schedule_detail_seq;
 
