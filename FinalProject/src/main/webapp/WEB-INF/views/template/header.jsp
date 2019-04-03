@@ -191,73 +191,20 @@
 											<li><a href="nutrition-info.html">Nutrition Info</a></li>
 											<li><a href="recipe.html">Recipes</a></li>
 										</ul></li>
-									<li class="dropdown hidden-xs"><a href="#"
+									<li class="dropdown"><a href="#"
 										class="dropdown-toggle" data-toggle="dropdown"><img
 											src="${pageContext.request.contextPath}/resources/img/nav-menu/자전거.jpg"
 											class="img-responsive" alt="" /> My Planner <b class="caret"></b></a>
-										<ul class="dropdown-menu dropdown-md">
-											<li>
-												<div class="row">
-													<div class="col-md-4 col-sm-6">
-														<!-- Menu Item -->
-														<div class="menu-item">
-															<!-- Heading -->
-															<h3>나의 즐겨찾기</h3>
-															<!-- Image -->
-															<img
-																src="${pageContext.request.contextPath}/resources/img/dish/dish1.jpg"
-																class="img-responsive" alt="" />
-															<!-- Paragraph -->
-															<p>Sea nut perspicacity under omni piste natures
-																mirror of there with consequent.</p>
-															<!-- Button -->
-															<a
-																href="${pageContext.request.contextPath}/calendar/list.do"
-																class="btn btn-danger btn-xs">View Menu</a>
-														</div>
-													</div>
-													<div class="col-md-4 col-sm-6">
-														<!-- Menu Item -->
-														<div class="menu-item">
-															<!-- Heading -->
-															<h3>나의 꿈</h3>
-															<!-- Image -->
-															<img
-																src="${pageContext.request.contextPath}/resources/img/dish/dish2.jpg"
-																class="img-responsive" alt="" />
-															<!-- Paragraph -->
-															<p>Sea nut perspicacity under omni piste natures
-																mirror as precode consequent.</p>
-															<!-- Button -->
-															<a href="menu.html" class="btn btn-danger btn-xs">View
-																Menu</a>
-														</div>
-													</div>
-													<div class="col-md-4">
-														<!-- Menu Item -->
-														<div class="menu-item">
-															<!-- Heading -->
-															<h3>일정 바로 추가</h3>
-															<!-- Image -->
-															<img
-																src="${pageContext.request.contextPath}/resources/img/dish/dish3.jpg"
-																class="img-responsive" alt="" />
-															<!-- Paragraph -->
-															<p>Sea nut perspicacity under omni piste natures
-																mirror consequent.</p>
-															<!-- Button -->
-															<a href="menu.html" class="btn btn-danger btn-xs">View
-																Menu</a>
-														</div>
-													</div>
-												</div>
-											</li>
+										<ul class="dropdown-menu">
+																<li><a href="">나의 즐겨찾기</a></li>
+																<li><a href="menu.html">나의 꿈</a></li>
+																<li><a href="${pageContext.request.contextPath}/calendar/registerPlan.do">일정 바로 추가</a></li>
 										</ul></li>
 								</ul>
 							</div>
 							<!-- /.navbar-collapse -->
 						</div>
-						<!-- /.container-fluid -->
+						<!-- /.container-fluid --> 
 					</nav>
 				</div>
 			</div>

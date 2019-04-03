@@ -21,14 +21,23 @@ public class CalendarController {
 		return new CalendarCommand();
 	}
 	
-	@RequestMapping(value="/main/write.do", method=RequestMethod.GET)
+	@RequestMapping(value="/calendar/registerPlan.do", method=RequestMethod.GET)
+	public String registerPlanForm() {
+		return "calendar/registerPlanForm";
+	}
+	@RequestMapping(value="/calendar/registerPlan.do", method=RequestMethod.POST)
+	public String registerPlan() {
+		return "calendar/registerPlan";
+	}	
+	
+	@RequestMapping(value="/calendar/write.do", method=RequestMethod.GET)
 	public String form() {
-		return "writeForm";
+		return "calendar/writeForm";
 	}
 	
-	@RequestMapping(value="/main/write.do", method=RequestMethod.POST)
+	@RequestMapping(value="/calendar/write.do", method=RequestMethod.POST)
 	public String submit(@ModelAttribute("command") CalendarCommand calendarCommand) {
 		calendarService.insert(calendarCommand);
-		return "redirect:/main/main.do";
+		return "redirect:/calendar/registerPlanForm.do";
 	}
 }

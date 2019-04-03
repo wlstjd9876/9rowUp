@@ -28,11 +28,11 @@ public class ScheduleDetailController {
 	}
 	
 	//======ÀÏÁ¤ »ó¼¼ µî·Ï Æû======//
-	@RequestMapping(value="/main/writeDetail.do", method=RequestMethod.GET)
+	@RequestMapping(value="/calendar/writeDetail.do", method=RequestMethod.GET)
 	public String formDetail() {
-		return "writeDetailForm";
+		return "/calendar/writeDetailForm";
 	}
-	@RequestMapping(value="/main/writeDetail.do", method=RequestMethod.POST)
+	@RequestMapping(value="/calendar/writeDetail.do", method=RequestMethod.POST)
 	public String submitDetail(@ModelAttribute("command") ScheduleDetailCommand scheduleDetailCommand) {
 		if(log.isDebugEnabled()) {
 			log.debug("<<scheduleDetailCommand>> : " + scheduleDetailCommand);
@@ -40,7 +40,7 @@ public class ScheduleDetailController {
 		
 		scheduleService.insertDetail(scheduleDetailCommand);
 		
-		return "redirect:/main/main.do";
+		return "redirect:/calendar/registerPlanForm.do";
 	}
 	
 	//======ÆË¾÷ Æû======//

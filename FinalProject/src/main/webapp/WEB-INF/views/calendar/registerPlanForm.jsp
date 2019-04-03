@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>test</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/js/fullcalendar.css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/js/fullcalendar.min.css" />
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
@@ -40,7 +35,7 @@ $(document).ready(function() {
                 registerBtn:{
                     text: '일정등록',
                     click: function(url) {
-                        location.href = '${pageContext.request.contextPath}/main/writeDetail.do';
+                        location.href = '${pageContext.request.contextPath}/calendar/writeDetail.do';
                     }
                 },
                 addDayBtn:{
@@ -130,11 +125,7 @@ $(document).ready(function() {
         height:600px;
     }
 </style>
-</head>
-<body>
 <div id="calendar"></div>
 <div>
     <input type="button" value="일정상세등록" name="registerDetail" id="registerDetail" onclick="location.href='write.do'">
 </div>
-</body>
-</html>

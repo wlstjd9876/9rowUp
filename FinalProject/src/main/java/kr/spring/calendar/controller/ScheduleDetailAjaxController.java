@@ -18,7 +18,7 @@ public class ScheduleDetailAjaxController {
 	@Resource
 	private ScheduleService scheduleService;
 	
-	@RequestMapping("/main/scheduleAll.do")
+	@RequestMapping("/calendar/scheduleAll.do")
 	@ResponseBody
 	public Map<String, Object> getSchedule(){
 		Map<String, Object> map = new HashMap<String, Object>();
