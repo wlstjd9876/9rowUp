@@ -9,4 +9,4 @@
 		<put-attribute name="title" value="일정관리" />
 		<put-attribute name="body" value="/WEB-INF/views/calendar/registerPlanForm.jsp" />
 	</definition> 
-</tiles-definitions>
+</tiles-definitions>  
