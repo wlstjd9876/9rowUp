@@ -6,12 +6,17 @@ $.fn.toggleState = function(b) {
 };
 
 $(document).ready(function() {
+	var pageBlock = 5;
 	var container = $(".container");
 	var boxContainer = $(".search-box-container");
 	var submit = $(".submit");
 	var searchBox = $(".search-box");
 	var response = $(".response");
 	var isOpen = false;
+	var target = document.getElementById("areacode");
+	var target2 = document.getElementById("sigungucode");
+	var value;
+	var keyword;
 	submit.on("mousedown", function(e) {
 		e.preventDefault();
 		boxContainer.toggleState(!isOpen);
@@ -35,68 +40,123 @@ $(document).ready(function() {
 	});
 	function handleRequest() {
 		// You could do an ajax request here...
-		var value = searchBox.val();
-		searchBox.val("");
+		value = searchBox.val();
+		searchBox.val('');
 		if (value.length > 0) {
+			keyword = value;
 			$('#output').empty();
+			$('.paging_button').empty();
 			response.text('Searching for "' + value + '" . . .');
 			response.animate({
 				opacity : 1
 			}, 300);
 			//=================검색 시작====================//
-			var target = document.getElementById("areacode");
-			var target2 = document.getElementById("sigungucode");
-			$.ajax({        
-				url: contextPath+'/searchAjax',
-				data:{areaCode:target.options[target.selectedIndex].value, sigunguCode:target2.options[target2.selectedIndex].value, keyword:value},
-				type: 'get',
-				dataType: 'json',
-				cache:false,
-				timeout:30000,
-				success: function(data){
-					response.animate({
-						opacity : 0
-					}, 300);
-					console.log(data);
-					var myItem = data.response.body.items.item;
-					var output = '';
-					output += '<div class="row align-center">';
-					if(myItem!=undefined){
-						for(var i=0; i<myItem.length; i++){
-							if(myItem[i].firstimage==undefined)
-								var image = contextPath+"/resources/img/data/No_Image_Available.jpg";
-							else
-								var image = myItem[i].firstimage;
-							console.log(myItem.length);
-							output += '<div class="col-sm-6 col-md-3 align-center padd-both">';
-							output += '	<div class="thumbnail">';
-							output += '		<img src="' + image + '" style="width: 100%; height: 300px;">';
-							output += '			<div class="caption">';
-							output += '				<h3 class="hn">'+myItem[i].title+'</h3>';
-							output += '				<h4 class="hn">'+myItem[i].addr1+'</h4>';
-							output += '				<p><a href="#" class="btn btn-primary hn">자세히 보기</a></p>';
-							output += '			</div>';
-							output += '	</div>';
-							output += '</div>';
-						}
-
-					}else{
-							output += '<h3 class="hn">검색 결과가 없습니다!</h3>';
-					}
-					output += '</div>';
-					$('#output').append(output); 
-				},
-				error: function(XMLHttpRequest, textStatus, errorThrown) { 
-					alert("Status: " + textStatus +"and "+ "Error: " + errorThrown); 
-				}  
-			});
-			//=================검색 끝=====================//
+			getItems(1, value);
 		}
+	};
 
-	}
+	function getItems(pageNo, value){
+		$.ajax({        
+			url: contextPath+'/searchAjax',
+			data:{areaCode:target.options[target.selectedIndex].value, sigunguCode:target2.options[target2.selectedIndex].value, keyword:value, pageNo:pageNo},
+			type: 'get',
+			dataType: 'json',
+			cache:false,
+			timeout:30000,
+			success: function(data){
+				response.animate({
+					opacity : 0
+				}, 300);
+				$('#output').empty();
+				$('.paging_button').empty();
+				console.log(data);
+				var myItem = data.response.body.items.item;
+				var myBody = data.response.body;
+
+				var output = '';
+				output += '<div class="row align-center">';
+				if(myItem!=undefined){
+					for(var i=0; i<myItem.length; i++){
+						if(myItem[i].firstimage==undefined)
+							var image = contextPath+"/resources/img/data/No_Image_Available.jpg";
+						else
+							var image = myItem[i].firstimage;
+						console.log(myItem.length);
+						output += '<div class="col-sm-6 col-md-3 align-center padd-both">';
+						output += '	<div class="thumbnail">';
+						output += '		<img src="' + image + '" style="width: 100%; height: 300px;">';
+						output += '			<div class="caption">';
+						output += '				<h3 class="hn">'+myItem[i].title+'</h3>';
+						output += '				<h4 class="hn">'+myItem[i].addr1+'</h4>';
+						output += '				<p><a href="#" class="btn btn-primary hn">자세히 보기</a></p>';
+						output += '			</div>';
+						output += '	</div>';
+						output += '</div>';
+					}
+					var totalPage = Math.ceil(myBody.totalCount/myBody.numOfRows);
+
+					if(myBody.pageNo == undefined || myBody.pageNo == ''){
+						myBody.pageNo = 1;
+					}
+
+					//현재 페이지가 전체 페이지 수보다 크면 전체 페이지 수로 설정
+					if(myBody.pageNo > totalPage){
+						myBody.pageNo = totalPage;
+					}
+
+					var startPage = Math.floor((myBody.pageNo-1)/pageBlock)*pageBlock + 1;
+					var endPage = startPage + pageBlock -1;
+
+					//마지막 페이지가 전체 페이지 수보다 크면 전체 페이지 수로 설정
+					if(endPage > totalPage){
+						endPage = totalPage;
+					}
+					var add = '';
+
+					if(startPage>pageBlock){
+						add += '<li data-page='+(startPage-1)+' class="hn">Prev</li>'; 
+					}
+
+					for(var i=startPage;i<=endPage;i++){
+						if(i!=pageNo)
+							add += '<li data-page='+i+' class="myButton">'+i+'</li>';
+						else
+							add += '<li data-page='+i+' class="myButton selbtn">'+i+'</li>';
+					}
+
+					if(endPage < totalPage){
+						add += '<li data-page='+(startPage+pageBlock)+' class="hn">Next</li>';
+					}
+					$('.paging_button').append(add);
+
+				}else{
+					output += '<h3 class="hn">검색 결과가 없습니다!</h3>';
+				}
+				output += '</div>';
+				$('#output').append(output);
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) { 
+				alert("Status: " + textStatus +"and "+ "Error: " + errorThrown); 
+			}  
+		});
+	};
+
+//	=================검색 끝=====================//
+
+//	페이지 버튼 이벤트 연결
+	$(document).on('click', '.paging_button li', function(){
+		alert(value);
+		//페이지 번호를 읽어들임
+		currentPage = $(this).attr('data-page');
+		//목록호출
+		getItems(currentPage,keyword);
+	});
 
 });
+
 //================== 서치 끝 ======================//
+//================== 디테일=======================//
+//================== 디테일=======================//
 //==================셀렉 시작======================//
 
 function doChange(srcE){

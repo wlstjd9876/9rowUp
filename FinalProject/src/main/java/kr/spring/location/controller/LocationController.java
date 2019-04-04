@@ -43,6 +43,7 @@ public class LocationController{
 	public String search_form() {
 		return "data/location/list";
 	}
+	
 	/*  //자바빈(커맨드 객체) 초기화
 	   @ModelAttribute("command")
 	   public LocationCommand initCommand() {

@@ -7,6 +7,18 @@
 <link
 	href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
 	rel='stylesheet' type='text/css'>
+<style type="text/css">
+ul {
+	text-align:center;
+	overflow: hidden;
+	list-style: none;
+}
+
+ul li {
+	display:inline-block;
+	cursor: pointer;
+}
+</style>
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script
@@ -70,6 +82,9 @@ var contextPath = "${pageContext.request.contextPath }";
 			</div>
 		</div>
 		<div id="output"></div>
+		<div class="align-center">
+			<ul class="paging_button"></ul>
+		</div>
 	</div>
 </body>
 </html>

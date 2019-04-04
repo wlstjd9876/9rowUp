@@ -26,14 +26,13 @@ public class SearchAjax extends HttpServlet {
 		if(areaCode.equals("0"))
 			areaCode = "";
 		String sigunguCode = request.getParameter("sigunguCode");
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@"+sigunguCode);
 		if(sigunguCode.equals("0"))
 			sigunguCode = "";
 		String addr = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?serviceKey=";
 		String serviceKey = "PlO%2FeztroiuGsBUdEcH7R8xs9XHSTjrBBQJmeQCOKFMqRn1pvIsF8urJ8mw3OaDFgWZkzhZYLzXrjHD%2FFcekNA%3D%3D";
 		String parameter = "";
 		PrintWriter out = response.getWriter();
-		parameter = parameter + "&" + "pageNo=1&numOfRows=4";
+		parameter = parameter + "&" + "pageNo="+request.getParameter("pageNo")+"&numOfRows=12";
 		parameter = parameter + "&" + "listYN=Y";
 		parameter = parameter + "&" + "arrange=A";
 		parameter = parameter + "&" + "MobileOS=ETC";
