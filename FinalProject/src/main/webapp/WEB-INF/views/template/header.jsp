@@ -25,7 +25,7 @@
 					<div class="logo" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 							<!-- <img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/logo.png" alt="" /> -->
 							<!-- Heading -->
-							<h1>Trips Come True</h1>
+							<h1 style="cursor: pointer;">Trips Come True</h1>
 							<!-- Paragraph -->
 							<p>상상 속 여행을 현실로</p>
 						</div>
