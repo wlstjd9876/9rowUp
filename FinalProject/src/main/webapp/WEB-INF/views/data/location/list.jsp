@@ -8,13 +8,13 @@
 	href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
 	rel='stylesheet' type='text/css'>
 <style type="text/css">
-ul {
+ul.paging_button {
 	text-align:center;
 	overflow: hidden;
 	list-style: none;
 }
 
-ul li {
+ul li.paging_btn {
 	display:inline-block;
 	cursor: pointer;
 }

@@ -114,18 +114,18 @@ $(document).ready(function() {
 					var add = '';
 
 					if(startPage>pageBlock){
-						add += '<li data-page='+(startPage-1)+' class="hn">Prev</li>'; 
+						add += '<li data-page='+(startPage-1)+' class="paging_btn hn">Prev</li>'; 
 					}
 
 					for(var i=startPage;i<=endPage;i++){
 						if(i!=pageNo)
-							add += '<li data-page='+i+' class="myButton">'+i+'</li>';
+							add += '<li data-page='+i+' class="paging_btn myButton">'+i+'</li>';
 						else
-							add += '<li data-page='+i+' class="myButton selbtn">'+i+'</li>';
+							add += '<li data-page='+i+' class="paging_btn myButton selbtn">'+i+'</li>';
 					}
 
 					if(endPage < totalPage){
-						add += '<li data-page='+(startPage+pageBlock)+' class="hn">Next</li>';
+						add += '<li data-page='+(startPage+pageBlock)+' class="paging_btn hn">Next</li>';
 					}
 					$('.paging_button').append(add);
 
@@ -145,7 +145,6 @@ $(document).ready(function() {
 
 //	페이지 버튼 이벤트 연결
 	$(document).on('click', '.paging_button li', function(){
-		alert(value);
 		//페이지 번호를 읽어들임
 		currentPage = $(this).attr('data-page');
 		//목록호출

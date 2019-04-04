@@ -123,7 +123,6 @@ h1 {
 }
 .myButton:active {
 	position:relative;
-	background-color:transparent;
 	top:1px;
 }
 
