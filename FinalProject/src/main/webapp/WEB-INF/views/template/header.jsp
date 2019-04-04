@@ -10,119 +10,28 @@
 	<div class="header">
 		<div class="container">
 			<!-- 현호야 여기봐 -->
-			<div class="header-top">
+			
 				<div class="row">
-					<div class="col-md-4 col-sm-4">
-						<!-- Header top left content contact -->
-						<div class="header-contact">
-							<!-- Contact number -->
-							<span><i class="fa fa-phone red"></i> 010-XXXX-XXXX</span>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<!-- Button Kart -->
-						<ul class="nav navbar-nav navbar-right nav-ex">
-							<c:if test="${empty user_email}">
-								<li><a
-									href="${pageContext.request.contextPath}/member/write.do">회원가입</a></li>
-								<li><a
-									href="${pageContext.request.contextPath}/member/login.do">로그인</a></li>
-							</c:if>
-							<c:if test="${!empty user_email && user_auth !=3}">
-						</ul>
-						<div class="btn-cart-md">
-							<a class="cart-link" href="#"> <!-- Image --> <c:if
-									test="${user_gender==1}">
-									<img class="img-responsive"
-										src="${pageContext.request.contextPath}/resources/img/icon/boy.png"
-										alt="" />
-								</c:if> <c:if test="${user_gender==2}">
-									<img class="img-responsive"
-										src="${pageContext.request.contextPath}/resources/img/icon/girl.png"
-										alt="" />
-								</c:if> <!-- Heading --> <span>${user_nickname}님 반가워요! <c:if
-										test="${!empty user_email && user_auth == 0}">(관리자)</c:if> <c:if
-										test="${!empty user_email && user_auth == 1}">(스태프)</c:if></span> <c:if
-									test="${0<=user_score && user_score<10}">
-									<img class="img-responsive"
-										src="${pageContext.request.contextPath}/resources/img/icon/bronze.png">
-								</c:if> <c:if test="${10<=user_score && user_score<50}">
-									<img class="img-responsive"
-										src="${pageContext.request.contextPath}/resources/img/icon/silver.png">
-								</c:if> <c:if test="${50<=user_score && user_score<100}">
-									<img class="img-responsive"
-										src="${pageContext.request.contextPath}/resources/img/icon/gold.png">
-								</c:if> <c:if test="${100<=user_score && user_score<250}">
-									<img class="img-responsive"
-										src="${pageContext.request.contextPath}/resources/img/icon/platinum.png">
-								</c:if> <c:if test="${250<=user_score}">
-									<img class="img-responsive"
-										src="${pageContext.request.contextPath}/resources/img/icon/diamond.png">
-								</c:if>
-								<h4>하단메뉴</h4>
-								<div class="clearfix"></div>
-							</a>
-							<ul class="cart-dropdown" role="menu">
-								<li>
-									<!-- Cart items for shopping list -->
-									<div class="cart-item">
-										<!-- Image -->
-										<img class="img-responsive img-rounded"
-											src="${pageContext.request.contextPath}/resources/img/icon/loupe.png"
-											alt="" />
-										<!-- Title for purchase item -->
-										<span class="cart-title"><a
-											href="${pageContext.request.contextPath}/member/detail.do">회원님의
-												상세정보</a></span>
-										<!-- Cart item price -->
-										<div class="clearfix"></div>
-									</div>
-								</li>
-								<li>
-									<!-- Cart items for shopping list -->
-									<div class="cart-item">
-										<!-- Image -->
-										<img class="img-responsive img-rounded"
-											src="${pageContext.request.contextPath}/resources/img/icon/key.png"
-											alt="" />
-										<!-- Title for purchase item -->
-										<span class="cart-title"> <a
-											href="${pageContext.request.contextPath}/member/changePassword.do">비밀번호
-												변경</a></span>
-										<!-- Cart item price -->
-										<div class="clearfix"></div>
-									</div>
-								</li>
-								<!-- Cart items for shopping list -->
-								<div class="cart-item">
-									<a class="btn btn-danger" data-toggle="modal"
-										href="${pageContext.request.contextPath}/member/logout.do">
-										로그아웃 </a>
-								</div>
-								</li>
-							</ul>
-							</c:if>
-							<div class="clearfix"></div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
+				
+					
+				</div>  
 			</div>
 			<!-- 현호야 여기d -->
 			<div class="row">
-				<div class="col-md-4 col-sm-5">
+				<div class="col-md-1 col-sm-1">
+				</div>
+				<div class="col-md-2 col-sm-2">
 					<!-- Link -->
-					<a href="${pageContext.request.contextPath}/main/main.do"> <!-- Logo area -->
-						<div class="logo">
+					<div class="logo" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 							<!-- <img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/logo.png" alt="" /> -->
 							<!-- Heading -->
 							<h1>Trips Come True</h1>
 							<!-- Paragraph -->
 							<p>상상 속 여행을 현실로</p>
 						</div>
-					</a>
 				</div>
-				<div class="col-md-8 col-sm-7">
+			
+				<div class="col-md-6 col-sm-6">
 					<!-- Navigation -->
 					<nav class="navbar navbar-default navbar-right" role="navigation">
 						<div class="container-fluid">
@@ -148,7 +57,6 @@
 									</a>
 										<ul class="dropdown-menu">
 											<li><a href="menu.html">스태프</a></li>
-											<li><a href="menu.html"></a></li>
 											<li><a href="menu.html">Special Menu</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -158,7 +66,6 @@
 											class="caret"></b></a>
 										<ul class="dropdown-menu">
 											<li><a href="menu.html">스태프</a></li>
-											<li><a href="menu.html"></a></li>
 											<li><a href="menu.html">Special Menu</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -207,7 +114,96 @@
 						<!-- /.container-fluid --> 
 					</nav>
 				</div>
-			</div>
+				<div class="col-md-2 col-sm-2" align="center">
+				<div style="margin-top: 30px; " align="center">
+						<!-- Button Kart -->
+						<ul class="nav navbar-nav navbar-right nav-ex">
+							<c:if test="${empty user_email}">
+								<li><a
+									href="${pageContext.request.contextPath}/member/write.do">회원가입</a></li>
+								<li><a
+									href="${pageContext.request.contextPath}/member/login.do">로그인</a></li>
+							</c:if>
+							
+						</ul>
+						<c:if test="${!empty user_email && user_auth !=3}">
+						<div class="btn-cart-md">
+							<a class="cart-link" href="#"> <!-- Image --> <c:if
+									test="${user_gender==1}">
+									<img class="img-responsive"
+										src="${pageContext.request.contextPath}/resources/img/icon/boy.png"
+										alt="" />
+								</c:if> <c:if test="${user_gender==2}">
+									<img class="img-responsive"
+										src="${pageContext.request.contextPath}/resources/img/icon/girl.png"
+										alt="" />
+								</c:if> <!-- Heading --> <span>${user_nickname}님 반가워요! <c:if
+										test="${!empty user_email && user_auth == 0}">(관리자)</c:if> <c:if
+										test="${!empty user_email && user_auth == 1}">(스태프)</c:if></span> <c:if
+									test="${0<=user_score && user_score<10}">
+									<img class="img-responsive"
+										src="${pageContext.request.contextPath}/resources/img/icon/bronze.png">
+								</c:if> <c:if test="${10<=user_score && user_score<50}">
+									<img class="img-responsive"
+										src="${pageContext.request.contextPath}/resources/img/icon/silver.png">
+								</c:if> <c:if test="${50<=user_score && user_score<100}">
+									<img class="img-responsive"
+										src="${pageContext.request.contextPath}/resources/img/icon/gold.png">
+								</c:if> <c:if test="${100<=user_score && user_score<250}">
+									<img class="img-responsive"
+										src="${pageContext.request.contextPath}/resources/img/icon/platinum.png">
+								</c:if> <c:if test="${250<=user_score}">
+									<img class="img-responsive"
+										src="${pageContext.request.contextPath}/resources/img/icon/diamond.png">
+								</c:if>
+								하단메뉴
+							</a>
+							<ul class="cart-dropdown" role="menu">
+								<li>
+									<!-- Cart items for shopping list -->
+									<div class="cart-item">
+										<!-- Image -->
+										<img class="img-responsive img-rounded"
+											src="${pageContext.request.contextPath}/resources/img/icon/loupe.png"
+											alt="" />
+										<!-- Title for purchase item -->
+										<span class="cart-title"><a
+											href="${pageContext.request.contextPath}/member/detail.do">회원님의
+												상세정보</a></span>
+										<!-- Cart item price -->
+										<div class="clearfix"></div>
+									</div>
+								</li>
+								<li>
+									<!-- Cart items for shopping list -->
+									<div class="cart-item">
+										<!-- Image -->
+										<img class="img-responsive img-rounded"
+											src="${pageContext.request.contextPath}/resources/img/icon/key.png"
+											alt="" />
+										<!-- Title for purchase item -->
+										<span class="cart-title"> <a
+											href="${pageContext.request.contextPath}/member/changePassword.do">비밀번호
+												변경</a></span>
+										<!-- Cart item price -->
+										<div class="clearfix"></div>
+									</div>
+								</li>
+								<!-- Cart items for shopping list -->
+								<li class="cart-item">
+									<a class="btn btn-danger" data-toggle="modal"
+										href="${pageContext.request.contextPath}/member/logout.do">
+										로그아웃 </a>
+								</li>
+							</ul>
+							
+							<div class="clearfix"></div>
+						</div>
+						</c:if>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div class="col-md-1 col-sm-1"></div>
 		</div>
 		<!-- / .container -->
 	</div>

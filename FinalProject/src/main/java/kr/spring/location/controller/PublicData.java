@@ -29,8 +29,8 @@ public class PublicData extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		parameter = parameter + "&" + "mapX="+request.getParameter("lon");
 		parameter = parameter + "&" + "mapY="+request.getParameter("lat");
-		parameter = parameter + "&" + "radius=5000";
-		parameter = parameter + "&" + "pageNo=1&numOfRows=10";
+		parameter = parameter + "&" + "radius=3000";
+		parameter = parameter + "&" + "pageNo=1&numOfRows=100";
 		parameter = parameter + "&" + "listYN=Y";
 		parameter = parameter + "&" + "arrange=A";
 		parameter = parameter + "&" + "MobileOS=ETC";
@@ -65,4 +65,6 @@ public class PublicData extends HttpServlet {
 		System.out.println("json: "+json);
 		
 	}
+	
+	
 }
