@@ -88,7 +88,7 @@ $(document).ready(function() {
 						output += '			<div class="caption">';
 						output += '				<h3 class="hn">'+myItem[i].title+'</h3>';
 						output += '				<h4 class="hn">'+myItem[i].addr1+'</h4>';
-						output += '				<p><a href="#" class="btn btn-primary hn">자세히 보기</a></p>';
+						output += '				<p><a href="'+contextPath+'/data/location/view.do?contentId='+myItem[i].contentid+'" class="btn btn-primary hn">자세히 보기</a></p>';
 						output += '			</div>';
 						output += '	</div>';
 						output += '</div>';
