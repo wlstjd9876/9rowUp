@@ -10,49 +10,29 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.spring.calendar.domain.CalendarCommand;
-import kr.spring.calendar.service.CalendarService;
+import kr.spring.calendar.domain.CalendarDetailCommand;
+import kr.spring.calendar.service.CalendarService;;
 
 @Controller
 public class CalendarAjaxController {
 	@Resource
 	private CalendarService calendarService;
 	
-	@RequestMapping("/main/eventAll.do")
+	@RequestMapping("/calendar/scheduleAll.do")
 	@ResponseBody
-	public Map<String, Object> getCal(){
+	public Map<String, Object> getSchedule(){
 		Map<String, Object> map = new HashMap<String, Object>();
 		
-		List<CalendarCommand> list = null;
-		list = calendarService.selectCal(map);
+		List<CalendarDetailCommand> list = null;
+		list = calendarService.selectDetailList(map);
 		
-		CalendarCommand cal = new CalendarCommand();
+		CalendarDetailCommand detail = new CalendarDetailCommand();
 		
 		Map<String, Object> mapJson = new HashMap<String, Object>();
 		mapJson.put("list", list);
-		mapJson.put("reg_date", cal.getReg_date());
-		
+		mapJson.put("day", detail.getSd_day());
+		mapJson.put("starttime", detail.getSd_starttime());
+		mapJson.put("endtime", detail.getSd_endtime());
 		return mapJson;
 	}
 }
-
-/*
-	$.ajax({
-		url: 'eventAll.do',
-		type : 'post',
-		data : {},
-		dataType: 'json',
-		success: function(data) {
-			var events = [];
-			var list = data.list;
-			$(list).each(function(index, item) {
-				events.push({
-					title: item.title,
-					start: item.reg_date,
-					end: '2019-04-02T20:30:00'
-				});
-			});
-			callback(events);
-		}
-	});
-*/
