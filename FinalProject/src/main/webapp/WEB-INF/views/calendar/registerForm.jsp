@@ -160,9 +160,10 @@ $(document).ready(function() {
 		<div id='external-events'>
 			<h4>즐겨찾기한 장소</h4>
 				<!-- 반복문 -->
-				<c:forEach var="fav" items="${list}">
-				<div class='fc-event'>${fav.f_num}|<c:if test="${fav.f_category == 1}">장소</c:if><c:if test="${fav.f_category == 2}">일정</c:if><c:if test="${fav.f_category == 3}">회원</c:if>|${fav.f_code}</div>
-				</c:forEach>			
+				
+				<c:forEach var="fav" items="${list1}">
+				<div class='fc-event'>${fav.f_num}|<c:if test="${fav.f_category == 1}">장소</c:if><c:if test="${fav.f_category == 2}">일정</c:if><c:if test="${fav.f_category == 3}">회원</c:if>|${fav.f_code1}</div>
+				</c:forEach>		
 			
 			<!-- <div class='fc-event'>My Event 1</div>
 			<div class='fc-event'>My Event 2</div>

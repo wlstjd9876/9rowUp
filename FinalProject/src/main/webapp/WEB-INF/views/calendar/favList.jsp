@@ -11,7 +11,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/placeModal.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/scheduleModal.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/memberModal.js"></script>
-
+	
 <style>
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 
@@ -30,7 +30,9 @@
          src="${pageContext.request.contextPath}/resources/img/placeholder.png">
       <h3 style="background-color: #d1d2d3;" align="center">즐겨찾기한 장소</h3>
       <br>
+     
       <c:forEach var="fav" items="${list1}" begin="0" end="3">
+
          <div class="w3-card-4 w3-margin" align="center" style="width: 90%">
             <div class="w3-container">
                <div style="width: 25%; height: 12%; float: left;">

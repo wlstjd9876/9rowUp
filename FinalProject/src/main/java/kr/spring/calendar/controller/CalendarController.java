@@ -18,6 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.calendar.domain.CalendarCommand;
 import kr.spring.calendar.service.CalendarService;
+import kr.spring.fav.domain.FavoriteCommand;
+import kr.spring.fav.service.FavoriteService;
 import kr.spring.util.PagingUtil;
 
 @Controller
@@ -28,8 +30,18 @@ public class CalendarController {
 	private int pageCount = 10;
 	
 	@Resource
+	private FavoriteService favoriteService;
+	
+	@Resource
 	private CalendarService calendarService;
 	
+	
+
+	@ModelAttribute("command")
+	public FavoriteCommand initCommand1() {
+		return new FavoriteCommand();
+	}
+
 	//자바빈(커맨드 객체) 초기화
 	@ModelAttribute("calendarCommand")
 	public CalendarCommand initCommand() {
@@ -45,7 +57,15 @@ public class CalendarController {
 		CalendarCommand command = new CalendarCommand();
 		command.setEmail(email);
 		
+		List<FavoriteCommand> list1 = favoriteService.selectFav1();
+		List<FavoriteCommand> list2 = favoriteService.selectFav2();
+		List<FavoriteCommand> list3 = favoriteService.selectFav3();
+		System.out.println("==============" + list1);
+		
 		model.addAttribute("command", command);
+		model.addAttribute("list1", list1);
+		model.addAttribute("list2", list2);
+		model.addAttribute("list3", list3);
 		
 		return "calendarRegisterForm";
 	}
