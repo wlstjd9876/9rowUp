@@ -56,7 +56,7 @@
 											The Trip <b class="caret"></b>
 									</a>
 										<ul class="dropdown-menu">
-											<li><a href="menu.html">스태프</a></li>
+											<li><a href="menu.html">공유해요</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
@@ -64,7 +64,7 @@
 											class="img-responsive" alt="" /> Show Me The Trip <b
 											class="caret"></b></a>
 										<ul class="dropdown-menu">
-											<li><a href="menu.html">스태프</a></li>
+											<li><a href="menu.html">공유해요</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
@@ -84,10 +84,11 @@
 										<ul class="dropdown-menu">
 											<li><a
 												href="${pageContext.request.contextPath}/data/location/list.do">관광지
-													정보</a></li>
+													정보 상세보기</a></li>
 											<li><a
-												href="${pageContext.request.contextPath}/data/location.do">은성이
-													관광지 연습이요</a></li>
+												href="${pageContext.request.contextPath}/data/location.do">지도별 관관지 정보</a></li>
+											<li><a
+												href="#">통계 보기</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#"
 										class="dropdown-toggle" data-toggle="dropdown"><img
