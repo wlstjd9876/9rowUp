@@ -10,4 +10,5 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/data/location/list.jsp" />
 	</definition>
+
 </tiles-definitions>		

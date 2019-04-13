@@ -88,7 +88,7 @@
 											<li><a
 												href="${pageContext.request.contextPath}/data/location.do">지도별 관관지 정보</a></li>
 											<li><a
-												href="#">통계 보기</a></li>
+												href="${pageContext.request.contextPath}/data/chart.do">통계 보기</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#"
 										class="dropdown-toggle" data-toggle="dropdown"><img
