@@ -58,7 +58,11 @@
 			</div>
 			<div class="col-md-6">
 				<!-- 지도 -->
-				<div id="map" style="width:555px;height:462px;"></div>
+				<div id="map" style="width:555px;height:462px;">
+				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=073c048326b3580b4c7257b8e804ee6b&libraries=services"></script>
+				<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/LineMap.js"></script>
+				<div id="map" style="width:100%;height:350px;"></div> 
+				</div>
 			</div>
 		</div>
 		<div class="form-group col-md-12">
