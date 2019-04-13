@@ -57,7 +57,6 @@
 									</a>
 										<ul class="dropdown-menu">
 											<li><a href="menu.html">스태프</a></li>
-											<li><a href="menu.html">Special Menu</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
@@ -66,7 +65,6 @@
 											class="caret"></b></a>
 										<ul class="dropdown-menu">
 											<li><a href="menu.html">스태프</a></li>
-											<li><a href="menu.html">Special Menu</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
@@ -77,7 +75,6 @@
 											<li><a
 												href="${pageContext.request.contextPath}/advice/adviceList.do">조언
 													구해요</a></li>
-											<li><a href="0-base.html">Blank Page</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
@@ -91,12 +88,6 @@
 											<li><a
 												href="${pageContext.request.contextPath}/data/location.do">은성이
 													관광지 연습이요</a></li>
-											<li><a href="blog.html">Blog</a></li>
-											<li><a href="blog-single.html">Blog Single</a></li>
-											<li><a href="components.html">Components</a></li>
-											<li><a href="general.html">General</a></li>
-											<li><a href="nutrition-info.html">Nutrition Info</a></li>
-											<li><a href="recipe.html">Recipes</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#"
 										class="dropdown-toggle" data-toggle="dropdown"><img
