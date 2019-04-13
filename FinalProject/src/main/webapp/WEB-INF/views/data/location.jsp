@@ -68,6 +68,9 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=073c048326b3580b4c7257b8e804ee6b&libraries=services"></script>
 <!-- public.js ->관관지 정보를 불러오는 js 입니다. -->
 <%-- <script src="${pageContext.request.contextPath}/resources/js/public.js"></script> --%>
+<script type="text/javascript">
+ var context = "${pageContext.request.contextPath}";
+</script>
 </head>
 <body>
 <!-- 
@@ -94,7 +97,6 @@
     </div>
 </div>
 <div>
-
 <script src="${pageContext.request.contextPath}/resources/js/map.js"></script>
 </div>
 </div>

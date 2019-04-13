@@ -56,8 +56,7 @@
 											The Trip <b class="caret"></b>
 									</a>
 										<ul class="dropdown-menu">
-											<li><a href="menu.html">스태프</a></li>
-											<li><a href="menu.html">Special Menu</a></li>
+											<li><a href="menu.html">공유해요</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
@@ -65,8 +64,7 @@
 											class="img-responsive" alt="" /> Show Me The Trip <b
 											class="caret"></b></a>
 										<ul class="dropdown-menu">
-											<li><a href="menu.html">스태프</a></li>
-											<li><a href="menu.html">Special Menu</a></li>
+											<li><a href="menu.html">공유해요</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
@@ -77,7 +75,6 @@
 											<li><a
 												href="${pageContext.request.contextPath}/advice/adviceList.do">조언
 													구해요</a></li>
-											<li><a href="0-base.html">Blank Page</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
@@ -87,25 +84,21 @@
 										<ul class="dropdown-menu">
 											<li><a
 												href="${pageContext.request.contextPath}/data/location/list.do">관광지
-													정보</a></li>
+													정보 상세보기</a></li>
 											<li><a
-												href="${pageContext.request.contextPath}/data/location.do">은성이
-													관광지 연습이요</a></li>
-											<li><a href="blog.html">Blog</a></li>
-											<li><a href="blog-single.html">Blog Single</a></li>
-											<li><a href="components.html">Components</a></li>
-											<li><a href="general.html">General</a></li>
-											<li><a href="nutrition-info.html">Nutrition Info</a></li>
-											<li><a href="recipe.html">Recipes</a></li>
+												href="${pageContext.request.contextPath}/data/location.do">지도별 관관지 정보</a></li>
+											<li><a
+												href="#">통계 보기</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#"
 										class="dropdown-toggle" data-toggle="dropdown"><img
 											src="${pageContext.request.contextPath}/resources/img/nav-menu/자전거.jpg"
 											class="img-responsive" alt="" /> My Planner <b class="caret"></b></a>
 										<ul class="dropdown-menu">
-																<li><a href="">나의 즐겨찾기</a></li>
-																<li><a href="menu.html">나의 꿈</a></li>
-																<li><a href="${pageContext.request.contextPath}/calendar/registerPlan.do">일정 바로 추가</a></li>
+																<li><a href="${pageContext.request.contextPath}/calendar/favList.do">나의 즐겨찾기</a></li>
+																<li><a href="${pageContext.request.contextPath}/calendar/registerPlan.do">일정보기</a></li>
+																<li><a href="${pageContext.request.contextPath}/calendar/finish.do">일정 바로 추가</a></li>
+																<li><a href="${pageContext.request.contextPath}/calendar/list.do">일정 목록</a></li>
 										</ul></li>
 								</ul>
 							</div>

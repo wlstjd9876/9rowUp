@@ -42,7 +42,8 @@
 <link rel="shortcut icon" href="#">
 <!-- Javascript files -->
 <!-- jQuery -->
-<script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
+<%-- <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script> --%>
 <!-- Bootstrap JS -->
 <script
 	src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>

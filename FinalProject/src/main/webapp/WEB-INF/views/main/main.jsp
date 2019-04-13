@@ -466,6 +466,7 @@
 							<!-- Image for menu item -->
 							<img class="menu-img img-responsive img-thumbnail"
 								src="${pageContext.request.contextPath}/resources/img/menu/나홀로여행.jpg"
+								style="height: 220px; width: 100%;"
 								alt="" />
 							<!-- Menu title / Heading -->
 							<h3>나홀로 여행</h3>
@@ -473,59 +474,59 @@
 							<div class="title-border br-red"></div>
 						</div>
 						<!-- Menu item details -->
-						<div class="menu-details br-red">
-							<!-- Menu list -->
+						<!-- <div class="menu-details br-red">
+							Menu list
 							<ul class="list-unstyled">
 								<li>
 									<div class="menu-list-item">
-										<!-- Icon -->
+										Icon
 										<i class="fa fa-angle-right"></i> <a href="#">Fish</a>
-										<!-- Price badge -->
+										Price badge
 										<span class="pull-right">$12</span>
 										<div class="clearfix"></div>
 									</div>
 								</li>
 								<li>
 									<div class="menu-list-item">
-										<!-- Icon -->
+										Icon
 										<i class="fa fa-angle-right"></i> <a href="#">Consequent</a>
-										<!-- Price badge -->
+										Price badge
 										<span class="pull-right">$9</span>
 										<div class="clearfix"></div>
 									</div>
 								</li>
 								<li>
 									<div class="menu-list-item">
-										<!-- Icon -->
+										Icon
 										<i class="fa fa-angle-right"></i> <a href="#">Praising
 											Pain</a>
-										<!-- Price badge -->
+										Price badge
 										<span class="pull-right">$19</span>
 										<div class="clearfix"></div>
 									</div>
 								</li>
 								<li>
 									<div class="menu-list-item">
-										<!-- Icon -->
+										Icon
 										<i class="fa fa-angle-right"></i> <a href="#">Exception
 											Tint</a>
-										<!-- Price badge -->
+										Price badge
 										<span class="pull-right">$6</span>
 										<div class="clearfix"></div>
 									</div>
 								</li>
 								<li>
 									<div class="menu-list-item">
-										<!-- Icon -->
+										Icon
 										<i class="fa fa-angle-right"></i> <a href="#">Laborious
 											Rhys</a>
-										<!-- Price badge -->
+										Price badge
 										<span class="pull-right">$29</span>
 										<div class="clearfix"></div>
 									</div>
 								</li>
 							</ul>
-						</div>
+						</div> -->
 						<!-- / Menu details end -->
 					</div>
 					<div class="col-md-4 col-sm-4">
@@ -534,68 +535,69 @@
 							<!-- Image for menu item -->
 							<img class="menu-img img-responsive img-thumbnail"
 								src="${pageContext.request.contextPath}/resources/img/menu/신혼여행.jpg"
+								style="height: 220px; width: 100%;"
 								alt="" />
 							<!-- Menu title / Heading -->
-							<h3>커플/신혼 여행</h3>
+							<h3>커플/신혼 여행 </h3>
 							<!-- Border for above heading -->
 							<div class="title-border br-green"></div>
 						</div>
 						<!-- Menu item details -->
-						<div class="menu-details br-green">
-							<!-- Menu list -->
+						<!-- <div class="menu-details br-green">
+							Menu list
 							<ul class="list-unstyled">
 								<li>
 									<div class="menu-list-item">
-										<!-- Icon -->
+										Icon
 										<i class="fa fa-angle-right"></i> <a href="#">Fried
 											Chicken</a>
-										<!-- Price badge -->
+										Price badge
 										<span class="pull-right">$29</span>
 										<div class="clearfix"></div>
 									</div>
 								</li>
 								<li>
 									<div class="menu-list-item">
-										<!-- Icon -->
+										Icon
 										<i class="fa fa-angle-right"></i> <a href="#">Chicken
 											Curie</a>
-										<!-- Price badge -->
+										Price badge
 										<span class="pull-right">$49</span>
 										<div class="clearfix"></div>
 									</div>
 								</li>
 								<li>
 									<div class="menu-list-item">
-										<!-- Icon -->
+										Icon
 										<i class="fa fa-angle-right"></i> <a href="#">Praising
 											Pain</a>
-										<!-- Price badge -->
+										Price badge
 										<span class="pull-right">$19</span>
 										<div class="clearfix"></div>
 									</div>
 								</li>
 								<li>
 									<div class="menu-list-item">
-										<!-- Icon -->
+										Icon
 										<i class="fa fa-angle-right"></i> <a href="#">Exception
 											Tint</a>
-										<!-- Price badge -->
+										Price badge
 										<span class="pull-right">$6</span>
 										<div class="clearfix"></div>
 									</div>
 								</li>
 								<li>
 									<div class="menu-list-item">
-										<!-- Icon -->
+										Icon
 										<i class="fa fa-angle-right"></i> <a href="#">Laborious
 											Rhys</a>
-										<!-- Price badge -->
+										Price badge
 										<span class="pull-right">$29</span>
 										<div class="clearfix"></div>
 									</div>
 								</li>
 							</ul>
-						</div>
+						</div> -->
 						<!-- / Menu details end -->
 					</div>
 					<div class="col-md-4 col-sm-4">
@@ -604,6 +606,7 @@
 							<!-- Image for menu item -->
 							<img class="menu-img img-responsive img-thumbnail"
 								src="${pageContext.request.contextPath}/resources/img/menu/친구.jpg"
+								style="height: 220px; width: 100%;"
 								alt="" />
 							<!-- Menu title / Heading -->
 							<h3>친구와 함께</h3>
@@ -611,59 +614,59 @@
 							<div class="title-border br-lblue"></div>
 						</div>
 						<!-- Menu item details -->
-						<div class="menu-details br-lblue">
-							<!-- Menu list -->
+						<!-- <div class="menu-details br-lblue">
+							Menu list
 							<ul class="list-unstyled">
 								<li>
 									<div class="menu-list-item">
-										<!-- Icon -->
+										Icon
 										<i class="fa fa-angle-right"></i> <a href="#">Choco Nuts</a>
-										<!-- Price badge -->
+										Price badge
 										<span class="pull-right">$2</span>
 										<div class="clearfix"></div>
 									</div>
 								</li>
 								<li>
 									<div class="menu-list-item">
-										<!-- Icon -->
+										Icon
 										<i class="fa fa-angle-right"></i> <a href="#">Venial Cup</a>
-										<!-- Price badge -->
+										Price badge
 										<span class="pull-right">$4</span>
 										<div class="clearfix"></div>
 									</div>
 								</li>
 								<li>
 									<div class="menu-list-item">
-										<!-- Icon -->
+										Icon
 										<i class="fa fa-angle-right"></i> <a href="#">Praising
 											Pain</a>
-										<!-- Price badge -->
+										Price badge
 										<span class="pull-right">$9</span>
 										<div class="clearfix"></div>
 									</div>
 								</li>
 								<li>
 									<div class="menu-list-item">
-										<!-- Icon -->
+										Icon
 										<i class="fa fa-angle-right"></i> <a href="#">Exception
 											Tint</a>
-										<!-- Price badge -->
+										Price badge
 										<span class="pull-right">$6</span>
 										<div class="clearfix"></div>
 									</div>
 								</li>
 								<li>
 									<div class="menu-list-item">
-										<!-- Icon -->
+										Icon
 										<i class="fa fa-angle-right"></i> <a href="#">Laborious
 											Rhys</a>
-										<!-- Price badge -->
+										Price badge
 										<span class="pull-right">$5</span>
 										<div class="clearfix"></div>
 									</div>
 								</li>
 							</ul>
-						</div>
+						</div> -->
 						<!-- / Menu details end -->
 					</div>
 				</div>

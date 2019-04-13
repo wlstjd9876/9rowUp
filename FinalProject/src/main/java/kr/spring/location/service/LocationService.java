@@ -1,8 +1,11 @@
-/*package kr.spring.location.service;
+package kr.spring.location.service;
 
-import kr.spring.location.domain.LocationCommand;
+import java.util.Map;
+
+import kr.spring.fav.domain.FavoriteCommand;
 
 public interface LocationService {
-public void insert(LocationCommand location);
+
+public void insert(Map<String, Object> map);
+public FavoriteCommand select(Map<String, Object> map);
 }
-*/

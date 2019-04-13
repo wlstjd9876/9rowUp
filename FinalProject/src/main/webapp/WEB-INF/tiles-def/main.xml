@@ -17,6 +17,12 @@
     	<put-attribute name="footer" 
     	           value="/WEB-INF/views/template/footer.jsp"/>                                
     </definition>
+    
+     <!-- 팝업 -->
+    <definition name="popup" template="/WEB-INF/views/template/popuplayout.jsp">
+    	<put-attribute name="title" value="팝업"/>
+    	<put-attribute name="body" value="/WEB-INF/views/main/main.jsp"/> 
+    </definition>
 </tiles-definitions>
 
 

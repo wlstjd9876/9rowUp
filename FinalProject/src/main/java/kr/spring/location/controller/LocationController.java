@@ -43,6 +43,10 @@ public class LocationController{
 	public String search_form() {
 		return "data/location/list";
 	}
+	@RequestMapping(value="/data/location/view.do", method=RequestMethod.GET)
+	public String view_form() {
+		return "data/location/view";
+	}
 	
 	/*  //자바빈(커맨드 객체) 초기화
 	   @ModelAttribute("command")
