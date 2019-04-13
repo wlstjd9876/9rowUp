@@ -359,7 +359,7 @@
 			</div>
 			<!-- 버튼 -->
 			<div class="col-md-12" style="text-align: center;">
-				<input type="submit" value="등록" class="btn btn-default" onclick="loaction.href='registerPlan.do'">
+				<input type="submit" value="등록" class="btn btn-default" >
 				<input type="button" value="임시저장" class="btn btn-default" onclick="">
 			</div>
 		</form:form>

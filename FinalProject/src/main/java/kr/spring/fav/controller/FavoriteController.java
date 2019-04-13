@@ -45,7 +45,9 @@ public class FavoriteController {
 		List<FavoriteCommand> list1 = favoriteService.selectFav1();
 		List<FavoriteCommand> list2 = favoriteService.selectFav2();
 		List<FavoriteCommand> list3 = favoriteService.selectFav3();
-		System.out.println("==============" + list1);
+		System.out.println("==============1 : " + list1);
+		System.out.println("==============2 : " + list2);
+		System.out.println("==============3 : " + list3);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("favList"); //여기서 설정하는 이름은 definition 설정, jsp명이 아님!!

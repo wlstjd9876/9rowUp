@@ -39,14 +39,14 @@
 		<div class="col-md-6">
 			<h1 style="font-family: 'Courgette', cursive;"><b>Dream Of</b></h1>
 			<div>
-				<div class="form-group">
+		<!-- 		<div class="form-group">
 					<label class="checkbox-inline">
 						<input type="checkbox" name="s_finish" value="1">완성
 					</label>
 					<label class="checkbox-inline">
 						<input type="checkbox" name="s_finish" value="0">미완성
 					</label>
-				</div>
+				</div> -->
 				<table class="table table-center">
 					<tr>
 						<th>글번호</th>
@@ -94,6 +94,6 @@
 	</c:if>
 	</div>
 	<div class="row" style="text-align: center;">
-		<input type="button" value="일정등록" class="btn btn-default" onclick="location.href='registerPlan.do'">
+		<input type="button" value="일정등록" class="btn btn-default" onclick="location.href='finish.do'">
 	</div>
 </div>

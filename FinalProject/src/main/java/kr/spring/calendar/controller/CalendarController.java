@@ -37,10 +37,10 @@ public class CalendarController {
 	
 	
 
-	@ModelAttribute("command")
+	/*@ModelAttribute("command")
 	public FavoriteCommand initCommand1() {
 		return new FavoriteCommand();
-	}
+	}*/
 
 	//자바빈(커맨드 객체) 초기화
 	@ModelAttribute("calendarCommand")
@@ -52,6 +52,7 @@ public class CalendarController {
 	//일정 등록 달력 폼
 	@RequestMapping("/calendar/registerPlan.do")
 	public String registerForm(HttpSession session, Model model) {
+		
 		String email = (String)session.getAttribute("user_email");
 		
 		CalendarCommand command = new CalendarCommand();
@@ -76,7 +77,7 @@ public class CalendarController {
 		
 		CalendarCommand command = new CalendarCommand();
 		command.setEmail(email);
-		
+			
 		model.addAttribute("command", command);
 		
 		return "calendarRegisterDetailForm";
