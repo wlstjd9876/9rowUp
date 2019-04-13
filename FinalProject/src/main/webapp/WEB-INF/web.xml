@@ -36,6 +36,22 @@
     <servlet-name>SearchAjax</servlet-name>
     <url-pattern>/searchAjax</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>DetailFormAjax</servlet-name>
+    <servlet-class>kr.spring.location.controller.DetailAjax</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DetailFormAjax</servlet-name>
+    <url-pattern>/detailAjax</url-pattern>
+  </servlet-mapping>
+ <servlet>
+    <servlet-name>IntroAjax</servlet-name>
+    <servlet-class>kr.spring.location.controller.DetailIntroAjax</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IntroAjax</servlet-name>
+    <url-pattern>/introAjax</url-pattern>
+  </servlet-mapping>  
   <filter>
     <filter-name>encodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
