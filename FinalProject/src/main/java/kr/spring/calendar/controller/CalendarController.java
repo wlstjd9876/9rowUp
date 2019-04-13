@@ -102,6 +102,7 @@ public class CalendarController {
 		//총 글의 개수 또는 검색된 글의 개수
 		int count = calendarService.selectRowCount(map);
 		
+		System.out.println("카운트 @@@@ : " + count);
 		if(log.isDebugEnabled()) {
 			log.debug("<<count>> : " + count);
 		}
@@ -110,6 +111,8 @@ public class CalendarController {
 		PagingUtil page = new PagingUtil(keyfield, keyword, currentPage, count, rowCount, pageCount, "list.do");
 		map.put("start", page.getStartCount());
 		map.put("end", page.getEndCount());
+		
+		System.out.println("@@@@@@@@@@@@End : " + page.getEndCount() );
 		
 		List<CalendarCommand> list = null;
 		if(count > 0) {
@@ -121,7 +124,9 @@ public class CalendarController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("calendarList");
 		mav.addObject("count", count);
+		System.out.println("@@@@@@@@@@@? :" + count);
 		mav.addObject("list", list);
+		System.out.println("@@@@@@@@@@@" + list);
 		mav.addObject("finish", calendarService.selectCalendar(calendar.getS_finish()));
 		mav.addObject("pagingHtml", page.getPagingHtml());
 		

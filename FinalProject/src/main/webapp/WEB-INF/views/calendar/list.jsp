@@ -56,13 +56,13 @@
 						<th>완성/미완성</th>
 					</tr>
 					<c:forEach var="schedule" items="${list}">
-					<tr>
+				 <tr>
 						<td>${schedule.s_num}</td>
 						<td><a href="${pageContext.request.contextPath}/calendar/view.do?s_num=${schedule.s_num}">${schedule.s_title}</a></td>
 						<td>${schedule.s_startdate}</td>
 						<td>${schedule.s_share}</td>
 						<td>${schedule.s_finish}</td>
-					</tr>
+					</tr> 
 					</c:forEach>
 				</table>
 			</div>
