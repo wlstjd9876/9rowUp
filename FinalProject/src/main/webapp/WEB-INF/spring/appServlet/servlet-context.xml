@@ -29,7 +29,7 @@
 	<context:component-scan base-package="kr.spring.location.controller" />
 	<context:component-scan base-package="kr.spring.advice.controller" />
 	<context:component-scan base-package="kr.spring.calendar.controller" />
-	
+	<context:component-scan base-package="kr.spring.fav.controller" />
 	<!-- 데이터 작업이 없이 뷰 호출 - 메인페이지 -->
 	<view-controller path="/main/main.do" view-name="main"/>
 	
@@ -55,6 +55,7 @@
 				<beans:value>/WEB-INF/tiles-def/location.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/member.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/advice.xml</beans:value>
+				<beans:value>/WEB-INF/tiles-def/favorite.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
@@ -89,8 +90,8 @@
 		</interceptors>
 		
 		<!-- 암호화,복호화 알고리즘 처리 -->
-		<beans:bean id="cipherAES" class="kr.spring.util.CipherTemplate">
-			<beans:property name="algorithm" value="AES"/>
-			<beans:property name="secretKey" value="j8b8tex2allsotsqejukdi77l"/>
-		</beans:bean>
+		    <beans:bean id="cipherAES" class="kr.spring.util.CipherTemplate">
+      <beans:property name="algorithm" value="AES"/>                                         
+      <beans:property name="secretKey" value="qd6x1vtjck7nfq1rp053xv4jn"/>
+   </beans:bean>
 </beans:beans>

@@ -2,56 +2,78 @@
 <!DOCTYPE mapper   
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
-<mapper namespace="kr.spring.calendar.dao.CalendarMapper">  
-	<!-- id는 메서드명과 동일하게 -->
-	<!-- <select id="selectList" parameterType="map" resultType="memberCommand">
+<mapper namespace="kr.spring.calendar.dao.CalendarMapper">
+ 	
+ 	<!-- 일정 -->
+	<insert id="insert" parameterType="calendarCommand">
+		INSERT INTO schedule(
+ 		   s_num,
+ 		   s_title,
+ 		   s_share,
+ 		   s_finish,
+ 		   s_style,
+ 		   s_traffic,
+ 		   email,
+ 		   s_tag,
+ 		   s_startdate,
+ 		   s_enddate,
+ 		   s_content,
+ 		   s_photo1, s_photo2, s_photo3, s_photo4, s_photo5, s_photo6, s_photo7, s_photo8, s_photo9, s_photo10
+		) 
+ 		VALUES (
+ 		   schedule_seq.nextval,
+ 		   #{s_title},
+ 		   0,
+ 		   #{s_finish},
+ 		   0,
+ 		   0,
+ 		   #{email},
+ 		   #{s_tag},
+ 		   #{s_startdate},
+ 		   #{s_enddate},
+ 		   #{s_content},
+ 		   #{s_photo1}, #{s_photo2}, #{s_photo3}, #{s_photo4}, #{s_photo5}, #{s_photo6}, #{s_photo7}, #{s_photo8}, #{s_photo9}, #{s_photo10}
+ 		)
+	</insert>
+	
+	<select id="selectList" parameterType="map" resultType="calendarCommand">
 		SELECT 
 			*
-		FROM (SELECT
-				a.*,
+		FROM (SELECT 
+				a.*, 
 				rownum rnum
 			FROM (SELECT 
 					*
-				FROM spmember m LEFT OUTER JOIN spmember_detail d
-				ON m.id = d.id
+				FROM schedule s LEFT OUTER JOIN schedule_detail d
+				ON s.s_num = d.s_num
 				<where>
-					<if test="keyword != '' and keyfield == 'id'">
-						m.id LIKE '%' || #{keyword} || '%'
+					<if test="keyword != '' and keyfield == 's_title'">
+						s.s_title LIKE '%' || #{keyword} || '%'
 					</if>
-					<if test="keyword != '' and keyfield == 'name'">
-						d.name LIKE '%' || #{keyword} || '%'
-					</if>
-					<if test="keyword != '' and keyfield == 'email'">
-						d.email LIKE '%' || #{keyword} || '%'
-					</if>
-					<if test="keyword != '' and keyfield == 'all'">
-						m.id LIKE '%' || #{keyword} || '%' OR d.name LIKE '%' || #{keyword} || '%' OR d.email LIKE '%' || #{keyword} || '%'
+					<if test="keyword != '' and keyfield == 's_tag'">
+						s.s_tag LIKE '%' || #{keyword} || '%'
 					</if>
 				</where>
-				ORDER BY d.reg_date DESC)a)
+				ORDER BY s.s_num DESC)a) 
 		<![CDATA[
 		WHERE rnum >= #{start} AND rnum <= #{end}
 		]]>
 	</select>
+ 	
  	<select id="selectRowCount" parameterType="map" resultType="integer">
  		SELECT 
  			COUNT(*)
- 		FROM spmember m LEFT OUTER JOIN spmember_detail d
- 		ON m.id = d.id
+ 		FROM schedule
  		<where>
-			<if test="keyword != '' and keyfield == 'id'">
-				m.id LIKE '%' || #{keyword} || '%'
+			<if test="keyword != '' and keyfield == 's_title'">
+				s_title LIKE '%' || #{keyword} || '%'
 			</if>
-			<if test="keyword != '' and keyfield == 'name'">
-				d.name LIKE '%' || #{keyword} || '%'
-			</if>
-			<if test="keyword != '' and keyfield == 'email'">
-				d.email LIKE '%' || #{keyword} || '%'
-			</if>
-			<if test="keyword != '' and keyfield == 'all'">
-				m.id LIKE '%' || #{keyword} || '%' OR d.name LIKE '%' || #{keyword} || '%' OR d.email LIKE '%' || #{keyword} || '%'
+			<if test="keyword != '' and keyfield == 's_tag'">
+				s_tag LIKE '%' || #{keyword} || '%'
 			</if>
 		</where>
- 	</select> -->
+ 	</select>
+ 	
+ 	<update id="update"></update>
  	
 </mapper>

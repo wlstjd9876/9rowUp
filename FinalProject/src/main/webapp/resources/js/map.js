@@ -1,3 +1,30 @@
+function insert(contentid){
+
+		
+	$.ajax({        
+			url: '../favinsert.do',
+			data:{contentid:contentid},
+			type: 'POST',
+			dataType: 'json',
+			cache:false,
+			timeout:30000,
+			success: function(data){
+				if(data.result=='success'){
+					alert("일정에 추가되었습니다.");
+				}else{
+					alert("이미 있습니다.");
+				}
+				
+			},
+			 error: function() {
+		          alert("일정추가 오류 발생!");
+		       }  
+		});
+	};
+	
+	
+
+
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
@@ -248,10 +275,11 @@ markers = new Array;
             
             if(myItem){
                
-              
-                
                   for(var i=0; i<myItem.length; i++){
+                	  
                       var output = '';
+                   
+                      
                      if(myItem[i].firstimage==undefined){
                         var image = "../resources/img/data/No_Image_Available.jpg";
                      }else{
@@ -269,9 +297,10 @@ markers = new Array;
                       output += 		'<img src="' + image + '" style=" width: 99.9%; height: 300px;">';
                       output += 		'<h3>'+myItem[i].title+'</h3>';
                       output += 		'<h4>'+ addr +'</h4>';
+                      output +=			'<h4>'+myItem[i].contentid+'</h4>';
                 /*    output += 		'<h4>'+myItem[i].mapx+'</h4>';
                       output += 		'<h4>'+myItem[i].mapy+'</h4>';*/
-                      output += 		'<input class="btn btn-default" style="float: right;" type="button" padding-left:100px;  value="일정추가"  onclick="location.href=\'#\'" />';
+                      output += 		'<button class="insertButton" style="float: right;" padding-left:100px;" onclick="javascript:insert('+myItem[i].contentid+');"   >일정추가</button>';
                       output += 		'<br>';
                       output += 	'</div>'
                       output += '</div>';
@@ -315,6 +344,7 @@ markers = new Array;
 });
 
 
+
 // ======================================================마커이미지 표시
 
 var imageSrc2 = '../resources/img/yap.png', // 마커이미지의 주소입니다  
@@ -344,4 +374,6 @@ var marker = new daum.maps.Marker({
 
 // 마커가 지도 위에 표시되도록 설정합니다
 marker.setMap(map);  
+
+
  

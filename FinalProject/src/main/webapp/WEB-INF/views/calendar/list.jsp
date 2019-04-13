@@ -1,48 +1,99 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel='stylesheet' type='text/css' href='${pageContext.request.contextPath}/resources/js/fullcalendar.css' />
-<link rel='stylesheet' type='text/css' href='${pageContext.request.contextPath}/resources/js/fullcalendar.min.css' />
-<script type='text/javascript' src='${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js'></script>
-<script type='text/javascript' src='${pageContext.request.contextPath}/resources/js/lib/moment.min.js'></script>
-<script type='text/javascript' src='${pageContext.request.contextPath}/resources/js/fullcalendar.min.js'></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/locale/ko.js"></script>
-<script> 
-$(document).ready(function() { 
-	$('#calendar').fullCalendar({ 
-		header: { left: 'prev,next today', 
-		center: 'title', 
-		right: 'month,basicWeek,basicDay' 
-		}, 
-		
-		defaultDate: new Date(), 
-		navLinks: true, 
-		editable: false, 
-
-	}); 
-}); 
-
-</script> 
-<style> 
-	body { 
-		margin: 40px 10px; 
-		padding: 0; 
-		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif; 
-		font-size: 14px; 
-	} 
-	#calendar { 
-		max-width: 900px; 
-		margin: 0 auto; 
-	} 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+<style>
+	form ul{
+		list-style:none;
+		padding:0;
+		margin:2px;
+	}
+	form ul li{
+		margin:0 0 9px 0;
+		padding:0;
+	}
 </style>
-
-
-</head>
-<body>
-<div id="calendar" style="height:800px;"></div>
-</body>
-</html>
+<div class="container">
+	<div class="row">
+	<c:if test="${count == 0}">
+		등록된 일정이 없습니다.
+	</c:if>
+	<c:if test="${count > 0}">
+		<div style="text-align: center; padding: 10px;">
+			<form action="list.do" id="search_form" class="form-inline" method="get">
+				<div class="form-group">
+					<select name="keyfield" class="form-control">
+						<option value="s_title">일정제목</option>
+						<option value="s_tag">연관검색어</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<input type="text" name="keyword" id="keyword" class="form-control">
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-default btn-sm" value="찾기">
+					<input type="button" class="btn btn-default btn-sm" value="목록" onclick="location.href='list.do'">
+				</div>
+			</form>
+		</div>
+		<div class="col-md-6">
+			<h1 style="font-family: 'Courgette', cursive;"><b>Dream Of</b></h1>
+			<div>
+		<!-- 		<div class="form-group">
+					<label class="checkbox-inline">
+						<input type="checkbox" name="s_finish" value="1">완성
+					</label>
+					<label class="checkbox-inline">
+						<input type="checkbox" name="s_finish" value="0">미완성
+					</label>
+				</div> -->
+				<table class="table table-center">
+					<tr>
+						<th>글번호</th>
+						<th>일정제목</th>
+						<th>여행시작날짜</th>
+						<th>공유여부</th>
+						<th>완성/미완성</th>
+					</tr>
+					<c:forEach var="schedule" items="${list}">
+					<tr>
+						<td>${schedule.s_num}</td>
+						<td><a href="${pageContext.request.contextPath}/calendar/view.do?s_num=${schedule.s_num}">${schedule.s_title}</a></td>
+						<td>${schedule.s_startdate}</td>
+						<td>${schedule.s_share}</td>
+						<td>${schedule.s_finish}</td>
+					</tr>
+					</c:forEach>
+				</table>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<h1 style="font-family: 'Courgette', cursive;"><b>Come True</b></h1>
+			<div>
+				<table class="table">
+					<tr>
+						<th>글번호</th>
+						<th>일정제목</th>
+						<th>여행시작날짜</th>
+						<th>공유여부</th>
+					</tr>
+					<c:forEach var="schedule" items="${list}">
+					<tr>
+						<td>${schedule.s_num}</td>
+						<td><a href="${pageContext.request.contextPath}/calendar/detail.do?s_num=${schedule.s_num}">${schedule.s_title}</a></td>
+						<td>${schedule.s_startdate}</td>
+						<td>${schedule.s_share}</td>
+					</tr>
+					</c:forEach>
+				</table>
+			</div>
+		</div>
+		<div style="text-align: center;">
+			<!-- 페이징 처리 -->
+		</div>
+	</c:if>
+	</div>
+	<div class="row" style="text-align: center;">
+		<input type="button" value="일정등록" class="btn btn-default" onclick="location.href='finish.do'">
+	</div>
+</div>
