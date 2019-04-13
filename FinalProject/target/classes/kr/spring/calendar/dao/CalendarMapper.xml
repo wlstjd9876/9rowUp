@@ -44,8 +44,7 @@
 				rownum rnum
 			FROM (SELECT 
 					*
-				FROM schedule s LEFT OUTER JOIN schedule_detail d
-				ON s.s_num = d.s_num
+				FROM schedule 
 				<where>
 					<if test="keyword != '' and keyfield == 's_title'">
 						s.s_title LIKE '%' || #{keyword} || '%'
@@ -54,7 +53,7 @@
 						s.s_tag LIKE '%' || #{keyword} || '%'
 					</if>
 				</where>
-				ORDER BY s.s_num DESC)a) 
+				ORDER BY s_num DESC)a) 
 		<![CDATA[
 		WHERE rnum >= #{start} AND rnum <= #{end}
 		]]>
