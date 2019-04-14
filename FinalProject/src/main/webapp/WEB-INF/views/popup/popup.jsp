@@ -4,7 +4,7 @@
 
 <!DOCTYPE html>
 <html>
-<head>
+<head>  
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"></script>
 
