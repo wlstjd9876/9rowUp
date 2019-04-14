@@ -79,11 +79,12 @@ $(document).ready(function(){
 	});
 	
 	//내 일정 가져오는 부분
-	$('#getPlan').on('click', function(){
+	/*$('#getPlan').on('click', function(){
 		
 		$.ajax({
-			type:''
+			type:'post',
+			data:
 		});
-	});
+	});*/
 	
 });
