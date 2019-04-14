@@ -79,12 +79,36 @@ $(document).ready(function(){
 	});
 	
 	//내 일정 가져오는 부분
-	/*$('#getPlan').on('click', function(){
+	$('#getPlan').on('click', function(){
+		alert('진입');
 		
 		$.ajax({
-			type:'post',
-			data:
+			type:'get',
+			data:data,
+			url:'adviceMyPlan.do',
+			dataType:'json',
+			cache:false,
+			timeout:30000,
+			success:function(data){
+				var list = data.list;
+				
+				$(list).each(function(index, plan){
+					var adv_plan = '<div>';
+					
+					adv_paln += '<h1>들어왓나?</h1>';
+					adv_paln += '</div>';
+					
+					
+					$('.adv_plan').append(adv_paln);
+				});
+			},
+			error:function(){
+				alert('네트워크 오류 발생');
+			}
 		});
-	});*/
+		
+		
+		
+	});
 	
 });
