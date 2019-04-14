@@ -69,20 +69,17 @@
  	
  	<!--부모글 수정-->
  	<update id="update" parameterType="shareCommand">
-		<if test="filename!=''">
 			UPDATE share_write SET title=#{title},content=#{content},thumb=#{thumb},photo2=#{photo2},photo3=#{photo3} WHERE num=#{num}
-			
-		</if> 	
  	</update>
  	
  	<!-- 댓글 목록 -->
  	<select id="selectListReply" parameterType="map" resultType="shareReplyCommand">
  	SELECT 
- 		re_num,
- 		re_content,
- 		TO_CHAR(reg_date,'YYYY-MM-DD HH24:MI:SS') reg_date,
- 		num,
- 		email 
+ 		sr_num,
+ 		sr_content,
+ 		TO_CHAR(sr_date,'YYYY-MM-DD HH24:MI:SS') sr_date,
+ 		email,
+ 		num 
  		FROM (SELECT 
  				a.*,
  				rownum rnum 
