@@ -34,22 +34,26 @@ $(document).ready(function(){
 		//0부터 시작
 		var between_date = (enddate.getTime() - startdate.getTime())/1000/60/60/24;
 		
-		//*********************************************날짜 선택 안했을 때 alert창 띄우기
-		/*alert(startdate_val);
-		alert(enddate_val);
-		if($('#startdate').val() == null){
+		//날짜 미선택시
+		if(startdate_val == ''){
 			alert('시작 날짜를 선택해주세요.');
 			return false;
-		}else if($('.enddate').val() == null){
+		}
+		if(enddate_val == ''){
 			alert('종료 날짜를 선택해주세요.');
-			alert(enddate_val);
 			return false;
-		}*/
+		}
+		if(startdate_val>enddate_val){
+			alert("날짜를 다시 선택해 주세요.");
+			$('#startdate').val('');
+			$('#enddate').val('');
+			return false;
+		}
 		
 		//글 번호
 		//일정 상세테이블 폼
 		var detailUI =  '<div class="form-group">';
-			detailUI += '	<div class="form-group" id="adv_plan">';
+			detailUI += '	<div class="form-group">';
 			
 		for(var i=0; i<=between_date; i++){
 			detailUI += '		<h2>' + (i+1) + '일차</h2>';
@@ -58,7 +62,7 @@ $(document).ready(function(){
 			detailUI += '		<div id="addPlan' + i + '">Ajax사용부분</div>';
 			detailUI += '	</div>';
 			detailUI += '	<div class="form-group">';
-			detailUI += '		<input type="button" value="즐겨찾기 추가" class="btn btn-default" onclick="location.href=\'adviceList.do\'">';
+			detailUI += '		<input type="button" value="즐겨찾기 추가" id="search" class="btn btn-default">';
 		}
 			
 			detailUI += '	</div>';
@@ -80,35 +84,59 @@ $(document).ready(function(){
 	
 	//내 일정 가져오는 부분
 	$('#getPlan').on('click', function(){
-		alert('진입');
+		var currentPage;
+		var count;
+		var rowCount;
 		
-		$.ajax({
-			type:'get',
-			data:data,
-			url:'adviceMyPlan.do',
-			dataType:'json',
-			cache:false,
-			timeout:30000,
-			success:function(data){
-				var list = data.list;
-				
-				$(list).each(function(index, plan){
-					var adv_plan = '<div>';
+		function myPlan(pageNum){
+			$.ajax({
+				type:'get',
+				data:{pageNum:pageNum},
+				url:'adviceMyPlan.do',
+				dataType:'json',
+				cache:false,
+				timeout:30000,
+				success:function(data){
+					$('.adv_myPlan').empty();
 					
-					adv_paln += '<h1>들어왓나?</h1>';
-					adv_paln += '</div>';
+					count = data.count;
+					rowCount = data.rowCount;
 					
+					var list = data.list;
 					
-					$('.adv_plan').append(adv_paln);
-				});
-			},
-			error:function(){
-				alert('네트워크 오류 발생');
-			}
-		});
+					var adv_plan = '<div class="form-group">';
+					adv_plan += '	<table class="table">';
+					adv_plan += '		<tr>';
+					adv_plan += '			<th style="width:20%;">번호</th>';
+					adv_plan += '			<th style="width:60%;">제목</th>';
+					adv_plan += '			<th style="width:20%;"></th>';
+					adv_plan += '		</tr>';
+					
+					$(list).each(function(index, plan){
+						adv_plan += '		<tr>';
+						adv_plan += '			<td>' + plan.s_num + '</td>';
+						adv_plan += '			<td><a href="' + context + '/calendar/view.do?s_num=' + plan.s_num +'">' + plan.s_title + '</a></td>';
+						adv_plan += '			<td><input type="button" value="추가" class="btn btn-default" onclick="location.href=\'adviceList.do\'"></td>';
+						adv_plan += '		</tr>';
+					});
+					
+					adv_plan += '	</table>';
+					adv_plan += '	<div class="form-group" style="text-align: center;">'+data.pagingHtml+'</div>';
+					adv_plan += '</div>';
+					
+					$('.adv_myPlan').append(adv_plan);
+				},
+				error:function(){
+					alert('네트워크 오류 발생');
+				}
+			});
+		}
 		
-		
-		
+		myPlan(1);
+	});
+	
+	$(document).on('click', '#search', function(){
+		window.open(context + '/advice/popup/searchLoc.do', '관광지 찾기', 'width=800,height=500,left=300,top=10,scrollbars=no,toolbar=no,location=no');
 	});
 	
 });
