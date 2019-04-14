@@ -2,12 +2,22 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/share/share.reply.js">
-</script>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/share/share.reply.js"></script>
+
+
+
+
+
+
+
+
+
+<!-- ============================================================================================================================================== -->
 <!-- 중앙 컨텐츠 시작 -->
 <div class="container">
-   <div class="row">
-      <h1>${share.title}</h1>
+	 <div class="row">
+      <h1>${share.title}</h1>  
       <ul>
          <li>번호 : ${share.num}</li>
          <li>작성자 : ${share.email}</li>
@@ -18,8 +28,6 @@
 	<div class="align-center">
 		<img src="imageView.do?num=${share.num}" style="max-with:500px">
 	</div>
-      
-      
       <p>
          ${share.content}
       </p>

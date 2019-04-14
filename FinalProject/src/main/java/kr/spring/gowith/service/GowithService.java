@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import kr.spring.gowith.domain.GowithCommand;
+import kr.spring.member.domain.MemberCommand;
 
 public interface GowithService {
 	//동행등록(ch14 회원가입 참고)
