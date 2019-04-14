@@ -6,8 +6,29 @@
 
 <tiles-definitions>
 	<definition name="gowithList" extends="main">
-		<put-attribute name="title" value="동행구해요" />
+		<put-attribute name="title" value="함께 떠나요" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/gowith/gowithList.jsp" />
 	</definition>
-</tiles-definitions>	
+	<definition name="gowithRegister" extends="main">
+		<put-attribute name="title" value="함께 떠나요" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/gowith/gowithRegister.jsp" />
+	</definition>
+	<definition name="gowithRegisterDetail" extends="main">
+		<put-attribute name="title" value="함께 떠나요" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/gowith/gowithRegisterDetail.jsp" />
+	</definition>
+	<definition name="gowithappList" extends="main">
+		<put-attribute name="title" value="함께 떠나요" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/gowith/goappWrite.jsp" />
+	</definition>
+	<definition name="gowithModify" extends="main">
+		<put-attribute name="title" value="함께 떠나요" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/gowith/gowithModify.jsp" />
+	</definition>
+
+</tiles-definitions>	  
