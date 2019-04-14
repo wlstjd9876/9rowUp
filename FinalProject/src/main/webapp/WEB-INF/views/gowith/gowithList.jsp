@@ -71,7 +71,7 @@
 							<td><c:if test="${go_list.dday == 1}"><span style="color: red;">D-1</span></c:if><c:if test="${go_list.dday != 1}">${go_list.go_deadline}</c:if></td>
 							<td>
 							<c:choose>
-								<c:when test="${go_list.go_status>0 && go_list.go_deadline > today}">
+								<c:when test="${go_list.go_status>0 && go_list.go_deadline >= today}">
 								<a href="gowithRegisterDetail.do?go_num=${go_list.go_num}&email=${user_email}" class="btn-gradient blue mini">진행중</a>
 								</c:when>
 								<c:otherwise>
