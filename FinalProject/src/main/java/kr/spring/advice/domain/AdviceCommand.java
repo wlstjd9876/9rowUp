@@ -2,16 +2,31 @@ package kr.spring.advice.domain;
 
 import java.sql.Date;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class AdviceCommand {
 	private int adv_num;
+	@NotEmpty
 	private String adv_title;
 	private String email;
-	private Date adv_date;
+	private Date adv_date;//글 등록 날짜
+	@NotEmpty
 	private String adv_phone;
 	private int adv_like;
-	private String adv_dep;
-	private String adv_arr;
+	@NotEmpty
+	private String startdate;
+	@NotEmpty
+	private String enddate;
 	private int s_num;
+	
+	private String td_nickname;
+	
+	public String getTd_nickname() {
+		return td_nickname;
+	}
+	public void setTd_nickname(String td_nickname) {
+		this.td_nickname = td_nickname;
+	}
 	public int getAdv_num() {
 		return adv_num;
 	}
@@ -48,17 +63,17 @@ public class AdviceCommand {
 	public void setAdv_like(int adv_like) {
 		this.adv_like = adv_like;
 	}
-	public String getAdv_dep() {
-		return adv_dep;
+	public String getStartdate() {
+		return startdate;
 	}
-	public void setAdv_dep(String adv_dep) {
-		this.adv_dep = adv_dep;
+	public void setStartdate(String startdate) {
+		this.startdate = startdate;
 	}
-	public String getAdv_arr() {
-		return adv_arr;
+	public String getEnddate() {
+		return enddate;
 	}
-	public void setAdv_arr(String adv_arr) {
-		this.adv_arr = adv_arr;
+	public void setEnddate(String enddate) {
+		this.enddate = enddate;
 	}
 	public int getS_num() {
 		return s_num;
@@ -66,12 +81,10 @@ public class AdviceCommand {
 	public void setS_num(int s_num) {
 		this.s_num = s_num;
 	}
-	
 	@Override
 	public String toString() {
 		return "AdviceCommand [adv_num=" + adv_num + ", adv_title=" + adv_title + ", email=" + email + ", adv_date="
-				+ adv_date + ", adv_phone=" + adv_phone + ", adv_like=" + adv_like + ", adv_dep=" + adv_dep
-				+ ", adv_arr=" + adv_arr + ", s_num=" + s_num + "]";
+				+ adv_date + ", adv_phone=" + adv_phone + ", adv_like=" + adv_like + ", startdate=" + startdate
+				+ ", enddate=" + enddate + ", s_num=" + s_num + ", td_nickname=" + td_nickname + "]";
 	}
-	
 }
