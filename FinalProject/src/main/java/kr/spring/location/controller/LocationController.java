@@ -1,6 +1,7 @@
 package kr.spring.location.controller;
 
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.apache.cxf.helpers.IOUtils;
@@ -10,6 +11,10 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import kr.spring.member.domain.MemberCommand;
 
 
 @Controller
@@ -44,8 +49,12 @@ public class LocationController{
 		return "data/location/list";
 	}
 	@RequestMapping(value="/data/location/view.do", method=RequestMethod.GET)
-	public String view_form() {
-		return "data/location/view";
+	public ModelAndView view_form(@RequestParam("contentId") int contentId) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("view");
+		mav.addObject("contentId", contentId);
+		
+		return mav;
 	}
 	
 	/*  //자바빈(커맨드 객체) 초기화

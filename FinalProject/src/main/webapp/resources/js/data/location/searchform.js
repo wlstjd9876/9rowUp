@@ -89,7 +89,7 @@ $(document).ready(function() {
 						output += '			<div class="caption">';
 						output += '				<h3 class="hn">'+myItem[i].title+'</h3>';
 						output += '				<h4 class="hn">'+myItem[i].addr1+'</h4>';
-						output += '				<p><a href="'+contextPath+'/data/location/view.do?contentId='+myItem[i].contentid+'" class="btn btn-primary hn">자세히 보기</a></p>';
+						output += '				<p><a href="'+contextPath+'/data/location/view.do?contentId='+myItem[i].contentid+'&contenttypeid='+myItem[i].contenttypeid+'" class="btn btn-primary hn">자세히 보기</a></p>';
 						output += '			</div>';
 						output += '	</div>';
 						output += '</div>';
@@ -153,12 +153,10 @@ $(document).ready(function() {
 	});
 
 });
-
 //================== 서치 끝 ======================//
 //================== 디테일=======================//
 //================== 디테일=======================//
 //==================셀렉 시작======================//
-
 function doChange(srcE){
 	var val = srcE.options[srcE.selectedIndex].value;
 	$.ajax({
@@ -169,7 +167,7 @@ function doChange(srcE){
 		success:function(data){
 			$("#sigungucode").find("option").remove().end().append("<option value='0'>시군구 선택</option>");
 			$(data.list).each(function(index, result){
-				$("#sigungucode").append("<option value='"+(index+1)+"'>"+result + (index+1)+"</option>");
+				$("#sigungucode").append("<option value='"+(index+1)+"'>"+result+"</option>");
 			});
 		},
 		error:function(request,status,error){
