@@ -51,21 +51,17 @@
 								id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 
-									<li class="dropdown visible-xs"><a href="#"
-										class="dropdown-toggle" data-toggle="dropdown"> Show Me
-											The Trip <b class="caret"></b>
-									</a>
-										<ul class="dropdown-menu">
-											<li><a href="menu.html">공유해요</a></li>
-										</ul></li>
+									
+										
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
 											src="${pageContext.request.contextPath}/resources/img/nav-menu/비행기.jpg"
 											class="img-responsive" alt="" /> Show Me The Trip <b
 											class="caret"></b></a>
 										<ul class="dropdown-menu">
-											<li><a href="menu.html">공유해요</a></li>
+											<li><a href="${pageContext.request.contextPath}/share/shareList.do">여행, 어디까지 가봤니</a></li>
 										</ul></li>
+										
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
 											src="${pageContext.request.contextPath}/resources/img/nav-menu/배.jpg"
@@ -75,13 +71,9 @@
 											<li><a
 												href="${pageContext.request.contextPath}/advice/adviceList.do">여행을 부탁해!</a></li>
 													<li><a
-												href="${pageContext.request.contextPath}/gowith/gowithList.do">함께,떠나요!</a></li>
-											<li>
-											<a
-												href="${pageContext.request.contextPath}/advice/adviceList.do">조언
-													구해요</a>
-											</li>
+												href="${pageContext.request.contextPath}/gowith/gowithList.do">함께, 떠나요!</a></li>
 										</ul></li>
+										
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
 											src="${pageContext.request.contextPath}/resources/img/nav-menu/트레인.jpg"
