@@ -159,8 +159,7 @@ $('.popupBtn').click(function() {
 			<div id="content5">
 				<div id="content3" class="align-center hn">
 					<h2 class="hn">등록자 프로필!</h2>
-					<div>${gowith.td_profilephoto}</div>
-
+					${gowith.td_profilephoto }
 					<ul>
 						<li>닉네임: ${gowith.td_nickname}</li>
 						<br>
