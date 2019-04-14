@@ -85,6 +85,7 @@ var contextPath = "${pageContext.request.contextPath }";
 		<div class="align-center">
 			<ul class="paging_button"></ul>
 		</div>
+		<span class="totop"><a href="#"><i class="fa fa-angle-up"></i></a></span>
 	</div>
 </body>
 </html>

@@ -24,6 +24,8 @@ import kr.spring.goapp.domain.GoappCommand;
 import kr.spring.goapp.service.GoappService;
 import kr.spring.gowith.domain.GowithCommand;
 import kr.spring.gowith.service.GowithService;
+import kr.spring.member.domain.MemberCommand;
+import kr.spring.member.service.MemberService;
 import kr.spring.util.PagingUtil;
 
 
@@ -36,6 +38,9 @@ public class GowithController{
 	
 	@Resource
 	private GowithService gowithService;
+	
+	@Resource
+	private MemberService memberService;
 
 	//자바빈 초기화 
 	public GowithCommand initCommand() {
@@ -190,7 +195,25 @@ public class GowithController{
 		mav.addObject("filename", "image.jpg");
 		
 		return mav;
+		
+	}//프로필이미지 호출
+	@RequestMapping("/gowith/imageView.do")
+	public ModelAndView viewImage(@RequestParam("email") String email) {
+		
+		MemberCommand member = memberService.selectMember(email);
+		
+		if(log.isDebugEnabled()) {
+			log.debug("<<member>> : " + member);
+		}
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("imageView");
+		mav.addObject("imageFile", member.getTd_profile());
+		mav.addObject("filename", "image.jpg");
+		
+		return mav;
 	}
+	
 	//------------------신청 팝업창---------------------
 	@Resource
 	private GoappService goappService;
