@@ -72,9 +72,11 @@
 											class="img-responsive" alt="" /> Help Come True <b
 											class="caret"></b></a>
 										<ul class="dropdown-menu">
-											<li><a
+											<li>
+											<a
 												href="${pageContext.request.contextPath}/advice/adviceList.do">조언
-													구해요</a></li>
+													구해요</a>
+											</li>
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img

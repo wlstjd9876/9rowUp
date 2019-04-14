@@ -4,7 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
 <mapper namespace="kr.spring.advice.dao.AdviceMapper">  
 
-   <!-- <select id="selectList" parameterType="map" resultType="adviceCommand">
+   <select id="selectList" parameterType="map" resultType="adviceCommand">
    
       SELECT
         *
@@ -12,42 +12,37 @@
             a.*,
             rownum rnum
            FROM (SELECT
-                   b.num,
+                   b.adv_num,
                    <![CDATA[
-                   REPLACE(REPLACE(b.title,'<','&lt;'),'>','&gt;') title,                   
+                   REPLACE(REPLACE(b.adv_title,'<','&lt;'),'>','&gt;') adv_title,                   
                    ]]>
-                   b.hit,
-                   b.reg_date,
-                   b.id,
+                   b.email,
+                   b.adv_date,
                    r.re_cnt
-                 FROM spboard b LEFT OUTER JOIN (SELECT num,COUNT(*) re_cnt
-                                         FROM spboard_reply
-                                         GROUP BY num)r
-                 ON b.num = r.num
-                 where절이 동적으로 들어가는것이다.
+                 FROM advice b LEFT OUTER JOIN (SELECT adv_num,COUNT(*) re_cnt
+                                         FROM advice_reply
+                                         GROUP BY adv_num)r
+                 ON b.adv_num = r.adv_num
+                 <!-- where절이 동적으로 들어가는것이다. -->
                  <where>
-                    <if test="keyword != '' and keyfield == 'email'">
-                       b.title like '%' || #{keyword} || '%'
-                    </if>
-                    <if test="keyword != '' and keyfield == 'name'">
-                       b.id like '%' || #{keyword} || '%'
+                    <if test="keyword != '' and keyfield == 'adv_title'">
+                       b.adv_title like '%' || #{keyword} || '%'
                     </if>
                     <if test="keyword != '' and keyfield == 'email'">
-                       b.content like '%' || #{keyword} || '%'
+                       b.email like '%' || #{keyword} || '%'
                     </if>
                     <if test="keyword != '' and keyfield == 'all'">
-                       b.title like '%' || #{keyword} || '%' or 
-                       b.id like '%' || #{keyword} || '%' or
-                       b.content like '%' || #{keyword} || '%'
+                       b.adv_title like '%' || #{keyword} || '%' or 
+                       b.email like '%' || #{keyword} || '%' or
                     </if>
                  </where>
-                 ORDER BY b.num DESC)a)
+                 ORDER BY b.adv_num DESC)a)
       
       <![CDATA[
       WHERE rnum >= #{start} AND rnum <= #{end}
       ]]>               
    
-   </select>-->
+   </select>
    <select id="selectRowCount" parameterType="map" resultType="integer">
       
       SELECT
@@ -71,9 +66,3 @@
    
     
 </mapper>
-
-
-
-
-
-

@@ -1,67 +1,79 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/board.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/adviceWrite/style.css">
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=073c048326b3580b4c7257b8e804ee6b"></script>
 <script type="text/javascript">
 	var result = '${result}';
 	if(result == 'success'){
 		alert('처리가 완료되었습니다.');
 	}
+	
+	$(document).ready(function(){
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+	    mapOption = { 
+	        center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+	        level: 3 // 지도의 확대 레벨
+	    };
+	   var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+	});
 </script>
 <!-- 중앙 컨텐츠 시작 -->	
 <div class="container">
 	<div class="row">
 		<h1>조언 목록</h1>
-		<form action="adviceList.do" id="search_form" method="get">
-			<ul class="search">
-				<li>
-					<select name="keyfield">
+		<!-- 검색 -->
+		<div style="text-align: center; padding: 10px;">
+			<form action="adviceList.do" id="search_form" class="form-inline" method="get">
+				<div class="form-group">
+					<select name="keyfield" class="form-control">
 						<option value="adv_title">제목</option>
 						<option value="email">이메일</option>
 						<option value="all">전체</option>
-					</select>				
-				</li>
-				<li>
-					<input type="text" name="keyword" id="keyword">
-				</li>
-				<li>
-					<input type="submit" value="찾기" class="btn btn-default">
-				</li>
-			</ul>
-		</form>
+					</select>
+				</div>
+				<div class="form-group">
+					<input type="text" name="keyword" id="keyword" class="form-control">
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-default btn-sm" value="찾기">
+					<input type="button" class="btn btn-default btn-sm" value="목록" onclick="location.href='adviceList.do'">
+				</div>
+			</form>
+		</div>
 		
 		<c:if test="${count == 0}">
-		<div class="align-center">등록된 게시물이 없습니다.</div>
+			<div class="align-center">등록된 게시물이 없습니다.</div>
 		</c:if>
-		<c:if test="${count > 0}">
-		 <div class="table-responsive">
-			<table class="table table-striped">
-				<tr>
-					<th>번호</th>
-					<th width="400">제목</th>
-					<th>이메일</th>
-					<th>등록날짜</th>
-					<th>추천S수</th>
-				</tr>
-				<c:forEach var="advice" items="${list}">
-				<tr>
-					<td>${advice.adv_num}</td>
-					<td><a href="adviceDetail.do?num=${advice.adv_num}">${board.title}(${board.re_cnt})</a></td>
-					<td>${advice.email}</td>
-					<td>${advice.adv_date}</td>
-					<td>${advice.adv_like}</td>
-				</tr>
-				</c:forEach>
-			</table>
-		</div>
-		</c:if>
-			<div class="align-center">
-				<c:if test="${!empty user_email}">
-					<input type="button" value="글쓰기" class="btn btn-default" onclick="location.href='write.do'">
-				</c:if>
-			</div>
-		<div class="align-center">${pagingHtml}</div>
 		
+		<c:if test="${count > 0}">
+		<div class="col-md-12">
+			<c:forEach var="advice" items="${list}">
+			<div class="col-md-3">
+				<div class="col-md-12">
+					<div id="map" style="width: 255px; height: 255px;"></div>
+				</div>
+				<div class="col-md-12" style="text-align: center; padding: 10px;">
+					<c:if test="${!empty user_email}">
+					<input type="button" value="상세일정보기" class="btn btn-default"  onclick="location.href='adviceDetail.do?adv_num=${advice.adv_num}'">
+					</c:if>
+					<div class="col-md-12">
+						<input type="hidden">${advice.adv_title}
+					</div>
+				</div>
+			</div>
+		</c:forEach>
+		</div>
+		<div style="text-align: center;">${pagingHtml}</div>
+		</c:if>
+
+		<!-- 버튼 -->
+		<div class="col-md-12" style="text-align: center;">
+			<c:if test="${!empty user_email}">
+			<input type="button" value="글쓰기" onclick="location.href='adviceWrite.do'" class="btn btn-default">
+			</c:if>
+			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'" class="btn btn-default">
+		</div>
 	</div>
 </div>
 <!-- 중앙 컨텐츠 끝 -->	
