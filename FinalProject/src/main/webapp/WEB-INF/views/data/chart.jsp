@@ -4,9 +4,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-<div style="width: 800px; height: 400px">
+
+<!-- 막대 그래프 -->
+<div align="center" style="width: 800px; height: 400px">
 <canvas id="myChart"></canvas>
-</div>  
+</div>
+
+<!-- 도넛 그래프 -->
+<div align="center" style="width: 800px; height: 400px">
+<canvas id="myDoughnutChart"></canvas>
+</div>
+
 <script>
 <!-- 막대 그래프 -->
 var ctx = document.getElementById('myChart').getContext('2d');
@@ -50,24 +58,45 @@ var myChart = new Chart(ctx, {
 
 <!-- 도넛 그래프 -->
 //And for a doughnut chart
-var myDoughnutChart = new Chart(ctx, {
+var ctx2 = document.getElementById('myDoughnutChart').getContext('2d');
+var myDoughnutChart = new Chart(ctx2, {
     type: 'doughnut',
-    data: data,
-    options: options
+    data: {
+    	    datasets: [{
+    	        data: [10, 20, 30]
+    	    }],
+
+    	    // These labels appear in the legend and in the tooltips when hovering different arcs
+    	    labels: ['Red','Yellow','Blue'],
+    	    backgroundColor: [
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+    	},
+    	options: {
+			responsive: true,
+			legend: {
+				position: 'top',
+			},
+			title: {
+				display: true,
+				text: 'Chart.js Doughnut Chart'
+			},
+			animation: {
+				animateScale: true,
+				animateRotate: true
+			}
+		}
 });
 
 
-data = {
-	    datasets: [{
-	        data: [10, 20, 30]
-	    }],
 
-	    // These labels appear in the legend and in the tooltips when hovering different arcs
-	    labels: [
-	        'Red',
-	        'Yellow',
-	        'Blue'
-	    ]
-	};
 
 </script>

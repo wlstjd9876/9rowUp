@@ -38,16 +38,14 @@ h1 {
 	</div>
 	<br>
 	<div id="img" class="hn">
-		<img
-			src="${pageContext.request.contextPath}/resources/img/friendship2.png">
+		<img src="${pageContext.request.contextPath}/resources/img/team2.png" width="100">
 	</div>
-	<br> <br>
+	<br><br>
 	<div id="content">상세일정 가져올 거에요~</div>
 	<br>
 	<div id="img" class="hn">
 		<div>
-			<button type="button" class="btn btn-default btn-lg" value="일정가져오기">나의
-				일정 가져오기!</button>
+			<button type="button" class="btn btn-default btn-lg" value="일정가져오기">나의 일정 가져오기!</button>
 		</div>
 	</div>
 	<br> <br>
