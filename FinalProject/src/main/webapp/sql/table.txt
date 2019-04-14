@@ -216,7 +216,6 @@ create table share_write(
    thumb blob,
    photo2 blob,
    photo3 blob,
-   map blob, /*지도 사진*/
    s_num number not null,
    constraint share_write_pk primary key (num),
    constraint share_write_fk2 foreign key (email) references t_member (email),
