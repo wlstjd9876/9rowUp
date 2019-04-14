@@ -70,6 +70,7 @@ $(document).ready(function() {
 				$('#output').empty();
 				$('.paging_button').empty();
 				console.log(data);
+				
 				var myItem = data.response.body.items.item;
 				var myBody = data.response.body;
 

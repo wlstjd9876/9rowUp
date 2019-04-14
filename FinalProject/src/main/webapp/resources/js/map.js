@@ -297,7 +297,6 @@ markers = new Array;
                       output += 		'<img src="' + image + '" style=" width: 99.9%; height: 300px;">';
                       output += 		'<h3>'+myItem[i].title+'</h3>';
                       output += 		'<h4>'+ addr +'</h4>';
-                      output +=			'<h4>'+myItem[i].contentid+'</h4>';
                 /*    output += 		'<h4>'+myItem[i].mapx+'</h4>';
                       output += 		'<h4>'+myItem[i].mapy+'</h4>';*/
                       output += 		'<button class="insertButton" style="float: right;" padding-left:100px;" onclick="javascript:insert('+myItem[i].contentid+');"   >일정추가</button>';

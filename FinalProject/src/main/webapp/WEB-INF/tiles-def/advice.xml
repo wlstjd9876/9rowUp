@@ -11,15 +11,28 @@
 			value="/WEB-INF/views/advice/adviceList.jsp" />
 	</definition>
 
-	<!-- <definition name="adviceWrite" extends="main">
+	 <definition name="adviceWrite" extends="main">
 		<put-attribute name="title" value="글쓰기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/advice/adviceWrite.jsp" />
-	</definition> -->
-		
-	<definition name="calendar" extends="main">
-		<put-attribute name="title" value="일정관리" />
+	</definition> 
+	
+	<definition name="adviceDetail" extends="main">
+		<put-attribute name="title" value="조언 상세" />
 		<put-attribute name="body"
-			value="/WEB-INF/views/calendar/list.jsp" />
+			value="/WEB-INF/views/advice/adviceDetail.jsp" />
 	</definition>
+	
+	<definition name="adviceModify" extends="main">
+		<put-attribute name="title" value="조언 수정" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/advice/adviceModify.jsp" />
+	</definition>  
+	
+	<definition name="replyWrite" extends="main">
+		<put-attribute name="title" value="댓글 등록" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/advice/replyWrite.jsp" />
+	</definition> 
+	
 </tiles-definitions>		

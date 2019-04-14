@@ -56,8 +56,7 @@
 											The Trip <b class="caret"></b>
 									</a>
 										<ul class="dropdown-menu">
-											<li><a href="menu.html">스태프</a></li>
-											<li><a href="menu.html">Special Menu</a></li>
+											<li><a href="menu.html">공유해요</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
@@ -65,8 +64,7 @@
 											class="img-responsive" alt="" /> Show Me The Trip <b
 											class="caret"></b></a>
 										<ul class="dropdown-menu">
-											<li><a href="menu.html">스태프</a></li>
-											<li><a href="menu.html">Special Menu</a></li>
+											<li><a href="menu.html">공유해요</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
@@ -75,9 +73,14 @@
 											class="caret"></b></a>
 										<ul class="dropdown-menu">
 											<li><a
+												href="${pageContext.request.contextPath}/advice/adviceList.do">여행을 부탁해!</a></li>
+													<li><a
+												href="${pageContext.request.contextPath}/gowith/gowithList.do">함께,떠나요!</a></li>
+											<li>
+											<a
 												href="${pageContext.request.contextPath}/advice/adviceList.do">조언
-													구해요</a></li>
-											<li><a href="0-base.html">Blank Page</a></li>
+													구해요</a>
+											</li>
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
@@ -87,16 +90,11 @@
 										<ul class="dropdown-menu">
 											<li><a
 												href="${pageContext.request.contextPath}/data/location/list.do">관광지
-													정보</a></li>
+													정보 상세보기</a></li>
 											<li><a
-												href="${pageContext.request.contextPath}/data/location.do">은성이
-													관광지 연습이요</a></li>
-											<li><a href="blog.html">Blog</a></li>
-											<li><a href="blog-single.html">Blog Single</a></li>
-											<li><a href="components.html">Components</a></li>
-											<li><a href="general.html">General</a></li>
-											<li><a href="nutrition-info.html">Nutrition Info</a></li>
-											<li><a href="recipe.html">Recipes</a></li>
+												href="${pageContext.request.contextPath}/data/location.do">지도별 관관지 정보</a></li>
+											<li><a
+												href="${pageContext.request.contextPath}/data/chart.do">통계 보기</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#"
 										class="dropdown-toggle" data-toggle="dropdown"><img
