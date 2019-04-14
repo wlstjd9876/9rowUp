@@ -30,7 +30,7 @@
 	<context:component-scan base-package="kr.spring.advice.controller" />
 	<context:component-scan base-package="kr.spring.calendar.controller" />
 	<context:component-scan base-package="kr.spring.fav.controller" />
-
+	<context:component-scan base-package="kr.spring.popup.controller"/>
 	<!-- 데이터 작업이 없이 뷰 호출 - 메인페이지 -->
 	<view-controller path="/main/main.do" view-name="main"/>
 	

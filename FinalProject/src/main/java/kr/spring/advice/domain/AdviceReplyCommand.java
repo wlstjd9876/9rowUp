@@ -3,15 +3,16 @@ package kr.spring.advice.domain;
 import java.sql.Date;
 
 public class AdviceReplyCommand {
-	private int adv_num;
-	private String email;
-	private Date ar_date;
-	private int ar_like;
-	private String ar_startdate;
-	private String ar_enddate;
-	private String ar_comment;
-	private int s_num;
-	private int ar_num;
+	private int adv_num;  //조언글 번호
+	private String email;  //작성자
+	private Date ar_date;  //댓글 등록일
+	private int ar_like;  //추천수
+	private String ar_startdate;  //여행 시작날짜
+	private String ar_enddate;  //여행 종료날짜
+	private String ar_comment;  //내용
+	private int s_num;  //일정번호
+	private int ar_num;  //댓글 번호
+	
 	public int getAdv_num() {
 		return adv_num;
 	}

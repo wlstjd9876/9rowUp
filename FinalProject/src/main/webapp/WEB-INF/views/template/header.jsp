@@ -73,8 +73,14 @@
 											class="caret"></b></a>
 										<ul class="dropdown-menu">
 											<li><a
+												href="${pageContext.request.contextPath}/advice/adviceList.do">여행을 부탁해!</a></li>
+													<li><a
+												href="${pageContext.request.contextPath}/gowith/gowithList.do">함께,떠나요!</a></li>
+											<li>
+											<a
 												href="${pageContext.request.contextPath}/advice/adviceList.do">조언
-													구해요</a></li>
+													구해요</a>
+											</li>
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
