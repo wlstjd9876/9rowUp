@@ -14,11 +14,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.spring.advice.domain.AdviceDetailCommand;
 import kr.spring.advice.service.AdviceService;
+import kr.spring.calendar.domain.CalendarCommand;
 import kr.spring.calendar.service.CalendarService;
+import kr.spring.util.PagingUtil;
 
 @Controller
 public class AdviceAjaxController {
 	private Logger log = Logger.getLogger(this.getClass());
+	
+	//내 일정 목록 페이징 처리
+	private int rowCount = 5;
+	private int pageCount = 10;
 	
 	@Resource
 	private AdviceService adviceService;
@@ -50,7 +56,7 @@ public class AdviceAjaxController {
 	}*/
 	
 	//내 일정 가져오기
-	/*@RequestMapping("/advice/adviceMyPlan.do")
+	@RequestMapping("/advice/adviceMyPlan.do")
 	@ResponseBody
 	public Map<String, Object> getMyPlanList(@RequestParam(value="pageNum", defaultValue="1") int currentPage){
 		if(log.isDebugEnabled()) {
@@ -59,10 +65,26 @@ public class AdviceAjaxController {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		
+		int count = calendarService.selectRowCount(map);
+		if(log.isDebugEnabled()) {
+			log.debug("<<count>> : " + count);
+		}
 		
+		//페이징 처리
+		PagingUtil page = new PagingUtil(currentPage, currentPage, rowCount, pageCount, "adviceMyPlan.do");
+		map.put("start", page.getStartCount());
+		map.put("end", page.getEndCount());
 		
-		return null;
-	}*/
+		List<CalendarCommand> list = null;
+		if(count>0) {
+			list = calendarService.selectList(map);
+		}
+		
+		Map<String, Object> mapJson = new HashMap<String, Object>();
+		mapJson.put("list", list);
+		
+		return mapJson;
+	}
 	
 	//일정 상세 페이지
 	@RequestMapping("/advice/adviceDetailList.do")

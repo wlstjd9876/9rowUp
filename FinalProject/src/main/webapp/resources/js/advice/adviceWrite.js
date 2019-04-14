@@ -49,7 +49,7 @@ $(document).ready(function(){
 		//글 번호
 		//일정 상세테이블 폼
 		var detailUI =  '<div class="form-group">';
-			detailUI += '	<div class="form-group">';
+			detailUI += '	<div class="form-group" id="adv_plan">';
 			
 		for(var i=0; i<=between_date; i++){
 			detailUI += '		<h2>' + (i+1) + '일차</h2>';
@@ -64,7 +64,7 @@ $(document).ready(function(){
 			detailUI += '	</div>';
 			detailUI += '</div>';
 		   
-			$('.adv_Plan').append(detailUI);
+			$('.adv_plan').append(detailUI);
 			
 			$(this).hide();
 			$('.deletePlan').show();
@@ -72,12 +72,18 @@ $(document).ready(function(){
 	
 	//일정 상세 폼 삭제
 	$(document).on('click','.deletePlan',function(){
-		$('.adv_Plan').empty();
+		$('.adv_plan').empty();
 		
 		$(this).hide();
 		$('.makePlan').show();
 	});
 	
-	
+	//내 일정 가져오는 부분
+	$('#getPlan').on('click', function(){
+		
+		$.ajax({
+			type:''
+		});
+	});
 	
 });

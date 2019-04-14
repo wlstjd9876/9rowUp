@@ -56,7 +56,7 @@
 			<!-- 오른쪽 -->
 			<div class="col-md-6">
 				<!-- 일정 넣을 부분 -->
-				<div class="adv_Plan"></div>
+				<div class="adv_plan"></div>
 			</div>
 			<!-- 버튼 -->
 			<div class="col-md-12" style="text-align: center; padding: 10px;">
