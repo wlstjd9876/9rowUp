@@ -44,7 +44,7 @@ h1 {
 }
 
 #content3 {
-	width: 400px;
+	width: 47%;
 	height: 400px;
 	background-color: white;
 	border: 3px solid;
@@ -54,7 +54,7 @@ h1 {
 }
 
 #content4 {
-	width: 400px;
+	width: 47%;
 	height: 400px;
 	background-color: white;
 	border: 3px solid;
@@ -64,7 +64,10 @@ h1 {
 }
 
 #content5 {
+	
 	width: 900px;
+	min-height:800px;
+	margin-top: 10px;
 }
 
 #img {
@@ -184,7 +187,6 @@ $('.popupBtn').click(function() {
 					<div class="hn">${gowith.go_say}</div>
 				</div>
 			<!--당부의말, 프로필 끝-->
-			
 			
 		<div class="col-lg-12" align="right">			
 			<c:if test="${!empty user_email && user_email == gowith.email}">
