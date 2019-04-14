@@ -75,11 +75,18 @@
 		 kr.spring.member.domain.MemberCommand -> memberCommand
 		  -->
 		 <property name="typeAliasesPackage" 
-		          value="kr.spring.member.domain, kr.spring.advice.domain, kr.spring.calendar.domain,kr.spring.fav.domain, kr.spring.location.domain , kr.spring.gowith.domain, kr.spring.goapp.domain"/>
+		          value="kr.spring.member.domain, kr.spring.advice.domain, kr.spring.calendar.domain,kr.spring.fav.domain, kr.spring.location.domain , kr.spring.gowith.domain, kr.spring.goapp.domain, kr.spring.share.domain"/>
 	</bean>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage"
-		        value="kr.spring.member.dao, kr.spring.advice.dao, kr.spring.calendar.dao, kr.spring.fav.dao, kr.spring.location.dao, kr.spring.gowith.dao, kr.spring.goapp.dao"/>
+		        value="kr.spring.member.dao, 
+		        	   kr.spring.advice.dao,
+		        	   kr.spring.calendar.dao, 
+		        	   kr.spring.fav.dao, 
+		        	   kr.spring.location.dao, 
+		        	   kr.spring.gowith.dao, 
+		        	   kr.spring.goapp.dao, 
+		        	   kr.spring.share.dao"/>
 	</bean>
 	
 </beans>

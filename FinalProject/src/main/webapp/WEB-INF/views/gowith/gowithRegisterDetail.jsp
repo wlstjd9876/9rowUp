@@ -29,7 +29,7 @@ h1 {
 	width: 600px;
 	height: 300px;
 	background-color: white;
-	border: 1px solid;
+	border: 3px solid;
 	text-align: center;
 	border: 1px solid;
 }
@@ -158,26 +158,53 @@ $('.popupBtn').click(function() {
 			<div id="content5">
 				<div id="content3" class="align-center hn">
 					<h2 class="hn">등록자 프로필!</h2>
-					${gowith.td_profilephoto }
+					<br>
+					<div align="center">
+					<img width="100" id="imageFile" src="imageView.do?email=${gowith.email}"/>
+					</div>
+					
 					<ul>
-						<li>닉네임: ${gowith.td_nickname}</li>
+						<li style="list-style: none;">닉네임: ${gowith.td_nickname}</li>
 						<br>
-						<li>이메일: ${gowith.email}</li>
+						<li style="list-style: none;">이메일: ${gowith.email}</li>
 						<br>
-						<li>성별: <c:if test="${gowith.td_gender==1}">
+						<li style="list-style: none;">성별: <c:if test="${gowith.td_gender==1}">
 								<a>남자</a>
 							</c:if> <c:if test="${gowith.td_gender==2}">
 								<a>여자</a>
 							</c:if>
 						</li>
 						<br>
-						<li>나이: ${gowith.td_birth}</li>
-						<br>
-						<li>회원점수: ${gowith.td_score}</li>
+						<li style="list-style: none;">나이: ${gowith.td_birth}</li>
+						
 					</ul>
+					<br>
+			<c:if test="${0<=gowith.td_score && gowith.td_score<10}">
+			<img src="${pageContext.request.contextPath}/resources/img/icon/bronze.png">
+			브론즈 등급 회원입니다!
+			</c:if>
+			<c:if test="${10<=gowith.td_score && gowith.td_score<50}">
+			<img src="${pageContext.request.contextPath}/resources/img/icon/silver.png">
+			실버 등급 회원입니다!
+			</c:if>
+			<c:if test="${50<=gowith.td_score && gowith.td_score<100}">
+			<img src="${pageContext.request.contextPath}/resources/img/icon/gold.png">
+			골드 등급 회원입니다!
+			</c:if>
+			<c:if test="${100<=gowith.td_score && gowith.td_score<250}">
+			<img src="${pageContext.request.contextPath}/resources/img/icon/platinum.png">
+			플래티넘 등급 회원입니다!
+			</c:if>
+			<c:if test="${250<=gowith.td_score}">
+			<img src="${pageContext.request.contextPath}/resources/img/icon/diamond.png">
+			다이아몬드 등급 회원입니다!
+			</c:if>
+					
 				</div>
 
 				<div id="content4">
+					<h2 class="hn">여행날짜</h2><span><b>${gowith.go_startdate} ~ ${gowith.go_enddate}</b></span>
+					<br><br><br><br>
 					<h2 class="hn">당부의 말!</h2>
 					<div class="hn">${gowith.go_say}</div>
 				</div>

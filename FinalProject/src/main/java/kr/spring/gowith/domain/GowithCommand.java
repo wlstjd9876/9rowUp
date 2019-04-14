@@ -32,8 +32,8 @@ public class GowithCommand {
 	
 	private String td_nickname;
 	private String td_password;
-	private MultipartFile td_profile;
-	private byte[] td_profilephoto;
+	private MultipartFile td_profilephoto;
+	private byte[] td_profile;
 	private Date td_reg_date;
 	private int td_score;
 	private Date td_modify_Date;
@@ -191,18 +191,19 @@ public class GowithCommand {
 	public void setTd_password(String td_password) {
 		this.td_password = td_password;
 	}
-	public MultipartFile getTd_profile() {
-		return td_profile;
-	}
-	public void setTd_profile(MultipartFile td_profile) throws IOException {
-		this.td_profile = td_profile;
-		setTd_profilephoto(td_profile.getBytes());
-	}
-	public byte[] getTd_profilephoto() {
+	
+
+	public MultipartFile getTd_profilephoto() {
 		return td_profilephoto;
 	}
-	public void setTd_profilephoto(byte[] td_profilephoto) {
+	public void setTd_profilephoto(MultipartFile td_profilephoto) {
 		this.td_profilephoto = td_profilephoto;
+	}
+	public byte[] getTd_profile() {
+		return td_profile;
+	}
+	public void setTd_profile(byte[] td_profile) {
+		this.td_profile = td_profile;
 	}
 	public Date getTd_reg_date() {
 		return td_reg_date;
@@ -257,15 +258,15 @@ public class GowithCommand {
 		return "GowithCommand [go_num=" + go_num + ", go_member=" + go_member + ", email=" + email + ", go_startdate="
 				+ go_startdate + ", go_enddate=" + go_enddate + ", go_deadline=" + go_deadline + ", go_area=" + go_area
 				+ ", go_photofile1=" + go_photofile1 + ", go_photofile2=" + go_photofile2 + ", go_photofile3="
-				+ go_photofile3 + ", go_photofile4=" + go_photofile4 + ", photoname=" + photoname + ", go_gen=" + go_gen
-				+ ", go_age=" + go_age + ", go_say=" + go_say + ", go_type=" + go_type + ", go_status=" + go_status
-				+ ", td_nickname=" + td_nickname + ", td_password=" + td_password
-				+ ", td_profile=" + td_profile + ", td_reg_date=" + td_reg_date + ", td_score=" + td_score
-				+ ", td_modify_Date=" + td_modify_Date + ", td_gender=" + td_gender + ", td_content=" + td_content
-				+ ", td_birth=" + td_birth + ", good=" + good + ", bad=" + bad + "]";
+				+ go_photofile3 + ", go_photo3=" + Arrays.toString(go_photo3) + ", go_photofile4=" + go_photofile4
+				+ ", photoname=" + photoname + ", go_gen=" + go_gen + ", go_age=" + go_age + ", go_say=" + go_say
+				+ ", go_type=" + go_type + ", go_status=" + go_status + ", dday=" + dday + ", td_nickname="
+				+ td_nickname + ", td_password=" + td_password + ", td_profilephoto=" + td_profilephoto
+				+ ", td_reg_date=" + td_reg_date + ", td_score=" + td_score + ", td_modify_Date=" + td_modify_Date
+				+ ", td_gender=" + td_gender + ", td_content=" + td_content + ", td_birth=" + td_birth + ", good="
+				+ good + ", bad=" + bad + "]";
 	}
-	
-	
+
 	
 	}
 	
