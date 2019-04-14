@@ -197,7 +197,7 @@ $('.popupBtn').click(function() {
 			<br><br><br>
 			<c:set var="today" value="<%=new Date()%>"/>
 			<fmt:formatDate value="${today}" pattern="yyyy-MM-dd" var="today"/>
-			<c:if test="${!empty user_email && user_email != gowith.email && gowith.go_status > 0 && count==0 && gowith.go_deadline > today}">
+			<c:if test="${!empty user_email && user_email != gowith.email && gowith.go_status > 0 && count==0 && gowith.go_deadline >= today}">
 			<a href="#layerpopup"> <input type="button" class="btn btn-primary hn" value="신청하기"></a> &nbsp;&nbsp;
 			</c:if>			
 			<button type="button" class="btn btn-warning hn" onclick="location.href='${pageContext.request.contextPath}/gowith/gowithList.do'">목록으로</button>
