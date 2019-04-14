@@ -17,7 +17,7 @@
 <!-- 중앙 컨텐츠 시작 -->
 <div class="container">
 	 <div class="row">
-      <h1>${share.title}</h1>
+      <h1>${share.title}</h1>  
       <ul>
          <li>번호 : ${share.num}</li>
          <li>작성자 : ${share.email}</li>
