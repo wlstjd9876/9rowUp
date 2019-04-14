@@ -189,7 +189,7 @@ $(document).ready(function(){
 	   $('.sub-item').show();
 	   $('#msr_form').remove();
    }
-   
+     
    //댓글 수정
    $(document).on('submit', '#msr_form', function(event){
 	  if($('#msr_content').val()==''){
