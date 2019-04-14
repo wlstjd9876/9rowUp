@@ -190,7 +190,7 @@ $(document).ready(function(){
 	   $('#msr_form').remove();
    }
      
-   //댓글 수정
+   //댓글 수정  
    $(document).on('submit', '#msr_form', function(event){
 	  if($('#msr_content').val()==''){
 		  alert('내용을 입력하세요');
