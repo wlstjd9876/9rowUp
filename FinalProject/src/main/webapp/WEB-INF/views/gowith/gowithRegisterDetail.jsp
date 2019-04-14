@@ -162,8 +162,7 @@ $('.popupBtn').click(function() {
 			<div id="content5">
 				<div id="content3" class="align-center hn">
 					<h2 class="hn">등록자 프로필!</h2>
-					<div>${gowith.td_profilephoto}</div>
-
+					${gowith.td_profilephoto }
 					<ul>
 						<li>닉네임: ${gowith.td_nickname}</li>
 						<br>
@@ -200,7 +199,7 @@ $('.popupBtn').click(function() {
 			<br><br><br>
 			<c:set var="today" value="<%=new Date()%>"/>
 			<fmt:formatDate value="${today}" pattern="yyyy-MM-dd" var="today"/>
-			<c:if test="${!empty user_email && user_email != gowith.email && gowith.go_status > 0 && count==0 && gowith.go_deadline > today}">
+			<c:if test="${!empty user_email && user_email != gowith.email && gowith.go_status > 0 && count==0 && gowith.go_deadline >= today}">
 			<a href="#layerpopup"> <input type="button" class="btn btn-primary hn" value="신청하기"></a> &nbsp;&nbsp;
 			</c:if>			
 			<button type="button" class="btn btn-warning hn" onclick="location.href='${pageContext.request.contextPath}/gowith/gowithList.do'">목록으로</button>
