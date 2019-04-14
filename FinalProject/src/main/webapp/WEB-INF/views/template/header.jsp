@@ -56,7 +56,7 @@
 											The Trip <b class="caret"></b>
 									</a>
 										<ul class="dropdown-menu">
-											<li><a href="menu.html">공유해요</a></li>
+											<li><a href="${pageContext.request.contextPath}/share/list.do">공유해요</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
@@ -64,7 +64,7 @@
 											class="img-responsive" alt="" /> Show Me The Trip <b
 											class="caret"></b></a>
 										<ul class="dropdown-menu">
-											<li><a href="menu.html">공유해요</a></li>
+											<li><a href="${pageContext.request.contextPath}/share/list.do">공유해요</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
