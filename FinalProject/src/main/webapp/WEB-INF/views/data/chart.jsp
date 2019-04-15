@@ -59,6 +59,11 @@
 <br>
 <canvas id="month" style="align-items center;"></canvas>
 <br><br><br><br><br>
+<div>
+
+
+</div>
+
 </div>
 
 <br>
@@ -185,13 +190,73 @@ var style = new Chart(ctx3, {
 
 <!-- 동행과 함께하는 여행 타입 - 파이 그래프 -->
 var ctx4 = document.getElementById('type').getContext('2d');
+
+var labels4 = [];
+
+
+var backgroundColors4 = [];
+backgroundColors4.push('rgba(255, 99, 132, 0.2)');
+backgroundColors4.push('rgba(54, 162, 235, 0.2)');
+backgroundColors4.push('rgba(255, 206, 86, 0.2)');
+backgroundColors4.push('rgba(75, 192, 192, 0.2)');
+backgroundColors4.push('rgba(153, 102, 255, 0.2)');
+backgroundColors4.push('rgba(255, 159, 64, 0.2)');
+
+var borderColors4 = [];
+borderColors4.push('rgba(255, 99, 132, 1)');
+borderColors4.push('rgba(54, 162, 235, 1)');
+borderColors4.push('rgba(255, 206, 86, 1)');
+borderColors4.push('rgba(75, 192, 192, 1)');
+borderColors4.push('rgba(153, 102, 255, 1)');
+borderColors4.push('rgba(255, 159, 64, 1)');
+
+var data4 = [];
+
+<!-- ajax 처리 -->
+$.ajax({
+    url: 'typeChart.do',
+    type: 'get',
+    dataType: 'json',
+    cache:false,
+    timeout:30000,
+    success: function(data){
+    	
+    	var typeList = data.typeList;
+    	
+    	alert(typeList);
+    	
+       $(typeList).each(function(index,item){
+			
+    	   labels4.push(item.go_type);
+    	   data4.push(item.count);
+       });
+      
+     },
+    error: function() {
+       alert('에러');
+    }  
+ });
+
+
+alert(labels4);
+
+
 var type = new Chart(ctx4, {
+	
     type: 'pie',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    	
+    	labels : labels4,
+       /*  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'], */
         datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            
+            data: data4,
+            backgroundColor: backgroundColors4,
+            borderColor: borderColors4,
+        	
+            
+           /*  data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -207,9 +272,11 @@ var type = new Chart(ctx4, {
                 'rgba(75, 192, 192, 1)',
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)'
-            ],
+            ], */
+            
             borderWidth: 1
         }]
+    
     },
     options: {
         scales: {
@@ -221,6 +288,13 @@ var type = new Chart(ctx4, {
         }
     }
 });
+
+
+
+
+
+
+
 
 <!-- 회원들의 여행 시기 - 세로막대 그래프 -->
 var ctx5 = document.getElementById('month').getContext('2d');
