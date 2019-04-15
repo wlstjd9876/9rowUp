@@ -9,8 +9,7 @@ import kr.spring.fav.domain.FavoriteCommand;
 
 
 public interface LocationMapper {
-	
-	
+		
 	@Insert("INSERT INTO FAVORITE (f_num,f_category,f_code1,email)VALUES (favorite_seq.nextval,1,#{contentid},#{email})")
 	public void insert(Map<String, Object> map);
 	
