@@ -19,6 +19,7 @@ public class FavoriteCommand {
 	private int td_score;
 	
 	
+
 	public String getS_title() {
 		return s_title;
 	}
@@ -80,12 +81,14 @@ public class FavoriteCommand {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
 	@Override
 	public String toString() {
 		return "FavoriteCommand [f_num=" + f_num + ", f_category=" + f_category + ", f_code1=" + f_code1 + ", f_code2="
 				+ f_code2 + ", f_code3=" + f_code3 + ", email=" + email + ", s_title=" + s_title + ", s_tag=" + s_tag
 				+ ", td_nickname=" + td_nickname + ", td_score=" + td_score + "]";
-	}	
+	}
+	
+
+
 	
 }

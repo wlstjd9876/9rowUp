@@ -14,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.fav.domain.FavoriteCommand;
 import kr.spring.fav.service.FavoriteService;
+import kr.spring.member.domain.MemberCommand;
+import kr.spring.member.service.MemberService;
 
 @Controller
 public class FavoriteController {
@@ -22,8 +24,11 @@ public class FavoriteController {
 	/*private int rowCount = 2;
 	private int pageCount = 2;*/
 	
-	@Resource(name="favoriteService")
+	@Resource
 	private FavoriteService favoriteService;
+	
+	@Resource
+	private MemberService memberService;
 	
 	//자바빈(커맨드 객체) 초기화
 	@ModelAttribute("command")
@@ -56,6 +61,23 @@ public class FavoriteController {
 		mav.addObject("list3", list3);		
 		
 		return mav;
+	}
+	
+	@RequestMapping(value="/calendar/imageView2.do")
+	public ModelAndView viewImage2(@RequestParam("email") String email) {
+		System.out.println(email);
+		
+		MemberCommand member = memberService.selectMember(email);
+		
+		if(log.isDebugEnabled()) {
+			log.debug("<<member>> : " + member);
+		}
+		
+		ModelAndView mav2 = new ModelAndView();
+		mav2.setViewName("imageView");
+		mav2.addObject("imageFile", member.getTd_profile());
+		mav2.addObject("filename", "image.jpg");
+		return mav2;
 	}
 	
 	
