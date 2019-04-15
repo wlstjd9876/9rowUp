@@ -204,3 +204,36 @@ CREATE table advice_detail (
    ad_money number(8),
    status number(1) not null, /* 조언 게시글 번호인지 댓글 번호인지 구분하기 위함 */
 );
+
+/*공유 게시판*/
+create table share_write(
+   num number not null, /*글번호*/
+   title VARCHAR2(45) not null, /*제목*/
+   content VARCHAR2(300),
+   reg_date date not null,
+   modify_date date,
+   email VARCHAR2(50) not null,
+   thumb blob,
+   photo2 blob,
+   photo3 blob,
+   s_num number not null,
+   constraint share_write_pk primary key (num),
+   constraint share_write_fk2 foreign key (email) references t_member (email),
+   constraint share_write_fk3 foreign key (s_num) references schedule (s_num)
+);
+
+create sequence share_write_seq;
+
+/*게시판 댓글*/
+create table share_reply(
+   sr_num number not null,
+   sr_content VARCHAR2(300) not null,
+   sr_date date not null,
+   email VARCHAR2(50) not null,
+   num number not null,
+   constraint share_reply_pk primary key (sr_num),
+   constraint share_reply_fk2 foreign key (email) references t_member (email),
+   constraint share_reply_fk3 foreign key (num) references share_write (num)
+);
+
+create sequence share_reply_seq;
