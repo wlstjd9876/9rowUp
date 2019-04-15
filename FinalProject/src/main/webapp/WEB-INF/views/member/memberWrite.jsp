@@ -9,8 +9,8 @@
 	<div class="row">
 		<h1>회원가입</h1>
 		<div class="col-md-offset-2 col-md-8">   <!-- 파일 업로드 enctype 명시 -->
-			<form:form commandName="command" enctype="multipart/form-data" action="write.do" id="register_form">
-			<form:errors element="div" cssClass="form-horizontal error-color"/>
+			<form:form commandName="command" enctype="multipart/form-data" cssClass="form-horizontal" action="write.do" id="register_form">
+			<form:errors element="div" cssClass="error-color"/>
 			<div class="form-group">
 				<label for="email" class="col-md-4 control-label">아이디</label>
 				<div class="col-md-8">
@@ -42,7 +42,9 @@
 			</div>
 			<div class="form-group">
 				<label for="upload" class="col-md-4 control-label">프로필 사진</label>
+				<div class="col-md-8">
 					<input type="file" name="upload" id="upload">
+				</div>
 			</div>
 			
 			<div class="form-group">

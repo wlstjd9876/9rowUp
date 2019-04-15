@@ -124,9 +124,9 @@ public class ShareController {
    }
    
   
-   //이미지 출력
-   @RequestMapping("/share/imageView.do")
-   public ModelAndView viewImage(@RequestParam("num") int num) {
+   /*//이미지 출력
+   @RequestMapping("/share/imageView2.do")
+   public ModelAndView viewImage2(@RequestParam("num") int num) {
 	   
 	   ShareCommand share = shareService.selectShare(num);
 	   
@@ -137,7 +137,32 @@ public class ShareController {
 	   mav.addObject("imageFile", share.getPhoto3());
 	   
 	   return mav;
-   }
+   }*/
+   
+ //이미지 출력----------------------------------------------------
+ 	@RequestMapping("/share/imageView1.do")
+ 	public ModelAndView viewImage1(@RequestParam("num") int num, @RequestParam("photo_type") int photo_type) {
+ 		
+ 		ShareCommand share = shareService.selectShare(num);
+ 	
+ 		if(log.isDebugEnabled()) {
+ 			log.debug("<<ShareCommand>> :" + share);
+ 		}
+ 		
+ 		ModelAndView mav = new ModelAndView();
+ 		mav.setViewName("imageView");
+ 		if(photo_type==1) {
+ 			mav.addObject("imageFile", share.getThumb());
+ 		}else if(photo_type==2) {
+ 			mav.addObject("imageFile", share.getPhoto2());
+ 		}else if(photo_type==3) {
+ 			mav.addObject("imageFile", share.getPhoto3());
+ 		}
+ 		mav.addObject("filename", "image.jpg");
+ 		
+ 		return mav;
+ 		
+ 	}
    
    //==================게시판 글 수정 ====================//
    //수정폼

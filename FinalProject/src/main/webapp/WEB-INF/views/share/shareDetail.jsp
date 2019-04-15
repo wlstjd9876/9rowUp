@@ -24,10 +24,49 @@
          <li>등록일 : ${share.reg_date}</li>
       </ul>
       <hr size="1" width="100%">
-
-	<div class="align-center">
-		<img src="imageView.do?num=${share.num}" style="max-with:500px">
-	</div>
+	
+	<div id="img" class="hn"></div>
+		<div class="container">		
+		<!--사진 시작-->
+		 <c:if test="${!empty share.thumb || !empty share.photo2 || !empty share.photo3}">
+			<div id="content2">
+				<h2 class="hn">&nbsp;&nbsp;여행 사진이에요!</h2>
+				<div class="border"></div>
+				<div class="col-md-3 col-sm-6">
+					<div class="dishes-item-container">
+					    <c:if test="${!empty share.thumb}">
+						<div class="img-frame">
+							<img id="imageFile1" src="imageView1.do?num=${share.num}&photo_type=1" class="img-responsive" alt="" />
+							<div class="img-frame-hover"></div>
+						</div>
+						</c:if>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="dishes-item-container">
+					    <c:if test="${!empty share.photo2}">
+						<div class="img-frame">
+							<img id="imageFile1" src="imageView1.do?num=${share.num}&photo_type=2" class="img-responsive" alt="" />
+							<div class="img-frame-hover"></div>
+						</div>
+						</c:if>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="dishes-item-container">
+					    <c:if test="${!empty share.photo3}">
+						<div class="img-frame">
+							<img id="imageFile1" src="imageView1.do?num=${share.num}&photo_type=3" class="img-responsive" alt="" />
+							<div class="img-frame-hover"></div>
+						</div>
+						</c:if>
+					</div>
+				</div>
+				<br> <br> <br> <br>
+			</div>
+			</c:if>
+			<!--사진끝 -->
+			</div>
       <p>
          ${share.content}
       </p>
@@ -64,6 +103,6 @@
          <input type="button" value="다음글 보기">
       </div>
       
+      </div>
    </div>
-</div>
 <!-- 중앙 컨텐츠 끝 -->
