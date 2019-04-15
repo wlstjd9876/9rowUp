@@ -2,10 +2,12 @@ package kr.spring.share.domain;
 
 import java.sql.Date;
 
+import kr.spring.util.DurationFromNow;
+
 public class ShareReplyCommand {
 	private int sr_num;
 	private String sr_content;
-	private Date sr_date;
+	private String sr_date;
 	private String email;
 	private int num;
 	public int getSr_num() {
@@ -20,10 +22,10 @@ public class ShareReplyCommand {
 	public void setSr_content(String sr_content) {
 		this.sr_content = sr_content;
 	}
-	public Date getSr_date() {
-		return sr_date;
+	public String getSr_date() {
+		return DurationFromNow.getTimeDiffLabel(sr_date);
 	}
-	public void setSr_date(Date sr_date) {
+	public void setSr_date(String sr_date) {
 		this.sr_date = sr_date;
 	}
 	public String getEmail() {
@@ -43,5 +45,4 @@ public class ShareReplyCommand {
 		return "ShareReplyCommand [sr_num=" + sr_num + ", sr_content=" + sr_content + ", sr_date=" + sr_date
 				+ ", email=" + email + ", num=" + num + "]";
 	}
-	
 }
