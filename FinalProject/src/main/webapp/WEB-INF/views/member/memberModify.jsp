@@ -21,7 +21,7 @@
 						<img src="${pageContext.request.contextPath}/resources/images/ajax-loader.gif" width="16" height="16" style="display:none;">
 						<span id="message_nickname"></span>
 				</div>
-			</div>
+			</div>  
 			
 			<div class="form-group">
 				<label for="upload" class="col-md-4 control-label">프로필 사진</label>
