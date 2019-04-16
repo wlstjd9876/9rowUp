@@ -19,7 +19,7 @@
 <br><br><br>
 <!-- 인기 관광지 - 가로막대 그래프 -->
 <div class="col-sm-offset-1 col-md-offset-1 col-lg-offset-1"><br></div>
-<div align="center" class="col-md-6 col-lg-6">
+<div align="center" class="col-md-5 col-lg-5 col-lg-offset-1">
 <br>
 <div><h2 align="center" class="hn">인기 관광지 TOP 10</h2></div>
 <br>
@@ -28,7 +28,7 @@
 </div>
 
 <!-- 즐겨찾기 장소 - 가로막대 그래프 -->
-<div align="center" class="col-md-6 col-lg-6">
+<div align="center" class="col-md-5 col-lg-5">
 <br>
 <div><h2 align="center" class="hn">즐겨찾기 장소 TOP 10</h2></div>
 <br>
@@ -37,7 +37,7 @@
 </div>
 
 <!-- 회원들의 여행스타일 - 파이 그래프 -->
-<div align="center" class="col-md-6 col-lg-6">
+<div align="center" class="col-md-5 col-lg-5">
 <div><h2 align="center" class="hn">회원들의 여행스타일</h2></div>
 <br>
 <canvas id="style"></canvas>
@@ -45,7 +45,7 @@
 </div>
 
 <!-- 동행과 함께하는 여행 타입 - 파이 그래프 -->
-<div align="center" class="col-md-6 col-lg-6">
+<div align="center" class="col-md-5 col-lg-5">
 <div><h2 align="center" class="hn">동행과 함께하는 여행 타입</h2></div>
 <br>
 <canvas id="type"></canvas>
