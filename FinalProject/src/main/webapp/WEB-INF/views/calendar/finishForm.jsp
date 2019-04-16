@@ -317,14 +317,14 @@
 			</div>
 			<!-- 오른쪽 -->
 			<div class="col-md-6">
-				<div class="form-group">
-					<label for="s_tag">연관 검색어</label>
-					<input type="text" name="s_tag" id="s_tag" class="form-control" placeholder="#연관검색어">
-				</div>
 				<!-- 일정 색상 -->
 				<div class="form-group">
 					<label for="s_color">일정 색상</label>
 					<input id="s_color" class="jscolor form-control" name="s_color" value="fea501">
+				</div>
+				<div class="form-group">
+					<label for="s_tag">연관 검색어</label>
+					<input type="text" name="s_tag" id="s_tag" class="form-control" placeholder="#연관검색어">
 				</div>
 				<!-- 이미지 넣기 -->
 				<div class="row">
@@ -364,7 +364,7 @@
             	<div id="photo"></div>
 				<div class="form-group">
 					<label for="s_content">메모</label>
-					<textarea rows="5" cols="40" name="s_content" class="form-control"></textarea>
+					<textarea rows="5" cols="40" name="s_content" class="form-control" style="resize:none; "></textarea>
 				</div>
 			</div>
 			<!-- 버튼 -->
