@@ -68,7 +68,11 @@
 							<td>${go_list.go_gen}</td>
 							<td>${go_list.go_member}명</td>
 							<td> ${go_list.go_status}명 </td>
-							<td><c:if test="${go_list.dday == 1}"><span style="color: red;">D-1</span></c:if><c:if test="${go_list.dday == 0}"><span style="color: red;">D DAY!</span></c:if><c:if test="${go_list.dday > 1}">${go_list.go_deadline}</c:if></td>
+							<td><c:if test="${go_list.dday == 1}"><span class="red mini">D-1</span></c:if>
+								<c:if test="${go_list.dday == 0}"><span class="red mini">D DAY!</span></c:if>
+								<c:if test="${go_list.dday > 1}">${go_list.go_deadline}</c:if>
+								<c:if test="${go_list.dday < 0}"><span class="red mini" style="text-decoration:line-through;">${go_list.go_deadline}</span></c:if>
+							</td>
 							<td>
 							<c:choose>
 								<c:when test="${go_list.go_status>0 && go_list.go_deadline >= today}">
