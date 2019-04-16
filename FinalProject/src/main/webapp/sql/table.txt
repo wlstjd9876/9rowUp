@@ -43,6 +43,7 @@ CREATE table schedule (
    s_finish number(1) not null,
    s_style number(1) default 0 not null, /*기본값0(=미지정)*/
    s_traffic varchar2(30) default 0 not null, /*기본값0(=미지정)*/
+   s_color varchar2(7),
    email varchar2(50) not null,
    s_tag varchar2(300),
    s_startdate varchar2(10),

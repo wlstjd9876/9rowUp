@@ -19,6 +19,7 @@ public class CalendarCommand {
 	private int s_style;  //여행 스타일
 	@NotEmpty
 	private String s_traffic;  //교통수단
+	private String s_color;  //일정 색상 저장
 	@NotEmpty
 	private String email;  //회원 이메일
 	private String s_tag;  //태그
@@ -46,6 +47,12 @@ public class CalendarCommand {
 	private byte[] s_photo9;
 	private byte[] s_photo10;
 	
+	public String getS_color() {
+		return s_color;
+	}
+	public void setS_color(String s_color) {
+		this.s_color = s_color;
+	}
 	public CalendarDetailCommand getDetail() {
 		return detail;
 	}
@@ -260,16 +267,11 @@ public class CalendarCommand {
 	public void setS_photo10(byte[] s_photo10) {
 		this.s_photo10 = s_photo10;
 	}
-	
 	@Override
 	public String toString() {
 		return "CalendarCommand [detail=" + detail + ", s_num=" + s_num + ", s_title=" + s_title + ", s_share="
-				+ s_share + ", s_finish=" + s_finish + ", s_style=" + s_style + ", s_traffic=" + s_traffic + ", email="
-				+ email + ", s_tag=" + s_tag + ", s_startdate=" + s_startdate + ", s_enddate=" + s_enddate
-				+ ", s_content=" + s_content + ", upload_s_photo1=" + upload_s_photo1 + ", upload_s_photo2="
-				+ upload_s_photo2 + ", upload_s_photo3=" + upload_s_photo3 + ", upload_s_photo4=" + upload_s_photo4
-				+ ", upload_s_photo5=" + upload_s_photo5 + ", upload_s_photo6=" + upload_s_photo6 + ", upload_s_photo7="
-				+ upload_s_photo7 + ", upload_s_photo8=" + upload_s_photo8 + ", upload_s_photo9=" + upload_s_photo9
-				+ ", upload_s_photo10=" + upload_s_photo10 + "]";
+				+ s_share + ", s_finish=" + s_finish + ", s_style=" + s_style + ", s_traffic=" + s_traffic
+				+ ", s_color=" + s_color + ", email=" + email + ", s_tag=" + s_tag + ", s_startdate=" + s_startdate
+				+ ", s_enddate=" + s_enddate + ", s_content=" + s_content + "]";
 	}
 }

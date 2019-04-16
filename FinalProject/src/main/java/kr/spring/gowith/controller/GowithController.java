@@ -33,14 +33,13 @@ import kr.spring.util.PagingUtil;
 public class GowithController{
 	private Logger log = Logger.getLogger(this.getClass());
 	private int rowCount = 10;
-	private int pageCount = 10;
-	
-	
-	@Resource
-	private GowithService gowithService;
+	private int pageCount = 10;	
 	
 	@Resource
 	private MemberService memberService;
+	
+	@Resource
+	private GowithService gowithService;
 
 	//자바빈 초기화 
 	public GowithCommand initCommand() {
@@ -68,8 +67,27 @@ public class GowithController{
 			log.debug("<<gowithCommand>>:" + gowithCommand);
 		}
 		
+		/*MemberCommand member = new MemberCommand();
+		
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@" + member);
+		
+		member = memberService.selectMember(email);*/
+		
+		//동행글 등록
 		gowithService.insert(gowithCommand);
-		gowithService.updateScore(email);		
+		
+		//글등록시 점수 올리기
+		gowithService.updateScore(email);
+		
+		/*//로그아웃
+		session.invalidate();
+
+		//인증 성공, 로그인 처리
+		session.setAttribute("user_email", member.getEmail());
+		session.setAttribute("user_auth", member.getT_auth());
+		session.setAttribute("user_nickname", member.getTd_nickname());
+		session.setAttribute("user_score", member.getTd_score());
+		session.setAttribute("user_gender", member.getTd_gender());*/
 		
 		return "redirect:/gowith/gowithList.do";
 	}

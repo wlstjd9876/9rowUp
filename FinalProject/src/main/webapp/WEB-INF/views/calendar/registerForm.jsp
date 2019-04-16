@@ -21,16 +21,7 @@
 <!-- <script>
 	window.opener.document.getElementsByClass("fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable").attr('href')=document.getElementById("sd_num").value;
 </script> -->
-
-
-<style>
-body {
-	text-align: center;
-	font-size: 14px;
-	font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
-	min-height: 700px;
-}
-
+<style>  
 #wrap {
 	width: 100%;
 	margin: 0 auto;
