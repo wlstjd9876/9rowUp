@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/full/jscolor.js"></script>
 <style>
 	.styleWrap {
 		padding: 50px;
@@ -212,7 +213,11 @@
 	}( jQuery ));
 	
 	$(document).ready(function(){
-		$('.img-picker').imagePicker({name: 'upload_s_photo'});  
+		$('.img-picker').imagePicker({name: 'upload_s_photo'});
+		
+		function update(picker){
+			document.getElementById('s_color').style.backgroundColor = '#' + picker;
+		}
 	});
 </script>
 <div class="container" style="padding: 10px;">
@@ -315,6 +320,11 @@
 				<div class="form-group">
 					<label for="s_tag">연관 검색어</label>
 					<input type="text" name="s_tag" id="s_tag" class="form-control" placeholder="#연관검색어">
+				</div>
+				<!-- 일정 색상 -->
+				<div class="form-group">
+					<label for="s_color">일정 색상</label>
+					<input id="s_color" class="jscolor form-control" name="s_color" value="fea501">
 				</div>
 				<!-- 이미지 넣기 -->
 				<div class="row">
