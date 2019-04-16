@@ -27,6 +27,23 @@ public class ChartController {
 				
 	}
 	
+	//여행 스타일
+	@RequestMapping("/data/styleChart.do")
+	@ResponseBody //ajax 사용시 명시 필요!!!
+	public Map<String, Object> style() {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		List<ChartCommand> list = chartService.style();
+		
+		System.out.println("@@@@@@@@@@@" + list.iterator().next().getCountstyle());
+				
+		map.put("styleList", list);
+		
+		return map;
+	}
+	
+	//여행 타입
 	@RequestMapping("/data/typeChart.do")
 	@ResponseBody //ajax 사용시 명시 필요!!!
 	public Map<String, Object> type() {
@@ -41,5 +58,22 @@ public class ChartController {
 		
 		return map;
 	}
+	
+	//여행 시기
+	@RequestMapping("/data/monthChart.do")
+	@ResponseBody //ajax 사용시 명시 필요!!!
+	public Map<String, Object> month() {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		List<ChartCommand> list = chartService.month();
+		
+		System.out.println("@@@@@@@@@@@" + list.iterator().next().getCountmonth());
+				
+		map.put("monthList", list);
+		
+		return map;
+	}
+	
 	
 }
