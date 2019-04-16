@@ -63,16 +63,13 @@ public class GowithController{
 	}
 	
 	@RequestMapping(value="/gowith/gowithRegister.do", method=RequestMethod.POST)
-	public String submit(@ModelAttribute("command") @Valid GowithCommand gowithCommand, BindingResult result) {
+	public String submit(@ModelAttribute("command") @Valid GowithCommand gowithCommand, BindingResult result, @RequestParam("email") String email) {
 		if(log.isDebugEnabled()) {
 			log.debug("<<gowithCommand>>:" + gowithCommand);
-			
 		}
-		/*if(result.hasErrors()) {
-			return registerform(null); 
-			
-		}*/
+		
 		gowithService.insert(gowithCommand);
+		gowithService.updateScore(email);		
 		
 		return "redirect:/gowith/gowithList.do";
 	}

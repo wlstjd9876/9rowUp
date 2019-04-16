@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.spring.gowith.service.GowithService;
 import kr.spring.share.domain.ShareCommand;
 import kr.spring.share.service.ShareService;
 import kr.spring.util.PagingUtil;
@@ -32,6 +33,9 @@ public class ShareController {
    
    @Resource
    private ShareService shareService;
+   
+   @Resource
+   private GowithService gowithService;
    
    //=======게시판 글 등록=======//
    //등록 폼
@@ -49,7 +53,7 @@ public class ShareController {
    
    //전송된 데이터 처리
    @RequestMapping(value="/share/write.do", method=RequestMethod.POST)
-   public String submit(@ModelAttribute("command") @Valid ShareCommand shareCommand, BindingResult result, 
+   public String submit(@ModelAttribute("command") @Valid ShareCommand shareCommand, BindingResult result, @RequestParam("email") String email,
                  RedirectAttributes redirect) {// RedirectAttributes : 리다이렉트시 단 한 번만 사용되는 데이터를 전송
       
       if(log.isDebugEnabled()) {
@@ -63,6 +67,9 @@ public class ShareController {
       
       //글쓰기
       shareService.insert(shareCommand);
+      
+      //글 등록시 회원 점수 올리기
+      gowithService.updateScore(email);
       
       //RedirectAttributes 객체는 리다이렉트 시점에 단 한 번만 사용되는 데이터를 전송
       //브라우저에 데이터를 전송하지만 URL상에는 보이지 않는 숨겨진 데이터의 형태로 전달 
