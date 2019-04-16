@@ -21,9 +21,7 @@
 <!-- <script>
 	window.opener.document.getElementsByClass("fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable").attr('href')=document.getElementById("sd_num").value;
 </script> -->
-
-
-<style>
+<style>  
 body {
 	text-align: center;
 	font-size: 14px;
