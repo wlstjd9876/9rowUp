@@ -34,23 +34,24 @@
 </script>
 <!-- 중앙 컨텐츠 시작 -->
 <div class="container">
-	<div class="row" style="width:400px;">
+	<div class="row">
 		<h3>${member.td_nickname}님 상세정보</h3>
-		<!-- 이미지 보이기 -->
-		<c:if test="${!empty member.td_profile}">
-        	 <div>
-       	     <img src="imageView.do?email=${member.email}" style="max-width:500px;">
-      	   </div>
-         </c:if>
-         <c:if test="${empty member.td_profile}">
-         	<c:if test="${member.td_gender==1}">
-         	<img src="${pageContext.request.contextPath}/resources/img/icon/boy.png" width="100px">
+		<!-- 프로필 보이기 -->
+		<div class="form-group" style="text-align: center;">
+			<c:if test="${!empty member.td_profile}">
+				<div><img src="imageView.do?email=${member.email}" style="max-width:500px;"></div>
 			</c:if>
-         	<c:if test="${member.td_gender==2}">
-         	<img src="${pageContext.request.contextPath}/resources/img/icon/girl.png" style="max-width:500px;">
-			</c:if>
-         </c:if>   
-         <!-- 이미지 보이기 -->
+			<c:if test="${empty member.td_profile}">
+				<c:if test="${member.td_gender==1}">
+					<img src="${pageContext.request.contextPath}/resources/img/icon/boy.png" width="100px">
+				</c:if>
+	         	<c:if test="${member.td_gender==2}">
+	         		<img src="${pageContext.request.contextPath}/resources/img/icon/girl.png" style="max-width:500px;">
+				</c:if>
+			</c:if>   
+		</div>
+		
+         <!-- 상세내용 보이기 -->
 		<table class="table">
 			<tr>
 				<td style="width:100px;">아이디</td>
@@ -101,11 +102,10 @@
 				<td>${member.td_content}</td>
 			</tr>			
 		</table>
-		<hr size="1" width="100%">
-		<p class="align-right">
-			<input type="button" value="수정" class="btn btn-primary" onclick="location.href='update.do'">
-			<input type="button" value="회원탈퇴" class="btn btn-primary" onclick="location.href='delete.do'">
-		</p>
+		<div class="form-group" style="text-align: center;">
+			<input type="button" value="수정" class="btn btn-default" onclick="location.href='update.do'">
+			<input type="button" value="회원탈퇴" class="btn btn-default" onclick="location.href='delete.do'">
+		</div>
 	</div>
 </div>
 <!-- 중앙 컨텐츠 끝 -->
