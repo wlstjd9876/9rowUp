@@ -16,7 +16,7 @@ public interface ShareMapper {
    public List<ShareCommand> selectList(Map<String, Object> map);
    public int selectRowCount(Map< String, Object> map);
    @Insert("INSERT INTO share_write (num,title,content,reg_date,email,thumb,photo2,photo3,s_num) " //uploadfile는 바이트 배열, upload는 MultipartFile이므로 명시하지 않음★
-         + "VALUES (share_write_seq.nextval,#{title},#{content},SYSDATE,#{email},#{thumb},#{photo2},#{photo3},1)")
+         + "VALUES (share_write_seq.nextval,#{title},#{content},SYSDATE,#{email},#{thumb},#{photo2},#{photo3},4)")
    public void insert(ShareCommand share);
    @Select("SELECT * FROM share_write WHERE num=#{num}")
    public ShareCommand selectShare(Integer num); //MyBatis에 데이터를 넘기기 위해 Integer로 사용
