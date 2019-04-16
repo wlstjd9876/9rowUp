@@ -16,7 +16,6 @@
 <br><br>
 </div>
 
-
 <br><br><br>
 <!-- 인기 관광지 - 가로막대 그래프 -->
 <div class="col-sm-offset-1 col-md-offset-1 col-lg-offset-1"><br></div>
@@ -192,7 +191,7 @@ var style = new Chart(ctx3, {
 var ctx4 = document.getElementById('type').getContext('2d');
 
 var labels4 = [];
-
+var data4 = [];
 
 var backgroundColors4 = [];
 backgroundColors4.push('rgba(255, 99, 132, 0.2)');
@@ -210,7 +209,7 @@ borderColors4.push('rgba(75, 192, 192, 1)');
 borderColors4.push('rgba(153, 102, 255, 1)');
 borderColors4.push('rgba(255, 159, 64, 1)');
 
-var data4 = [];
+
 
 <!-- ajax 처리 -->
 $.ajax({
@@ -226,11 +225,12 @@ $.ajax({
     	alert(typeList);
     	
        $(typeList).each(function(index,item){
-			
+			alert(item.go_type);
     	   labels4.push(item.go_type);
     	   data4.push(item.count);
+    	 
        });
-      
+       createchart();
      },
     error: function() {
        alert('에러');
@@ -239,62 +239,6 @@ $.ajax({
 
 
 alert(labels4);
-
-
-var type = new Chart(ctx4, {
-	
-    type: 'pie',
-    data: {
-    	
-    	labels : labels4,
-       /*  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'], */
-        datasets: [{
-            label: '# of Votes',
-            
-            data: data4,
-            backgroundColor: backgroundColors4,
-            borderColor: borderColors4,
-        	
-            
-           /*  data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ], */
-            
-            borderWidth: 1
-        }]
-    
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
-
-
-
-
-
-
-
 
 <!-- 회원들의 여행 시기 - 세로막대 그래프 -->
 var ctx5 = document.getElementById('month').getContext('2d');
@@ -335,5 +279,54 @@ var month = new Chart(ctx5, {
     }
 });
 
+
+function createchart(){
+	var type = new Chart(ctx4, {
+	    type: 'pie',
+	    data: {
+	    	
+	    	labels : labels4,
+	       /*  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'], */
+	        datasets: [{
+	            label: '# of Votes',
+	            
+	            data: data4,
+	            backgroundColor: backgroundColors4,
+	            borderColor: borderColors4,
+	        	
+	            
+	           /*  data: [12, 19, 3, 5, 2, 3],
+	            backgroundColor: [
+	                'rgba(255, 99, 132, 0.2)',
+	                'rgba(54, 162, 235, 0.2)',
+	                'rgba(255, 206, 86, 0.2)',
+	                'rgba(75, 192, 192, 0.2)',
+	                'rgba(153, 102, 255, 0.2)',
+	                'rgba(255, 159, 64, 0.2)'
+	            ],
+	            borderColor: [
+	                'rgba(255, 99, 132, 1)',
+	                'rgba(54, 162, 235, 1)',
+	                'rgba(255, 206, 86, 1)',
+	                'rgba(75, 192, 192, 1)',
+	                'rgba(153, 102, 255, 1)',
+	                'rgba(255, 159, 64, 1)'
+	            ], */
+	            
+	            borderWidth: 1
+	        }]
+	    
+	    },
+	    options: {
+	        scales: {
+	            yAxes: [{
+	                ticks: {
+	                    beginAtZero: true
+	                }
+	            }]
+	        }
+	    }
+	});
+}
 
 </script>

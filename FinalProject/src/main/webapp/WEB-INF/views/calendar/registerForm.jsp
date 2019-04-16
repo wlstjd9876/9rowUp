@@ -106,7 +106,7 @@ body {
 								title : item.s_title,
 								start : item.s_startdate,
 								end : item.s_enddate,
-								url: 'view.do?s_num='+item.s_num
+								url: 'view.do?s_num='+item.s_num+'?defaultDate='+item.s_startdate
 							});
 						});
 						callback(events);
@@ -114,7 +114,6 @@ body {
 				});
 			},
 		});
-
 	});
 </script>
 
