@@ -54,7 +54,7 @@
          <!-- 상세내용 보이기 -->
 		<table class="table">
 			<tr>
-				<td style="width:100px;">아이디</td>
+				<td style="width:30%">아이디</td>
 				<td>${member.email}</td>
 			</tr>
 			<tr>
