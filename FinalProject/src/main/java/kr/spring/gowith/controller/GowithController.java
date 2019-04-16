@@ -196,7 +196,9 @@ public class GowithController{
 		
 		return mav;
 		
-	}//프로필이미지 호출
+	}
+	
+	//프로필이미지 호출
 	@RequestMapping("/gowith/imageView.do")
 	public ModelAndView viewImage(@RequestParam("email") String email) {
 		
