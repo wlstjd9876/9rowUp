@@ -76,4 +76,9 @@ public class CalendarServiceImpl implements CalendarService{
 	public void deleteDetail(Integer sd_num) {
 		calendarMapper.deleteDetail(sd_num);
 	}
+
+	@Override
+	public List<CalendarCommand> selectCal(Map<String, Object> map) {
+		return calendarMapper.selectCal(map);
+	}
 }

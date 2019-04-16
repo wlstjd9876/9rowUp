@@ -8,8 +8,10 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.spring.calendar.domain.CalendarCommand;
 import kr.spring.calendar.domain.CalendarDetailCommand;
 import kr.spring.calendar.service.CalendarService;;
 
@@ -33,6 +35,21 @@ public class CalendarAjaxController {
 		mapJson.put("day", detail.getSd_day());
 		mapJson.put("starttime", detail.getSd_starttime());
 		mapJson.put("endtime", detail.getSd_endtime());
+		return mapJson;
+	}
+	@RequestMapping("/calendar/eventAll.do")
+	@ResponseBody
+	public Map<String, Object> getCal(@RequestParam("email") String email){
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("email", email);
+		
+		List<CalendarCommand> list = null;
+		list = calendarService.selectCal(map);
+		
+		Map<String, Object> mapJson = new HashMap<String, Object>();
+		mapJson.put("list", list);
+		System.out.println(list.iterator().next().getS_title());
+		
 		return mapJson;
 	}
 }
