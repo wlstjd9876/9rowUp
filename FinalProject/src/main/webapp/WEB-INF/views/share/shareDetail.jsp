@@ -168,13 +168,13 @@ function showDivs(n) {
 	 
 	    <!-- 내용시작 -->
       	 	<div id="substance" class="col-lg-12" align="center" style="margin-top: 20px;">
-      	 		상세일정가져올거에요~
+      	 		상세일정가져올거에요~  
       	 	</div>  
         <!-- 내용 끝 -->
         <!-- 내용시작 -->
       	 	<div id="substance" class="col-lg-12" align="center" style="margin-top: 20px;">
       	 		${share.content}
-      	 	</div>  
+      	 	</div>    
         <!-- 내용 끝 -->
  <div class="row">      	
 	
