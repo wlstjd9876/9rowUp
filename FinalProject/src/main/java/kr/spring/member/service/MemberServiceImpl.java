@@ -36,7 +36,7 @@ public class MemberServiceImpl implements MemberService{
 	public void update(MemberCommand member) {
 		memberMapper.update(member);
 	}
-
+  
 	@Override
 	public void updatePassword(MemberCommand member) {
 		memberMapper.updatePassword(member);
