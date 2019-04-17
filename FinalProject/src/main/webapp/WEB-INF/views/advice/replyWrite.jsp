@@ -3,10 +3,13 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/advice/replyWrite.js"></script>
+<script>
+	var context = "${pageContext.request.contextPath}";
+</script>
 <!-- 중앙 컨텐츠 시작 -->
 <div class="container">
 	<div class="row">
-		<h1>도와주세요!</h1>
+		<h1>도와줄께요</h1>
 		<form:form commandName="command" action="replyWrite.do" id="registerform">
 			<div class="col-md-12">
 				<form:hidden path="email"/>

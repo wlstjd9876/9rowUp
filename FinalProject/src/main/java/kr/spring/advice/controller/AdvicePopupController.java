@@ -1,15 +1,23 @@
 package kr.spring.advice.controller;
 
+import javax.annotation.Resource;
+
 import org.jboss.logging.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.spring.advice.domain.AdviceDetailCommand;
+import kr.spring.advice.service.AdviceService;
 
 @Controller
 public class AdvicePopupController {
 	private Logger log = Logger.getLogger(this.getClass());
+	
+	@Resource
+	private AdviceService adviceService;
 	
 	//자바빈(커맨드 객체) 초기화
 	@ModelAttribute("adviceDetailCommand")
@@ -24,8 +32,14 @@ public class AdvicePopupController {
 	}
 	
 	//===================팝업 최종 입력
-	@RequestMapping("/advice/popup/searchAdd.do")
-	public String searchAdd() {
+	@RequestMapping(value="/advice/popup/searchAdd.do", method=RequestMethod.GET)
+	public String searchAddForm() {
+		
 		return "adviceSearchAdd";
+	}
+	@RequestMapping(value="/advice/popup/searchAdd.do", method=RequestMethod.POST)
+	public String searchAdd() {
+		
+		return "redirect:/advice/popup/searchLoc.do";
 	}
 }

@@ -29,7 +29,7 @@ public interface AdviceMapper {
 	
 	//========================상세 일정 목록 advice_detail
 	@Insert("INSERT INTO advice_detail (ad_num, ad_code, ad_day, starttime, endtime, ad_memo, ad_money, adv_num) "
-			+ "VALUES (advice_detail_seq.nextval, #{ad_code}, #{ad_day}, #{starttime}, #{endtime}, #{ad_memo}, #{ad_money}, #{adv_num})")
+			+ "VALUES (ADVIDE_DETAIL_SEQ.nextval, #{ad_code}, #{ad_day}, #{starttime}, #{endtime}, #{ad_memo}, #{ad_money}, #{adv_num})")
 	public void insesrtDetail(AdviceDetailCommand detail);  //글 상세 일정 등록
 	@Select("SELECT * FROM advice_detail WHERE adv_num=#{adv_num} ORDER BY ad_day, starttime")
 	public List<AdviceDetailCommand> selectDetailList(Map<String, Object> map);  //글 상세 일정 전체 목록
