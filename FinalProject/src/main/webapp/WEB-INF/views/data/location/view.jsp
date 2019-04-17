@@ -30,7 +30,7 @@
 		<a href="${pageContext.request.contextPath}/data/location/list.do" class="btn btn-primary hn">목록으로</a>
 		<a class="btn btn-primary hn" onclick="javascript:insert()">즐겨찾기추가하기</a>
 		
-	</div>
+	</div>  
 	<br>
 	
 	<div id="output" class="view"></div>
