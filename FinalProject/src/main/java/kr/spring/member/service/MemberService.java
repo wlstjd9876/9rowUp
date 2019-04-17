@@ -11,6 +11,7 @@ public interface MemberService {
 	public MemberCommand checkNickname(String td_nickname);
 	public void update(MemberCommand member);
 	public void updatePassword(MemberCommand member);
+	public void updateNick(MemberCommand member);
 	public void delete(String email);
 	
 	//관리자 회원목록

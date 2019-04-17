@@ -52,6 +52,14 @@
     <servlet-name>IntroAjax</servlet-name>
     <url-pattern>/introAjax</url-pattern>
   </servlet-mapping>  
+  <servlet>
+    <servlet-name>ImageoAjax</servlet-name>
+    <servlet-class>kr.spring.location.controller.ImageosAjax</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ImageoAjax</servlet-name>
+    <url-pattern>/imageoAjax</url-pattern>
+  </servlet-mapping>  
   <filter>
     <filter-name>encodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

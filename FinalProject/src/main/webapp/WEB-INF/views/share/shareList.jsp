@@ -66,6 +66,7 @@
 			<c:if test="${!empty user_email}">
 				<button class="btn btn-primary btn-md hn" onclick="location.href='write.do'" >글쓰기</button>
 			</c:if>
+				<button class="btn-btn-primary btn-md hn" onclick="location.href='list.do'">목록</button>
 		</div><br>
 <!-- 글쓰기버튼 끝 -->
 
@@ -78,7 +79,7 @@
 		<c:forEach var="share" items="${list}">
 		<div class="col-md-4 col-lg-4">
 			<div style="padding: 10px; margin-bottom: 5px;" class="card card:hover" onclick="location.href='${pageContext.request.contextPath}/share/shareDetail.do?num=${share.num}'">
-  				<img id="imageFile" src="imageView.do?num=${share.num}" style="max-width: 100%; height: auto;">
+  				<img id="imageFile" src="imageView.do?num=${share.num}" style="max-width: 100%; height: 400px;">
   			<div class="card:container hn">
     			<h3 class="hn"><b>${share.title}</b></h3>
     			<p>${share.td_nickname}</p>

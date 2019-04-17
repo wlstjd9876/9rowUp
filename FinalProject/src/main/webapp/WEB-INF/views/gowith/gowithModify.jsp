@@ -46,7 +46,7 @@ h1 {
 <div class="container">
 	<div>
 		<h1 class="hn">
-			<b>동행 정보를 입력해주세요!</b>
+			<b>동행 정보를 수정해주세요!</b>
 		</h1>
 	</div>
 	<br>
