@@ -54,8 +54,6 @@
     	<put-attribute name="body" value="/WEB-INF/views/calendar/favMember.jsp"/>
 	</definition>
 	
-	
-	
  	<!-- 팝업 -->
 	<definition name="calendarDetailPopupView" extends="popup">
 		<put-attribute name="title" value="일정등록" />
@@ -73,6 +71,5 @@
 		<put-attribute name="title" value="일정등록" />
 		<put-attribute name="body" value="/WEB-INF/views/calendar/popup/popupDelete.jsp" />
 	</definition>	
-	
 	
 </tiles-definitions>

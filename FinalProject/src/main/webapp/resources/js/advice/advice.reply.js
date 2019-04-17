@@ -40,7 +40,7 @@ $(document).ready(function(){
                   output += '			<h5 style="text-align: right;">' + item.ar_date + '</h5>';
                  /* if($('#user_email').val()==item.email){
                      output += '      <input type="button" data-num="'+item.ar_num+'" data-id="'+item.email+'" value="수정" class="modify-btn btn btn-default">';
-                     output += '      <input type="button" data-num="'+item.ar_num+'" data-id="'+item.email+'" value="삭제" class="delete-btn btn btn-default">'
+                     output += '      <input type="button" data-num="'+item.ar_num+'" data-id="'+item.email+'" value="삭제" class="delete-btn btn btn-default">';
                   }*/
                   output += '	</div>';
                   output += '</div>';
