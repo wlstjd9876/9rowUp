@@ -88,11 +88,12 @@ $(document).ready(function(){
 	 						output += '<div class="w3-card-4 w3-margin" align="center" style="width:90%">';
 	 						output += '	<div class="w3-container">';
 	 						output += '		<div style="width: 25%; height: 12%; float: left;">';
-	 						output += '		<img align="middle" src="#" alt="장소 이미지">';
+	 						output += '		<img style="width: 100%; height: 100%"  id="jusom'+(index+1)+'">';
 	 						output += '		</div>';
 	 						output += '		<div style="width: 75%; height: 12%; float: right;">';
-	 						output += '			<h5 align="left"> 장소코드 :' +item.f_code1+'</h5>';
-	 						output += '			<h5 align="left"> 주소</h5>';
+
+	 						output += ' <span>주소 : </span><span id=nunum'+(index+1)+'></span> ';
+	 						output += '<script type="text/javascript">detail('+item.f_code1+','+(index+1)+');</script>';
 	 						output += '			<div align="right">';
 	 						output += '			<button class="btn btn-warning btn-sm" onclick="location.href=\'favDelete.do?f_num='+item.f_num+'\'">삭제</button>';
 	 						output += '			<button class="btn btn-primary btn-sm" onclick="location.href=\'#\'">내 일정에 추가</button></div>';

@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.fav.domain.FavoriteCommand;
 import kr.spring.fav.service.FavoriteService;
+import kr.spring.member.domain.MemberCommand;
+import kr.spring.member.service.MemberService;
 import kr.spring.util.PagingUtil;
 
 @Controller
@@ -26,9 +29,11 @@ public class FavoriteAjaxController {
 	private int rowCount = 2;
 	private int pageCount = 10;
 	
-	@Resource(name="favoriteService")
+	@Resource
 	private FavoriteService favoriteService;
-	
+
+	@Resource
+	private MemberService memberService;
 	//자바빈(커맨드 객체) 초기화
 	@ModelAttribute("command")
 	public FavoriteCommand initCommand() {
@@ -86,6 +91,8 @@ public class FavoriteAjaxController {
 		
 		return mapJson;
 	}	
+	
+	
 	
 	
 	//일정 모달창 (검색+페이징)
@@ -190,6 +197,21 @@ public class FavoriteAjaxController {
 
 		return mapJson3;
 	}
-
+	@RequestMapping(value="/calendar/imageView3.do")
+	public ModelAndView viewImage3(@RequestParam("email") String email) {
+		System.out.println(email);
+		
+		MemberCommand member = memberService.selectMember(email);
+		
+		if(log.isDebugEnabled()) {
+			log.debug("<<member>> : " + member);
+		}
+		
+		ModelAndView mav2 = new ModelAndView();
+		mav2.setViewName("imageView");
+		mav2.addObject("imageFile", member.getTd_profile());
+		mav2.addObject("filename", "image.jpg");
+		return mav2;
+	}
 
 }

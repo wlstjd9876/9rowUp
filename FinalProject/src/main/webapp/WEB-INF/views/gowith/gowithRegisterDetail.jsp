@@ -44,7 +44,7 @@ h1 {
 }
 
 #content3 {
-	width: 400px;
+	width: 47%;
 	height: 400px;
 	background-color: white;
 	border: 3px solid;
@@ -54,7 +54,7 @@ h1 {
 }
 
 #content4 {
-	width: 400px;
+	width: 47%;
 	height: 400px;
 	background-color: white;
 	border: 3px solid;
@@ -64,11 +64,17 @@ h1 {
 }
 
 #content5 {
+	
 	width: 900px;
+	min-height:800px;
+	margin-top: 10px;
 }
 
 #img {
 	text-align: center;
+}
+li{
+	margin-top: 3px;
 }
 </style>
 
@@ -165,21 +171,16 @@ $('.popupBtn').click(function() {
 					
 					<ul>
 						<li style="list-style: none;">닉네임: ${gowith.td_nickname}</li>
-						<br>
 						<li style="list-style: none;">이메일: ${gowith.email}</li>
-						<br>
 						<li style="list-style: none;">성별: <c:if test="${gowith.td_gender==1}">
 								<a>남자</a>
 							</c:if> <c:if test="${gowith.td_gender==2}">
 								<a>여자</a>
 							</c:if>
 						</li>
-						<br>
 						<li style="list-style: none;">나이: ${gowith.td_birth}</li>
-						
-					</ul>
-					<br>
-			<c:if test="${0<=gowith.td_score && gowith.td_score<10}">
+						<li style="list-style: none; width: 100%; height: 100%">
+							<c:if test="${0<=gowith.td_score && gowith.td_score<10}">
 			<img src="${pageContext.request.contextPath}/resources/img/icon/bronze.png">
 			브론즈 등급 회원입니다!
 			</c:if>
@@ -199,6 +200,11 @@ $('.popupBtn').click(function() {
 			<img src="${pageContext.request.contextPath}/resources/img/icon/diamond.png">
 			다이아몬드 등급 회원입니다!
 			</c:if>
+						</li>
+					<li style="list-style: none;"> <br></li>
+					</ul>
+					
+		<br>
 					
 				</div>
 
@@ -209,7 +215,6 @@ $('.popupBtn').click(function() {
 					<div class="hn">${gowith.go_say}</div>
 				</div>
 			<!--당부의말, 프로필 끝-->
-			
 			
 		<div class="col-lg-12" align="right">			
 			<c:if test="${!empty user_email && user_email == gowith.email}">

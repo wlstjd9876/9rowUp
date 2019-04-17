@@ -89,12 +89,11 @@ $(document).ready(function(){
                       output += '<div class="w3-card-4 w3-margin" align="center" style="width:90%">';
                       output += '	<div class="w3-container">';
                       output += '		<div style="width: 25%; height: 12%; float: left;">';
-                      output += '		<img align="middle" src="#" alt="장소 이미지">';
+                      output += '		<img style="width: 100%; max-height: 50%" id="imageFile" class="card-img-top" align="middle" src="imageView3.do?email='+item.email+'" alt="프로필 사진">';
                       output += '		</div>';
                       output += '		<div style="width: 75%; height: 12%; float: right;">';
-                      output += '			<h5 align="left"> 닉네임 :' +item.td_nickname+'</h5>';
                       output += '			<h5 align="left"> 이메일 :' +item.email+'</h5>';
-                     /* output += '			<h5 align="left"> 등급 :' +item.td_score+'</h5>';*/
+                      output += '			<h5 align="left"> 등급 :' +item.td_score+'</h5>';
                       output += '			<div align="right">';
                       output += '			<button class="btn btn-warning btn-sm" onclick="location.href=\'favDelete.do?f_num='+item.f_num+'\'">삭제</button>';
                       output += '			<button class="btn btn-primary btn-sm" onclick="location.href=\'#\'">내 일정에 추가</button>';

@@ -279,31 +279,27 @@
 				<div class="tp-caption sfr  thinheadline_dark br-green"
 					data-x="right" data-hoffset="-10" data-y="90" data-speed="800"
 					data-start="3200" data-easing="Power4.easeOut" data-endspeed="500"
-					data-endeasing="Power4.easeIn" style="z-index: 3">Online</div> <!-- LAYERS NR. 4.1 -->
+					data-endeasing="Power4.easeIn" style="z-index: 3">꿈처럼 아름다운</div> <!-- LAYERS NR. 4.1 -->
 				<div class="tp-caption lfr largepinkbg br-green" data-x="right"
 					data-hoffset="-10" data-y="135" data-speed="800" data-start="3500"
 					data-easing="Power4.easeOut" data-endspeed="300"
-					data-endeasing="Linear.easeNone" data-captionhidden="off">Seats
-					Reserve</div> <!-- LAYERS NR. 5 -->
+					data-endeasing="Linear.easeNone" data-captionhidden="off">국내 여행지</div> <!-- LAYERS NR. 5 -->
 				<div
-					class="tp-caption skewfromright medium_text text-right paragraph"
+					class="tp-caption skewfromright medium_text text-right paragraph br-blue"
 					data-x="right" data-hoffset="-10" data-y="225" data-speed="800"
 					data-start="3800" data-easing="Power4.easeOut" data-endspeed="400"
 					data-endeasing="Power4.easeOut" data-captionhidden="off">
-					At vero eos etntium accu amet, adipisicing samus iusto<br />praese
-					delen itieos etconsectetur atque corrupti<br />praese etntiumder
-					delen itierrupti.
+					야경이 아름다운 도시 서울 , 제주의 봄을 알리는 노란 나비 유채꽃밭을 거닐다 <br />우리것이 좋은것 서울에서 제주까지<br />
+					같이 가고 싶은 연인과 함께하는 국내여행 !
 				</div> <!-- LAYERS NR. 6 // -->
 				<div class="tp-caption lfr modern_big_redbg br-red" data-x="right"
 					data-hoffset="-10" data-y="315" data-speed="1500" data-start="4100"
 					data-easing="Power4.easeOut" data-endspeed="300"
-					data-endeasing="Linear.easeNone" data-captionhidden="off">Desktop
-					or Laptop</div> <!-- LAYERS NR. 6.1 // -->
+					data-endeasing="Linear.easeNone" data-captionhidden="off">친구와 함께 가족과함께 연인과 함께</div> <!-- LAYERS NR. 6.1 // -->
 				<div class="tp-caption lfr modern_big_redbg br-yellow"
 					data-x="right" data-hoffset="-10" data-y="375" data-speed="1500"
 					data-start="4400" data-easing="Power4.easeOut" data-endspeed="300"
-					data-endeasing="Linear.easeNone" data-captionhidden="off">Tablet
-					or Phone</div>
+					data-endeasing="Linear.easeNone" data-captionhidden="off">지금바로 계획해보세요!</div>
 			</li>
 		</ul>
 		<!-- Banner Timer -->
@@ -690,8 +686,7 @@
 				<!-- Heading -->
 				<h2>Our Staff</h2>
 				<!-- Paragraph -->
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p>국내 여행 전문가</p>
 				<!-- Border -->
 				<div class="border"></div>
 			</div>
@@ -703,11 +698,14 @@
 						<div class="chefs-head">
 							<!-- Member background image -->
 							<img class="chefs-back img-responsive"
-								src="${pageContext.request.contextPath}/resources/img/chef/c-back2.jpg"
+								src="${pageContext.request.contextPath}/resources/img/chef/59_113_1049.jpg"
+								style="width: 250px; height: 180px;" 
 								alt="" />
 							<!-- chef member image -->
 							<img class="chefs-img img-responsive"
-								src="${pageContext.request.contextPath}/resources/img/chef/11.jpg"
+								src="${pageContext.request.contextPath}/resources/img/chef/KakaoTalk_20190414_155710749.jpg"
+								style="width: 160px; height: 160px;" 
+								
 								alt="" />
 						</div>
 						<!--Name / Heading -->
@@ -715,7 +713,7 @@
 							<a href="#">Staff 1</a>
 						</h3>
 						<!-- Member designation -->
-						<span>Chefs Incharge</span>
+						<span>원영웅</span>
 						<!-- Social media links -->
 						<div class="social">
 							<a href="#" class="facebook"><i class="fa fa-facebook"></i></a> <a
@@ -732,11 +730,13 @@
 						<div class="chefs-head">
 							<!-- Member background image -->
 							<img class="chefs-back img-responsive"
-								src="${pageContext.request.contextPath}/resources/img/chef/c-back1.jpg"
+								src="${pageContext.request.contextPath}/resources/img/chef/4a9b6ff03a764943a7966ada83d806b3.jpg"
+								style="width: 250px; height: 180px;" 
 								alt="" />
 							<!-- chef member image -->
 							<img class="chefs-img img-responsive"
-								src="${pageContext.request.contextPath}/resources/img/chef/22.jpg"
+								src="${pageContext.request.contextPath}/resources/img/chef/KakaoTalk_20190414_160125865.jpg"
+								style="width: 160px; height: 160px;" 
 								alt="" />
 						</div>
 						<!--Name / Heading -->
@@ -744,7 +744,7 @@
 							<a href="#">Staff 2</a>
 						</h3>
 						<!-- Member designation -->
-						<span>Chefs Incharge</span>
+						<span>김현재</span>
 						<!-- Social media links -->
 						<div class="social">
 							<a href="#" class="facebook"><i class="fa fa-facebook"></i></a> <a
@@ -761,11 +761,13 @@
 						<div class="chefs-head">
 							<!-- Member background image -->
 							<img class="chefs-back img-responsive"
-								src="${pageContext.request.contextPath}/resources/img/chef/c-back3.jpg"
+								src="${pageContext.request.contextPath}/resources/img/chef/2721C746573EA7D31B.jpg"
+								style="width: 250px; height: 180px;" 
 								alt="" />
 							<!-- chef member image -->
 							<img class="chefs-img img-responsive"
-								src="${pageContext.request.contextPath}/resources/img/chef/33.jpg"
+								src="${pageContext.request.contextPath}/resources/img/chef/KakaoTalk_20190414_161939474.jpg"
+								style="width: 160px; height: 160px;" 
 								alt="" />
 						</div>
 						<!--Name / Heading -->
@@ -773,7 +775,7 @@
 							<a href="#">Staff 3</a>
 						</h3>
 						<!-- Member designation -->
-						<span>Chefs Incharge</span>
+						<span>박현호</span>
 						<!-- Social media links -->
 						<div class="social">
 							<a href="#" class="facebook"><i class="fa fa-facebook"></i></a> <a
@@ -790,19 +792,21 @@
 						<div class="chefs-head">
 							<!-- Member background image -->
 							<img class="chefs-back img-responsive"
-								src="${pageContext.request.contextPath}/resources/img/chef/c-back3.jpg"
+								src="${pageContext.request.contextPath}/resources/img/chef/cads.jpg"
+								style="width: 250px; height: 180px;" 
 								alt="" />
 							<!-- chef member image -->
 							<img class="chefs-img img-responsive"
-								src="${pageContext.request.contextPath}/resources/img/chef/44.jpg"
-								alt="" />
+								src="${pageContext.request.contextPath}/resources/img/chef/KakaoTalk_20190414_161210257.jpg"
+								style="width: 160px; height: 160px;" 
+								alt="" />  
 						</div>
 						<!--Name / Heading -->
 						<h3>
 							<a href="#">Staff 4</a>
 						</h3>
 						<!-- Member designation -->
-						<span>Chefs Incharge</span>
+						<span>조연주</span>
 						<!-- Social media links -->
 						<div class="social">
 							<a href="#" class="facebook"><i class="fa fa-facebook"></i></a> <a
@@ -832,28 +836,28 @@
 							alt="" />
 						<!-- Heading -->
 						<h3>
-							<a href="#">Equine Porno Sumos</a>
+							<a href="${pageContext.request.contextPath}/data/location.do">독일마을</a>
 						</h3>
 						<!-- Paragraph -->
-						<p>Nam libero tempore, cum soluta nobis est minis voluptas
-							assum simple and easy to distinguis quo.</p>
+						<p>독일마을은 대한민국 경상남도 남해군 삼동면 물건리에 있는 마을이다. 1960년대 독일에 간호사와 광부로 파견되었던 독일거주 교포들이 대한민국에 재정착할 수 있도록 남해군에서 개발한 곳이다.</p>
 						<div class="clearfix"></div>
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-6">
 					<!-- Showcase section item -->
-					<div class="showcase-item">
+					<div class="showcase-item" >
 						<!-- Image -->
 						<img class="img-responsive"
 							src="${pageContext.request.contextPath}/resources/img/luggage.png"
-							alt="" />
+							alt="" 
+							onclick="location.href='https://www.huffingtonpost.kr/2015/01/05/story_n_6414698.html'"
+							/>
 						<!-- Heading -->
 						<h3>
-							<a href="#">짐싸기 노하우</a>
+							<a href="https://www.huffingtonpost.kr/2015/01/05/story_n_6414698.html">짐싸기 노하우</a>
 						</h3>
 						<!-- Paragraph -->
-						<p>Nam libero tempore, cum soluta nobis est minis voluptas
-							assum simple and easy to distinguis quo.</p>
+						<p>간 잘 빠지는 캐리어 하나 사는 것보다 더 도움될, 여행 가방 잘 싸는 팁 20가지를 소개한다. 이 팁이 당신의 인생을 바꿔주진 못하겠지만, 최소한 ...</p>
 						<div class="clearfix"></div>
 					</div>
 				</div>

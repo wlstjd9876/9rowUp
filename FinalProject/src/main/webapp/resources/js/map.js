@@ -292,14 +292,14 @@ markers = new Array;
                       }
                       console.log(myItem.length);
      /*                  output += '<h3>'+ i+'번째 ' + '여행지정보' +'</h3>'; */
-                      output += '<div class="w3-card-4 w3-margin" style=" border:3px solid white; width:80%;">';
-                      output += 	'<div class="w3-container" style="padding-top: 15px; padding-bottom: 15px;">'
+                      output += '<div class="w3-card-4 w3-margin hn" style=" border:3px solid white; width:80%;">';
+                      output += 	'<div class="w3-container hn" style="padding-top: 15px; padding-bottom: 15px;">'
                       output += 		'<img src="' + image + '" style=" width: 99.9%; height: 300px;">';
-                      output += 		'<h3>'+myItem[i].title+'</h3>';
-                      output += 		'<h4>'+ addr +'</h4>';
+                      output += 		'<h3 class="hn">'+myItem[i].title+'</h3>';
+                      output += 		'<h4 class="hn">'+ addr +'</h4>';
                 /*    output += 		'<h4>'+myItem[i].mapx+'</h4>';
                       output += 		'<h4>'+myItem[i].mapy+'</h4>';*/
-                      output += 		'<button class="insertButton" style="float: right;" padding-left:100px;" onclick="javascript:insert('+myItem[i].contentid+');"   >일정추가</button>';
+                      output += 		'<button class="insertButton btn btn-default" style="float: right;" padding-left:100px;" onclick="javascript:insert('+myItem[i].contentid+');">일정추가</button>';
                       output += 		'<br>';
                       output += 	'</div>'
                       output += '</div>';

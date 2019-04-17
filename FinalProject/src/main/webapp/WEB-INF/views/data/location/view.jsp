@@ -13,6 +13,9 @@
 	var contextPath = "${pageContext.request.contextPath }";
 	var contentId = "${param.contentId}";
 	var contenttypeid = "${param.contenttypeid}";
+	
+	
+	
 </script>
 <script
 	src="${pageContext.request.contextPath}/resources/js/data/location/detailform.js"></script>
@@ -25,7 +28,9 @@
 			<div class="Menu-tab" id="Menu-tab3">추가 이미지</div>
 		</div><br>
 		<a href="${pageContext.request.contextPath}/data/location/list.do" class="btn btn-primary hn">목록으로</a>
-	</div>
+		<a class="btn btn-primary hn" onclick="javascript:insert()">즐겨찾기추가하기</a>
+		
+	</div>  
 	<br>
 	
 	<div id="output" class="view"></div>
