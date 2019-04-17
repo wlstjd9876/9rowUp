@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import kr.spring.advice.domain.AdviceCommand;
 import kr.spring.advice.domain.AdviceReplyCommand;
 import kr.spring.advice.service.AdviceService;
 import kr.spring.util.PagingUtil;
@@ -119,8 +118,9 @@ public class AdviceReplyAjaxController {
 
 	//¥Ò±€ ªÛºº
 	
+	
 	//¥Ò±€ªË¡¶
-	/*@RequestMapping("/advice/deleteReply.do")
+	@RequestMapping("/advice/deleteReply.do")
 	@ResponseBody
 	public Map<String, String> deleteReply(@RequestParam("ar_num") int ar_num, @RequestParam("email") String email,HttpSession session){
 		if(log.isDebugEnabled()) {
@@ -143,10 +143,10 @@ public class AdviceReplyAjaxController {
 		}
 
 		return map;
-	}*/
+	}
 
 	//¥Ò±€ ºˆ¡§
-	/*@RequestMapping("/advice/updateReply.do")
+	@RequestMapping("/advice/updateReply.do")
 	@ResponseBody
 	public Map<String, String> modifyReply(AdviceReplyCommand adviceReplyCommand, HttpSession session, HttpServletRequest request){
 
@@ -169,5 +169,8 @@ public class AdviceReplyAjaxController {
 			map.put("result","wrongAccess");
 		}
 		return map;
-	}*/
+	}
+	
+	//¥Ò±€ ªÛºº ¿œ¡§
+	
 }
