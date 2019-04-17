@@ -34,17 +34,15 @@ $(document).ready(function(){
                alert('목록 호출 오류 발생!');
             }else{
                $(list).each(function(index,item){
-                  var output = '<div class="form-group">';  
-                  /*output += '      <h4>' + item.email + '</h4>';
-                  output += '      <div class="sub-item">';
-                  output += '         <p>' + item.ar_comment.replace(/\r\n/g,'<br>') + '</p>';
-                  output += item.ar_date;
-                  if($('#user_email').val()==item.email){
+                  var output = '<div class="item">';  
+                  output += '		<h4>' + item.email + '님께서 일정을 생성해주셨습니다. <input type="button" value="일정상세" id="replyDetail" class="btn btn-sm btn-default"></h4>';
+                  output += '		<div class="sub-item">';
+                  output += '			<h5 style="text-align: right;">' + item.ar_date + '</h5>';
+                 /* if($('#user_email').val()==item.email){
                      output += '      <input type="button" data-num="'+item.ar_num+'" data-id="'+item.email+'" value="수정" class="modify-btn btn btn-default">';
                      output += '      <input type="button" data-num="'+item.ar_num+'" data-id="'+item.email+'" value="삭제" class="delete-btn btn btn-default">'
-                  }
-                  output += '      <hr sizze="1" noshade>';  
-                  output += '     </div>';*/
+                  }*/
+                  output += '	</div>';
                   output += '</div>';
                   
                   //문서 객체에 추가
@@ -68,6 +66,7 @@ $(document).ready(function(){
          }
       });
    }
+   
    //다음 댓글 보기 버튼 클릭시 데이터 추가
    $('.paging-button input').click(function(){
 	  var pageNum = currentPage +1;
@@ -139,6 +138,7 @@ $(document).ready(function(){
 	   
 	   }
    });
+   
    //댓글 수정 버튼 클릭시 수정폼 노출
    $(document).on('click','.modify-btn',function(){
 	  //댓글 글번호
@@ -229,8 +229,6 @@ $(document).ready(function(){
 	  //기본 이벤트 제거
 	  event.preventDefault();
    });
-   
-   
    
    //댓글 삭제
    $(document).on('click', '.delete-btn', function(){
