@@ -53,8 +53,8 @@ h1 {
 		</div>
 	</div>
 	
-	
-	
+	  
+	  
 	<!-- 수정 시작 -->
 <div class="container">
 	<div class="col-sm-4 col-md-offset-4">
