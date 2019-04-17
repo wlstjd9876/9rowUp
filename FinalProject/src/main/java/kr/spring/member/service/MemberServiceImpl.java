@@ -36,12 +36,12 @@ public class MemberServiceImpl implements MemberService{
 	public void update(MemberCommand member) {
 		memberMapper.update(member);
 	}
-
+  
 	@Override
 	public void updatePassword(MemberCommand member) {
 		memberMapper.updatePassword(member);
 	}
-
+  
 	@Override
 	public void delete(String email) {
 		memberMapper.delete(email);
@@ -58,5 +58,8 @@ public class MemberServiceImpl implements MemberService{
 	public int selectRowCount(Map<String, Object> map) {
 		return memberMapper.selectRowCount(map);
 	}
-
+	@Override
+	public void updateNick(MemberCommand member) {
+		memberMapper.updateNick(member);
+	}
 }

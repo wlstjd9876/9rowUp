@@ -24,6 +24,8 @@ public interface MemberMapper {
 	public void update(MemberCommand member);
 	@Update("UPDATE t_member_detail SET td_password=#{td_password} WHERE email=#{email}")
 	public void updatePassword(MemberCommand member);
+	@Update("UPDATE t_member_detail SET td_nickname=#{td_nickname} WHERE email=#{email}")
+	public void updateNick(MemberCommand member);
 	@Update("UPDATE t_member SET t_auth=3 WHERE email=#{email}")
 	public void delete(String email);
 	@Delete("DELETE FROM t_member_detail WHERE email=#{email}")
