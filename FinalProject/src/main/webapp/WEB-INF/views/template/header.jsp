@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<style type="text/css">
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+.hn{font-family: 'Hanna', sans-serif;
+   }
+</style>
 <!-- 상단 네비게이션 시작 -->
 <!-- Page Wrapper -->
 <div class="wrapper">
@@ -50,20 +55,19 @@
 							<div class="collapse navbar-collapse"
 								id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
-									<li class="dropdown visible-xs"><a href="#"
-										class="dropdown-toggle" data-toggle="dropdown"> Show Me
-											The Trip <b class="caret"></b>
+									<li class="dropdown visible-xs hn"><a href="#"
+										class="dropdown-toggle hn" data-toggle="dropdown"> Show Me The Trip <b class="caret"></b>
 									</a>
 										<ul class="dropdown-menu">
-											<li><a href="${pageContext.request.contextPath}/share/list.do">공유해요</a></li>
+											<li class="hn"><a href="${pageContext.request.contextPath}/share/list.do">공유해요</a></li>
 										</ul></li>
 								<li class="dropdown"><a href="#" class="dropdown-toggle"
 										data-toggle="dropdown"><img
 											src="${pageContext.request.contextPath}/resources/img/nav-menu/비행기.jpg"
-											class="img-responsive" alt="" /> Show Me The Trip <b
+											class="img-responsive hn" /> Show Me The Trip <b
 											class="caret"></b></a>
 										<ul class="dropdown-menu">
-								<li><a href="${pageContext.request.contextPath}/share/list.do">어디까지 가봤니!?</a></li>
+								<li class="hn"><a href="${pageContext.request.contextPath}/share/list.do">어디까지 가봤니!?</a></li>
 								</ul></li>
 										
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -72,32 +76,32 @@
 											class="img-responsive" alt="" /> Help Come True <b
 											class="caret"></b></a>
 										<ul class="dropdown-menu">
-											<li><a
+											<li class="hn"><a
 												href="${pageContext.request.contextPath}/advice/adviceList.do">여행을 부탁해!</a></li>
-													<li><a
+													<li class="hn"><a
 												href="${pageContext.request.contextPath}/gowith/gowithList.do">함께, 떠나요!</a></li>
 										</ul></li>
 										
-									<li class="dropdown"><a href="#" class="dropdown-toggle"
+									<li class="dropdown hn"><a href="#" class="dropdown-toggle hn"
 										data-toggle="dropdown"><img
 											src="${pageContext.request.contextPath}/resources/img/nav-menu/트레인.jpg"
 											class="img-responsive" alt="" /> Data Factory <b
 											class="caret"></b></a>
-										<ul class="dropdown-menu">
-											<li><a
+										<ul class="dropdown-menu hn">
+											<li class="hn"><a
 												href="${pageContext.request.contextPath}/data/location/list.do">관광지
 													정보 상세보기</a></li>
-											<li><a
+											<li class="hn"><a
 												href="${pageContext.request.contextPath}/data/location.do">지도별 관광지 정보</a></li>
-											<li><a
+											<li class="hn"><a
 												href="${pageContext.request.contextPath}/data/chart.do">통계 보기</a></li>
 										</ul></li>
 									<li class="dropdown"><a href="#"
 										class="dropdown-toggle" data-toggle="dropdown"><img
 											src="${pageContext.request.contextPath}/resources/img/nav-menu/자전거.jpg"
 											class="img-responsive" alt="" /> My Planner <b class="caret"></b></a>
-										<ul class="dropdown-menu">
-																<li><a href="${pageContext.request.contextPath}/calendar/favList.do">나의 즐겨찾기</a></li>
+										<ul class="dropdown-menu hn">
+																<li ><a href="${pageContext.request.contextPath}/calendar/favList.do">나의 즐겨찾기</a></li>
 																<li><a href="${pageContext.request.contextPath}/calendar/registerPlan.do">일정보기</a></li>
 																<li><a href="${pageContext.request.contextPath}/calendar/finish.do">일정 바로 추가</a></li>
 																<li><a href="${pageContext.request.contextPath}/calendar/list.do">일정 목록</a></li>
@@ -114,22 +118,19 @@
 						<!-- Button Kart -->
 						<ul class="nav navbar-nav navbar-right nav-ex">
 							<c:if test="${empty user_email}">
-								<li><a href="${pageContext.request.contextPath}/member/write.do">회원가입</a></li>
-								<li><a href="${pageContext.request.contextPath}/member/login.do">로그인</a></li>
+								<li class="hn"><a href="${pageContext.request.contextPath}/member/write.do">회원가입</a></li>
+								<li class="hn"><a href="${pageContext.request.contextPath}/member/login.do">로그인</a></li>
 							</c:if>							
 						</ul>
 						<c:if test="${!empty user_email && user_auth !=3}">
-						<div class="btn-cart-md">
-							<a class="cart-link" href="#"> <!-- Image -->
+						<div class="btn-cart-md hn" align="center">
+							<a class="cart-link hn" href="#"> <!-- Image -->
 								<c:if test="${user_gender==1}">
 									<img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/man.png"/>
 								</c:if>
 								<c:if test="${user_gender==2}">
 									<img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/woman.png"/>
 								</c:if> <!-- Heading -->
-								<span>${user_nickname}님<br>반가워요!
-								<c:if test="${!empty user_email && user_auth == 0}">(관리자)</c:if>
-								<c:if test="${!empty user_email && user_auth == 1}">(스태프)</c:if></span>
 								<c:if test="${0<=user_score && user_score<10}">
 									<img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/icon/bronze.png">
 								</c:if>
@@ -147,7 +148,10 @@
 								<c:if test="${250<=user_score}">
 									<img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/icon/diamond.png">
 								</c:if>
-								하단메뉴
+								<br><br><br>
+								<span class="hn" style="margin: auto;">${user_nickname}님<c:if test="${!empty user_email && user_auth == 0}">(관리자)</c:if>
+								<c:if test="${!empty user_email && user_auth == 1}">(스태프)</c:if> 반가워요!</span>
+								<!-- <br>하단메뉴 -->
 							</a>
 							<ul class="cart-dropdown" role="menu">
 								<li>
