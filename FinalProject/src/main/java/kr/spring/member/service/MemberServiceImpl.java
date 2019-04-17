@@ -41,7 +41,7 @@ public class MemberServiceImpl implements MemberService{
 	public void updatePassword(MemberCommand member) {
 		memberMapper.updatePassword(member);
 	}
-
+  
 	@Override
 	public void delete(String email) {
 		memberMapper.delete(email);
