@@ -40,7 +40,7 @@
                </div>
                <div style="width: 75%; height: 12%; float: right;">
                <script type="text/javascript">var a = ${fav.f_code1}</script>
-               	<script type="text/javascript">detail(a,${status.count});</script>
+               <script type="text/javascript">detail1(a,${status.count});</script>
               <div align="left">
                <span>주소 : </span><span id="nunu${status.count}"></span> 
               
