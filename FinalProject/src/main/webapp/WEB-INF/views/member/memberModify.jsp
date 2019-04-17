@@ -26,7 +26,7 @@
 							<span id="message_nickname"></span>
 							<input type="button" value="취소" class="nick_reset">
 							<button type="submit">변경</button>
-					</div>
+					</div>  
 				</div>
 			</div>
 			</form:form> 
