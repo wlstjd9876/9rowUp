@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.spring.member.domain.MemberCommand;
+import kr.spring.gowith.service.GowithService;
 import kr.spring.share.domain.ShareCommand;
 import kr.spring.share.service.ShareService;
 import kr.spring.util.PagingUtil;
@@ -27,11 +29,13 @@ import kr.spring.util.PagingUtil;
 @Controller
 public class ShareController {
    private Logger log = Logger.getLogger(this.getClass());
-   private int rowCount = 10; 
+   private int rowCount = 8; 
    private int pageCount = 10; 
    
    @Resource
    private ShareService shareService;
+   
+   
    
    //=======게시판 글 등록=======//
    //등록 폼
@@ -49,7 +53,9 @@ public class ShareController {
    
    //전송된 데이터 처리
    @RequestMapping(value="/share/write.do", method=RequestMethod.POST)
-   public String submit(@ModelAttribute("command") @Valid ShareCommand shareCommand, BindingResult result, 
+   /*public String submit(@ModelAttribute("command") @Valid ShareCommand shareCommand, BindingResult result, 
+                 RedirectAttributes redirect, @RequestParam("email") String email) {// RedirectAttributes : 리다이렉트시 단 한 번만 사용되는 데이터를 전송
+*/   public String submit(@ModelAttribute("command") @Valid ShareCommand shareCommand, BindingResult result, @RequestParam("email") String email,
                  RedirectAttributes redirect) {// RedirectAttributes : 리다이렉트시 단 한 번만 사용되는 데이터를 전송
       
       if(log.isDebugEnabled()) {
@@ -63,6 +69,9 @@ public class ShareController {
       
       //글쓰기
       shareService.insert(shareCommand);
+      
+      //글 등록시 회원 점수 올리기
+      //gowithService.updateScore(email);
       
       //RedirectAttributes 객체는 리다이렉트 시점에 단 한 번만 사용되는 데이터를 전송
       //브라우저에 데이터를 전송하지만 URL상에는 보이지 않는 숨겨진 데이터의 형태로 전달 
@@ -110,8 +119,29 @@ public class ShareController {
       return mav;
    }
    
+   //썸네일 이미지 호출
+ 	@RequestMapping("/share/imageView.do")
+ 	public ModelAndView viewImage(@RequestParam("num") int num) {
+ 		
+ 		ShareCommand share = shareService.selectShare(num);
+ 	   
+ 	     if(log.isDebugEnabled()) {
+ 	        log.debug("<<ShareCommand>> :" + share);
+ 	     }
+ 		
+ 		ModelAndView mav = new ModelAndView();
+ 		mav.setViewName("imageView");
+ 		mav.addObject("imageFile", share.getThumb());
+ 		mav.addObject("filename", "image.jpg");
+ 		
+ 		return mav;
+ 	}
+   
+   
+   
+   
    //=======게시판 글 상세=======//
-   @RequestMapping("/share/detail.do")
+   @RequestMapping(value="/share/shareDetail.do", method=RequestMethod.GET)
    public ModelAndView process(@RequestParam("num") int num) {
       
       if(log.isDebugEnabled()) {
@@ -119,11 +149,35 @@ public class ShareController {
       }
       
       ShareCommand share = shareService.selectShare(num);
-                        //view name, 속석명, 속성값
+                        //view name, 속성명, 속성값
       return new ModelAndView("shareDetail","share",share);
    }
    
   
+ //이미지 출력----------------------------------------------------
+   @RequestMapping("/share/imageView1.do")
+   public ModelAndView viewImage1(@RequestParam("num") int num, @RequestParam("photo_type") int photo_type) {
+      
+      ShareCommand share = shareService.selectShare(num);
+   
+      if(log.isDebugEnabled()) {
+         log.debug("<<ShareCommand>> :" + share);
+      }
+      
+      ModelAndView mav = new ModelAndView();
+      mav.setViewName("imageView");
+      if(photo_type==1) {
+         mav.addObject("imageFile", share.getThumb());
+      }else if(photo_type==2) {
+         mav.addObject("imageFile", share.getPhoto2());
+      }else if(photo_type==3) {
+         mav.addObject("imageFile", share.getPhoto3());
+      }
+      mav.addObject("filename", "image.jpg");
+      
+      return mav;
+      
+   }
    /*//이미지 출력
    @RequestMapping("/share/imageView2.do")
    public ModelAndView viewImage2(@RequestParam("num") int num) {
@@ -140,7 +194,7 @@ public class ShareController {
    }*/
    
  //이미지 출력----------------------------------------------------
- 	@RequestMapping("/share/imageView1.do")
+ 	/*@RequestMapping("/share/imageView1.do")
  	public ModelAndView viewImage1(@RequestParam("num") int num, @RequestParam("photo_type") int photo_type) {
  		
  		ShareCommand share = shareService.selectShare(num);
@@ -162,7 +216,7 @@ public class ShareController {
  		
  		return mav;
  		
- 	}
+ 	}*/
    
    //==================게시판 글 수정 ====================//
    //수정폼

@@ -84,7 +84,7 @@
 			<tr>
 				<td>성별</td>
 				<td><c:if test="${member.td_gender==1}">남자</c:if><c:if test="${member.td_gender==2}">여자</c:if></td>
-			</tr>	
+			</tr>
 			<tr>
 				<td>생년월일</td>
 				<td>${member.td_birth}</td>

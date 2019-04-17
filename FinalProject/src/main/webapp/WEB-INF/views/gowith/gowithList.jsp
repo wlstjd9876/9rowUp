@@ -27,6 +27,7 @@
 			 			<option value="td_nickname">닉네임</option>
 			 			<option value="go_area">여행지</option>
 			 			<option value="go_type">여행타입</option>
+			 			<option value="all">전체</option>
 			 		</select>
 			 		<input type="text" name="keyword" id="keyword" autocomplete="false">
 			 		<input type="submit" value="검색">
