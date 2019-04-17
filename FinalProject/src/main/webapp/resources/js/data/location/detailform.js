@@ -71,7 +71,7 @@ function insert(){
 				output += '<img class="demo w3-opacity w3-hover-opacity-off" width="120px" height="80px"';
 				output += 'src="${pageContext.request.contextPath}/resources/img/noimage.png" style="cursor: pointer; align-items: center;" align="middle"';
 				output += 'onclick="currentDiv(3)">';
-				output += '</c:if>';
+				output += '</c:if>'; 
 				output += '<c:if test="${share.photo3!=null}">';
 				output += '<img class="demo w3-opacity w3-hover-opacity-off" width="120px" height="80px"';
 				output += 'id="imageFile1" src="imageView1.do?num=${share.num}&photo_type=3" style="cursor: pointer; align-items: center;" align="middle"';
