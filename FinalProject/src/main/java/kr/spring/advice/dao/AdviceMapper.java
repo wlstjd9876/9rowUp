@@ -51,6 +51,8 @@ public interface AdviceMapper {
 	public void updateReply(AdviceReplyCommand adviceReply);  //´ñ±Û ¼öÁ¤
 	@Delete("DELETE FROM advice_reply WHERE ar_num=#{ar_num}")
 	public void deleteReply(Integer ar_num);  //´ñ±Û »èÁ¦
+	@Select("SELECT * FROM advice_reply WHERE ar_num=#{ar_num}")
+	public AdviceReplyCommand selectReplyDetail(Integer ar_num);
 	
 	//========================´ñ±Û »ó¼¼ advice_reply_detail
 	@Select("SELECT * FROM advice_reply_detail d JOIN advice_reply a ON d.ar_num = a.ar_num WHERE a.adv_num = #{adv_num} ORDER BY d.ad_day, d.starttime")
