@@ -2,35 +2,26 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/advice/adviceWrite.js"></script>
-<script>
-	var context = "${pageContext.request.contextPath}";
-</script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/advice/replyWrite.js"></script>
 <!-- 중앙 컨텐츠 시작 -->
 <div class="container">
 	<div class="row">
-		<h1>조언을 구해주세요!</h1>
-		<form:form commandName="command" action="adviceWrite.do" id="registerform">
+		<h1>도와주세요!</h1>
+		<form:form commandName="command" action="replyWrite.do" id="registerform">
 			<div class="col-md-12">
 				<form:hidden path="email"/>
+				<form:hidden path="adv_num"/>
 				<form:errors element="div" cssClass="form-horizontal error-color"/>
 			</div>
 			<!-- 왼쪽 -->
 			<div class="col-md-6" style="padding: 10px;">
 				<div class="form-group">
-					<label for="adv_title" class="col-md-4 control-label">글 제목</label>
+					<label for="ar_comment" class="col-md-4 control-label">내용</label>
 					<div class="col-md-8">
-						<form:input path="adv_title" cssClass="form-control"/>
-						<form:errors path="adv_title" cssClass="error-color"/>
+						<textarea rows="5" cols="40" name="ar_comment" class="form-control" style="resize:none; "></textarea>
+						<form:errors path="ar_comment" cssClass="error-color"/>
 					</div>
 				</div>
-				<div class="form-group">
-					<label for="adv_phone" class="col-md-4 control-label">전화번호</label>
-           			<div class="col-md-8">
-               			<input type="text" name="adv_phone" id="adv_phone" class="form-control">
-               			<form:errors path="adv_phone" cssClass="error-color"/>
-           			</div>
-            	</div>
 				<div class="form-group">
 					<label for="startdate" class="col-md-4 control-label">출발 날짜</label>
            			<div class="col-md-8">
@@ -66,8 +57,6 @@
 				<input type="button" value="목록으로" onclick="location.href='adviceList.do'" class="btn btn-default">
 			</div>
 		</form:form>
-      
 	</div>
 </div>
 <!-- 중앙 컨텐츠 끝 -->
-

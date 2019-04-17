@@ -18,11 +18,13 @@
 		              ]]>
 		              b.reg_date,
 		              b.email,
-		              r.re_cnt		              
-		            FROM share_write b LEFT OUTER JOIN (SELECT num,COUNT(*) re_cnt
+		              r.re_cnt,
+                      t.td_nickname
+		            FROM share_write b  JOIN t_member_detail t ON b.email = t.email              
+		            LEFT OUTER JOIN (SELECT num,COUNT(*) re_cnt
 		                                            FROM share_reply
 		                                            GROUP BY num)r
-		            ON b.num = r.num 
+		            ON b.num = r.num
 		            <where>
 		            	<if test="keyword != '' and keyfield == 'title'">
 		            		b.title like '%' || #{keyword} || '%'

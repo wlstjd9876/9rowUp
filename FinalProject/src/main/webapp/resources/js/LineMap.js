@@ -6,6 +6,7 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 
 var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
+
 var positions = [
     {
         title: '카카오', 

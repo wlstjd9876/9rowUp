@@ -14,6 +14,7 @@ public interface CalendarService {
 	public CalendarCommand selectCalendar(Integer s_num);
 	public void update(CalendarCommand calendar);
 	public void delete(Integer s_num);
+	public List<CalendarCommand> selectCal(Map<String, Object> map);
 	
 	//일정상세
 	public void insertDetail(CalendarDetailCommand calendarDetail);

@@ -108,6 +108,11 @@ public class AdviceServiceImpl implements AdviceService{
 	public void insertReply(AdviceReplyCommand adviceReply) {
 		adviceMapper.insertReply(adviceReply);
 	}
+	
+	@Override
+	public void updateReply(AdviceReplyCommand adviceReply) {
+		adviceMapper.updateReply(adviceReply);
+	}
 
 	@Override
 	public void deleteReply(Integer ar_num) {
@@ -137,4 +142,5 @@ public class AdviceServiceImpl implements AdviceService{
 	public void deleteReplyDetail(Integer ad_num) {
 		adviceMapper.deleteReplyDetail(ad_num);
 	}
+
 }

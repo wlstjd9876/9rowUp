@@ -54,7 +54,7 @@ public class GowithServiceImpl implements GowithService{
 
 	@Override
 	public void delete(Integer go_num) {
-		//신청삭제
+		//신청 삭제
 		gowithMapper.deleteApp(go_num);
 		//동행글 삭제
 		gowithMapper.delete(go_num);
@@ -62,10 +62,14 @@ public class GowithServiceImpl implements GowithService{
 
 	@Override
 	public int count(int go_num) {
-		// TODO Auto-generated method stub
 		return gowithMapper.count(go_num);
 	}
-
+	
+	//글작성시 회원 점수 올리기
+	@Override
+	public void updateScore(String email) {
+		gowithMapper.updateScore(email);
+	}
 
 
 }

@@ -63,7 +63,7 @@
 											class="img-responsive" alt="" /> Show Me The Trip <b
 											class="caret"></b></a>
 										<ul class="dropdown-menu">
-								<li><a href="${pageContext.request.contextPath}/share/list.do">어디까지 가봤니</a></li>
+								<li><a href="${pageContext.request.contextPath}/share/list.do">어디까지 가봤니!?</a></li>
 								</ul></li>
 										
 									<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -88,7 +88,7 @@
 												href="${pageContext.request.contextPath}/data/location/list.do">관광지
 													정보 상세보기</a></li>
 											<li><a
-												href="${pageContext.request.contextPath}/data/location.do">지도별 관관지 정보</a></li>
+												href="${pageContext.request.contextPath}/data/location.do">지도별 관광지 정보</a></li>
 											<li><a
 												href="${pageContext.request.contextPath}/data/chart.do">통계 보기</a></li>
 										</ul></li>
@@ -114,42 +114,38 @@
 						<!-- Button Kart -->
 						<ul class="nav navbar-nav navbar-right nav-ex">
 							<c:if test="${empty user_email}">
-								<li><a
-									href="${pageContext.request.contextPath}/member/write.do">회원가입</a></li>
-								<li><a
-									href="${pageContext.request.contextPath}/member/login.do">로그인</a></li>
-							</c:if>
-							
+								<li><a href="${pageContext.request.contextPath}/member/write.do">회원가입</a></li>
+								<li><a href="${pageContext.request.contextPath}/member/login.do">로그인</a></li>
+							</c:if>							
 						</ul>
 						<c:if test="${!empty user_email && user_auth !=3}">
 						<div class="btn-cart-md">
-							<a class="cart-link" href="#"> <!-- Image --> <c:if
-									test="${user_gender==1}">
-									<img class="img-responsive"
-										src="${pageContext.request.contextPath}/resources/img/icon/boy.png"
-										alt="" />
-								</c:if> <c:if test="${user_gender==2}">
-									<img class="img-responsive"
-										src="${pageContext.request.contextPath}/resources/img/icon/girl.png"
-										alt="" />
-								</c:if> <!-- Heading --> <span>${user_nickname}님 반가워요! <c:if
-										test="${!empty user_email && user_auth == 0}">(관리자)</c:if> <c:if
-										test="${!empty user_email && user_auth == 1}">(스태프)</c:if></span> <c:if
-									test="${0<=user_score && user_score<10}">
-									<img class="img-responsive"
-										src="${pageContext.request.contextPath}/resources/img/icon/bronze.png">
-								</c:if> <c:if test="${10<=user_score && user_score<50}">
+							<a class="cart-link" href="#"> <!-- Image -->
+								<c:if test="${user_gender==1}">
+									<img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/man.png"/>
+								</c:if>
+								<c:if test="${user_gender==2}">
+									<img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/woman.png"/>
+								</c:if> <!-- Heading -->
+								<span>${user_nickname}님<br>반가워요!
+								<c:if test="${!empty user_email && user_auth == 0}">(관리자)</c:if>
+								<c:if test="${!empty user_email && user_auth == 1}">(스태프)</c:if></span>
+								<c:if test="${0<=user_score && user_score<10}">
+									<img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/icon/bronze.png">
+								</c:if>
+								<c:if test="${10<=user_score && user_score<50}">
 									<img class="img-responsive"
 										src="${pageContext.request.contextPath}/resources/img/icon/silver.png">
-								</c:if> <c:if test="${50<=user_score && user_score<100}">
+								</c:if>
+								<c:if test="${50<=user_score && user_score<100}">
 									<img class="img-responsive"
 										src="${pageContext.request.contextPath}/resources/img/icon/gold.png">
-								</c:if> <c:if test="${100<=user_score && user_score<250}">
-									<img class="img-responsive"
-										src="${pageContext.request.contextPath}/resources/img/icon/platinum.png">
-								</c:if> <c:if test="${250<=user_score}">
-									<img class="img-responsive"
-										src="${pageContext.request.contextPath}/resources/img/icon/diamond.png">
+								</c:if>
+								<c:if test="${100<=user_score && user_score<250}">
+									<img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/icon/platinum.png">
+								</c:if>
+								<c:if test="${250<=user_score}">
+									<img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/icon/diamond.png">
 								</c:if>
 								하단메뉴
 							</a>
@@ -158,13 +154,11 @@
 									<!-- Cart items for shopping list -->
 									<div class="cart-item">
 										<!-- Image -->
-										<img class="img-responsive img-rounded"
-											src="${pageContext.request.contextPath}/resources/img/icon/loupe.png"
-											alt="" />
+										<img class="img-responsive img-rounded" src="${pageContext.request.contextPath}/resources/img/icon/loupe.png"/>
 										<!-- Title for purchase item -->
-										<span class="cart-title"><a
-											href="${pageContext.request.contextPath}/member/detail.do">회원님의
-												상세정보</a></span>
+										<span class="cart-title">
+										<a href="${pageContext.request.contextPath}/member/detail.do">회원님의 	상세정보</a>
+										</span>
 										<!-- Cart item price -->
 										<div class="clearfix"></div>
 									</div>
@@ -173,25 +167,20 @@
 									<!-- Cart items for shopping list -->
 									<div class="cart-item">
 										<!-- Image -->
-										<img class="img-responsive img-rounded"
-											src="${pageContext.request.contextPath}/resources/img/icon/key.png"
-											alt="" />
+										<img class="img-responsive img-rounded" src="${pageContext.request.contextPath}/resources/img/icon/key.png"/>
 										<!-- Title for purchase item -->
-										<span class="cart-title"> <a
-											href="${pageContext.request.contextPath}/member/changePassword.do">비밀번호
-												변경</a></span>
+										<span class="cart-title">
+										<a href="${pageContext.request.contextPath}/member/changePassword.do">비밀번호 변경</a>
+										</span>
 										<!-- Cart item price -->
 										<div class="clearfix"></div>
 									</div>
 								</li>
 								<!-- Cart items for shopping list -->
 								<li class="cart-item">
-									<a class="btn btn-danger" data-toggle="modal"
-										href="${pageContext.request.contextPath}/member/logout.do">
-										로그아웃 </a>
+									<a class="btn btn-danger" data-toggle="modal" href="${pageContext.request.contextPath}/member/logout.do">로그아웃 </a>
 								</li>
-							</ul>
-							
+							</ul>							
 							<div class="clearfix"></div>
 						</div>
 						</c:if>
