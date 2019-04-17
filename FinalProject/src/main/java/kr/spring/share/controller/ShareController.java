@@ -20,11 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-<<<<<<< HEAD
 import kr.spring.member.domain.MemberCommand;
-=======
 import kr.spring.gowith.service.GowithService;
->>>>>>> refs/remotes/origin/master
 import kr.spring.share.domain.ShareCommand;
 import kr.spring.share.service.ShareService;
 import kr.spring.util.PagingUtil;
@@ -37,13 +34,9 @@ public class ShareController {
    
    @Resource
    private ShareService shareService;
-<<<<<<< HEAD
-=======
    
-   @Resource
-   private GowithService gowithService;
    
->>>>>>> refs/remotes/origin/master
+   
    //=======게시판 글 등록=======//
    //등록 폼
    @RequestMapping(value="/share/write.do", method=RequestMethod.GET)
@@ -60,13 +53,10 @@ public class ShareController {
    
    //전송된 데이터 처리
    @RequestMapping(value="/share/write.do", method=RequestMethod.POST)
-<<<<<<< HEAD
-   public String submit(@ModelAttribute("command") @Valid ShareCommand shareCommand, BindingResult result, 
+   /*public String submit(@ModelAttribute("command") @Valid ShareCommand shareCommand, BindingResult result, 
                  RedirectAttributes redirect, @RequestParam("email") String email) {// RedirectAttributes : 리다이렉트시 단 한 번만 사용되는 데이터를 전송
-=======
-   public String submit(@ModelAttribute("command") @Valid ShareCommand shareCommand, BindingResult result, @RequestParam("email") String email,
+*/   public String submit(@ModelAttribute("command") @Valid ShareCommand shareCommand, BindingResult result, @RequestParam("email") String email,
                  RedirectAttributes redirect) {// RedirectAttributes : 리다이렉트시 단 한 번만 사용되는 데이터를 전송
->>>>>>> refs/remotes/origin/master
       
       if(log.isDebugEnabled()) {
          log.debug("<<shareCommand>> : " + shareCommand);
@@ -81,7 +71,7 @@ public class ShareController {
       shareService.insert(shareCommand);
       
       //글 등록시 회원 점수 올리기
-      gowithService.updateScore(email);
+      //gowithService.updateScore(email);
       
       //RedirectAttributes 객체는 리다이렉트 시점에 단 한 번만 사용되는 데이터를 전송
       //브라우저에 데이터를 전송하지만 URL상에는 보이지 않는 숨겨진 데이터의 형태로 전달 
@@ -164,7 +154,6 @@ public class ShareController {
    }
    
   
-<<<<<<< HEAD
  //이미지 출력----------------------------------------------------
    @RequestMapping("/share/imageView1.do")
    public ModelAndView viewImage1(@RequestParam("num") int num, @RequestParam("photo_type") int photo_type) {
@@ -189,7 +178,6 @@ public class ShareController {
       return mav;
       
    }
-=======
    /*//이미지 출력
    @RequestMapping("/share/imageView2.do")
    public ModelAndView viewImage2(@RequestParam("num") int num) {
@@ -206,7 +194,7 @@ public class ShareController {
    }*/
    
  //이미지 출력----------------------------------------------------
- 	@RequestMapping("/share/imageView1.do")
+ 	/*@RequestMapping("/share/imageView1.do")
  	public ModelAndView viewImage1(@RequestParam("num") int num, @RequestParam("photo_type") int photo_type) {
  		
  		ShareCommand share = shareService.selectShare(num);
@@ -228,8 +216,7 @@ public class ShareController {
  		
  		return mav;
  		
- 	}
->>>>>>> refs/remotes/origin/master
+ 	}*/
    
    //==================게시판 글 수정 ====================//
    //수정폼
