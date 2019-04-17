@@ -85,7 +85,7 @@ $(document).ready(function() {
 	
 </script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/advice/advice.reply2.js"></script>    
-<h4> ${command.email} 일정</h4>
+<h4> ${command.email} 일정</h4>  
 <div class="sub-item">
 			<div class="col-md-10 col-md-offset-1" style="padding: 10px;">
 				<div class="row">
