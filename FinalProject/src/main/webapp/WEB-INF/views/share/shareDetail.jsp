@@ -151,7 +151,7 @@ function showDivs(n) {
       	 		margin-bottom: 100px; height: 300px; text-align: left; padding: 20px; border: 2px solid;">
       	 		${share.content}
       	 		</div>
-      	 	</div>
+      	 	</div>  
         <!-- 내용 끝 -->
  <div class="row">      	
 	
