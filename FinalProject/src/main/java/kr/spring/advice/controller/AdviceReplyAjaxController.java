@@ -117,6 +117,8 @@ public class AdviceReplyAjaxController {
 		return mapJson;
 	}
 
+	//¥Ò±€ ªÛºº
+	
 	//¥Ò±€ªË¡¶
 	/*@RequestMapping("/advice/deleteReply.do")
 	@ResponseBody
