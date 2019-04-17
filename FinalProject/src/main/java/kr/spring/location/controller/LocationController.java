@@ -32,6 +32,22 @@ public class LocationController{
 		return mav;
 	}
 	
+	//관광지 검색 popup controller
+	@RequestMapping(value="/data/location/listPopup.do", method=RequestMethod.GET)
+	public String search_formPopup() {
+		//footer랑 header를 짜르게 나오려면 직점 jsp를 호출해줘야해서 이렇게 명시해야한다.
+		return "data/location/listPopup";
+	}
+	@RequestMapping(value="/data/location/viewPopup.do", method=RequestMethod.GET)
+	public ModelAndView view_formPopup(@RequestParam("contentId") int contentId) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("data/location/viewPopup");
+		mav.addObject("contentId", contentId);
+
+		return mav;
+	}
+	//여기까지 popup controller
+	
 	/*  //자바빈(커맨드 객체) 초기화
 	   @ModelAttribute("command")
 	   public LocationCommand initCommand() {

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.calendar.domain.CalendarCommand;
+import kr.spring.calendar.domain.CalendarDetailCommand;
 import kr.spring.calendar.service.CalendarService;
 import kr.spring.fav.domain.FavoriteCommand;
 import kr.spring.fav.service.FavoriteService;
@@ -138,8 +139,14 @@ public class CalendarController {
 	@RequestMapping("/calendar/view.do")
 	public String process(@RequestParam("s_num") int s_num, Model model) {
 		CalendarCommand command = calendarService.selectCalendar(s_num);
+		//form:form을 view.do에 calendarDetailCommand 한개를 더써서 view.do에 또 생성을 해줘야한다.
+		CalendarDetailCommand calendarDetailCommand = new CalendarDetailCommand();
+
+		//원래 메서드
 		model.addAttribute("command", command);
-		
+		//새로운 메서드 명시한것
+		model.addAttribute("calendarDetailCommand", calendarDetailCommand);
+
 		return "calendarDetail";
 	}
 	//이미지 출력
