@@ -20,7 +20,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.spring.advice.domain.AdviceCommand;
+import kr.spring.advice.domain.AdviceDetailCommand;
 import kr.spring.advice.service.AdviceService;
+import kr.spring.gowith.service.GowithService;
 import kr.spring.util.PagingUtil;
 
 @Controller
@@ -31,6 +33,9 @@ public class AdviceController {
 
 	@Resource
 	private AdviceService adviceService;
+	
+	@Resource
+	private GowithService gowithService;
 
 	//자바빈(커맨드 객체) 초기화
 	@ModelAttribute("command")
@@ -88,7 +93,7 @@ public class AdviceController {
 
 	//전송된 데이터 처리
 	@RequestMapping(value="/advice/adviceWrite.do", method=RequestMethod.POST)
-	public String submit(@ModelAttribute("command") @Valid AdviceCommand adviceCommand, BindingResult result, RedirectAttributes redirect) { //HttpServletRequest : ip주소 받기 위함,
+	public String submit(@ModelAttribute("command") @Valid AdviceCommand adviceCommand, BindingResult result, RedirectAttributes redirect, @RequestParam("email") String email) { //HttpServletRequest : ip주소 받기 위함,
 		//RedirectAttributes : 객체는 리다이렉트 시점에 한 번만 사용되는 데이터를 전송
 		//				     	   브라우저에 데이터를 전송하지만 URI상에는 보이지 않는 숨겨진
 		//				     	  데이터의 형태로 전달
@@ -104,6 +109,9 @@ public class AdviceController {
 
 		//글쓰기
 		adviceService.insert(adviceCommand);
+		
+		//글작성시 회원 점수 올리기
+		gowithService.updateScore(email);
 
 		//RedirectAttributes 객체는 리다이렉트 시점에 단 한 번만 사용되는 데이터를 전송
 		//브라우저에 데이터를 전송하지만 URL상에는 보이지 않는 숨겨진 데이터의 형태로 전달 
@@ -123,15 +131,16 @@ public class AdviceController {
 		/*adviceService.updateAdv_like(adv_num);*/
 
 		AdviceCommand advice = adviceService.selectAdvice(adv_num);
+		AdviceDetailCommand detail = adviceService.selectDetailAdvice(adv_num);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("adviceDetail");
 		mav.addObject("advice", advice);
+		mav.addObject("detail", detail);
 		
 		return mav;
 	}
 	  
-	   
 	//수정폼
 	@RequestMapping(value="/advice/adviceModify.do",method=RequestMethod.GET)
 	public String form(@RequestParam("adv_num") int adv_num, Model model) {
@@ -210,4 +219,5 @@ public class AdviceController {
 	   out.close();
    }*/
 
+	
 }

@@ -69,6 +69,7 @@ function showDivs(n) {
 
 <!-- ============================================================================================================================================== -->
 <!-- 중앙 컨텐츠 시작 -->
+<<<<<<< HEAD
 <br>
 <div class="container align-center">
 	<br>
@@ -136,6 +137,65 @@ function showDivs(n) {
      
 	 <!--(수정, 삭제, 목록 )버튼 시작 -->
 	 <div align="right">
+=======
+<div class="container">
+	 <div class="row">
+      <h1>${share.title}</h1>  
+      <ul>
+         <li>번호 : ${share.num}</li>
+         <li>작성자 : ${share.email}</li>
+         <li>등록일 : ${share.reg_date}</li>
+      </ul>
+      <hr size="1" width="100%">
+	
+	<div id="img" class="hn"></div>
+		<div class="container">		
+		<!--사진 시작-->
+		 <c:if test="${!empty share.thumb || !empty share.photo2 || !empty share.photo3}">
+			<div id="content2">
+				<h2 class="hn">&nbsp;&nbsp;여행 사진이에요!</h2>
+				<div class="border"></div>
+				<div class="col-md-3 col-sm-6">
+					<div class="dishes-item-container">
+					    <c:if test="${!empty share.thumb}">
+						<div class="img-frame">
+							<img id="imageFile1" src="imageView1.do?num=${share.num}&photo_type=1" class="img-responsive" alt="" />
+							<div class="img-frame-hover"></div>
+						</div>
+						</c:if>
+					</div>
+				</div>  
+				<div class="col-md-3 col-sm-6">
+					<div class="dishes-item-container">
+					    <c:if test="${!empty share.photo2}">
+						<div class="img-frame">
+							<img id="imageFile1" src="imageView1.do?num=${share.num}&photo_type=2" class="img-responsive" alt="" />
+							<div class="img-frame-hover"></div>
+						</div>
+						</c:if>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="dishes-item-container">
+					    <c:if test="${!empty share.photo3}">
+						<div class="img-frame">
+							<img id="imageFile1" src="imageView1.do?num=${share.num}&photo_type=3" class="img-responsive" alt="" />
+							<div class="img-frame-hover"></div>
+						</div>
+						</c:if>
+					</div>
+				</div>
+				<br> <br> <br> <br>
+			</div>
+			</c:if>
+			<!--사진끝 -->
+			</div>
+      <p>
+         ${share.content}
+      </p>
+      <hr size="1" width="100%">
+      <div class="align-right">
+>>>>>>> refs/remotes/origin/master
          <c:if test="${!empty user_email && user_email == share.email}">
          <input type="button" class="btn btn-primary btn-sm hn" value="수정" onclick="location.href='update.do?num=${share.num}'"> <!-- get방식으로 primary key를 넘김 -->
          <input type="button" class="btn btn-danger btn-sm hn" value="삭제" onclick="location.href='delete.do?num=${share.num}'">
@@ -184,6 +244,7 @@ function showDivs(n) {
       <div class="paging-button" style="display: none;">
          <input type="button" value="다음글 보기">
       </div>
+<<<<<<< HEAD
      <!-- 페이징끝 -->  
      
      
@@ -192,3 +253,9 @@ function showDivs(n) {
 </div>
 <!-- 중앙 컨텐츠 끝 -->
 </div>
+=======
+      
+      </div>
+   </div>
+<!-- 중앙 컨텐츠 끝 -->
+>>>>>>> refs/remotes/origin/master

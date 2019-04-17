@@ -38,7 +38,7 @@ $(document).ready(function(){
                   output += '      <h4>' + item.email + '</h4>';
                   output += '      <div class="sub-item">';
                   output += '         <p>' + item.sr_content.replace(/\r\n/g,'<br>') + '</p>';
-                  output += item.reg_date;
+                  output += item.sr_date;
                   if($('#user_email').val()==item.email){
                      output += '      <input type="button" data-num="'+item.sr_num+'" data-id="'+item.email+'" value="수정" class="modify-btn">';
                      output += '      <input type="button" data-num="'+item.sr_num+'" data-id="'+item.email+'" value="삭제" class="delete-btn">'

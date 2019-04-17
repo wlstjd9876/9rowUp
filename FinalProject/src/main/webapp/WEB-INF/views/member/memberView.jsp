@@ -36,24 +36,31 @@
 <div class="container">
 	<div class="row">
 		<h3>${member.td_nickname}님 상세정보</h3>
-		<!-- 이미지 보이기 -->
-		<c:if test="${!empty member.td_profile}">
-        	 <div>
-       	     <img src="imageView.do?email=${member.email}" style="max-width:500px;">
-      	   </div>
-         </c:if>
-         <c:if test="${empty member.td_profile}">
-         	<c:if test="${member.td_gender==1}">
-         	<img src="${pageContext.request.contextPath}/resources/img/icon/boy.png" width="100px">
+		<!-- 프로필 보이기 -->
+		<div class="form-group" style="text-align: center;">
+			<c:if test="${!empty member.td_profile}">
+				<div><img src="imageView.do?email=${member.email}" style="max-width:500px;"></div>
 			</c:if>
-         	<c:if test="${member.td_gender==2}">
-         	<img src="${pageContext.request.contextPath}/resources/img/icon/girl.png" style="max-width:500px;">
-			</c:if>
-         </c:if>   
-         <!-- 이미지 보이기 -->
-		<ul>
-			<li>아이디 : ${member.email}</li>
-			<li>회원점수 : ${member.td_score}</li>
+			<c:if test="${empty member.td_profile}">
+				<c:if test="${member.td_gender==1}">
+					<img src="${pageContext.request.contextPath}/resources/img/icon/boy.png" width="100px">
+				</c:if>
+	         	<c:if test="${member.td_gender==2}">
+	         		<img src="${pageContext.request.contextPath}/resources/img/icon/girl.png" style="max-width:500px;">
+				</c:if>
+			</c:if>   
+		</div>
+		
+         <!-- 상세내용 보이기 -->
+		<table class="table">
+			<tr>
+				<td style="width:30%">아이디</td>
+				<td>${member.email}</td>
+			</tr>
+			<tr>
+				<td>회원점수</td>
+				<td>${member.td_score}</td>
+			</tr>
 			<c:if test="${0<=member.td_score && member.td_score<10}">
 			<img src="${pageContext.request.contextPath}/resources/img/icon/bronze.png">
 			회원님의 등급은 브론즈 입니다!
@@ -74,18 +81,31 @@
 			<img src="${pageContext.request.contextPath}/resources/img/icon/diamond.png">
 			회원님의 등급은 다이아몬드 입니다!
 			</c:if>
-			<li>성별 : <c:if test="${member.td_gender==1}">남자</c:if><c:if test="${member.td_gender==2}">여자</c:if></li>
-			<li>생년월일 : ${member.td_birth}</li>
-			<li>연령대 : <span id="years"></span>입니다!
-			</li>
-			<li>가입날짜 : ${member.td_reg_date}</li>
-			<li>자기소개 : ${member.td_content}</li>
-		</ul>
-		<hr size="1" width="100%">
-		<p class="align-right">
-			<input type="button" value="수정" class="btn btn-primary" onclick="location.href='update.do'">
-			<input type="button" value="회원탈퇴" class="btn btn-primary" onclick="location.href='delete.do'">
-		</p>
+			<tr>
+				<td>성별</td>
+				<td><c:if test="${member.td_gender==1}">남자</c:if><c:if test="${member.td_gender==2}">여자</c:if></td>
+			</tr>
+			<tr>
+				<td>생년월일</td>
+				<td>${member.td_birth}</td>
+			</tr>		
+			<tr>
+				<td>연령대</td>
+				<td><span id="years"></span>입니다!</td>
+			</tr>
+			<tr>
+				<td>가입날짜</td>
+				<td>${member.td_reg_date}</td>
+			</tr>	
+			<tr>
+				<td>자기소개</td>
+				<td>${member.td_content}</td>
+			</tr>			
+		</table>
+		<div class="form-group" style="text-align: center;">
+			<input type="button" value="수정" class="btn btn-default" onclick="location.href='update.do'">
+			<input type="button" value="회원탈퇴" class="btn btn-default" onclick="location.href='delete.do'">
+		</div>
 	</div>
 </div>
 <!-- 중앙 컨텐츠 끝 -->

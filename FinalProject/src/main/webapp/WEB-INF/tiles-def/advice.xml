@@ -35,4 +35,15 @@
 			value="/WEB-INF/views/advice/replyWrite.jsp" />
 	</definition> 
 	
+	
+	<!-- 팝업 -->
+	<definition name="adviceSearchView" extends="popup">
+		<put-attribute name="title" value="일정등록" />
+		<put-attribute name="body" value="/WEB-INF/views/advice/popup/adviceSearchView.jsp" />
+	</definition>
+	<definition name="adviceSearchAdd" extends="popup">
+		<put-attribute name="title" value="일정등록" />
+		<put-attribute name="body" value="/WEB-INF/views/advice/popup/adviceSearchAdd.jsp" />
+	</definition>
+	
 </tiles-definitions>		

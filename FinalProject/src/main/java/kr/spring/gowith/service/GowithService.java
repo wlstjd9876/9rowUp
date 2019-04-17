@@ -21,4 +21,7 @@ public interface GowithService {
 	public List<GowithCommand> selectList(Map<String, Object> map);
 	public int selectRowCount(Map<String, Object> map);
 	
+	//글작성시 회원 점수 올리기
+	public void updateScore(String email);
+	
 }

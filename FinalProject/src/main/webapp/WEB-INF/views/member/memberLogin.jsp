@@ -31,11 +31,9 @@
 			</div>
 			</div>
 			<div class="col-sm-3 col-lg-3 custom-login-submit">
-				<input class="btn btn-primary custom-submit" type="submit" value="로그인">
+				<input class="btn btn-default custom-submit" type="submit" value="로그인">
 			</div>
-			
 			</form:form>
-		
 	</div>
 </div>
 <!-- 중앙 컨텐츠 끝 -->

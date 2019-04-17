@@ -2,8 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/adviceWrite/style.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/advice/adviceWrite.js"></script>
+<script>
+	var context = "${pageContext.request.contextPath}";
+</script>
 <!-- 중앙 컨텐츠 시작 -->
 <div class="container">
 	<div class="row">
@@ -43,7 +45,7 @@
 						<form:errors path="enddate" cssClass="error-color"/>
 					</div>
 				</div>
-				<div class="form-group" style="text-align: center; padding: 10px;">
+				<div class="form-group" style="text-align: center;">
 					<input type="button" name="makePlan" id="makePlan" value="일정만들기" class="btn btn-default makePlan">
 					<input type="button" name="deletePlan" id="deletePlan" value="삭제하기" style="display: none;" class="btn btn-default deletePlan">
 					<input type="button" value="일정가져오기" name="getPlan" id="getPlan" class="btn btn-default">

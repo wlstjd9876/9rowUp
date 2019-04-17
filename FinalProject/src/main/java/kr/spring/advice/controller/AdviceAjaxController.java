@@ -75,6 +75,7 @@ public class AdviceAjaxController {
 		map.put("start", page.getStartCount());
 		map.put("end", page.getEndCount());
 		
+		
 		List<CalendarCommand> list = null;
 		if(count>0) {
 			list = calendarService.selectList(map);
@@ -82,6 +83,7 @@ public class AdviceAjaxController {
 		
 		Map<String, Object> mapJson = new HashMap<String, Object>();
 		mapJson.put("list", list);
+		mapJson.put("pagingHtml", page.getPagingHtml());
 		
 		return mapJson;
 	}

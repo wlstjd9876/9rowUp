@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import kr.spring.gowith.domain.GowithCommand;
 
@@ -25,5 +26,9 @@ public interface GowithMapper {
 	public void update(GowithCommand gowith);
 	public List<GowithCommand> selectList(Map<String,Object> map);
 	public int selectRowCount(Map<String,Object> map);
+	
+	//글작성시 회원 점수 올리기
+	@Update("UPDATE t_member_detail SET td_score=td_score+100 WHERE email=#{email}")
+	public void updateScore(String email);
 	
 }
