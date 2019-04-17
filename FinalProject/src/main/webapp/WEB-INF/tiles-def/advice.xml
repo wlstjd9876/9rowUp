@@ -35,7 +35,6 @@
 			value="/WEB-INF/views/advice/replyWrite.jsp" />
 	</definition> 
 	
-	
 	<!-- 팝업 -->
 	<definition name="adviceSearchView" extends="popup">
 		<put-attribute name="title" value="일정등록" />
@@ -45,5 +44,11 @@
 		<put-attribute name="title" value="일정등록" />
 		<put-attribute name="body" value="/WEB-INF/views/advice/popup/adviceSearchAdd.jsp" />
 	</definition>
+	
+	<!-- 댓글 -->
+	<definition name="replyWrite" extends="main">
+		<put-attribute name="title" value="조언 등록" />
+		<put-attribute name="body" value="/WEB-INF/views/advice/replyWrite.jsp" />
+	</definition> 
 	
 </tiles-definitions>		

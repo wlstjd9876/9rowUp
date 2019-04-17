@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/advice/advice.reply.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/advice/adviceDetail.js"></script>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/js/fullcalendar.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/js/fullcalendar.min.css" />
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/lib/moment.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/fullcalendar.js"></script>
@@ -48,7 +48,7 @@ $(document).ready(function() {
             
             //이벤트 생성
             //월에 데이터 보여줌
-            events: function(start, end, timezone, callback) {
+            /* events: function(start, end, timezone, callback) {
                 $.ajax({
                     url: 'scheduleAll.do',
                     type : 'post',
@@ -74,7 +74,7 @@ $(document).ready(function() {
                         callback(events);
                     }
                 });
-            }
+            } */
         });
     }
     
@@ -85,7 +85,7 @@ $(document).ready(function() {
 <div class="container">
 	<div class="row">
 		<h2>${advice.adv_title}</h2>
-		<input type="hidden" name="adv_num" class="adv_num" value="${advice.adv_num}">
+		<input type="hidden" id="adv_num" name="adv_num" class="adv_num" value="${advice.adv_num}">
 		<div class="form-group">
 			<label>여행기간</label>
 			${advice.startdate} ~ ${advice.enddate}
@@ -103,13 +103,29 @@ $(document).ready(function() {
 				<input type="button" value="글수정" class="btn btn-default" id="adviceUpdate" name="adviceUpdate" onclick="location.href='adviceModify.do?adv_num=${advice.adv_num}'">
 				<input type="button" value="글삭제" class="btn btn-default" id="adviceDelete" name="adviceDelete" onclick="location.href='adviceDelete.do?adv_num=${advice.adv_num}'">
 			</c:if>
-			<c:if test="${!empty user_email && user_email != advice.email}">
-   				<input type="button" class="btn btn-default" id="writeReply" value="댓글쓰기">
-   			</c:if>
 		</div>
 		
 		<!-- 댓글 -->
+		<div align="center">
+			<c:if test="${empty user_email}">로그인 해야 작성할 수 있습니다.</c:if>
+			<c:if test="${!empty user_email && user_email != advice.email}">
+				<input type="button" value="댓글쓰기" class="hn btn btn-info btn-sm" id="writeReply" onclick="location.href='adviceReplyWrite.do?adv_num=${advice.adv_num}'">
+			</c:if>
+		</div>
+
+		<!-- 댓글 목록 출력 -->
+		<div id="output"></div>
 		
+		<div class="paging-button" style="display: none;">
+			<input type="button" value="다음글 보기">
+		</div>
+		<div id="loading" style="display: none;">
+			<img src="${pageContext.request.contextPath}/resources/img/ajax-loader.gif">
+		</div>
+		
+		<ul class="paging_button"></ul>
+		<div id="wrap"></div>
+		<ul class="paging_button"></ul>
 		
 	</div>
 </div>

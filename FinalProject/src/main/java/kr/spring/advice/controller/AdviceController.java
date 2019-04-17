@@ -20,7 +20,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.spring.advice.domain.AdviceCommand;
-import kr.spring.advice.domain.AdviceDetailCommand;
 import kr.spring.advice.service.AdviceService;
 import kr.spring.util.PagingUtil;
 
@@ -124,12 +123,10 @@ public class AdviceController {
 		/*adviceService.updateAdv_like(adv_num);*/
 
 		AdviceCommand advice = adviceService.selectAdvice(adv_num);
-		AdviceDetailCommand detail = adviceService.selectDetailAdvice(adv_num);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("adviceDetail");
 		mav.addObject("advice", advice);
-		mav.addObject("detail", detail);
 		
 		return mav;
 	}
