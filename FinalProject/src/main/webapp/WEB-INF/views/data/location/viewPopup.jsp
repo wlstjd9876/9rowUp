@@ -1,10 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <link
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
+	rel="stylesheet">
+<link
 	href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
 	rel='stylesheet' type='text/css'>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/data/location/style.css">
+<script
+	src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script

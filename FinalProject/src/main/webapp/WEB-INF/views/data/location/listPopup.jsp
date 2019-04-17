@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<link
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
+	rel="stylesheet">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/data/location/style.css">
 
@@ -19,6 +22,8 @@ ul li.paging_btn {
 	cursor: pointer;
 }
 </style>
+<script
+	src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script
