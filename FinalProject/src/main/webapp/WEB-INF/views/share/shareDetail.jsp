@@ -10,6 +10,37 @@
 .hn {
 	font-family: 'Hanna', sans-serif;
 }
+
+#substance{
+	width: 1170px;
+	height: 400px;
+	
+
+}
+div#reply_div{
+	padding:5px 10px 40px 10px;
+	margin-top:10px;
+	background-color:#eeeeee;
+	
+
+}
+div#re_second{
+	float:left;
+	width:20%;
+	margin-bottom:10px;
+}
+span.letter-count{
+	font-size:10pt;
+	color:#999;
+}
+.align-right{
+	text-align:right;
+}
+form#re_form{
+	width:650px;
+	margin:0 auto;
+}
+
 </style>
 <script>
 function currentDiv(n) {
@@ -32,14 +63,20 @@ function showDivs(n) {
   dots[slideIndex-1].className += " w3-opacity-off";
 }
 </script>
+
+
+
+
 <!-- ============================================================================================================================================== -->
 <!-- 중앙 컨텐츠 시작 -->
-<div class="container">
+<br>
+<div class="container align-center">
 	<br>
 	<h2 class="hn" align="center">${share.title}</h2>	
+	<br>
 	<!-- 캐러셀 시작 -->
 	<div class="image hn col-lg-12">
-         <div class="w3-content" align="center" style="width: 500px; height: 350px;">
+         <div class="w3-content" align="center" style="width: 500px; height: 450px; border: 2px dotted;">
          <br>
             <img class="mySlides" width="450px" height="300px"
                id="imageFile1" src="imageView1.do?num=${share.num}&photo_type=1" style="display: block;">
@@ -90,58 +127,68 @@ function showDivs(n) {
                      onclick="currentDiv(3)">
                   </c:if>
                </div>
-            </div>
-            <br><br>
+            </div><br>
          </div>
-      </div>
-	<!-- 캐러셀 끝 -->
-	
-	 <div class="row hn col-lg-12">
-      <div>작성자 : ${share.td_nickname}</div>
-      
-      <div class="col-lg-12" align="center" style="margin-top: 20px;">
-      <br><br><br><br>
-         ${share.content}
-      <br><br>
-      </div>
-      <div align="right">
+    </div>
+     <!-- 캐러셀 끝 --> 
+    <br>
+	 <div class="hn" align="right" style="margin-right: 20px; marbackground-color: yellow;">작성자 : ${share.td_nickname}</div><br>
+     
+	 <!--(수정, 삭제, 목록 )버튼 시작 -->
+	 <div align="right">
          <c:if test="${!empty user_email && user_email == share.email}">
-         <input type="button" value="수정" onclick="location.href='update.do?num=${share.num}'"> <!-- get방식으로 primary key를 넘김 -->
-         <input type="button" value="삭제" onclick="location.href='delete.do?num=${share.num}'">
+         <input type="button" class="btn btn-primary btn-sm hn" value="수정" onclick="location.href='update.do?num=${share.num}'"> <!-- get방식으로 primary key를 넘김 -->
+         <input type="button" class="btn btn-danger btn-sm hn" value="삭제" onclick="location.href='delete.do?num=${share.num}'">
          </c:if>
-         <input type="button" value="목록" onclick="location.href='list.do'">
+         <input type="button" class="btn btn-primary btn-sm hn" value="목록" onclick="location.href='list.do'">
       </div>
-      
-      <div align="center" class="col-lg-12">
-         <div align="center" class="col-lg-12"><span class="reply-title">댓글 달기</span><br></div>
-         <form id="sr_form" action="/share/writeReply.do">
-         <div class="col-lg-7" align="right">
-            <input type="hidden" name="num" value="${share.num}" id="num">
+      <!-- 수정, 삭제, 목록 버튼 끝 -->    
+ 
+	 
+	    <!-- 내용시작 -->
+      	 	<div id="substance" class="col-lg-12" align="center" style="margin-top: 20px;">
+      	 		<div class="hn" align="center" style="background-color: white; margin-top: 30px; margin-left: 120px; margin-right: 120px; 
+      	 		margin-bottom: 100px; height: 300px; text-align: left; padding: 20px; border: 2px solid;">
+      	 		${share.content}
+      	 		</div>
+      	 	</div>
+        <!-- 내용 끝 -->
+ <div class="row">      	
+	
+	<!-- 댓글 시작 -->
+       <div align="center" class="col-lg-12" >
+         <div id=reply_div>
+         <form id="re_form" action="/share/writeReply.do">
+         	<input type="hidden" name="num" value="${share.num}" id="num">
             <input type="hidden" name="email" value="${user_email}" id="user_email">
-            <textarea rows="3" cols="50" name="sr_content" id="sr_content" class="rep-content"
-            <c:if test="${empty user_email}">disabled="disabled"</c:if>            
-            ><c:if test="${empty user_email}">로그인해야 작성할 수 있습니다.</c:if></textarea>
-         </div>
-            <div align="left" class="col-lg-5">
-            <c:if test="${!empty user_email}">
-            <div id="sr_first">
-               <span class="letter-count">300/300</span>
-            </div>
-            <div id="sr_second" class="align-right">
-               <input type="submit" value="전송">
-            </div>
-            </c:if>
-            </div>
+            <textarea rows="3" cols="60" name="sr_content" id="sr_content" class="rep-content">
+            	<c:if test="${!empty user_email}"></c:if>
+            	<c:if test="${empty user_email}">로그인해야 작성할 수 있습니다.</c:if></textarea>
+         		<c:if test="${!empty user_email}">
+           			<div id="re_first">
+             		  <span class="letter-count">300/300</span>
+            	    </div>
+           			 <div id="sr_second" class="align-right">
+              		 	<input class="btn btn-primary btn-sm hn" type="submit" value="등록">
+            		</div>
+            	</c:if>
+           
          </form>
       </div>
       
       <!-- 댓글 목록 출력 -->
       <div id="output"></div>
-      <!-- 페이징 -->
+      <!-- 댓글 목록 출력 끝 -->
+		
+     <!-- 페이징 -->
       <div class="paging-button" style="display: none;">
          <input type="button" value="다음글 보기">
       </div>
-      
-   </div>
+     <!-- 페이징끝 -->  
+     
+     
+     
+   </div>   
 </div>
 <!-- 중앙 컨텐츠 끝 -->
+</div>
