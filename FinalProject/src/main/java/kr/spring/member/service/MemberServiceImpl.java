@@ -58,5 +58,8 @@ public class MemberServiceImpl implements MemberService{
 	public int selectRowCount(Map<String, Object> map) {
 		return memberMapper.selectRowCount(map);
 	}
-
+	@Override
+	public void updateNick(MemberCommand member) {
+		memberMapper.updateNick(member);
+	}
 }

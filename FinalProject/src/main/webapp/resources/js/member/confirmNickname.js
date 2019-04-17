@@ -49,7 +49,7 @@ $(document).ready(function(){
 	});
 	
 	//submit 이벤트 발생시 닉네임 중복 체크 여부 확인
-	$('#register_form').submit(function(){
+	$('#nickname_form').submit(function(){
 		if(checkNickname==0){
 			$('#message_nickname').css('color','red').text('닉네임 중복 체크 필수!');
 			if($('#td_nickname').val()==''){
@@ -57,5 +57,13 @@ $(document).ready(function(){
 			}
 			return false;
 		}
+	});
+	$('#nick_btn').click(function(){
+		$('#nick_form').show();
+		$('#nick_div').hide();
+	});
+	$('.nick_reset').click(function(){
+		$('#nick_form').hide();
+		$('#nick_div').show();
 	});
 });

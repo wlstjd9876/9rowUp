@@ -8,11 +8,34 @@
 	<div class="row">
 		<h1>회원수정</h1>
 		<div class="col-md-offset-2 col-md-8">   <!-- 파일 업로드 enctype 명시 -->
+			
+			<form:form id="nickname_form" action="updateNick.do" cssClass="form-horizontal"> 
+			<form:hidden path="email"/>
+			<div class="form-group">
+				<label for="td_nickname" class="col-md-4 control-label">닉네임</label>
+				<div class="col-md-8">
+				    <div id="nick_div">
+				    <span>${command.td_nickname}</span>
+				    <input type="button" value="수정" id="nick_btn" class="btn btn-primary">
+				    </div>
+				    <div id="nick_form" style="display:none;">
+						<form:input path="td_nickname" cssClass="form-control"/>
+						<form:errors path="td_nickname" cssClass="error-color"/>
+							<input type="button" id="confirmNickname" value="닉네임 중복체크" class="btn btn-primary">
+							<img src="${pageContext.request.contextPath}/resources/images/ajax-loader.gif" width="16" height="16" style="display:none;">
+							<span id="message_nickname"></span>
+							<input type="button" value="취소" class="nick_reset">
+							<button type="submit">변경</button>
+					</div>
+				</div>
+			</div>
+			</form:form> 
+		
 			<form:form commandName="command" enctype="multipart/form-data" cssClass="form-horizontal" action="update.do" id="register_form">
 			<form:hidden path="email"/>
 			<form:errors element="div" cssClass="error-color"/>
 			  
-			<div class="form-group">
+			<%-- <div class="form-group">
 				<label for="td_nickname" class="col-md-4 control-label">닉네임</label>
 				<div class="col-md-8">
 					<form:input path="td_nickname" cssClass="form-control"/>
@@ -21,7 +44,7 @@
 						<img src="${pageContext.request.contextPath}/resources/images/ajax-loader.gif" width="16" height="16" style="display:none;">
 						<span id="message_nickname"></span>
 				</div>
-			</div>  
+			</div>   --%>
 			
 			<div class="form-group">
 				<label for="upload" class="col-md-4 control-label">프로필 사진</label>
