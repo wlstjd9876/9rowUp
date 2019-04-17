@@ -93,7 +93,7 @@ function showDivs(n) {
 <div class="container">
     <div class="article_div">
 	<br>
-	<h2 class="hn" align="center">${share.title}</h2>	
+	<h2 class="hn" align="center">${share.title}</h2>	 
 	<br>
 	<!-- 캐러셀 시작 -->
 	<div class="image hn col-lg-12">

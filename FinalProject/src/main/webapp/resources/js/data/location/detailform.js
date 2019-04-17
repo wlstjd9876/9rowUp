@@ -5,6 +5,33 @@ $(document).ready(function() {
 	});
 	detail();
 });
+//즐겨찾기
+function insert(){
+	$.ajax({        
+	
+			url: contextPath+'/favinsert.do',
+			data:{contentid:contentId},
+			type: 'POST',
+			dataType: 'json',
+			cache:false,
+			timeout:30000,
+			success: function(data){
+				if(data.result=='success'){
+					alert("일정에 추가되었습니다.");
+				}else{
+					alert("이미 있습니다.");
+				}
+				
+			},
+			 error: function() {
+				 alert(contentId);
+				 alert(contextPath+'/favinsert.do');
+		          alert("일정추가 오류 발생!");
+		       }  
+		});
+	};
+
+
 //================== 디테일=======================//
 function detail(){
 	$.ajax({        
