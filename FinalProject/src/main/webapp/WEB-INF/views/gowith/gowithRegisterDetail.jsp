@@ -153,7 +153,7 @@ $('.popupBtn').click(function() {
 			</div>
 			</c:if>
 			<!--사진끝 -->
-
+			<br><br><br>
 			<!--당부의말, 프로필-->
 			<div id="content5">
 				<div id="content3" class="align-center hn">
