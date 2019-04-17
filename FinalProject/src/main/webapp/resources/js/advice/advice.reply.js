@@ -34,7 +34,7 @@ $(document).ready(function(){
                alert('목록 호출 오류 발생!');
             }else{
                $(list).each(function(index,item){
-                  var output = '<div class="form-group">';
+                  var output = '<div class="form-group">';  
                   /*output += '      <h4>' + item.email + '</h4>';
                   output += '      <div class="sub-item">';
                   output += '         <p>' + item.ar_comment.replace(/\r\n/g,'<br>') + '</p>';
