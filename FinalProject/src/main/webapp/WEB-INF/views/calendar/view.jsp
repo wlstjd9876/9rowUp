@@ -2,6 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<style>
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+.hn {
+   font-family: 'Hanna', sans-serif;
+}
+</style>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
 	type="text/css">
@@ -213,7 +219,8 @@ kdk {
 					});
 </script>
 <div class="container">
-	<div class="row">
+	<div class="row hn">
+	<br><br>
 		<div class="form-group">
 			<div class="col-md-6">
 				<!-- 캘린더 -->
@@ -222,9 +229,12 @@ kdk {
 				<!--상세일정 Modal 시작 -->
 
 				<!-- modal 구동 버튼 (trigger) -->
+				<div>
+				<br>
 				<button type="button" class="btn btn-primary" data-toggle="modal"
 					data-target="#myModal">일정상세등록</button>
-
+				<br>
+				</div>
 				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 					aria-labelledby="myModalTitle" aria-hidden="true">
 					<div class="modal-dialog" role="document">
@@ -298,12 +308,12 @@ kdk {
 		</div>
 	</div>
 
-	<div class="form-group col-md-12">
+	<div class="form-group col-md-12 hn">
 		<h1>${command.s_title}</h1>
 	</div>
 
 	<!-- 여행상세내용 -->
-	<table class="table">
+	<table class="table hn">
 		<tr>
 			<th>공유여부</th>
 			<td>${command.s_share}</td>
@@ -321,16 +331,18 @@ kdk {
 			<td>${command.s_startdate}</td>
 		</tr>
 	</table>
-	<div class="form-group">
-		<h3>상세일정</h3>
+	<div class="form-group hn">
+		<br>
+		<h2>상세일정</h2>
 		<div style="width: 800px;">
 			<div id="calendar_week"></div>
+			<br>
 		</div>
 	</div>
-	<div class="form-group">
-		<h5>${command.s_tag}</h5>
+	<div class="form-group hn">
+		<h4>${command.s_tag}</h4>
 	</div>
-	<div class="form-group">
+	<div class="form-group hn">
 		<!-- 사진 -->
 		<div class="row">
 			<div class="col-md-12">
@@ -480,12 +492,12 @@ kdk {
 			</div>
 		</div>
 	</div>
-	<div class="form-group">
+	<div class="form-group hn">
 		<!-- 여행내용 -->
 		<textarea rows="5" cols="40" name="s_content" class="form-control"
 			readonly="readonly" style="resize: none;">${command.s_content}</textarea>
 	</div>
-	<div class="form-group">
+	<div class="form-group hn">
 		<input type="button" value="수정" class="btn btn-default"
 			onclick="location.href='update.do?s_num=${command.s_num}'"> <input
 			type="button" value="삭제" class="btn btn-default"

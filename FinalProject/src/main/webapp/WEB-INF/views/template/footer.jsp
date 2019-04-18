@@ -8,7 +8,7 @@
 <!-- Footer Start -->
 <div class="footer padd hn">
 	<!-- Copyright -->
-	<div class="footer-copyright col-sm-12 col-lg-12">
+	<div class="footer-copyright col-sm-12 col-lg-12" style="margin-bottom: 20px;">
 		<!-- Paragraph -->
 		<div class="header-contact" style="width: 25%; float: left;">
 			<!-- Contact number -->
