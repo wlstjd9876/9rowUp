@@ -15,14 +15,12 @@
 	
 <style>
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
-
 .hn {
    font-family: 'Hanna', sans-serif;
 }
-
-
 </style>
 
+<div class="container">
 <div class="hn" style="padding: 60">
 
    <!-- 즐겨찾기한 장소 시작 -->
@@ -126,6 +124,9 @@
    </div>
    <!-- 즐겨찾기한 회원 끝 -->
 </div>
+<br><br><br>
+</div>
+<br>
 <!-- 중앙 컨텐츠 끝 -->
 
 

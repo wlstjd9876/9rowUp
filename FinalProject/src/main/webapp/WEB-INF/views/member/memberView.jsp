@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<style type="text/css">
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+.hn{font-family: 'Hanna', sans-serif;
+   }
+</style>
 <script type="text/javascript">
    window.onload=function(){
 			var birth = new Date('${member.td_birth}');
@@ -35,9 +40,11 @@
 <!-- 중앙 컨텐츠 시작 -->
 <div class="container">
 	<div class="row">
-		<h3>${member.td_nickname}님 상세정보</h3>
+		<br><br>
+		<h3 class="hn" align="center">${member.td_nickname}님 상세정보</h3>
+		<br><br>
 		<!-- 프로필 보이기 -->
-		<div class="form-group" style="text-align: center;">
+		<div class="form-group hn" style="text-align: center;">
 			<c:if test="${!empty member.td_profile}">
 				<div><img src="imageView.do?email=${member.email}" style="max-width:500px;"></div>
 			</c:if>
@@ -49,18 +56,10 @@
 	         		<img src="${pageContext.request.contextPath}/resources/img/icon/girl.png" style="max-width:500px;">
 				</c:if>
 			</c:if>   
-		</div>
+		</div>		
 		
-         <!-- 상세내용 보이기 -->
-		<table class="table">
-			<tr>
-				<td style="width:30%">아이디</td>
-				<td>${member.email}</td>
-			</tr>
-			<tr>
-				<td>회원점수</td>
-				<td>${member.td_score}</td>
-			</tr>
+		<!-- 등급 표시 -->
+		<div class="hn" style="text-align: center;">
 			<c:if test="${0<=member.td_score && member.td_score<10}">
 			<img src="${pageContext.request.contextPath}/resources/img/icon/bronze.png">
 			회원님의 등급은 브론즈 입니다!
@@ -81,6 +80,20 @@
 			<img src="${pageContext.request.contextPath}/resources/img/icon/diamond.png">
 			회원님의 등급은 다이아몬드 입니다!
 			</c:if>
+			<br><br>
+		</div>
+		
+         <!-- 상세내용 보이기 -->
+        <div align="center">
+		<table class="table hn" style="text-align: center; width: 600px;">
+			<tr>
+				<td style="width:30%">아이디</td>
+				<td>${member.email}</td>
+			</tr>
+			<tr>
+				<td>회원점수</td>
+				<td>${member.td_score}</td>
+			</tr>
 			<tr>
 				<td>성별</td>
 				<td><c:if test="${member.td_gender==1}">남자</c:if><c:if test="${member.td_gender==2}">여자</c:if></td>
@@ -102,7 +115,10 @@
 				<td>${member.td_content}</td>
 			</tr>			
 		</table>
-		<div class="form-group" style="text-align: center;">
+		<br><br>
+		</div>
+		
+		<div class="form-group hn" style="text-align: center;">
 			<input type="button" value="수정" class="btn btn-default" onclick="location.href='update.do'">
 			<input type="button" value="회원탈퇴" class="btn btn-default" onclick="location.href='delete.do'">
 		</div>

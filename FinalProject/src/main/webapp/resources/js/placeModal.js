@@ -92,7 +92,7 @@ $(document).ready(function(){
 	 						output += '		</div>';
 	 						output += '		<div style="width: 75%; height: 12%; float: right;">';
 
-	 						output += ' <span>주소 : </span><span id=nunum'+(index+1)+'></span> ';
+	 						output += ' <span style="text-align:left;">주소 : </span><span id=nunum'+(index+1)+'></span> ';
 	 						output += '<script type="text/javascript">detail2('+item.f_code1+','+(index+1)+');</script>';
 	 						output += '			<div align="right">';
 	 						output += '			<button class="btn btn-warning btn-sm" onclick="location.href=\'favDelete.do?f_num='+item.f_num+'\'">삭제</button>';

@@ -26,7 +26,7 @@ public class FavoriteAjaxController {
 	
 	private Logger log = Logger.getLogger(this.getClass()); //Logger가 인식이 안되는 경우 pom.xml에 log4j 명시
 	
-	private int rowCount = 2;
+	private int rowCount = 4;
 	private int pageCount = 10;
 	
 	@Resource
