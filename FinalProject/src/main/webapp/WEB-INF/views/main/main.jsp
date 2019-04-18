@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!-- JS code for this page -->
+<style type="text/css">
+@import url(//fonts.googleapis.com/css?family=Jua);
+.jua{font-family: 'Jua', sans-serif;
+}
+</style>
+<!-- <style type="text/css">
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+.hn{font-family: 'Hanna', sans-serif;
+   }
+</style> -->
 <script>
 		/* ******************************************** */
 		/*  JS for SLIDER REVOLUTION  */
@@ -247,8 +257,9 @@
 					data-splitin="lines" data-splitout="lines" data-elementdelay="0.2"
 					data-endelementdelay="0.08" data-endspeed="300"
 					style="z-index: 10; max-width: auto; max-height: auto; white-space: nowrap;">
-					어디로 떠나시나요? <br> <br /> 이제 당신의 여행에 언제든 함께 할게요. <br /> 지금 바로
-					트립스 컴 트루를 시작하세요.
+					어디로 떠나시나요? <br>
+					이제 언제든 당신의 여행에 함께 할게요. <br>
+					지금 바로 트립스 컴 트루를 시작하세요.
 				</div>
 			</li>
 			<li data-transition="cube" data-slotamount="7" data-masterspeed="600">
@@ -319,10 +330,10 @@
 			<div class="default-heading">
 				<!-- Crown image -->
 				<img class="img-responsive"
-					src="${pageContext.request.contextPath}/resources/img/crown.png"
-					alt="" />
+					src="${pageContext.request.contextPath}/resources/img/air-balloon.png"
+					width="70px" />
 				<!-- Heading -->
-				<h2>계절별 여행</h2>
+				<h2 class="jua">계절별 여행</h2>
 				<!-- Paragraph -->
 				<p>계절에 맞추어 새로운 여행을 준비해보세요!</p>
 				<!-- Border -->
@@ -443,13 +454,12 @@
 			<div class="default-heading">
 				<!-- Crown image -->
 				<img class="img-responsive"
-					src="${pageContext.request.contextPath}/resources/img/crown.png"
-					alt="" />
+					src="${pageContext.request.contextPath}/resources/img/relax.png"
+					width="70px"/>
 				<!-- Heading -->
 				<h2>컨셉별 여행</h2>
 				<!-- Paragraph -->
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p>나홀로, 커플끼리, 친구와 함께 다양한 컨셉의 여행을 확인하세요!</p>
 				<!-- Border -->
 				<div class="border"></div>
 			</div>
@@ -681,12 +691,12 @@
 			<div class="default-heading">
 				<!-- Crown image -->
 				<img class="img-responsive"
-					src="${pageContext.request.contextPath}/resources/img/crown.png"
-					alt="" />
+					src="${pageContext.request.contextPath}/resources/img/backpacker.png"
+					width="70px" />
 				<!-- Heading -->
 				<h2>Our Staff</h2>
 				<!-- Paragraph -->
-				<p>국내 여행 전문가</p>
+				<p>국내 여행 전문가, 트립스컴트루의 스태프를 소개합니다!</p>
 				<!-- Border -->
 				<div class="border"></div>
 			</div>
