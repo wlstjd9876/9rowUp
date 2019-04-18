@@ -7,8 +7,8 @@
 	type="text/css">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/js/fullcalendar.css" />
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/js/fullcalendar.min.css" />
+<%-- <link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/js/fullcalendar.min.css" /> --%>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript"
@@ -119,8 +119,7 @@ body {
 	});
 </script>
 
-<div class="container"
-	style="width: 900px; margin: 0 auto; height: 900px;">
+<div class="container" style="width: 900px; margin: 0 auto; height: 900px;">
 	<div
 		style="width: 900px; height: 100px; text-align: center; margin: 30px auto;">
 		<input type="button" value="일정등록" class="btn btn-default"

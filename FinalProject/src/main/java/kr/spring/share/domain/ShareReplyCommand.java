@@ -1,7 +1,5 @@
 package kr.spring.share.domain;
 
-import java.sql.Date;
-
 import kr.spring.util.DurationFromNow;
 
 public class ShareReplyCommand {
@@ -10,6 +8,14 @@ public class ShareReplyCommand {
 	private String sr_date;
 	private String email;
 	private int num;
+	private String nickname;
+	
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 	public int getSr_num() {
 		return sr_num;
 	}
@@ -43,6 +49,7 @@ public class ShareReplyCommand {
 	@Override
 	public String toString() {
 		return "ShareReplyCommand [sr_num=" + sr_num + ", sr_content=" + sr_content + ", sr_date=" + sr_date
-				+ ", email=" + email + ", num=" + num + "]";
+				+ ", email=" + email + ", num=" + num + ", nickname=" + nickname + "]";
 	}
+	
 }

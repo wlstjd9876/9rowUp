@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<script type="text/javascript">
-	var result = '${result}';
-	if(result == 'success'){
-		alert('처리가 완료되었습니다.');
-	}
-</script>
+
 <style type="text/css">
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 
@@ -31,7 +26,12 @@ h1 {
 }
 </style>
 
-
+<script type="text/javascript">
+	var result = '${result}';
+	if(result == 'success'){
+		alert('글이 등록되었습니다!');
+	}
+</script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/share/shareWrite.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/css/gowith/gowitRegister.css">
@@ -41,7 +41,7 @@ h1 {
 	<div>
 		<h1 class="hn">
 			<b>일정을 소개해주세요!</b>
-		</h1>
+		</h1>  
 	</div>
 	<br>
 	<div id="img" class="hn">

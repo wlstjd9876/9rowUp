@@ -37,8 +37,6 @@ public class CalendarController {
 	@Resource
 	private CalendarService calendarService;
 	
-	
-
 	/*@ModelAttribute("command")
 	public FavoriteCommand initCommand1() {
 		return new FavoriteCommand();
@@ -72,8 +70,7 @@ public class CalendarController {
 		}else {
 			mydate = form.format(new Date());
 		}
-		System.out.println("asdasd" + mydate);
-		
+		System.out.println("asdasd" + mydate);		
 		
 		model.addAttribute("command", command);
 		model.addAttribute("mydate", mydate);
@@ -107,7 +104,7 @@ public class CalendarController {
 	@RequestMapping("/calendar/list.do")
 	public ModelAndView process(@RequestParam(value="pageNum", defaultValue="1") int currentPage, 
 			@RequestParam(value="keyfield", defaultValue="") String keyfield, @RequestParam(value="keyword", defaultValue="") String keyword) {
-		  
+		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("keyfield", keyfield);
 		map.put("keyword", keyword);
@@ -125,7 +122,7 @@ public class CalendarController {
 		map.put("start", page.getStartCount());
 		map.put("end", page.getEndCount());
 		
-		System.out.println("@@@@@@@@@@@@End : " + page.getEndCount() );
+		System.out.println("@@@@@@@@@@@@End : " + page.getEndCount());
 		
 		List<CalendarCommand> list = null;
 		if(count > 0) {
