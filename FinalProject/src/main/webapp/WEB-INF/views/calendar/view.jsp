@@ -23,6 +23,13 @@
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=073c048326b3580b4c7257b8e804ee6b"></script>
 <style>
+.fontdetail{
+	text-align: left   
+}
+.modaldetail{
+	width: 600px;
+	height: 750px;
+}
 /*버튼 왼쪽 정렬*/
 .buttonleft {
 	float: left;
@@ -221,7 +228,7 @@ kdk {
 									aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
-								<h2 class="modal-title" id="myModalLabel">일정상세등록</h2>
+								<h2 class="modal-title fontdetail" id="myModalLabel">일정상세등록</h2>
 							</div>
 							<div class="row">
 
@@ -229,7 +236,7 @@ kdk {
 									id="register_form" class="col-lg-12">
 									<input type="hidden" id="s_num" name="s_num" value="${s_num }" />
 									<div class="form-group">
-										<label for="sd_code">관광지 코드</label>
+										<label for="sd_code" class="fontdetail">관광지 코드</label>
 										<form:input path="sd_code" class="form-control kdk" />
 										<form:errors path="sd_code" cssClass="error-color" />
 										<!-- 팝업 버튼 시작-->
@@ -250,6 +257,15 @@ kdk {
 									<div class="form-group">
 										<label for="sd_endtime">일정 끝 시간</label> <input type="time"
 											name="sd_endtime" id="sd_endtime" class="form-control">
+									</div>
+									<div class="form-group">
+										<label for="sd_memo">메모</label> <input type="text"
+											name="sd_memo" id="sd_memo" class="form-control">
+									</div>
+									<div class="form-group">
+										<label for="sd_money">여행비</label>
+										<form:input path="sd_money" class="form-control" />
+										<form:errors path="sd_money" cssClass="error-color" />
 									</div>
 									<div class="form-group" style="text-align: center;">
 										<input type="submit" value="전송" class="btn btn-default">
