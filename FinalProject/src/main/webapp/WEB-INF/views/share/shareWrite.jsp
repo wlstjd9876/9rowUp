@@ -41,7 +41,7 @@ h1 {
 	<div>
 		<h1 class="hn">
 			<b>일정을 소개해주세요!</b>
-		</h1>
+		</h1>  
 	</div>
 	<br>
 	<div id="img" class="hn">
