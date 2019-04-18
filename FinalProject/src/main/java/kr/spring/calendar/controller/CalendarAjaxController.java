@@ -1,5 +1,9 @@
 package kr.spring.calendar.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,23 +52,21 @@ public class CalendarAjaxController {
 		
 		Map<String, Object> mapJson = new HashMap<String, Object>();
 		mapJson.put("list", list);
-		System.out.println(list.iterator().next().getS_title());
 		
 		return mapJson;
 	}
 	@RequestMapping("/calendar/eventdetail.do")
 	@ResponseBody
-	public Map<String, Object> getDetailCal(@RequestParam("s_num") String s_num){
+	public Map<String, Object> getDetailCal(@RequestParam("s_num") String s_num) throws NumberFormatException, ParseException{
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("s_num", s_num);
 		
 		List<CalendarDetailCommand> list = null;
 		list = calendarService.selectDetailCal(map);
 		
-		System.out.println(list + "@@@@@@@@@@@@@@@@@@@@@@ : " + s_num);
 		Map<String, Object> mapJson = new HashMap<String, Object>();
 		mapJson.put("list", list);
-		
+		mapJson.put("color", calendarService.selectCalendar(Integer.parseInt(s_num)).getS_color());
 		return mapJson;
 	}
 }

@@ -46,7 +46,15 @@ public class CalendarCommand {
 	private byte[] s_photo8;
 	private byte[] s_photo9;
 	private byte[] s_photo10;
+	private String real_enddate;
 	
+	
+	public String getReal_enddate() {
+		return real_enddate;
+	}
+	public void setReal_enddate(String real_enddate) {
+		this.real_enddate = real_enddate;
+	}
 	public String getS_color() {
 		return s_color;
 	}

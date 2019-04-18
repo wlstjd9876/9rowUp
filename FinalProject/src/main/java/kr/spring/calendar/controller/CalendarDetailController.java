@@ -39,9 +39,6 @@ public class CalendarDetailController {
 		if(log.isDebugEnabled()) {
 			log.debug("<<calendarDetailCommand>> : " + calendarDetailCommand);
 		}
-		
-		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + calendarDetailCommand);
-		
 		calendarService.insertDetail(calendarDetailCommand);
 		
 		return "redirect:/calendar/view.do?s_num="+calendarDetailCommand.getS_num();

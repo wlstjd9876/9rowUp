@@ -49,14 +49,6 @@
 			<h1 style="font-family: 'Courgette', cursive;"><b>Dream Of</b></h1>
 			<div class="hn">
 			<br>
-		<!-- 		<div class="form-group">
-					<label class="checkbox-inline">
-						<input type="checkbox" name="s_finish" value="1">완성
-					</label>
-					<label class="checkbox-inline">
-						<input type="checkbox" name="s_finish" value="0">미완성
-					</label>
-				</div> -->
 				<table class="table table-center">
 					<tr>
 						<th>글번호</th>

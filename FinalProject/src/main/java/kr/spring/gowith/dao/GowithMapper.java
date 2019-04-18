@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Update;
 import kr.spring.gowith.domain.GowithCommand;
 
 public interface GowithMapper {
-	@Insert("INSERT INTO gowith VALUES(gowith_seq.nextval,#{go_member},#{go_startdate},#{go_enddate},#{go_deadline},#{go_area},#{go_photo1},#{go_photo2},#{go_photo3},#{go_photo4},#{go_gen},#{go_age},#{go_say},#{go_type},#{email})")
+	@Insert("INSERT INTO gowith VALUES(gowith_seq.nextval,#{s_num},#{go_member},#{go_startdate},#{go_enddate},#{go_deadline},#{go_area},#{go_photo1},#{go_photo2},#{go_photo3},#{go_photo4},#{go_gen},#{go_age},#{go_say},#{go_type},#{email})")
 	public void insert(GowithCommand gowith);
 	public GowithCommand selectGowith(Integer go_num);
 	

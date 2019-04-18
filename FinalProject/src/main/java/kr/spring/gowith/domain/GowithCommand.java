@@ -29,6 +29,7 @@ public class GowithCommand {
 	private String go_type;
 	private int go_status;
 	private int dday;
+	private int s_num;
 	
 	private String td_nickname;
 	private String td_password;
@@ -43,6 +44,13 @@ public class GowithCommand {
 	private int good;
 	private int bad;
 	
+	
+	public int getS_num() {
+		return s_num;
+	}
+	public void setS_num(int s_num) {
+		this.s_num = s_num;
+	}
 	public int getDday() {
 		return dday;
 	}

@@ -137,17 +137,12 @@ kdk {
    $(document).ready(function() {
 	  var mydate = '${command.s_startdate}';
 	  var s_num = '${s_num}';
-      var date = new Date();
-      var d = date.getDate();
-      var m = date.getMonth();
-      var y = date.getFullYear();
       var email =  "<%=(String) session.getAttribute("user_email")%>";
       var calendar = $('#calendar').fullCalendar({
-
          header : {
-            left : 'prev,next',
+            left : 'prev,next,today',
             center : 'title',
-            right : 'today'
+            right : 'listDay,listWeek,month'
          },
          selectable : true,
          selectHelper : true,
@@ -160,10 +155,12 @@ kdk {
                },
                dataType : 'json',
                success : function(data) {
+            	  var color = '#'+data.color;
                   var events = [];
                   var list = data.list;
                   $(list).each(function(index, item) {
-
+					 var v = getDt10(mydate, item.sd_day-1);
+					var startdate = v;
 					//----------------------
 					var title
 					$.ajax({        
@@ -186,8 +183,10 @@ kdk {
 					});
 					//-----------------------
                      events.push({
-                        title : title,
-                        start : '2019-03-10T12:00:00',
+                        title : item.sd_starttime + ' ' +title,
+                        start : startdate+'T'+item.sd_starttime+':00',
+                        end : startdate+'T'+item.sd_endtime+':00',
+                        color : color,
                         allDay : false
                         /* url : 'view.do?s_num=' + item.s_num */
                      });
@@ -198,7 +197,19 @@ kdk {
          },
          defaultDate : mydate
       });
-   });     
+   });
+   function getDt10(s, i){ 
+	    var newDt = new Date(s); 
+	    newDt.setDate( newDt.getDate() + i );
+	    return converDateString(newDt); 
+	    }
+   function converDateString(dt){ 
+		return dt.getFullYear() + "-" + addZero(eval(dt.getMonth()+1)) + "-" + addZero(dt.getDate()); 
+		}
+	function addZero(i){ 
+		var rtn = i + 100; 
+		return rtn.toString().substring(1,3); 
+		}
 </script>
 <script>
 	$(document).ready(function() {
