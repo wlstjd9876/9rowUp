@@ -27,8 +27,8 @@ public interface CalendarMapper {
 	public List<CalendarDetailCommand> selectDetailCal(Map<String, Object> map);
 	
 	//일정상세
-	@Insert("INSERT INTO schedule_detail (s_num,sd_num,sd_code,sd_day,sd_starttime,sd_endtime) "
-			+ "VALUES (#{s_num},schedule_detail_seq.nextval,#{sd_code},#{sd_day},#{sd_starttime},#{sd_endtime})")
+	@Insert("INSERT INTO schedule_detail (s_num,sd_num,sd_code,sd_day,sd_starttime,sd_endtime,sd_memo,sd_money) "
+			+ "VALUES (#{s_num},schedule_detail_seq.nextval,#{sd_code},#{sd_day},#{sd_starttime},#{sd_endtime},#{sd_memo},#{sd_money})")
 	public void insertDetail(CalendarDetailCommand calendarDetail);
 	@Select("SELECT * FROM schedule_detail ")
 	public List<CalendarDetailCommand> selectDetailList(Map<String, Object> map);

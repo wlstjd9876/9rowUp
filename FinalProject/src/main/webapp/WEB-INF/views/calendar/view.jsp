@@ -129,7 +129,7 @@ kdk {
 </style>
 <script type='text/javascript'>
    $(document).ready(function() {
-
+	  var s_num = '${s_num}';
       var date = new Date();
       var d = date.getDate();
       var m = date.getMonth();
@@ -149,18 +149,21 @@ kdk {
                url : 'eventdetail.do',
                type : 'post',
                data : {
-                  email : email
+                  s_num : s_num
                },
                dataType : 'json',
                success : function(data) {
                   var events = [];
                   var list = data.list;
                   $(list).each(function(index, item) {
+                	  var title = '' 
+                		  title = detail(item.sd_code);
+                	  alert(title);
                      events.push({
-                        title : item.s_title,
-                        start : item.s_startdate,
-                        end : item.s_enddate,
-                        url : 'view.do?s_num=' + item.s_num
+                        title : title,
+                        start : '2019-03-10T12:00:00',
+                        allDay : false
+                        /* url : 'view.do?s_num=' + item.s_num */
                      });
                   });
                   callback(events);
@@ -170,6 +173,26 @@ kdk {
          defaultDate : <%=(String) request.getAttribute("defaultDate")%>
       });
    });
+   function detail(contentId){
+		$.ajax({        
+			url: '${pageContext.request.contextPath}/detailAjax',
+			data:{contentId:contentId},
+			type: 'get',
+			dataType: 'json',
+			cache:false,
+			timeout:30000,
+			success: function(data){
+				var myItem = data.response.body.items.item;
+				var myBody = data.response.body;
+				var title = myItem.title;
+				alert('title'+title);
+				callback(title);
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) { 
+				alert("Status: " + textStatus +"and "+ "Error: " + errorThrown); 
+			}  
+		});
+	};      
 </script>
 <script>
 	$(document).ready(function() {
