@@ -23,7 +23,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#use_btn').click(function(){
-			alert('a를 집어넣습니다.');
+			alert('일정에 추가했습니다.');
 			opener.document.getElementById('sd_code').value = $('#kdk').val();
 			self.close();
 		});
@@ -47,5 +47,5 @@
 	
 	<!-- 사용하기 버튼 (a를 안에 넣는 버튼 함수) -->
 	<input type="button" class="btn btn-primary hn" value="사용하기" id="use_btn">
-	<input type="hidden" id="kdk" value="a">
+	<input type="hidden" id="kdk" value="${contentId }">
 </div>
