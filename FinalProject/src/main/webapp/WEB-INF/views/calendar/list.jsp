@@ -13,13 +13,21 @@
 		padding:0;
 	}
 </style>
+<style type="text/css">
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+.hn{font-family: 'Hanna', sans-serif;
+   }
+</style>
 <div class="container">
-	<div class="row">
+	<div class="row" align="center">
 	<c:if test="${count == 0}">
+	<br>
 		등록된 일정이 없습니다.
+	<br>
 	</c:if>
 	<c:if test="${count > 0}">
-		<div style="text-align: center; padding: 10px;">
+		<div class="hn" style="text-align: center; padding: 10px;">
+		<br><br>
 			<form action="list.do" id="search_form" class="form-inline" method="get">
 				<div class="form-group">
 					<select name="keyfield" class="form-control">
@@ -34,11 +42,13 @@
 					<input type="submit" class="btn btn-default btn-sm" value="찾기">
 					<input type="button" class="btn btn-default btn-sm" value="목록" onclick="location.href='list.do'">
 				</div>
+				<br>
 			</form>
 		</div>
 		<div class="col-md-6">
 			<h1 style="font-family: 'Courgette', cursive;"><b>Dream Of</b></h1>
-			<div>
+			<div class="hn">
+			<br>
 		<!-- 		<div class="form-group">
 					<label class="checkbox-inline">
 						<input type="checkbox" name="s_finish" value="1">완성
@@ -69,7 +79,8 @@
 		</div>
 		<div class="col-md-6">
 			<h1 style="font-family: 'Courgette', cursive;"><b>Come True</b></h1>
-			<div>
+			<div class="hn">
+			<br>
 				<table class="table">
 					<tr>
 						<th>글번호</th>
@@ -93,7 +104,7 @@
 		</div>
 	</c:if>
 	</div>
-	<div class="row" style="text-align: center;">
+	<div class="row hn" style="text-align: center;">
 		<input type="button" value="일정등록" class="btn btn-default" onclick="location.href='finish.do'">
 	</div>
 </div>

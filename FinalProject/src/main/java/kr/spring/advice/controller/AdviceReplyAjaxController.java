@@ -161,7 +161,7 @@ public class AdviceReplyAjaxController {
 			map.put("result", "logout");
 		}else if(user_email!=null && user_email.equals(adviceReplyCommand.getEmail())) {
 			//로그인 아이디와 작성자 아이디 일치
-			//댓글 수정e
+			//댓글 수정
 			adviceService.updateReply(adviceReplyCommand);
 			map.put("result", "success");
 		}else {

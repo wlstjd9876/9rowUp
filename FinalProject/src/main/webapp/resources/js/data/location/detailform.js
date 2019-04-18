@@ -5,6 +5,9 @@ $(document).ready(function() {
 	});
 	detail();
 });
+
+
+
 //즐겨찾기
 function insert(){
 	$.ajax({        
@@ -30,8 +33,65 @@ function insert(){
 		       }  
 		});
 	};
+//
+	//추가이미지
+	function imageo(){
+		$.ajax({        
+			url: contextPath+'/imageoAjax',
+			data:{contentId:contentId},
+			type: 'get',
+			dataType: 'json',
+			cache:false,
+			timeout:30000,
+			success: function(data){
+				$('#output').empty();
+				var output = '';
 
+				output += '<div class="image hn col-lg-12">';
+				output += '<div class="w3-content" align="center" style="width: 500px; height: 450px; border: 2px dotted;">  <br>';
+				output += '<img class="mySlides" width="450px" height="300px" id="imageFile1" src="imageView1.do?num=${share.num}&photo_type=1" style="display: block;">';
+				output += '<c:if test="${share.photo2!=null}">';
+				output += '<img class="mySlides" width="450px" height="300px"  id="imageFile1" src="imageView1.do?num=${share.num}&photo_type=2" style="display: none;"></c:if>';
+				output += '<c:if test="${share.photo2==null}"> ';
+				output += '<img class="mySlides" width="450px" height="300px"  src="${pageContext.request.contextPath}/resources/img/noimage.png" style="display: none;"></c:if>';
+				output += '<c:if test="${share.photo3!=null}">  <img class="mySlides" width="450px" height="300px"  id="imageFile1" src="imageView1.do?num=${share.num}&photo_type=3" style="display: none;"></c:if>';
+				output += '<c:if test="${share.photo3==null}">  <img class="mySlides" width="450px" height="300px" src="${pageContext.request.contextPath}/resources/img/noimage.png" style="display: none;"></c:if>';
+				output += '<div class="w3-row-padding w3-section">';
+				output += '<div class="w3-col s4">';
+				output += '<img class="demo w3-opacity w3-hover-opacity-off" width="120px" height="80px"';
+				output += 'id="imageFile1" src="imageView1.do?num=${share.num}&photo_type=1" style="cursor: pointer; align-items: center;" align="middle"onclick="currentDiv(1)"></div>';
+				output += '<div class="w3-col s4">';
+				output += '<c:if test="${share.photo2==null}">';
+				output += '<img class="demo w3-opacity w3-hover-opacity-off" width="120px" height="80px" src="${pageContext.request.contextPath}/resources/img/noimage.png" style="cursor: pointer; align-items: center;" align="middle"onclick="currentDiv(2)"></c:if>';
+				output += '<c:if test="${share.photo2!=null}"> <img class="demo w3-opacity w3-hover-opacity-off" width="120px" height="80px"';
+				output += 'id="imageFile1" src="imageView1.do?num=${share.num}&photo_type=2" style="cursor: pointer; align-items: center;" align="middle"';
+				output += 'onclick="currentDiv(2)"></c:if></div>';
+				output += '<div class="w3-col s4">';
+				output += '<c:if test="${share.photo3==null}">';
+				output += '<img class="demo w3-opacity w3-hover-opacity-off" width="120px" height="80px"';
+				output += 'src="${pageContext.request.contextPath}/resources/img/noimage.png" style="cursor: pointer; align-items: center;" align="middle"';
+				output += 'onclick="currentDiv(3)">';
+				output += '</c:if>'; 
+				output += '<c:if test="${share.photo3!=null}">';
+				output += '<img class="demo w3-opacity w3-hover-opacity-off" width="120px" height="80px"';
+				output += 'id="imageFile1" src="imageView1.do?num=${share.num}&photo_type=3" style="cursor: pointer; align-items: center;" align="middle"';
+				output += 'onclick="currentDiv(3)">';
+				output += '</c:if>';
+				output += '</div>';
+				output += '</div><br>';
+				output += '</div>';
+				output += '</div>';
+				
+				$('#output').append(output);
+	
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) { 
+				alert("Status: " + textStatus +"and "+ "Error: " + errorThrown); 
+			}  
+		});
+	};
 
+	
 //================== 디테일=======================//
 function detail(){
 	$.ajax({        
@@ -69,6 +129,8 @@ function detail(){
 		}  
 	});
 };
+
+
 //================== 디테일=======================//
 //================== 소개정보=======================//
 function intro(){

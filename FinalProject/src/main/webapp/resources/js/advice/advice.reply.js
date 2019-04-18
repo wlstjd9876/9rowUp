@@ -35,12 +35,13 @@ $(document).ready(function(){
             }else{
                $(list).each(function(index,item){
                   var output = '<div class="item">';  
-                  output += '		<h4>' + item.email + '님께서 일정을 생성해주셨습니다. <input type="button" value="일정상세" id="replyDetail" class="btn btn-sm btn-default"></h4>';
+                  output += '		<h4>' + item.email + '님께서 일정을 생성해주셨습니다. <input type="button" value="일정상세" id="replyDetail" class="btn btn-sm btn-default" onclick="window.open(\''+context+'/advice/popup/adviceDetailPopup.do?ar_num=' + item.ar_num + '\',\'조언 상세\',\'width=430,height=500,location=no,status=no,scrollbars=yes\');"></h4>';
                   output += '		<div class="sub-item">';
                   output += '			<h5 style="text-align: right;">' + item.ar_date + '</h5>';
+                  output += '			<input type="hidden" id="adv_num" name="adv_num" class="adv_num" value="'+item.adv_num+'">';
                  /* if($('#user_email').val()==item.email){
                      output += '      <input type="button" data-num="'+item.ar_num+'" data-id="'+item.email+'" value="수정" class="modify-btn btn btn-default">';
-                     output += '      <input type="button" data-num="'+item.ar_num+'" data-id="'+item.email+'" value="삭제" class="delete-btn btn btn-default">';
+                     output += '      <input type="button" data-num="'+item.ar_num+'" data-id="'+item.email+'" value="삭제" class="delete-btn btn btn-default">'
                   }*/
                   output += '	</div>';
                   output += '</div>';

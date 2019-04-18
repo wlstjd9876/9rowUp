@@ -15,14 +15,12 @@
 	
 <style>
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
-
 .hn {
    font-family: 'Hanna', sans-serif;
 }
-
-
 </style>
 
+<div class="container">
 <div class="hn" style="padding: 60">
 
    <!-- 즐겨찾기한 장소 시작 -->
@@ -40,7 +38,7 @@
                </div>
                <div style="width: 75%; height: 12%; float: right;">
                <script type="text/javascript">var a = ${fav.f_code1}</script>
-               	<script type="text/javascript">detail(a,${status.count});</script>
+               <script type="text/javascript">detail1(a,${status.count});</script>
               <div align="left">
                <span>주소 : </span><span id="nunu${status.count}"></span> 
               
@@ -126,6 +124,9 @@
    </div>
    <!-- 즐겨찾기한 회원 끝 -->
 </div>
+<br><br><br>
+</div>
+<br>
 <!-- 중앙 컨텐츠 끝 -->
 
 

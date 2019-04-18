@@ -52,4 +52,19 @@ public class CalendarAjaxController {
 		
 		return mapJson;
 	}
+	@RequestMapping("/calendar/eventdetail.do")
+	@ResponseBody
+	public Map<String, Object> getDetailCal(@RequestParam("s_num") String s_num){
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("s_num", s_num);
+		
+		List<CalendarDetailCommand> list = null;
+		list = calendarService.selectDetailCal(map);
+		
+		System.out.println(list + "@@@@@@@@@@@@@@@@@@@@@@ : " + s_num);
+		Map<String, Object> mapJson = new HashMap<String, Object>();
+		mapJson.put("list", list);
+		
+		return mapJson;
+	}
 }

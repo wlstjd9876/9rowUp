@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<link
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
+	rel="stylesheet">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/data/location/style.css">
+
 <link
 	href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
 	rel='stylesheet' type='text/css'>
@@ -18,20 +22,19 @@ ul li.paging_btn {
 	cursor: pointer;
 }
 </style>
-<style type="text/css">
-@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
-.hn{font-family: 'Hanna', sans-serif;
-   }
-</style>
+<script
+	src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+<script 
+	src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script
 	src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 <script>
-var contextPath = "${pageContext.request.contextPath }";
+var contextPath = "${pageContext.request.contextPath}";
 </script>
 <script
-	src="${pageContext.request.contextPath}/resources/js/data/location/searchform.js"></script>
+	src="${pageContext.request.contextPath}/resources/js/data/location/searchformPopup.js"></script>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -40,10 +43,9 @@ var contextPath = "${pageContext.request.contextPath }";
 <body>
 	<div id="contents">
 		<div id="search_form">
-			<br>
 			<h1 class="hn">관광지 정보</h1>
 			<br>
-			<div class="sel_box hn">
+			<div class="sel_box">
 				<label for="areacode">지역</label> <select name="areacode"
 					id="areacode" onchange="doChange(this)">
 					<option value="0">지역선택</option>
@@ -67,14 +69,13 @@ var contextPath = "${pageContext.request.contextPath }";
 					<option value="17">인천</option>
 				</select>
 			</div>
-			<div class="sel_box hn">
+			<div class="sel_box">
 				<label for="people">시군구</label> <select name="sigungucode"
 					id="sigungucode">
 					<option value="0">시군구선택</option>
 				</select>
 			</div>
-			<div class="search_js hn">
-			<br>
+			<div class="search_js">
 				<p>
 					<label for="keyword">검색어</label>
 				</p>
@@ -87,7 +88,7 @@ var contextPath = "${pageContext.request.contextPath }";
 				<h3 class="response hn"></h3>
 			</div>
 		</div>
-		<div id="output hn"></div>
+		<div id="output"></div>
 		<div class="align-center">
 			<ul class="paging_button"></ul>
 		</div>

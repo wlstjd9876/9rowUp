@@ -11,19 +11,33 @@
 	font-family: 'Hanna', sans-serif;
 }
 
-#substance{
-	width: 1170px;
-	height: 400px;
-	
+.article_div{
+	width:80%;
+	text-align:center;
+	margin:0 auto;
+}
 
+#substance{
+	height: 300px;
+	border:1px solid #CCC;
+	text-align:left;
+	padding:10px;
 }
 div#reply_div{
 	padding:5px 10px 40px 10px;
 	margin-top:10px;
 	background-color:#eeeeee;
+	height:150px;
 	
 
 }
+div#re_first{
+	float:left;
+	width:79%;
+	margin-bottom:10px;
+	text-align:left;
+}
+
 div#re_second{
 	float:left;
 	width:20%;
@@ -36,9 +50,15 @@ span.letter-count{
 .align-right{
 	text-align:right;
 }
+
 form#re_form{
 	width:650px;
 	margin:0 auto;
+}
+textarea.rep-content{
+	width:97%;
+	height:50px;
+	margin:10px 10px;
 }
 
 </style>
@@ -70,13 +90,14 @@ function showDivs(n) {
 <!-- ============================================================================================================================================== -->
 <!-- 중앙 컨텐츠 시작 -->
 <br>
-<div class="container align-center">
+<div class="container">
+    <div class="article_div">
 	<br>
 	<h2 class="hn" align="center">${share.title}</h2>	 
 	<br>
 	<!-- 캐러셀 시작 -->
 	<div class="image hn col-lg-12">
-         <div class="w3-content" align="center" style="width: 500px; height: 450px; border: 2px dotted;">
+         <div class="w3-content" align="center" style="width: 500px; height: 450px; background-color: white;">
          <br>
             <img class="mySlides" width="450px" height="300px"
                id="imageFile1" src="imageView1.do?num=${share.num}&photo_type=1" style="display: block;">
@@ -147,11 +168,13 @@ function showDivs(n) {
 	 
 	    <!-- 내용시작 -->
       	 	<div id="substance" class="col-lg-12" align="center" style="margin-top: 20px;">
-      	 		<div class="hn" align="center" style="background-color: white; margin-top: 30px; margin-left: 120px; margin-right: 120px; 
-      	 		margin-bottom: 100px; height: 300px; text-align: left; padding: 20px; border: 2px solid;">
-      	 		${share.content}
-      	 		</div>
+      	 		상세일정가져올거에요~  
       	 	</div>  
+        <!-- 내용 끝 -->
+        <!-- 내용시작 -->
+      	 	<div id="substance" class="col-lg-12" align="center" style="margin-top: 20px;">
+      	 		${share.content}
+      	 	</div>    
         <!-- 내용 끝 -->
  <div class="row">      	
 	
@@ -166,7 +189,7 @@ function showDivs(n) {
            			<div id="re_first">
              		  <span class="letter-count">300/300</span>
             	    </div>
-           			 <div id="sr_second" class="align-right">
+           			 <div id="re_second" class="align-right">
               		 	<input class="btn btn-primary btn-sm hn" type="submit" value="등록">
             		</div>
             	</c:if>
@@ -186,7 +209,8 @@ function showDivs(n) {
      
      
      
-   </div>   
+	   </div>   
 </div>
-<!-- 중앙 컨텐츠 끝 -->
+	<!-- 중앙 컨텐츠 끝 -->
+	</div>
 </div>

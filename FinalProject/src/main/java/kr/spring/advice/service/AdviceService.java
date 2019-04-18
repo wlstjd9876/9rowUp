@@ -30,6 +30,7 @@ public interface AdviceService {
 	public void insertReply(AdviceReplyCommand adviceReply);  //´ñ±Û µî·Ï
 	public void updateReply(AdviceReplyCommand adviceReply);  //´ñ±Û ¼öÁ¤
 	public void deleteReply(Integer ar_num);  //´ñ±Û »èÁ¦
+	public AdviceReplyCommand selectReplyDetail(Integer ar_num);  //´ñ±Û »ó¼¼
 	
 	//========================´ñ±Û »ó¼¼ advice_reply_detail
 	public List<AdviceReplyDetailCommand> selectReplyDetailList(Map<String, Object> map);  //´ñ±Û »ó¼¼ ÀüÃ¼ ¸ñ·Ï

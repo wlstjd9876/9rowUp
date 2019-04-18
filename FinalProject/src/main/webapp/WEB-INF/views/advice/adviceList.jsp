@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<style type="text/css">
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+
+.hn {
+	font-family: 'Hanna', sans-serif;
+}
+</style>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/adviceWrite/style.css">
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=073c048326b3580b4c7257b8e804ee6b"></script>
 <script type="text/javascript">
@@ -20,8 +27,9 @@
 </script>
 <!-- 중앙 컨텐츠 시작 -->	
 <div class="container">
-	<div class="row">
-		<h1>조언 목록</h1>
+	<div class="row hn">
+		<br>
+		<h1 class="hn">조언 목록</h1>
 		<!-- 검색 -->
 		<div style="text-align: center; padding: 10px;">
 			<form action="adviceList.do" id="search_form" class="form-inline" method="get">
@@ -43,7 +51,9 @@
 		</div>
 		
 		<c:if test="${count == 0}">
-			<div class="align-center">등록된 게시물이 없습니다.</div>
+			<br><br>
+			<div class="align-center hn" align="center">등록된 게시물이 없습니다.</div>
+			<br><br><br>
 		</c:if>
 		
 		<c:if test="${count > 0}">

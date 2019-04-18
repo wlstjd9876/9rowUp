@@ -44,8 +44,7 @@ public class GowithController{
 	//자바빈 초기화 
 	public GowithCommand initCommand() {
 		return new GowithCommand();
-	}
-	
+	}	
 	
 	//=============동행등록===============
 	//register폼 호출//
@@ -100,8 +99,7 @@ public class GowithController{
 			 @RequestParam(value="keyfield", defaultValue="") 
 	         String keyfield, 
 			 @RequestParam(value="keyword", defaultValue="") 
-			 String keyword) {
-		
+			 String keyword) {		
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("keyfield", keyfield);
@@ -112,7 +110,6 @@ public class GowithController{
 		
 		if(log.isDebugEnabled()) {
 			log.debug("<<count>> : " + count);
-			
 		}
 		
 		PagingUtil page = new PagingUtil(keyfield, keyword, currentPage, count, rowCount, pageCount, "gowithList.do");
@@ -124,15 +121,12 @@ public class GowithController{
 			list = gowithService.selectList(map);
 		}
 		System.out.println("list 값 :"+list);
-		 
-		
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("gowithList");//definition 설정 이름 gowithList
 		mav.addObject("count", count);
 		mav.addObject("list", list);
 		mav.addObject("pagingHtml", page.getPagingHtml());
-		
 		
 		return mav;
 	}

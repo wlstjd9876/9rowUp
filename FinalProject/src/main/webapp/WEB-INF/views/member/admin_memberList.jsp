@@ -2,10 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/member.js"></script>
+<style type="text/css">
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+.hn{font-family: 'Hanna', sans-serif;
+   }
+</style>
 <!-- 중앙 컨텐츠 시작 -->
 <div class="container">
-	<div class="row">
-		<h1>회원목록(관리자용)</h1>
+	<div class="row hn">
+		<h1 class="hn">회원목록(관리자용)</h1>
 		<form action="admin_list.do" id="search_form" method="get">
 			<ul class="search">
 				<li>
@@ -25,10 +30,10 @@
 			</ul>
 		</form>
 		<c:if test="${count == 0}">
-		<div class="align-center">등록된 회원이 없습니다.</div>
+		<div class="align-center hn">등록된 회원이 없습니다.</div>
 		</c:if>
 		<c:if test="${count > 0}">
-		<div class="table-responsive">
+		<div class="table-responsive hn">
 			<table class="table table-striped">
 				<tr>
 					<th>아이디</th>

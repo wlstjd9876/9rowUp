@@ -3,11 +3,17 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/member/confirmNickname.js"></script>
+<style type="text/css">
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+.hn{font-family: 'Hanna', sans-serif;
+   }
+</style>
 <!-- 중앙 컨텐츠 시작 -->
 <div class="container">
 	<div class="row">
-		<h1>회원수정</h1>
-		<div class="col-md-offset-2 col-md-8">   <!-- 파일 업로드 enctype 명시 -->
+		<br>
+		<h1 class="hn">회원정보 수정</h1>
+		<div class="col-md-offset-2 col-md-8 hn">   <!-- 파일 업로드 enctype 명시 -->
 			
 			<form:form id="nickname_form" action="updateNick.do" cssClass="form-horizontal"> 
 			<form:hidden path="email"/>
@@ -80,6 +86,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-md-offset-5 col-md-7">
+				<br>
 					<input type="submit" value="전송" class="btn btn-default">
 					<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'" class="btn btn-default">
 				</div>
