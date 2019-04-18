@@ -13,10 +13,11 @@ function detail1(contentId,lol){
 			var myBody = data.response.body;
 
 			var output = '';
-			if(myItem.firstimage==undefined)
-				var image = contextPath+"/resources/img/data/No_Image_Avaiable.jpg";
-			else
+			if(myItem.firstimage==undefined){
+				var image =contextPath+ "/resources/img/data/No_Image_Available.jpg";
+			}	else{
 				var image = myItem.firstimage;
+			}
 			console.log(myItem.length);
 			var title = myItem.title;
 			$('#nunu'+lol).append(title);
@@ -46,7 +47,7 @@ function detail2(contentId,lol){
 
 			var output = '';
 			if(myItem.firstimage==undefined)
-				var image = contextPath+"/resources/img/data/No_Image_Avaiable.jpg";
+				var image =contextPath+ "/resources/img/data/No_Image_Available.jpg";
 			else
 				var image = myItem.firstimage;
 			console.log(myItem.length);

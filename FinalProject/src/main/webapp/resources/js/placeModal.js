@@ -90,9 +90,10 @@ $(document).ready(function(){
 	 						output += '		<div style="width: 25%; height: 12%; float: left;">';
 	 						output += '		<img style="width: 100%; height: 100%"  id="jusom'+(index+1)+'">';
 	 						output += '		</div>';
-	 						output += '		<div style="width: 75%; height: 12%; float: right;">';
-
+	 						output += '<div style="float:left;">';
 	 						output += ' <span style="text-align:left;">주소 : </span><span id=nunum'+(index+1)+'></span> ';
+	 						output += '</div>';
+	 						output += '		<div style="width: 75%; height: 12%; float: right;">';
 	 						output += '<script type="text/javascript">detail2('+item.f_code1+','+(index+1)+');</script>';
 	 						output += '			<div align="right">';
 	 						output += '			<button class="btn btn-warning btn-sm" onclick="location.href=\'favDelete.do?f_num='+item.f_num+'\'">삭제</button>';

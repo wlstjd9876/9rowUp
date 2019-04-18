@@ -8,7 +8,7 @@ var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니�
 
 
 var positions = [
-    {
+    {  
         title: '카카오', 
         latlng: new daum.maps.LatLng(33.450705, 126.570677)
     },
