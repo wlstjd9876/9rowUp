@@ -104,7 +104,6 @@
 																<li ><a href="${pageContext.request.contextPath}/calendar/favList.do">나의 즐겨찾기</a></li>
 																<li><a href="${pageContext.request.contextPath}/calendar/registerPlan.do">일정보기</a></li>
 																<li><a href="${pageContext.request.contextPath}/calendar/finish.do">일정 바로 추가</a></li>
-																<li><a href="${pageContext.request.contextPath}/calendar/list.do">일정 목록</a></li>
 										</ul></li>
 								</ul>
 							</div>

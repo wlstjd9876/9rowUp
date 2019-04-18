@@ -59,11 +59,11 @@ $(document).ready(function(){
 		for(var i=0; i<=between_date; i++){
 			detailUI += '		<h2>' + (i+1) + '일차</h2>';
 			detailUI += '	</div>';
-			detailUI += '	<div class="form-group">';
-			detailUI += '		<div id="addPlan' + i + '">Ajax사용부분</div>';
+			detailUI += '	<div id="plan'+i+'" class="form-group">';
+			detailUI += '		<div id="addPlan' + i + '">일정</div>';
 			detailUI += '	</div>';
 			detailUI += '	<div class="form-group">';
-			detailUI += '		<input type="button" value="즐겨찾기 추가" id="search" class="btn btn-default">';
+			detailUI += '		<input type="button" value="즐겨찾기 추가" id="search" class="btn btn-default" data-num="'+i+'">';
 		}
 			
 			detailUI += '	</div>';
@@ -114,10 +114,14 @@ $(document).ready(function(){
 					adv_plan += '		</tr>';
 					
 					$(list).each(function(index, plan){
+						var startdate = '';
+						var enddate = '';
+						startdate=plan.s_startdate;
+						enddate=plan.s_enddate;
 						adv_plan += '		<tr>';
 						adv_plan += '			<td>' + plan.s_num + '</td>';
 						adv_plan += '			<td><a href="' + context + '/calendar/view.do?s_num=' + plan.s_num +'&s_startdate='+plan.s_startdate+'">' + plan.s_title + '</a></td>';
-						adv_plan += '			<td><input type="button" value="추가" class="btn btn-default" onclick="location.href=\'adviceList.do\'"></td>';
+						adv_plan += '			<td><input type="button" value="추가" class="btn btn-default" onclick="javascript:aaa('+plan.s_num+',\''+startdate+'\',\''+enddate+'\');"></td>';
 						adv_plan += '		</tr>';
 					});
 					
@@ -139,5 +143,9 @@ $(document).ready(function(){
 	$(document).on('click', '#search', function(){
 		window.open(context + '/advice/popup/searchLoc.do', '관광지 찾기', 'width=800,height=500,left=300,top=10,scrollbars=no,toolbar=no,location=no');
 	});
-	
 });
+function aaa(s_num, s_startdate, s_enddate) {
+	document.getElementById('startdate').value = s_startdate;
+	document.getElementById('enddate').value = s_enddate;
+	document.getElementById('s_num').value = s_num;
+}

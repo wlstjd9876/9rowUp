@@ -12,11 +12,13 @@
 		<h1>조언을 구해주세요!</h1>
 		<form:form commandName="command" action="adviceWrite.do" id="registerform">
 			<div class="col-md-12">
+				<form:hidden path="s_num"/>
 				<form:hidden path="email"/>
 				<form:errors element="div" cssClass="form-horizontal error-color"/>
 			</div>
 			<!-- 왼쪽 -->
 			<div class="col-md-6" style="padding: 10px;">
+				
 				<div class="form-group">
 					<label for="adv_title" class="col-md-4 control-label">글 제목</label>
 					<div class="col-md-8">

@@ -18,7 +18,7 @@ public interface AdviceMapper {
 	public List<AdviceCommand> selectList(Map<String,Object> map);  //글 리스트
 	public int selectRowCount(Map<String,Object> map);  //글 리스트 개수
 	@Insert("INSERT INTO advice (adv_num,adv_title,email,adv_date,adv_phone,startdate,enddate,s_num) "
-			+ "VALUES (advice_seq.nextval,#{adv_title},#{email},SYSDATE,#{adv_phone},#{startdate},#{enddate},1)")   //s_num 받아오기
+			+ "VALUES (advice_seq.nextval,#{adv_title},#{email},SYSDATE,#{adv_phone},#{startdate},#{enddate},#{s_num})")   //s_num 받아오기
 	public void insert(AdviceCommand advice);  //글 등록
 	@Select("SELECT * FROM advice WHERE adv_num=#{adv_num}")
 	public AdviceCommand selectAdvice(Integer adv_num);  //전체 글 
