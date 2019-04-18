@@ -61,6 +61,7 @@ public class CalendarAjaxController {
 		List<CalendarDetailCommand> list = null;
 		list = calendarService.selectDetailCal(map);
 		
+		System.out.println(list + "@@@@@@@@@@@@@@@@@@@@@@ : " + s_num);
 		Map<String, Object> mapJson = new HashMap<String, Object>();
 		mapJson.put("list", list);
 		

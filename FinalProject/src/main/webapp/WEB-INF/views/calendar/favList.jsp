@@ -7,10 +7,11 @@
   
 <!-- 애가 메뉴를 못뜨게 막아줌 -->
 
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/comfav.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/placeModal.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/scheduleModal.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/memberModal.js"></script>
+<script type="text/javascript" >var contextPath = "${pageContext.request.contextPath}"</script>
 	
 <style>
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
@@ -30,17 +31,21 @@
          src="${pageContext.request.contextPath}/resources/img/placeholder.png">
       <h3 style="background-color: #d1d2d3;" align="center">즐겨찾기한 장소</h3>
       <br>
-     
-      <c:forEach var="fav" items="${list1}" begin="0" end="3">
-
+      <c:forEach var="fav" items="${list1}" begin="0" end="3" varStatus="status">
          <div class="w3-card-4 w3-margin" align="center" style="width: 90%">
             <div class="w3-container">
                <div style="width: 25%; height: 12%; float: left;">
-                  <img align="middle" src="#" alt="장소 이미지">
+          	   <img style="width: 100%; height: 100%"  id="juso${status.count}">
+          	   
                </div>
                <div style="width: 75%; height: 12%; float: right;">
-                  <h5 align="left">장소 코드 : ${fav.f_code1}</h5>
-                  <h5 align="left">주소</h5>
+               <script type="text/javascript">var a = ${fav.f_code1}</script>
+               <script type="text/javascript">detail1(a,${status.count});</script>
+              <div align="left">
+               <span>주소 : </span><span id="nunu${status.count}"></span> 
+              
+              </div>
+                 
                   <div align="right">
                   	<button class="btn btn-warning btn-sm" onclick="location.href='favDelete.do?f_num=${fav.f_num}'">삭제</button>
                     <button class="btn btn-primary btn-sm">내일정에 추가</button>
@@ -99,7 +104,7 @@
          <div class="w3-card-4 w3-margin" align="center" style="width: 90%">
             <div class="w3-container">
                <div style="width: 25%; height: 12%; float: left;">
-                  <img class="card-img-top" align="middle" src="#" alt="프로필 사진">
+                  <img style="width: 100%; max-height: 50%" id="imageFile" class="card-img-top" align="middle" src="imageView2.do?email=${fav.f_code3}" alt="프로필 사진">
                </div>
                <div class="card-body" style="width: 75%; height: 12%; float: right;">
                   <p align="left" class="card-text">회원 이메일 : ${fav.f_code3}</p>
@@ -153,7 +158,10 @@
             </div>
             <!-- 검색창 끝 -->
             <br>
-            <div id="output1"></div>
+            
+            <div id="output1">
+               	
+            </div>
             <div id="noPaging1">
             <hr>            
 			<ul class="paging_button pagination"></ul>
@@ -219,8 +227,7 @@
    <div class="modal-dialog" role="document">
       <div class="modal-content">
          <div class="modal-body" align="center">
-            <img align="middle"
-               src="${pageContext.request.contextPath}/resources/img/group.png">
+            <img align="middle"   src="${pageContext.request.contextPath}/resources/img/group.png">
             <h3 style="background-color: #d1d2d3;" align="center">즐겨찾기한 회원</h3>
             <br>
             <!-- 검색창 시작 -->

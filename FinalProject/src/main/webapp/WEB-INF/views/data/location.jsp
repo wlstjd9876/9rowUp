@@ -66,6 +66,11 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
  <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script> 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=073c048326b3580b4c7257b8e804ee6b&libraries=services"></script>
+<style type="text/css">
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+.hn{font-family: 'Hanna', sans-serif;
+   }
+</style>
 <!-- public.js ->관관지 정보를 불러오는 js 입니다. -->
 <%-- <script src="${pageContext.request.contextPath}/resources/js/public.js"></script> --%>
 <script type="text/javascript">
@@ -103,7 +108,7 @@
 
 <!-- 오른쪽에 보여지는 창 -->
 <div class='right-box'>
-<div id='output' style="overflow:scroll; width:600px; height:600px; padding-left: 60px; margin-top:40px; margin-left: 20px;"></div>
+<div class="hn" id='output' style="overflow:scroll; width:600px; height:600px; padding-left: 60px; margin-top:40px; margin-left: 20px;"></div>
 </div>
 </body>
 </html>

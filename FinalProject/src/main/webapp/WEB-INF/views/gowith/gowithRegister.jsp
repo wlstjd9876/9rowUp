@@ -133,7 +133,7 @@ h1 {
 			<br>
 			<br>
 			<div class="form-group text-center">
-				<button type="submit" class="btn btn-primary-lg hn">동행등록</button>
+				<button type="submit" class="btn btn-primary-lg hn">등록하기</button>
 				&nbsp;&nbsp;&nbsp;
 				<button type="button" class="btn btn-warning-lg hn"
 					onclick="location.href='${pageContext.request.contextPath}/gowith/gowithList.do'">목록으로</button>

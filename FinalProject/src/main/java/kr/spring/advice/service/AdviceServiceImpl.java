@@ -108,6 +108,11 @@ public class AdviceServiceImpl implements AdviceService{
 	public void insertReply(AdviceReplyCommand adviceReply) {
 		adviceMapper.insertReply(adviceReply);
 	}
+	
+	@Override
+	public void updateReply(AdviceReplyCommand adviceReply) {
+		adviceMapper.updateReply(adviceReply);
+	}
 
 	@Override
 	public void deleteReply(Integer ar_num) {
@@ -115,6 +120,10 @@ public class AdviceServiceImpl implements AdviceService{
 		adviceMapper.deleteReplyDetailAll(ar_num);
 		//조언 댓글 삭제
 		adviceMapper.deleteReply(ar_num);
+	}
+	@Override
+	public AdviceReplyCommand selectReplyDetail(Integer ar_num) {
+		return adviceMapper.selectReplyDetail(ar_num);
 	}
 
 	//====================조언 댓글 상세 일정
@@ -137,4 +146,5 @@ public class AdviceServiceImpl implements AdviceService{
 	public void deleteReplyDetail(Integer ad_num) {
 		adviceMapper.deleteReplyDetail(ad_num);
 	}
+
 }

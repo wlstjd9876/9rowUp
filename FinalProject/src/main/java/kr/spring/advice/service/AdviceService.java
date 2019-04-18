@@ -28,9 +28,9 @@ public interface AdviceService {
 	public List<AdviceReplyCommand> selectListReply(Map<String, Object> map);  //글 번호에 따른 댓글 전체 목록
 	public int selectRowCountReply(Map<String, Object> map);  //댓글 개수
 	public void insertReply(AdviceReplyCommand adviceReply);  //댓글 등록
-	  //댓글 수정
+	public void updateReply(AdviceReplyCommand adviceReply);  //댓글 수정
 	public void deleteReply(Integer ar_num);  //댓글 삭제
-	  //댓글 목록
+	public AdviceReplyCommand selectReplyDetail(Integer ar_num);  //댓글 상세
 	
 	//========================댓글 상세 advice_reply_detail
 	public List<AdviceReplyDetailCommand> selectReplyDetailList(Map<String, Object> map);  //댓글 상세 전체 목록

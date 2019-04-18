@@ -75,6 +75,7 @@ public class AdviceAjaxController {
 		map.put("start", page.getStartCount());
 		map.put("end", page.getEndCount());
 		
+		
 		List<CalendarCommand> list = null;
 		if(count>0) {
 			list = calendarService.selectList(map);
@@ -82,6 +83,7 @@ public class AdviceAjaxController {
 		
 		Map<String, Object> mapJson = new HashMap<String, Object>();
 		mapJson.put("list", list);
+		mapJson.put("pagingHtml", page.getPagingHtml());
 		
 		return mapJson;
 	}
@@ -142,7 +144,24 @@ public class AdviceAjaxController {
 		return mapJson;
 	}*/
 	
-	
-	
+	//조언 글에 일정 띄우기
+	/*@RequestMapping("/advice/scheduleAll.do")
+	@ResponseBody
+	public Map<String, Object> getSchedule(){
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		List<CalendarDetailCommand> list = null;
+		list = calendarService.selectDetailList(map);
+		
+		AdviceDetailCommand detail = new AdviceDetailCommand();
+		
+		Map<String, Object> mapJson = new HashMap<String, Object>();
+		mapJson.put("list", list);
+		mapJson.put("day", detail.getAd_day());
+		mapJson.put("starttime", detail.getStarttime());
+		mapJson.put("endtime", detail.getEndtime());
+		
+		return mapJson;
+	}*/
 	
 }

@@ -56,7 +56,7 @@
 			</p>
 			<p>
 				<input type="submit" class="myButton" value="수정하기">
-				<button type="button" class="closeButton div vc">취소하기</button>
+				<button type="submit" class="closeButton div vc">취소하기</button>
 			</p>
 		</form:form> 
 	</div>

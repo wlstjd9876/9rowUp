@@ -64,5 +64,26 @@
         </where>
    </select>
    
-    
+	<!-- 댓글 목록 -->
+	<select id="selectListReply" parameterType="map" resultType="adviceReplyCommand">
+	SELECT 
+ 		adv_num,
+ 		email,
+ 		TO_CHAR(ar_date,'YYYY-MM-DD HH24:MI:SS') ar_date,
+ 		startdate,
+ 		enddate,
+ 		ar_comment,
+ 		ar_num
+ 		FROM (SELECT 
+ 				a.*,
+ 				rownum rnum 
+ 				FROM (SELECT
+ 						*
+	   				FROM advice_reply
+					WHERE adv_num = #{adv_num}
+					ORDER BY ar_num DESC)a)
+	<![CDATA[
+ 	WHERE rnum >= #{start} AND rnum <= #{end}
+ 	]]>
+ 	</select>
 </mapper>

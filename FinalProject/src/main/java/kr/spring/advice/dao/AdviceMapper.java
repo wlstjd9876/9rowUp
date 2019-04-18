@@ -29,7 +29,7 @@ public interface AdviceMapper {
 	
 	//========================상세 일정 목록 advice_detail
 	@Insert("INSERT INTO advice_detail (ad_num, ad_code, ad_day, starttime, endtime, ad_memo, ad_money, adv_num) "
-			+ "VALUES (advice_detail_seq.nextval, #{ad_code}, #{ad_day}, #{starttime}, #{endtime}, #{ad_memo}, #{ad_money}, #{adv_num})")
+			+ "VALUES (ADVIDE_DETAIL_SEQ.nextval, #{ad_code}, #{ad_day}, #{starttime}, #{endtime}, #{ad_memo}, #{ad_money}, #{adv_num})")
 	public void insesrtDetail(AdviceDetailCommand detail);  //글 상세 일정 등록
 	@Select("SELECT * FROM advice_detail WHERE adv_num=#{adv_num} ORDER BY ad_day, starttime")
 	public List<AdviceDetailCommand> selectDetailList(Map<String, Object> map);  //글 상세 일정 전체 목록
@@ -41,17 +41,18 @@ public interface AdviceMapper {
 	public void deleteDetail(Integer ad_num);  //글 상세 일정 삭제
 	
 	//========================댓글 advice_reply
-	@Select("SELECT * FROM advice_reply WHERE adv_num=#{adv_num}")
 	public List<AdviceReplyCommand> selectListReply(Map<String, Object> map);  //글 번호에 따른 댓글 전체 목록
 	@Select("SELECT COUNT(*) FROM advice_reply WHERE adv_num=#{adv_num}")
 	public int selectRowCountReply(Map<String, Object> map);  //댓글 개수
-	@Insert("INSERT INTO advice_reply (adv_num,email,ar_date,ar_like,startdate,enddate,ar_comment,s_num,ar_num) "
-			+ "VALUES (#{adv_num},#{email},SYSDATE,#{ar_like},#{startdate},#{enddate},#{ar_comment},1,advice_reply_seq.nextval)")  //s_num 받아오기
+	@Insert("INSERT INTO advice_reply (adv_num,email,ar_date,startdate,enddate,ar_comment,s_num,ar_num) "
+			+ "VALUES (#{adv_num},#{email},SYSDATE,#{startdate},#{enddate},#{ar_comment},1,ADVIDE_REPLY_SEQ.nextval)")  //s_num 받아오기
 	public void insertReply(AdviceReplyCommand adviceReply);  //댓글 등록
-	  //댓글 수정
+	@Update("UPDATE advice_reply SET ar_comment=#{ar_comment} WHERE ar_num=#{ar_num}")
+	public void updateReply(AdviceReplyCommand adviceReply);  //댓글 수정
 	@Delete("DELETE FROM advice_reply WHERE ar_num=#{ar_num}")
 	public void deleteReply(Integer ar_num);  //댓글 삭제
-	  //댓글 목록
+	@Select("SELECT * FROM advice_reply WHERE ar_num=#{ar_num}")
+	public AdviceReplyCommand selectReplyDetail(Integer ar_num);
 	
 	//========================댓글 상세 advice_reply_detail
 	@Select("SELECT * FROM advice_reply_detail d JOIN advice_reply a ON d.ar_num = a.ar_num WHERE a.adv_num = #{adv_num} ORDER BY d.ad_day, d.starttime")

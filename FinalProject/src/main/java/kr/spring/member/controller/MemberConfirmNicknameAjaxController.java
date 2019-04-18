@@ -4,10 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -42,4 +46,24 @@ public class MemberConfirmNicknameAjaxController {
 		
 		return map;
 	}
+	
+	//==========회원정보수정============
+	//수정폼에서 전송된 데이터 처리
+	@RequestMapping(value="/member/updateNick.do",method=RequestMethod.POST)
+	public String submitUpdate(@ModelAttribute("command")@Valid MemberCommand memberCommand,BindingResult result) {
+
+		if(log.isDebugEnabled()) {
+			log.debug("<<memberCommand>> : " + memberCommand);
+		}
+
+		if(result.hasFieldErrors("td_nickname")) {
+			return "memberModify";
+		}
+
+		//회원정보수정
+		memberService.updateNick(memberCommand);
+
+		return "redirect:/member/detail.do";
+	}	
+	
 }

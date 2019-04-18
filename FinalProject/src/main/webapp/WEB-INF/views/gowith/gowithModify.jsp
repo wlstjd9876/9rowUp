@@ -46,7 +46,7 @@ h1 {
 <div class="container">
 	<div>
 		<h1 class="hn">
-			<b>동행 정보를 입력해주세요!</b>
+			<b>동행 정보를 수정해주세요!</b>
 		</h1>
 	</div>
 	<br>
@@ -77,12 +77,12 @@ h1 {
 			<div class="form-group">
 				<label for="go_member" class="hn">모집 인원</label>
 				<form:input path="go_member" type="number" class="form-control hn"
-					min="1" max="100" placeholder="모집인원을 입력하세요!"/>
+					min="1" max="9" placeholder="모집인원을 입력하세요!"/>
 			</div>
 
 			<div class="form-group hn">
 				<label for="go_age">모집 연령대</label>
-				<form:select path="go_age" class="form-control hn">
+				<form:select path="go_age" value="${gowith.go_age}" class="form-control hn">
 					<form:option  value="연령대를 선택하세요!"/>
 					<form:option value="10대 만"/>
 					<form:option value="20대 만"/>
@@ -92,7 +92,7 @@ h1 {
 			</div>
 			<div class="form-group hn">
 				<label for="go_gen">모집 성별</label>
-				<form:select path="go_gen" class="form-control hn">
+				<form:select path="go_gen" value="${gowith.go_gen}" class="form-control hn">
 					<form:option value="성별을 선택하세요!"/>
 					<form:option value="여자만">여자만</form:option>
 					<form:option value="남자만">남자만</form:option>

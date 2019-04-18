@@ -20,8 +20,19 @@ public class ShareCommand {
 	private byte[] photo3;
 	private int s_num;
 	
+	private String td_nickname;
+	
 	private int re_cnt; //´ñ±Û ¼ö
 
+	
+	
+	
+	public String getTd_nickname() {
+		return td_nickname;
+	}
+	public void setTd_nickname(String td_nickname) {
+		this.td_nickname = td_nickname;
+	}
 	//MultipartFile -> byte[]º¯È¯
 	public void setThumbfile(MultipartFile thumbfile) throws IOException {
 		this.thumbfile = thumbfile;

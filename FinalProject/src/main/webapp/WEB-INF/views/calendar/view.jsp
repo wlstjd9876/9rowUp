@@ -106,6 +106,7 @@ body {
 </style>
 <script type='text/javascript'>
 	$(document).ready(function() {
+		alert(${s_num});
 		var s_num = '${s_num}';
 		var date = new Date();
 		var d = date.getDate();
@@ -135,8 +136,8 @@ body {
 						$(list).each(function(index, item) {
 							events.push({
 								title : 'hi',
-								start : '2019-03-06T21:30:00-05:00',
-								end : '2019-03-06T22:00:00-05:00'
+								start : '2019-03-10T12:00:00',
+								allDay : false
 								/* url : 'view.do?s_num=' + item.s_num */
 							});
 						});

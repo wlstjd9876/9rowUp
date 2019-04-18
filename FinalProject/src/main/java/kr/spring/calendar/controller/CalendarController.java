@@ -62,10 +62,10 @@ public class CalendarController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("email", email);
 		List<CalendarCommand> list = calendarService.selectCal(map);
-		List<FavoriteCommand> list1 = favoriteService.selectFav1();
+		/*List<FavoriteCommand> list1 = favoriteService.selectFav1();
 		List<FavoriteCommand> list2 = favoriteService.selectFav2();
 		List<FavoriteCommand> list3 = favoriteService.selectFav3();
-		System.out.println("==============" + list1);
+		System.out.println("==============" + list1);*/
 		if(list!=null) {
 			mydate = list.iterator().next().getS_startdate();
 		}else {
@@ -76,9 +76,9 @@ public class CalendarController {
 		
 		model.addAttribute("command", command);
 		model.addAttribute("mydate", mydate);
-		model.addAttribute("list1", list1);
+		/*model.addAttribute("list1", list1);
 		model.addAttribute("list2", list2);
-		model.addAttribute("list3", list3);
+		model.addAttribute("list3", list3);*/
 		
 		return "calendarRegisterForm";
 	}
@@ -151,6 +151,7 @@ public class CalendarController {
 	public String process(@RequestParam("s_num") int s_num, Model model) {
 		CalendarCommand command = calendarService.selectCalendar(s_num);
 		model.addAttribute("command", command);
+		model.addAttribute("s_num",s_num);
 		
 		return "calendarDetail";
 	}

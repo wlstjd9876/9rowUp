@@ -21,8 +21,6 @@
 <!-- <script>
 	window.opener.document.getElementsByClass("fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable").attr('href')=document.getElementById("sd_num").value;
 </script> -->
-
-
 <style>
 body {
 	text-align: center;
@@ -30,7 +28,7 @@ body {
 	font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
 	min-height: 900px;
 }
-
+<style>  
 #wrap {
 	width: 100%;
 	margin: 0 auto;
@@ -79,7 +77,6 @@ body {
 <script type='text/javascript'>
 	$(document).ready(function() {
 		var aaa = '${mydate}';
-		alert(aaa);
 		var date = new Date();
 		var d = date.getDate();
 		var m = date.getMonth();
