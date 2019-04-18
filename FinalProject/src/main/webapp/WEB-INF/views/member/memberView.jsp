@@ -50,10 +50,10 @@
 			</c:if>
 			<c:if test="${empty member.td_profile}">
 				<c:if test="${member.td_gender==1}">
-					<img src="${pageContext.request.contextPath}/resources/img/icon/boy.png" width="100px">
+					<img src="${pageContext.request.contextPath}/resources/img/man.png" width="100px">
 				</c:if>
 	         	<c:if test="${member.td_gender==2}">
-	         		<img src="${pageContext.request.contextPath}/resources/img/icon/girl.png" style="max-width:500px;">
+	         		<img src="${pageContext.request.contextPath}/resources/img/woman.png" width="100px">
 				</c:if>
 			</c:if>   
 		</div>		
