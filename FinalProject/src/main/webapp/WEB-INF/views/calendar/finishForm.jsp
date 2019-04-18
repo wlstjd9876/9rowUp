@@ -3,6 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/full/jscolor.js"></script>
+<style type="text/css">
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+.hn{font-family: 'Hanna', sans-serif;
+   }
+</style>
 <style>
 	.styleWrap {
 		padding: 50px;
@@ -221,10 +226,11 @@
 	});
 </script>
 <div class="container" style="padding: 10px;">
-	<div class="row">
+	<div class="row hn">
 		<form:form commandName="calendarCommand" action="finish.do" id="finish_form" enctype="multipart/form-data">
 			<!-- 왼쪽 -->
-			<div class="col-md-6">
+			<br>
+			<div class="col-md-6 hn">
 				<%-- <form:hidden path="s_num"/> --%>
 				<form:hidden value="${user_email}" path="email"/>
 				<div class="form-group">
@@ -316,7 +322,7 @@
 				</div>
 			</div>
 			<!-- 오른쪽 -->
-			<div class="col-md-6">
+			<div class="col-md-6 hn">
 				<!-- 일정 색상 -->
 				<div class="form-group">
 					<label for="s_color">일정 색상</label>
@@ -368,7 +374,8 @@
 				</div>
 			</div>
 			<!-- 버튼 -->
-			<div class="col-md-12" style="text-align: center;">
+			<div class="col-md-12 hn" style="text-align: center;">
+			<br>
 				<input type="submit" value="등록" class="btn btn-default" >
 				<input type="button" value="임시저장" class="btn btn-default" onclick="">
 			</div>
