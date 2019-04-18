@@ -29,7 +29,7 @@ public interface AdviceMapper {
 	
 	//========================상세 일정 목록 advice_detail
 	@Insert("INSERT INTO advice_detail (ad_num, ad_code, ad_day, starttime, endtime, ad_memo, ad_money, adv_num) "
-			+ "VALUES (advice_detail_seq.nextval, #{ad_code}, #{ad_day}, #{starttime}, #{endtime}, #{ad_memo}, #{ad_money}, #{adv_num})")
+			+ "VALUES (ADVIDE_DETAIL_SEQ.nextval, #{ad_code}, #{ad_day}, #{starttime}, #{endtime}, #{ad_memo}, #{ad_money}, #{adv_num})")
 	public void insesrtDetail(AdviceDetailCommand detail);  //글 상세 일정 등록
 	@Select("SELECT * FROM advice_detail WHERE adv_num=#{adv_num} ORDER BY ad_day, starttime")
 	public List<AdviceDetailCommand> selectDetailList(Map<String, Object> map);  //글 상세 일정 전체 목록
@@ -51,6 +51,8 @@ public interface AdviceMapper {
 	public void updateReply(AdviceReplyCommand adviceReply);  //댓글 수정
 	@Delete("DELETE FROM advice_reply WHERE ar_num=#{ar_num}")
 	public void deleteReply(Integer ar_num);  //댓글 삭제
+	@Select("SELECT * FROM advice_reply WHERE ar_num=#{ar_num}")
+	public AdviceReplyCommand selectReplyDetail(Integer ar_num);
 	
 	//========================댓글 상세 advice_reply_detail
 	@Select("SELECT * FROM advice_reply_detail d JOIN advice_reply a ON d.ar_num = a.ar_num WHERE a.adv_num = #{adv_num} ORDER BY d.ad_day, d.starttime")

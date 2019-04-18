@@ -27,8 +27,8 @@ import kr.spring.util.PagingUtil;
 @Controller
 public class AdviceController {
 	private Logger log = Logger.getLogger(this.getClass());
-	private int rowCount = 6;
-	private int pageCount = 6;
+	private int rowCount = 8;
+	private int pageCount = 10;
 
 	@Resource
 	private AdviceService adviceService;
@@ -58,7 +58,7 @@ public class AdviceController {
 			log.debug("<<count>> : " + count);
 		}
 
-		PagingUtil page = new PagingUtil(keyfield, keyword, currentPage, count, rowCount, pageCount, "list.do");
+		PagingUtil page = new PagingUtil(keyfield, keyword, currentPage, count, rowCount, pageCount, "adviceList.do");
 		map.put("start", page.getStartCount());
 		map.put("end", page.getEndCount());
 

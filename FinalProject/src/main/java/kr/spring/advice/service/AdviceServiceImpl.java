@@ -121,6 +121,10 @@ public class AdviceServiceImpl implements AdviceService{
 		//조언 댓글 삭제
 		adviceMapper.deleteReply(ar_num);
 	}
+	@Override
+	public AdviceReplyCommand selectReplyDetail(Integer ar_num) {
+		return adviceMapper.selectReplyDetail(ar_num);
+	}
 
 	//====================조언 댓글 상세 일정
 	@Override

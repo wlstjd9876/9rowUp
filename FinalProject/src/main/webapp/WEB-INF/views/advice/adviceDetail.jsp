@@ -81,6 +81,9 @@ $(document).ready(function() {
     setCalendar();
 });
 </script>
+<script>
+	var context = "${pageContext.request.contextPath}";
+</script>
 <!-- 중앙 컨텐츠 시작 -->
 <div class="container">
 	<div class="row">
@@ -109,7 +112,7 @@ $(document).ready(function() {
 		<div align="center">
 			<c:if test="${empty user_email}">로그인 해야 작성할 수 있습니다.</c:if>
 			<c:if test="${!empty user_email && user_email != advice.email}">
-				<input type="button" value="조언글쓰기" class="hn btn btn-info btn-sm" id="writeReply" onclick="location.href='adviceReplyWrite.do?adv_num=${advice.adv_num}'">
+				<input type="button" value="댓글쓰기" class="hn btn btn-info btn-sm" id="writeReply" onclick="location.href='adviceReplyWrite.do?adv_num=${advice.adv_num}'">
 			</c:if>
 		</div>
 
