@@ -116,7 +116,8 @@ kdk {
 </style>
 <script type='text/javascript'>
 	$(document).ready(function() {
-
+		alert(${s_num});
+		var s_num = '${s_num}';
 		var date = new Date();
 		var d = date.getDate();
 		var m = date.getMonth();
@@ -133,10 +134,10 @@ kdk {
 			selectHelper : true,
 			events : function(start, end, timezone, callback) {
 				$.ajax({
-					url : 'eventAll.do',
+					url : 'eventdetail.do',
 					type : 'post',
-					data : {
-						email : email
+				 	data : {
+						s_num : s_num 
 					},
 					dataType : 'json',
 					success : function(data) {
@@ -144,10 +145,10 @@ kdk {
 						var list = data.list;
 						$(list).each(function(index, item) {
 							events.push({
-								title : item.s_title,
-								start : item.s_startdate,
-								end : item.s_enddate,
-								url : 'view.do?s_num=' + item.s_num
+								title : 'hi',
+								start : '2019-03-10T12:00:00',
+								allDay : false
+								/* url : 'view.do?s_num=' + item.s_num */
 							});
 						});
 						callback(events);
@@ -157,6 +158,7 @@ kdk {
 			defaultDate :
 <%=(String) request.getAttribute("defaultDate")%>
 	});
+		});
 	});
 </script>
 <script>
@@ -179,7 +181,6 @@ kdk {
  </script>
 <div class="container">
 	<div class="row">
-		<%-- <input type="hidden" name="s_num" id="s_num" value="${command.s_num}"> --%>
 		<div class="form-group">
 			<div class="col-md-6">
 				<!-- 캘린더 -->
