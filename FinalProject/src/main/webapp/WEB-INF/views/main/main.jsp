@@ -6,11 +6,6 @@
 .jua{font-family: 'Jua', sans-serif;
 }
 </style>
-<!-- <style type="text/css">
-@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
-.hn{font-family: 'Hanna', sans-serif;
-   }
-</style> -->
 <script>
 		/* ******************************************** */
 		/*  JS for SLIDER REVOLUTION  */
