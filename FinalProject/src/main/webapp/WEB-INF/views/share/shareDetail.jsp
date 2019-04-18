@@ -164,7 +164,7 @@ function showDivs(n) {
          <input type="button" class="btn btn-primary btn-sm hn" value="목록" onclick="location.href='list.do'">
       </div>
       <!-- 수정, 삭제, 목록 버튼 끝 -->    
- 
+   
 	 
 	    <!-- 내용시작 -->
       	 	<div id="substance" class="col-lg-12" align="center" style="margin-top: 20px;">
