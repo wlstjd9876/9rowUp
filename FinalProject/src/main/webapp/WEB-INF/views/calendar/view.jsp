@@ -30,6 +30,12 @@
 	width: 600px;
 	height: 750px;
 }
+.formcenter {
+	margin-bottom: 55px;
+	margin-left: 55px;
+	padding: 100px 100px;
+	align-items: center;
+}
 /*버튼 왼쪽 정렬*/
 .buttonleft {
 	float: left;
@@ -222,7 +228,7 @@ kdk {
 				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 					aria-labelledby="myModalTitle" aria-hidden="true">
 					<div class="modal-dialog" role="document">
-						<div class="modal-content">
+						<div class="modal-content modaldetail">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal"
 									aria-label="Close">
@@ -232,9 +238,8 @@ kdk {
 							</div>
 							<div class="row">
 
-								<form:form commandName="calendarDetailCommand" action="writeDetail.do"
-									id="register_form" class="col-lg-12">
-									<input type="hidden" id="s_num" name="s_num" value="${s_num }" />
+								<form:form commandName="calendarDetailCommand" action="view.do"
+									id="register_form" class="col-lg-10 formcenter">
 									<div class="form-group">
 										<label for="sd_code" class="fontdetail">관광지 코드</label>
 										<form:input path="sd_code" class="form-control kdk" />
