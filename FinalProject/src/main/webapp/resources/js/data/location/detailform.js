@@ -46,7 +46,7 @@ function insert(){
 			success: function(data){
 				$('#output').empty();
 				var output = '';
-
+				
 				output += '<div class="image hn col-lg-12">';
 				output += '<div class="w3-content" align="center" style="width: 500px; height: 450px; border: 2px dotted;">  <br>';
 				output += '<img class="mySlides" width="450px" height="300px" id="imageFile1" src="imageView1.do?num=${share.num}&photo_type=1" style="display: block;">';

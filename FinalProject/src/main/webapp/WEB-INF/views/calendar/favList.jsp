@@ -39,16 +39,16 @@
                <div style="width: 75%; height: 12%; float: right;">
                <script type="text/javascript">var a = ${fav.f_code1}</script>
                <script type="text/javascript">detail1(a,${status.count});</script>
-              <div align="left">
+           
+                  <div align="left">
                <span>주소 : </span><span id="nunu${status.count}"></span> 
-              
-              </div>
-                 
+            	  </div>
                   <div align="right">
                   	<button class="btn btn-warning btn-sm" onclick="location.href='favDelete.do?f_num=${fav.f_num}'">삭제</button>
                     <button class="btn btn-primary btn-sm">내일정에 추가</button>
                   </div>
                </div>
+              
             </div>
          </div>
       </c:forEach>
