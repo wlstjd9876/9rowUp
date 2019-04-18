@@ -106,7 +106,7 @@ body {
 </style>
 <script type='text/javascript'>
 	$(document).ready(function() {
-
+		var s_num = '${s_num}';
 		var date = new Date();
 		var d = date.getDate();
 		var m = date.getMonth();
@@ -123,10 +123,10 @@ body {
 			selectHelper : true,
 			events : function(start, end, timezone, callback) {
 				$.ajax({
-					url : 'eventAll.do',
+					url : 'eventdetail.do',
 					type : 'post',
-					data : {
-						email : email
+				 	data : {
+						s_num : s_num 
 					},
 					dataType : 'json',
 					success : function(data) {
@@ -134,17 +134,16 @@ body {
 						var list = data.list;
 						$(list).each(function(index, item) {
 							events.push({
-								title : item.s_title,
-								start : item.s_startdate,
-								end : item.s_enddate,
-								url : 'view.do?s_num=' + item.s_num
+								title : 'hi',
+								start : '2019-03-06T21:30:00-05:00',
+								end : '2019-03-06T22:00:00-05:00'
+								/* url : 'view.do?s_num=' + item.s_num */
 							});
 						});
 						callback(events);
 					}
 				});
 			},
-			defaultDate : <%=(String) request.getAttribute("defaultDate")%>
 		});
 	});
 </script>
@@ -157,7 +156,6 @@ body {
 </script>
 <div class="container">
 	<div class="row">
-		<%-- <input type="hidden" name="s_num" id="s_num" value="${command.s_num}"> --%>
 		<div class="form-group">
 			<div class="col-md-6">
 				<!-- 캘린더 -->

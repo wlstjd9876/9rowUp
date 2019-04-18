@@ -81,4 +81,9 @@ public class CalendarServiceImpl implements CalendarService{
 	public List<CalendarCommand> selectCal(Map<String, Object> map) {
 		return calendarMapper.selectCal(map);
 	}
+
+	@Override
+	public List<CalendarDetailCommand> selectDetailCal(Map<String, Object> map) {
+		return calendarMapper.selectDetailCal(map);
+	}
 }

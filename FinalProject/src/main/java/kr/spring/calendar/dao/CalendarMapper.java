@@ -21,8 +21,10 @@ public interface CalendarMapper {
 	public void update(CalendarCommand calendar);
 	@Delete("DELETE FROM schedule WHERE s_num = #{s_num}")
 	public void delete(Integer s_num);
-	@Select("SELECT s_title, s_startdate,  TO_DATE( s_enddate, 'yyyy-mm-dd HH:MI:SS')+1 s_enddate, s_num FROM schedule WHERE email=#{email}")
+	@Select("SELECT s_title, s_startdate,  TO_DATE( s_enddate, 'yyyy-mm-dd HH:MI:SS')+1 s_enddate, s_num FROM schedule WHERE email=#{email} ORDER BY s_startdate DESC")
 	public List<CalendarCommand> selectCal(Map<String, Object> map);
+	@Select("SELECT * FROM schedule_detail WHERE s_num=#{s_num} ORDER BY s_startdate DESC")
+	public List<CalendarDetailCommand> selectDetailCal(Map<String, Object> map);
 	
 	//일정상세
 	@Insert("INSERT INTO schedule_detail (s_num,sd_num,sd_code,sd_day,sd_starttime,sd_endtime) "

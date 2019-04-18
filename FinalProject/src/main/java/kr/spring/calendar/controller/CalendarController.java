@@ -1,5 +1,7 @@
 package kr.spring.calendar.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +30,6 @@ public class CalendarController {
 	//페이징 처리
 	private int rowCount = 5;
 	private int pageCount = 10;
-	
 	@Resource
 	private FavoriteService favoriteService;
 	
@@ -52,18 +53,29 @@ public class CalendarController {
 	//일정 등록 달력 폼
 	@RequestMapping("/calendar/registerPlan.do")
 	public String registerForm(HttpSession session, Model model) {
-		
+		SimpleDateFormat form = new SimpleDateFormat("yyyy-MM-dd");
 		String email = (String)session.getAttribute("user_email");
+		String mydate = "";
 		
 		CalendarCommand command = new CalendarCommand();
 		command.setEmail(email);
-		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("email", email);
+		List<CalendarCommand> list = calendarService.selectCal(map);
 		List<FavoriteCommand> list1 = favoriteService.selectFav1();
 		List<FavoriteCommand> list2 = favoriteService.selectFav2();
 		List<FavoriteCommand> list3 = favoriteService.selectFav3();
 		System.out.println("==============" + list1);
+		if(list!=null) {
+			mydate = list.iterator().next().getS_startdate();
+		}else {
+			mydate = form.format(new Date());
+		}
+		System.out.println("asdasd" + mydate);
+		
 		
 		model.addAttribute("command", command);
+		model.addAttribute("mydate", mydate);
 		model.addAttribute("list1", list1);
 		model.addAttribute("list2", list2);
 		model.addAttribute("list3", list3);

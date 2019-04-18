@@ -28,7 +28,7 @@ body {
 	text-align: center;
 	font-size: 14px;
 	font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
-	min-height: 700px;
+	min-height: 900px;
 }
 
 #wrap {
@@ -67,6 +67,7 @@ body {
 	vertical-align: middle;
 }
 
+
 #calendar {
 	width: 900px;
 	height: 600px;
@@ -77,13 +78,15 @@ body {
 
 <script type='text/javascript'>
 	$(document).ready(function() {
-
+		var aaa = '${mydate}';
+		alert(aaa);
 		var date = new Date();
 		var d = date.getDate();
 		var m = date.getMonth();
 		var y = date.getFullYear();
 		var email =  "<%=(String)session.getAttribute("user_email")%>";
 		var calendar = $('#calendar').fullCalendar({
+			
 
 			header : {
 				left : 'prev,next',
@@ -106,19 +109,20 @@ body {
 								title : item.s_title,
 								start : item.s_startdate,
 								end : item.s_enddate,
-								url: 'view.do?s_num='+item.s_num+'?defaultDate='+item.s_startdate
+								url: 'view.do?s_num='+item.s_num+'&s_startdate='+item.s_startdate
 							});
 						});
 						callback(events);
 					}
 				});
 			},
+			defaultDate:aaa
 		});
 	});
 </script>
 
 <div class="container"
-	style="width: 900px; margin: 0 auto; height: 800px;">
+	style="width: 900px; margin: 0 auto; height: 900px;">
 	<div
 		style="width: 900px; height: 100px; text-align: center; margin: 30px auto;">
 		<input type="button" value="일정등록" class="btn btn-default"
