@@ -24,6 +24,8 @@ ul li.paging_btn {
 </style>
 <script
 	src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+<script 
+	src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script
