@@ -129,6 +129,7 @@ kdk {
 </style>
 <script type='text/javascript'>
    $(document).ready(function() {
+	  var mydate = '${command.s_startdate}';
 	  var s_num = '${s_num}';
       var date = new Date();
       var d = date.getDate();
@@ -156,9 +157,28 @@ kdk {
                   var events = [];
                   var list = data.list;
                   $(list).each(function(index, item) {
-                	  var title = '' 
-                		  title = detail(item.sd_code);
-                	  alert(title);
+
+					//----------------------
+					var title
+					$.ajax({        
+						url: '${pageContext.request.contextPath}/detailAjax',
+						data:{contentId:item.sd_code},
+						type: 'get',
+						dataType: 'json',
+						async:false,
+						cache:false,
+						timeout:30000,
+						success: function(data){
+							var myItem = data.response.body.items.item;
+							var myBody = data.response.body;
+							title = myItem.title;
+							
+						},
+						error: function(XMLHttpRequest, textStatus, errorThrown) { 
+							alert("Status: " + textStatus +"and "+ "Error: " + errorThrown); 
+						}  
+					});
+					//-----------------------
                      events.push({
                         title : title,
                         start : '2019-03-10T12:00:00',
@@ -170,29 +190,9 @@ kdk {
                }
             });
          },
-         defaultDate : <%=(String) request.getAttribute("defaultDate")%>
+         defaultDate : mydate
       });
-   });
-   function detail(contentId){
-		$.ajax({        
-			url: '${pageContext.request.contextPath}/detailAjax',
-			data:{contentId:contentId},
-			type: 'get',
-			dataType: 'json',
-			cache:false,
-			timeout:30000,
-			success: function(data){
-				var myItem = data.response.body.items.item;
-				var myBody = data.response.body;
-				var title = myItem.title;
-				alert('title'+title);
-				callback(title);
-			},
-			error: function(XMLHttpRequest, textStatus, errorThrown) { 
-				alert("Status: " + textStatus +"and "+ "Error: " + errorThrown); 
-			}  
-		});
-	};      
+   });     
 </script>
 <script>
 	$(document).ready(function() {
@@ -238,8 +238,9 @@ kdk {
 							</div>
 							<div class="row">
 
-								<form:form commandName="calendarDetailCommand" action="view.do"
+								<form:form commandName="calendarDetailCommand" action="writeDetail.do"
 									id="register_form" class="col-lg-10 formcenter">
+									<input type="hidden" id="s_num" name="s_num" value="${s_num}">
 									<div class="form-group">
 										<label for="sd_code" class="fontdetail">관광지 코드</label>
 										<form:input path="sd_code" class="form-control kdk" />
@@ -264,8 +265,8 @@ kdk {
 											name="sd_endtime" id="sd_endtime" class="form-control">
 									</div>
 									<div class="form-group">
-										<label for="sd_memo">메모</label> <input type="text"
-											name="sd_memo" id="sd_memo" class="form-control">
+										<label for="sd_memo">메모</label> <form:input path="sd_memo" class="form-control" />
+										<form:errors path="sd_memo" cssClass="error-color" />
 									</div>
 									<div class="form-group">
 										<label for="sd_money">여행비</label>

@@ -106,6 +106,7 @@ body {
 								title : item.s_title,
 								start : item.s_startdate,
 								end : item.s_enddate,
+								color : '#'+item.s_color,
 								url: 'view.do?s_num='+item.s_num+'&s_startdate='+item.s_startdate
 							});
 						});

@@ -35,10 +35,12 @@ public class CalendarDetailController {
 	}
 	//일정 상세 등록
 	@RequestMapping(value="/calendar/writeDetail.do", method=RequestMethod.POST)
-	public String submitDetail(@ModelAttribute("command") CalendarDetailCommand calendarDetailCommand) {
+	public String submitDetail(@ModelAttribute("calendarDetailCommand") CalendarDetailCommand calendarDetailCommand) {
 		if(log.isDebugEnabled()) {
 			log.debug("<<calendarDetailCommand>> : " + calendarDetailCommand);
 		}
+		
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + calendarDetailCommand);
 		
 		calendarService.insertDetail(calendarDetailCommand);
 		
