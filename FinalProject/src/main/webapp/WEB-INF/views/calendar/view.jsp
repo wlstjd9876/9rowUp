@@ -122,51 +122,48 @@ kdk {
 }
 </style>
 <script type='text/javascript'>
-	$(document).ready(function() {
-		alert(${s_num});
-		var s_num = '${s_num}';
-		var date = new Date();
-		var d = date.getDate();
-		var m = date.getMonth();
-		var y = date.getFullYear();
-		var email =  "<%=(String) session.getAttribute("user_email")%>";
-		var calendar = $('#calendar').fullCalendar({
+   $(document).ready(function() {
 
-			header : {
-				left : 'prev,next',
-				center : 'title',
-				right : 'today'
-			},
-			selectable : true,
-			selectHelper : true,
-			events : function(start, end, timezone, callback) {
-				$.ajax({
-					url : 'eventdetail.do',
-					type : 'post',
-				 	data : {
-						s_num : s_num 
-					},
-					dataType : 'json',
-					success : function(data) {
-						var events = [];
-						var list = data.list;
-						$(list).each(function(index, item) {
-							events.push({
-								title : 'hi',
-								start : '2019-03-10T12:00:00',
-								allDay : false
-								/* url : 'view.do?s_num=' + item.s_num */
-							});
-						});
-						callback(events);
-					}
-				});
-			},
-			defaultDate :
-<%=(String) request.getAttribute("defaultDate")%>
-	});
-		});
-	});
+      var date = new Date();
+      var d = date.getDate();
+      var m = date.getMonth();
+      var y = date.getFullYear();
+      var email =  "<%=(String) session.getAttribute("user_email")%>";
+      var calendar = $('#calendar').fullCalendar({
+
+         header : {
+            left : 'prev,next',
+            center : 'title',
+            right : 'today'
+         },
+         selectable : true,
+         selectHelper : true,
+         events : function(start, end, timezone, callback) {
+            $.ajax({
+               url : 'eventdetail.do',
+               type : 'post',
+               data : {
+                  email : email
+               },
+               dataType : 'json',
+               success : function(data) {
+                  var events = [];
+                  var list = data.list;
+                  $(list).each(function(index, item) {
+                     events.push({
+                        title : item.s_title,
+                        start : item.s_startdate,
+                        end : item.s_enddate,
+                        url : 'view.do?s_num=' + item.s_num
+                     });
+                  });
+                  callback(events);
+               }
+            });
+         },
+         defaultDate : <%=(String) request.getAttribute("defaultDate")%>
+      });
+   });
 </script>
 <script>
 	$(document).ready(function() {
@@ -177,15 +174,15 @@ kdk {
 </script>
 <!-- 팝업창 -->
 <script type="text/javascript">
-    $(document).ready(function() {
-    	//팝업창 처리
-    	$('.popupBtn').click(function(){
-    		window.open("${pageContext.request.contextPath}/data/location/listPopup.do",//this는 함수의 나의값을 불러서 .attr('data-num')반복되는값을 지정해주는것이다.
-    				"childForm",
-    				"width=750, height=650, resizable = no, scrollbars = no");
-    	});
-    });
- </script>
+	$(document).ready(function() {//팝업창 처리
+						$('.popupBtn').click(function() {
+											window.open(
+															"${pageContext.request.contextPath}/data/location/listPopup.do",//this는 함수의 나의값을 불러서 .attr('data-num')반복되는값을 지정해주는것이다.
+															"childForm",
+															"width=1200, height=650, resizable = no, scrollbars = no");
+										});
+					});
+</script>
 <div class="container">
 	<div class="row">
 		<div class="form-group">
@@ -212,8 +209,9 @@ kdk {
 							</div>
 							<div class="row">
 
-								<form:form commandName="calendarDetailCommand" action="view.do"
-									id="register_form" class="col-lg-10 formcenter">
+								<form:form commandName="calendarDetailCommand" action="writeDetail.do"
+									id="register_form" class="col-lg-12">
+									<input type="hidden" id="s_num" name="s_num" value="${s_num }" />
 									<div class="form-group">
 										<label for="sd_code" class="fontdetail">관광지 코드</label>
 										<form:input path="sd_code" class="form-control kdk" />

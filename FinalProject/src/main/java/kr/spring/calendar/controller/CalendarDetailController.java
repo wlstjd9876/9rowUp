@@ -42,7 +42,7 @@ public class CalendarDetailController {
 		
 		calendarService.insertDetail(calendarDetailCommand);
 		
-		return "redirect:/calendar/registerPlan.do";
+		return "redirect:/calendar/view.do?s_num="+calendarDetailCommand.getS_num();
 	}
 	
 	//======일정 상세 팝업======//

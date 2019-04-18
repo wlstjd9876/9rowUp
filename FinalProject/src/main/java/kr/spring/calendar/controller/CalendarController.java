@@ -163,6 +163,7 @@ public class CalendarController {
 		
 		return "calendarDetail";
 	}
+	
 	//이미지 출력
 	@RequestMapping("/calendar/imageView.do")
 	public ModelAndView viewImg(@RequestParam("s_num") int s_num, @RequestParam("type") int type) {
