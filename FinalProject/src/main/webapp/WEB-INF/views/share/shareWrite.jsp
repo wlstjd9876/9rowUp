@@ -24,9 +24,128 @@ h1 {
 #img {
 	text-align: center;
 }
+#calendar {
+	width: 600px;
+	height: 500px;
+	margin-left: 285px;
+}
 </style>
-
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/js/fullcalendar.css" />
+<%-- <link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/js/fullcalendar.min.css" /> --%>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/lib/moment.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/fullcalendar.js"></script>
+<!-- 한글지정 -->
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/locale/ko.js"></script>
+<!-- 팝업창 -->
 <script type="text/javascript">
+	$(document).ready(function() {//팝업창 처리
+		
+		var uri = "${pageContext.request.contextPath}/calendar/sharelisttPopup.do";
+		var popupName = "childForm";
+		var options = "width=1200, height=650, resizable = no, scrollbars = no";
+
+		$('.popupBtn').click(function() {
+			openDialog(uri, popupName, options, function(win) {
+				var mydate = document.getElementById('startdate').value;
+				  var s_num = document.getElementById('s_num').value;
+			      var email =  "<%=(String) session.getAttribute("user_email")%>";
+			      var calendar = $('#calendar').fullCalendar({
+			         header : {
+			            left : 'prev,next,today',
+			            center : 'title',
+			            right : 'listDay,listWeek,month'
+			         },
+			         selectable : true,
+			         selectHelper : true,
+			         events : function(start, end, timezone, callback) {
+			            $.ajax({
+			               url : '${pageContext.request.contextPath}/calendar/eventdetail.do',
+			               type : 'post',
+			               data : {
+			                  s_num : s_num
+			               },
+			               dataType : 'json',
+			               success : function(data) {
+			            	  var color = '#'+data.color;
+			                  var events = [];
+			                  var list = data.list;
+			                  $(list).each(function(index, item) {
+								 var v = getDt10(mydate, item.sd_day-1);
+								var startdate = v;
+								//----------------------
+								var title
+								$.ajax({        
+									url: '${pageContext.request.contextPath}/detailAjax',
+									data:{contentId:item.sd_code},
+									type: 'get',
+									dataType: 'json',
+									async:false,
+									cache:false,
+									timeout:30000,
+									success: function(data){
+										var myItem = data.response.body.items.item;
+										var myBody = data.response.body;
+										title = myItem.title;
+										
+									},
+									error: function(XMLHttpRequest, textStatus, errorThrown) { 
+										alert("Status: " + textStatus +"and "+ "Error: " + errorThrown); 
+									}  
+								});
+								//-----------------------
+			                     events.push({
+			                        title : item.sd_starttime + ' ' +title,
+			                        start : startdate+'T'+item.sd_starttime+':00',
+			                        end : startdate+'T'+item.sd_endtime+':00',
+			                        color : color,
+			                        allDay : false
+			                        /* url : 'view.do?s_num=' + item.s_num */
+			                     });
+			                  });
+			                  callback(events);
+			               }
+			            });
+			         },
+			         defaultDate : mydate
+			      });
+			});
+			});
+	});
+	function openDialog(uri, name, options, closeCallback) {
+	    var win = window.open(uri, name, options);
+	    var interval = window.setInterval(function() {
+	        try {
+	            if (win == null || win.closed) {
+	                window.clearInterval(interval);
+	                closeCallback(win);
+	            }
+	        }
+	        catch (e) {
+	        }
+	    }, 1000);
+	    return win;
+	};
+	function getDt10(s, i){ 
+	    var newDt = new Date(s); 
+	    newDt.setDate( newDt.getDate() + i );
+	    return converDateString(newDt); 
+	    }
+   function converDateString(dt){ 
+		return dt.getFullYear() + "-" + addZero(eval(dt.getMonth()+1)) + "-" + addZero(dt.getDate()); 
+		}
+	function addZero(i){ 
+		var rtn = i + 100; 
+		return rtn.toString().substring(1,3); 
+		}
 	var result = '${result}';
 	if(result == 'success'){
 		alert('글이 등록되었습니다!');
@@ -48,12 +167,11 @@ h1 {
 		<img width="100" src="${pageContext.request.contextPath}/resources/img/scope.png">
 	</div>
 	<br> <br>
-	<div id="content1">상세일정 가져올 거에요~</div>
+	<div id="calendar"></div>
 	<br>
 	<div id="img" class="hn">
 		<div>
-			<button type="button" class="btn btn-default btn-lg" value="일정가져오기">나의
-				일정 가져오기!</button>
+			<button type="button" class="popupBtn btn btn-default btn-lg" value="일정가져오기">나의 일정 가져오기!</button>
 		</div>
 	</div>
 	<!-- 등록시작 -->
@@ -61,6 +179,8 @@ h1 {
 	<div class="container">
 	<div class="col-sm-4 col-md-offset-4">
 		<form:form commandName="command" action="write.do" id="registerform" enctype="multipart/form-data">
+				<form:hidden path="s_num"/>
+				<form:hidden path="startdate"/>
 				<form:hidden path="email"/>
 			<div class="form-group">
 				<label for="num"></label>

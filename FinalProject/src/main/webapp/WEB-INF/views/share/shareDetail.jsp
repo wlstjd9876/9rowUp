@@ -4,6 +4,21 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/share/share.reply.js"></script>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/js/fullcalendar.css" />
+<%-- <link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/js/fullcalendar.min.css" /> --%>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/lib/moment.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/fullcalendar.js"></script>
+<!-- 한글지정 -->
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/locale/ko.js"></script>
 <style type="text/css">
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 
@@ -18,7 +33,7 @@
 }
 
 #substance{
-	height: 300px;
+	height: 750px;
 	border:1px solid #CCC;
 	text-align:left;
 	padding:10px;
@@ -60,6 +75,10 @@ textarea.rep-content{
 	height:50px;
 	margin:10px 10px;
 }
+#calendar {
+	width: 100%;
+	height: 500px;
+}
 
 </style>
 <script>
@@ -83,7 +102,89 @@ function showDivs(n) {
   dots[slideIndex-1].className += " w3-opacity-off";
 }
 </script>
-
+<script type="text/javascript">
+$(document).ready(function() {
+  var mydate = '${startdate}';
+  var s_num = '${share.s_num}';
+  var email =  "<%=(String) session.getAttribute("user_email")%>";
+  var calendar = $('#calendar').fullCalendar({
+     header : {
+        left : 'prev,next,today',
+        center : 'title',
+        right : 'listDay,listWeek,month'
+     },
+     selectable : true,
+     selectHelper : true,
+     events : function(start, end, timezone, callback) {
+        $.ajax({
+           url : '${pageContext.request.contextPath}/calendar/eventdetail.do',
+           type : 'post',
+           data : {
+              s_num : s_num
+           },
+           dataType : 'json',
+           success : function(data) {
+        	  var color = '#'+data.color;
+              var events = [];
+              var list = data.list;
+              $(list).each(function(index, item) {
+				 var v = getDt10(mydate, item.sd_day-1);
+				var startdate = v;
+				//----------------------
+				var title
+				$.ajax({        
+					url: '${pageContext.request.contextPath}/detailAjax',
+					data:{contentId:item.sd_code},
+					type: 'get',
+					dataType: 'json',
+					async:false,
+					cache:false,
+					timeout:30000,
+					success: function(data){
+						var myItem = data.response.body.items.item;
+						var myBody = data.response.body;
+						title = myItem.title;
+						
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) { 
+						alert("Status: " + textStatus +"and "+ "Error: " + errorThrown); 
+					}  
+				});
+				//-----------------------
+                 events.push({
+                    title : item.sd_starttime + ' ' +title,
+                    start : startdate+'T'+item.sd_starttime+':00',
+                    end : startdate+'T'+item.sd_endtime+':00',
+                    color : color,
+                    allDay : false
+                    /* url : 'view.do?s_num=' + item.s_num */
+                 });
+              });
+              callback(events);
+           }
+        });
+     },
+     defaultDate : mydate
+  });
+	
+	});
+function getDt10(s, i){ 
+    var newDt = new Date(s); 
+    newDt.setDate( newDt.getDate() + i );
+    return converDateString(newDt); 
+    }
+function converDateString(dt){ 
+	return dt.getFullYear() + "-" + addZero(eval(dt.getMonth()+1)) + "-" + addZero(dt.getDate()); 
+	}
+function addZero(i){ 
+	var rtn = i + 100; 
+	return rtn.toString().substring(1,3); 
+	}
+var result = '${result}';
+if(result == 'success'){
+	alert('글이 등록되었습니다!');
+}
+</script>
 
 
 
@@ -168,7 +269,7 @@ function showDivs(n) {
 	 
 	    <!-- 내용시작 -->
       	 	<div id="substance" class="col-lg-12" align="center" style="margin-top: 20px;">
-      	 		상세일정가져올거에요~  
+      	 		<div id="calendar"></div>
       	 	</div>  
         <!-- 내용 끝 -->
         <!-- 내용시작 -->

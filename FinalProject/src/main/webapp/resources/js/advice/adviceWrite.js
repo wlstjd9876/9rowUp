@@ -22,6 +22,15 @@ $(document).ready(function(){
 		//날짜 value 가져오기
 		var startdate_val = $('#startdate').val();
 		var enddate_val = $('#enddate').val();
+		//날짜 미선택시
+		if(startdate_val == ''){
+			alert('시작 날짜를 선택해주세요.');
+			return false;
+		}
+		if(enddate_val == ''){
+			alert('종료 날짜를 선택해주세요.');
+			return false;
+		}
 
 		//날짜를 -로 나누기
 		var startdate_split = startdate_val.split('-');
@@ -34,15 +43,7 @@ $(document).ready(function(){
 		//0부터 시작
 		var between_date = (enddate.getTime() - startdate.getTime())/1000/60/60/24;
 		
-		//날짜 미선택시
-		if(startdate_val == ''){
-			alert('시작 날짜를 선택해주세요.');
-			return false;
-		}
-		if(enddate_val == ''){
-			alert('종료 날짜를 선택해주세요.');
-			return false;
-		}
+		
 		if(startdate_val>enddate_val){
 			alert("날짜를 다시 선택해 주세요.");
 			$('#startdate').val('');
@@ -115,7 +116,7 @@ $(document).ready(function(){
 					$(list).each(function(index, plan){
 						adv_plan += '		<tr>';
 						adv_plan += '			<td>' + plan.s_num + '</td>';
-						adv_plan += '			<td><a href="' + context + '/calendar/view.do?s_num=' + plan.s_num +'">' + plan.s_title + '</a></td>';
+						adv_plan += '			<td><a href="' + context + '/calendar/view.do?s_num=' + plan.s_num +'&s_startdate='+plan.s_startdate+'">' + plan.s_title + '</a></td>';
 						adv_plan += '			<td><input type="button" value="추가" class="btn btn-default" onclick="location.href=\'adviceList.do\'"></td>';
 						adv_plan += '		</tr>';
 					});

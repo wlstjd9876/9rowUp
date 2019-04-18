@@ -310,4 +310,71 @@ public class CalendarController {
 		model.addAttribute("s_num",s_num);
 		return "gowith/popupregister";
 	}
+	
+	/*팝업*/
+	@RequestMapping(value="/calendar/sharelisttPopup.do", method=RequestMethod.GET)
+	public String shareListPopup(@RequestParam(value="pageNum", defaultValue="1") int currentPage, 
+			@RequestParam(value="keyfield", defaultValue="") String keyfield, @RequestParam(value="keyword", defaultValue="") String keyword,HttpSession session, Model model) {
+		//footer랑 header를 짜르게 나오려면 직점 jsp를 호출해줘야해서 이렇게 명시해야한다.
+		SimpleDateFormat form = new SimpleDateFormat("yyyy-MM-dd");
+		String email = (String)session.getAttribute("user_email");
+		String mydate = "";
+		
+		CalendarCommand command = new CalendarCommand();
+		command.setEmail(email);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("email", email);
+		List<CalendarCommand> list = calendarService.selectCal(map);
+		if(list!=null) {
+			mydate = list.iterator().next().getS_startdate();
+		}else {
+			mydate = form.format(new Date());
+		}
+		/*리스트*/
+		map.put("keyfield", keyfield);
+		map.put("keyword", keyword);
+		
+		//총 글의 개수 또는 검색된 글의 개수
+		int count = calendarService.selectRowCount(map);
+		
+		System.out.println("카운트 @@@@ : " + count);
+		if(log.isDebugEnabled()) {
+			log.debug("<<count>> : " + count);
+		}
+		
+		//페이징 처리
+		PagingUtil page = new PagingUtil(keyfield, keyword, currentPage, count, rowCount, pageCount, "registerPlan.do");
+		map.put("start", page.getStartCount());
+		map.put("end", page.getEndCount());
+		
+		System.out.println("@@@@@@@@@@@@End : " + page.getEndCount());
+		
+		List<CalendarCommand> list2 = null;
+		if(count > 0) {
+			list2 = calendarService.selectList(map);
+		}
+		
+		CalendarCommand calendar = new CalendarCommand();
+		
+		model.addAttribute("count", count);
+		System.out.println("@@@@@@@@@@@? :" + count);
+		model.addAttribute("list2", list2);
+		System.out.println("@@@@@@@@@@@" + list2);
+		model.addAttribute("finish", calendarService.selectCalendar(calendar.getS_finish()));
+		model.addAttribute("pagingHtml", page.getPagingHtml());
+		
+		model.addAttribute("command", command);
+		model.addAttribute("mydate", mydate);
+		
+		return "share/popupsharew";
+	}
+	
+	@RequestMapping(value="/calendar/sfinPopup.do", method=RequestMethod.GET)
+	public String sfinlistPopup(@RequestParam("s_startdate") String s_startdate, @RequestParam("s_enddate") String s_enddate,  @RequestParam("s_num") int s_num, Model model) {
+		
+		model.addAttribute("s_startdate",s_startdate);
+		model.addAttribute("s_enddate",s_enddate);
+		model.addAttribute("s_num",s_num);
+		return "share/popupshare";
+	}
 }

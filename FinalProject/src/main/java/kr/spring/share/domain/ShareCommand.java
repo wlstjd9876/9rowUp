@@ -19,6 +19,7 @@ public class ShareCommand {
 	private MultipartFile photofile3;
 	private byte[] photo3;
 	private int s_num;
+	private String startdate;
 	
 	private String td_nickname;
 	
@@ -27,6 +28,12 @@ public class ShareCommand {
 	
 	
 	
+	public String getStartdate() {
+		return startdate;
+	}
+	public void setStartdate(String startdate) {
+		this.startdate = startdate;
+	}
 	public String getTd_nickname() {
 		return td_nickname;
 	}

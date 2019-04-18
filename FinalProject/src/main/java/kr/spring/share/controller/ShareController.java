@@ -21,6 +21,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.spring.member.domain.MemberCommand;
+import kr.spring.calendar.domain.CalendarCommand;
+import kr.spring.calendar.service.CalendarService;
 import kr.spring.gowith.service.GowithService;
 import kr.spring.share.domain.ShareCommand;
 import kr.spring.share.service.ShareService;
@@ -37,6 +39,9 @@ public class ShareController {
    
    @Resource
    private GowithService gowithService;
+   
+   @Resource
+   private CalendarService calendarservice;
    
    //=======게시판 글 등록=======//
    //등록 폼
@@ -145,8 +150,12 @@ public class ShareController {
       }
       
       ShareCommand share = shareService.selectShare(num);
+      ModelAndView mav = new ModelAndView();
+      mav.setViewName("shareDetail");
+      mav.addObject("startdate", calendarservice.selectCalendar(share.getS_num()).getS_startdate());
+      mav.addObject("share",share);
                         //view name, 속성명, 속성값
-      return new ModelAndView("shareDetail","share",share);
+      return mav;
    }
    
   
@@ -250,6 +259,7 @@ public class ShareController {
 	   shareService.delete(num);
 	   return "redirect:/share/list.do";
    }
+   
 
    /*//==============글쓰기 이미지 업로드=====================//
    @RequestMapping("/share/imageUploader.do")

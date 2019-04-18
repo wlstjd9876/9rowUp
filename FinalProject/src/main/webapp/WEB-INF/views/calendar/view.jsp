@@ -183,11 +183,11 @@ kdk {
 								title: title, 
 						        latlng: new daum.maps.LatLng(myItem.mapy, myItem.mapx)
 							});
+							
 							if(x==null){
 								x=myItem.mapx;
 								y=myItem.mapy;
 							}
-							
 						},
 						error: function(XMLHttpRequest, textStatus, errorThrown) { 
 							alert("Status: " + textStatus +"and "+ "Error: " + errorThrown); 
@@ -210,29 +210,6 @@ kdk {
          defaultDate : mydate
          /*맵 펑펑펑션 호출*/         
       });
-      if(x!=null){
-    	  setMap(positions,x,y);  
-      }else{
-    	  positions = [
-    		    {  
-    		        title: '카카오', 
-    		        latlng: new daum.maps.LatLng(33.450705, 126.570677)
-    		    },
-    		    {
-    		        title: '생태연못', 
-    		        latlng: new daum.maps.LatLng(33.450936, 126.569477)
-    		    },
-    		    {
-    		        title: '텃밭', 
-    		        latlng: new daum.maps.LatLng(33.450879, 126.569940)
-    		    },
-    		    {
-    		        title: '근린공원',
-    		        latlng: new daum.maps.LatLng(33.451393, 126.570738)
-    		    }];
-    	  setMap(positions,33.452739313807456, 126.5709308145358);
-      }
-      
    });
    function getDt10(s, i){ 
 	    var newDt = new Date(s); 
