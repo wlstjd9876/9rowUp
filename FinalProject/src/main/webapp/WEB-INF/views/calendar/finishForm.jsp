@@ -242,7 +242,7 @@
 					<input type="date" name="s_startdate" id="s_startdate" class="form-control">
 					<input type="date" name="s_enddate" id="s_enddate" class="form-control">
 					<label for="checkbox-inline">
-						<input type="checkbox" name="s_startdate" value="0">미정
+						<input type="checkbox" name="s_finish" value="0">미정
 					</label>
 				</div>
 				<!-- 여행테마 -->

@@ -36,7 +36,7 @@
  		   #{s_content},
  		   #{s_photo1}, #{s_photo2}, #{s_photo3}, #{s_photo4}, #{s_photo5}, #{s_photo6}, #{s_photo7}, #{s_photo8}, #{s_photo9}, #{s_photo10}
  		)
-	</insert>
+	</insert> 
 	
 	<select id="selectList" parameterType="map" resultType="calendarCommand">
 		SELECT 
@@ -46,7 +46,7 @@
 				rownum rnum
 			FROM (SELECT 
 					*
-				FROM schedule 
+				FROM schedule s
 				<where>
 					<if test="keyword != '' and keyfield == 's_title'">
 						s.s_title LIKE '%' || #{keyword} || '%'

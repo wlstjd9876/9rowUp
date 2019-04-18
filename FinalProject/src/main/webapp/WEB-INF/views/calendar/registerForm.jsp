@@ -132,8 +132,6 @@ body {
 		style="width: 900px; height: 100px; text-align: center; margin: 30px auto;">
 		<input type="button" value="일정등록" class="btn btn-default"
 			name="finish" id="finish" onclick="location.href='finish.do'">
-		<input type="button" value="임시저장" class="btn btn-default" name="temp"
-			id="temp" onclick="">
 	</div>
 	<div class="cal-body">
 		<div id="calendar"></div>
@@ -149,7 +147,7 @@ body {
 	<c:if test="${count > 0}">
 		<div class="hn" style="text-align: center; padding: 10px;">
 		<br><br>
-			<form action="list.do" id="search_form" class="form-inline" method="get">
+			<form action="registerPlan.do" id="search_form" class="form-inline" method="get">
 				<div class="form-group">
 					<select name="keyfield" class="form-control">
 						<option value="s_title">일정제목</option>
@@ -181,7 +179,7 @@ body {
 					<c:if test="${schedule.s_finish == 0}">
 						 <tr>
 							<td>${schedule.s_num}</td>
-							<td><a href="${pageContext.request.contextPath}/calendar/view.do?s_num=${schedule.s_num}">${schedule.s_title}</a></td>
+							<td><a href="${pageContext.request.contextPath}/calendar/view.do?s_num=${schedule.s_num}&s_startdate=${schedule.s_startdate}">${schedule.s_title}</a></td>
 							<td>${schedule.s_startdate}</td>
 							<td>${schedule.s_share}</td>
 						</tr> 
@@ -205,7 +203,7 @@ body {
 					<c:if test="${schedule.s_finish == 1}">
 						 <tr>
 							<td>${schedule.s_num}</td>
-							<td><a href="${pageContext.request.contextPath}/calendar/view.do?s_num=${schedule.s_num}">${schedule.s_title}</a></td>
+							<td><a href="${pageContext.request.contextPath}/calendar/view.do?s_num=${schedule.s_num}&s_startdate=${schedule.s_startdate}">${schedule.s_title}</a></td>
 							<td>${schedule.s_startdate}</td>
 							<td>${schedule.s_share}</td>
 						</tr> 
@@ -218,8 +216,5 @@ body {
 			<!-- 페이징 처리 -->
 		</div>
 	</c:if>
-	</div>
-	<div class="row hn" style="text-align: center;">
-		<input type="button" value="일정등록" class="btn btn-default" onclick="location.href='finish.do'">
 	</div>
 </div>

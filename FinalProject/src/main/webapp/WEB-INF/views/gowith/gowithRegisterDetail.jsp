@@ -13,7 +13,21 @@
 	src="${pageContext.request.contextPath}/resources/js/gowith/popup.js"></script>	
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/gowith/gowithApp.js"></script>	
-
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/js/fullcalendar.css" />
+<%-- <link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/js/fullcalendar.min.css" /> --%>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/lib/moment.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/fullcalendar.js"></script>
+<!-- 한글지정 -->
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/locale/ko.js"></script>
 <style type="text/css">
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 
@@ -27,7 +41,7 @@ h1 {
 
 #content {
 	width: 600px;
-	height: 300px;
+	height: 700px;
 	background-color: white;
 	border: 3px solid;
 	text-align: center;
@@ -76,6 +90,10 @@ h1 {
 li{
 	margin-top: 3px;
 }
+#calendar {
+	width: 600px;
+	height: 500px;
+}
 </style>
 
 <script type="text/javascript">
@@ -89,7 +107,84 @@ $('.popupBtn').click(function() {
 	window.open("${pageContext.request.contextPath}/popup/popup.do?app_num="
 				+ $(this).attr('data-num')+"&go_num="+$(this).attr('data-gonum'),//this는 함수의 나의값을 불러서 .attr('data-num')반복되는값을 지정해주는것이다.
 				"childForm","width=400, height=500, resizable = no, scrollbars = no");});
+
+var mydate = '${gowith.go_startdate}';
+  var s_num = '${gowith.s_num}';
+  var email =  "<%=(String) session.getAttribute("user_email")%>";
+  var calendar = $('#calendar').fullCalendar({
+     header : {
+        left : 'prev,next,today',
+        center : 'title',
+        right : 'listDay,listWeek,month'
+     },
+     selectable : true,
+     selectHelper : true,
+     events : function(start, end, timezone, callback) {
+        $.ajax({
+           url : '${pageContext.request.contextPath}/calendar/eventdetail.do',
+           type : 'post',
+           data : {
+              s_num : s_num
+           },
+           dataType : 'json',
+           success : function(data) {
+        	  var color = '#'+data.color;
+              var events = [];
+              var list = data.list;
+              $(list).each(function(index, item) {
+				 var v = getDt10(mydate, item.sd_day-1);
+				var startdate = v;
+				//----------------------
+				var title
+				$.ajax({        
+					url: '${pageContext.request.contextPath}/detailAjax',
+					data:{contentId:item.sd_code},
+					type: 'get',
+					dataType: 'json',
+					async:false,
+					cache:false,
+					timeout:30000,
+					success: function(data){
+						var myItem = data.response.body.items.item;
+						var myBody = data.response.body;
+						title = myItem.title;
+						
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) { 
+						alert("Status: " + textStatus +"and "+ "Error: " + errorThrown); 
+					}  
+				});
+				//-----------------------
+                 events.push({
+                    title : item.sd_starttime + ' ' +title,
+                    start : startdate+'T'+item.sd_starttime+':00',
+                    end : startdate+'T'+item.sd_endtime+':00',
+                    color : color,
+                    allDay : false
+                    /* url : 'view.do?s_num=' + item.s_num */
+                 });
+              });
+              callback(events);
+           }
+        });
+     },
+     defaultDate : mydate
+  });
+	
 	});
+function getDt10(s, i){ 
+    var newDt = new Date(s); 
+    newDt.setDate( newDt.getDate() + i );
+    return converDateString(newDt); 
+    }
+function converDateString(dt){ 
+	return dt.getFullYear() + "-" + addZero(eval(dt.getMonth()+1)) + "-" + addZero(dt.getDate()); 
+	}
+function addZero(i){ 
+	var rtn = i + 100; 
+	return rtn.toString().substring(1,3); 
+	}
+	
 </script>
 
 <br>
@@ -105,7 +200,7 @@ $('.popupBtn').click(function() {
 		<img src="${pageContext.request.contextPath}/resources/img/team2.png" width="100">
 	</div>
 	<br> <br>
-	<div id="content">상세일정 가져올 거에요~</div>
+	<div id="calendar"></div>
 	<br>
 	<div id="img" class="hn"></div>
 	<div class="dishes padd con">
