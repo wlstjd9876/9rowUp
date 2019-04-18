@@ -144,7 +144,7 @@ $(document).ready(function(){
 	  //댓글 글번호
 	   var sr_num = $(this).attr('data-num');
 	  //작성자 아이디
-	   var email= $(this).attr('data-email');
+	   var email= $(this).attr('data-id');
 	  //댓글 내용
 	   var content = $(this).parent().find('p').html().replace(/<br>/gi,'\n');
 	   //댓글 수정폼 UI
@@ -237,7 +237,7 @@ $(document).ready(function(){
       //댓글 번호
       var sr_num = $(this).attr('data-num');
       //작성자 아이디
-      var email = $(this).attr('data-email');
+      var email = $(this).attr('data-id');
       
       $.ajax({
          type:'post',

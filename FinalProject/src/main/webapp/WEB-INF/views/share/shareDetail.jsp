@@ -164,7 +164,7 @@ function showDivs(n) {
          <input type="button" class="btn btn-primary btn-sm hn" value="목록" onclick="location.href='list.do'">
       </div>
       <!-- 수정, 삭제, 목록 버튼 끝 -->    
- 
+   
 	 
 	    <!-- 내용시작 -->
       	 	<div id="substance" class="col-lg-12" align="center" style="margin-top: 20px;">
@@ -181,11 +181,10 @@ function showDivs(n) {
 	<!-- 댓글 시작 -->
        <div align="center" class="col-lg-12" >
          <div id=reply_div>
-         <form id="re_form" action="/share/writeReply.do">
+         <form id="re_form" action="writeReply.do">
          	<input type="hidden" name="num" value="${share.num}" id="num">
             <input type="hidden" name="email" value="${user_email}" id="user_email">
-            <textarea rows="3" cols="60" name="sr_content" id="sr_content" class="rep-content" 
-            style="margin-top:20px;"><c:if test="${empty user_email}">로그인해야 작성할 수 있습니다.</c:if></textarea>
+            <textarea rows="3" cols="60" name="sr_content" id="sr_content" class="rep-content"><c:if test="${empty user_email}">로그인해야 작성할 수 있습니다.</c:if></textarea>
          		<c:if test="${!empty user_email}">
            			<div id="re_first">
              		  <span class="letter-count">300/300</span>
