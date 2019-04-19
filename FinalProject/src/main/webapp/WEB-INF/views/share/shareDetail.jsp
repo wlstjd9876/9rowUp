@@ -113,6 +113,7 @@ $(document).ready(function() {
         center : 'title',
         right : 'listDay,listWeek,month'
      },
+     eventLimit:true, //하루에 너무 많은 이벤트가 발생하면 popover 허용
      selectable : true,
      selectHelper : true,
      events : function(start, end, timezone, callback) {

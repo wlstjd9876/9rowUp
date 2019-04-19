@@ -135,95 +135,100 @@
 }
 </style>
 <script type="text/javascript">
-	var i = 0;
-	
-	/* 이미지 추가 */
-	(function ($) {
-		 
-	    $.fn.imagePicker = function(options) {
-	        
-	        // Define plugin options
-	        var settings = $.extend({
-				// Input name attribute
-				name: "",
-	            // Classes for styling the input
-	            class: "form-control btn btn-default btn-block",
-	            // Icon which displays in center of input
-	            icon: "glyphicon glyphicon-plus"
-	        }, options );
-	        
-	        // Create an input inside each matched element
-	        return this.each(function() {
-	        	
-	            $(this).html(create_btn(this, settings));
-	        });
-	    };
-	 
-	    // Private function for creating the input element
-	    function create_btn(that, settings) {
-	    	i += 1;
-	    	
-	        // The input icon element
-	        var picker_btn_icon = $('<i class="'+settings.icon+'"></i>');
-	        
-	        // The actual file input which stays hidden
-	        var picker_btn_input = $('<input type="file" name="'+settings.name + i + '" id="'+settings.name + i + '" />');
-	        
-	        // The actual element displayed
-	        var picker_btn = $('<div class="'+settings.class+' img-upload-btn"></div>').append(picker_btn_icon).append(picker_btn_input);
-	        
-	        // File load listener
-	        picker_btn_input.change(function() {
-	        	
-	            if ($(this).prop('files')[0]) {
-	            	$('#finish_form').prepend($(this).css('display','none'));
-	    	        
-	                // Use FileReader to get file
-	                var reader = new FileReader();
-	                
-	                // Create a preview once image has loaded
-	                reader.onload = function(e) {
-	                    var preview = create_preview(that, e.target.result, settings);
-	                    $(that).html(preview);
-	                }
-	                
-	                // Load image
-	                reader.readAsDataURL(picker_btn_input.prop('files')[0]);
-	            }
-	        });
-	
-	        return picker_btn
-	    };
-	    
-	    // Private function for creating a preview element
-	    function create_preview(that, src, settings) {
-	        
-	            // The preview image
-	            var picker_preview_image = $('<img src="'+src+'" class="img-responsive img-rounded" />');
-	            
-	            // The remove image button
-	            var picker_preview_remove = $('<button class="btn btn-link"><small>Remove</small></button>');
-	            
-	            // The preview element
-	            var picker_preview = $('<div class="text-center"></div>').append(picker_preview_image).append(picker_preview_remove);
-	
-	            // Remove image listener
-	            picker_preview_remove.click(function() {
-	                var btn = create_btn(that, settings);
-	                $(that).html(btn);
-	            });
-	            
-	            return picker_preview;
-	    };
-	}( jQuery ));
-	
-	$(document).ready(function(){
-		$('.img-picker').imagePicker({name: 'upload_s_photo'});
-		
-		function update(picker){
-			document.getElementById('s_color').style.backgroundColor = '#' + picker;
-		}
-	});
+var i = 0;
+
+/* 이미지 추가 */
+(function ($) {
+    
+    $.fn.imagePicker = function(options) {
+        
+        // Define plugin options
+        var settings = $.extend({
+         // Input name attribute
+         name: "",
+            // Classes for styling the input
+            class: "form-control btn btn-default btn-block",
+            // Icon which displays in center of input
+            icon: "glyphicon glyphicon-plus"
+        }, options );
+        
+        // Create an input inside each matched element
+        return this.each(function() {
+           
+            $(this).html(create_btn(this, settings));
+        });
+    };
+ 
+    // Private function for creating the input element
+    function create_btn(that, settings, input_id) {
+       i+=1;
+       
+        // The input icon element
+        var picker_btn_icon = $('<i class="'+settings.icon+'"></i>');
+        
+        // The actual file input which stays hidden
+        var picker_btn_input
+        if(input_id==undefined){
+           picker_btn_input = $('<input type="file" name="'+settings.name + i + '" id="'+settings.name + i + '" />');
+        }else{
+           picker_btn_input = $('<input type="file" name="'+input_id + '" id="'+input_id + '" />');
+        }
+        // The actual element displayed
+        var picker_btn = $('<div class="'+settings.class+' img-upload-btn"></div>').append(picker_btn_icon).append(picker_btn_input);
+        
+        // File load listener
+        picker_btn_input.change(function() {
+           
+           var input_id = $(this).attr('id');
+           
+            if ($(this).prop('files')[0]) {
+               $('#finish_form').prepend($(this).css('display','none'));
+               
+                // Use FileReader to get file
+                var reader = new FileReader();
+                
+                // Create a preview once image has loaded
+                reader.onload = function(e) {
+                    var preview = create_preview(that, e.target.result, settings, input_id);
+                    $(that).html(preview);
+                }
+                
+                // Load image
+                reader.readAsDataURL(picker_btn_input.prop('files')[0]);
+            }
+        });
+
+        return picker_btn;
+    };
+    
+    // Private function for creating a preview element
+    function create_preview(that, src, settings, input_id) {
+        
+            // The preview image
+            var picker_preview_image = $('<img src="'+src+'" class="img-responsive img-rounded" />');
+            
+            // The remove image button
+            var picker_preview_remove = $('<button class="btn btn-link" data-id="'+input_id+'"><small>Remove</small></button>');
+            
+            // The preview element
+            var picker_preview = $('<div class="text-center"></div>').append(picker_preview_image).append(picker_preview_remove);
+
+            // Remove image listener
+            picker_preview_remove.click(function() {
+               var data_id = $(this).attr('data-id');
+                var btn = create_btn(that, settings, data_id);
+                $(that).html(btn);
+                //파일 전송을 위한 숨겨진 태그 삭제
+                $('#'+data_id).remove();
+            });
+            
+            return picker_preview;
+    };
+}( jQuery ));
+
+$(document).ready(function(){
+   $('.img-picker').imagePicker({name: 'upload_s_photo'});  
+});
 </script>
 <div class="container" style="padding: 10px;">
 	<div class="row hn">
@@ -298,10 +303,10 @@
 				<!-- 여행테마 끝 -->
 				<div class="form-group">
 					<label for="s_share">공개여부</label>
-					<label for="s_share" class="radio-inline">
+					<label for="s_share_0" class="radio-inline">
 						<input type="radio" name="s_share" id="s_share_0" value="0">공개
 					</label>
-					<label for="s_share" class="radio-inline">
+					<label for="s_share_1" class="radio-inline">
 						<input type="radio" name="s_share" id="s_share_1" value="1">비공개
 					</label>
 				</div>
@@ -377,7 +382,6 @@
 			<div class="col-md-12 hn" style="text-align: center;">
 			<br>
 				<input type="submit" value="등록" class="btn btn-default" >
-				<input type="button" value="임시저장" class="btn btn-default" onclick="">
 			</div>
 		</form:form>
 	</div>
