@@ -163,7 +163,7 @@ kdk {
                   var events = [];
                   var list = data.list;
                   $(list).each(function(index, item) {
-					 var v = getDt10(mydate, item.sd_day-1);
+					var v = getDt10(mydate, item.sd_day-1);
 					var startdate = v;
 					//----------------------
 					var title
@@ -185,6 +185,7 @@ kdk {
 							});
 							
 							if(x==null){
+								alert('sadasdasd');
 								x=myItem.mapx;
 								y=myItem.mapy;
 							}
@@ -208,8 +209,10 @@ kdk {
             });
          },
          defaultDate : mydate
-         /*맵 펑펑펑션 호출*/         
+        
       });
+      /*맵 펑펑펑션 호출*/
+      setMap(positions,x,y);
    });
    function getDt10(s, i){ 
 	    var newDt = new Date(s); 
@@ -228,7 +231,7 @@ kdk {
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = { 
 	        center: new daum.maps.LatLng(y, x), // 지도의 중심좌표
-	        level: 3 // 지도의 확대 레벨
+	        level: 5 // 지도의 확대 레벨
 	    };  
 
 	var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
